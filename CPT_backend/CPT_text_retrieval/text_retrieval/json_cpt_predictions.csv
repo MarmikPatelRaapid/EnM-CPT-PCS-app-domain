@@ -1,0 +1,5 @@
+File_Name,cpt_code,Combine_Text,Top_1_Code,Top_1_Score,Top_2_Code,Top_2_Score,Top_3_Code,Top_3_Score,Top_4_Code,Top_4_Score,Top_5_Code,Top_5_Score
+Rad 1.json,71046,"Radiologic examination, chest Chest 2 views (PA and lateral)",71045,0.884998,71046,0.884998,71047,0.884998,71048,0.884998,71250,0.860861
+integumentary.json,11604,Wide excision of malignant lesion Right upper back Malignant lesion (melanoma in situ); Excised diameter 4.2 cm; Intermediate layered closure; Undermining required.,21930,0.836416,21931,0.836416,21932,0.836416,21933,0.836416,24071,0.830285
+integumentary.json,12032,,,,,,,,,,,
+pathology.json,88307,"Surgical pathology, gross and microscopic examination Left breast Invasive ductal carcinoma, tumor size 1.2 cm, margins negative",19120,0.835725,19125,0.835725,19126,0.835725,19121,0.830978,19122,0.830978

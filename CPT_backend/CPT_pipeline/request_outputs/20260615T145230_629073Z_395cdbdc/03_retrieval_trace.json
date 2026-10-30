@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "45378",
+      "query_text": "Colonoscopy Colon, Rectum, Anus, Terminal Ileum Endoscopic, Transanal Diagnostic None Moderate Sedation Specimen collection by brushing/washing",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "45380",
+          "44388",
+          "45378",
+          "44389",
+          "45392"
+        ],
+        "top_k_suggested_score": [
+          0.846879,
+          0.844189,
+          0.844189,
+          0.823841,
+          0.823841
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "45380",
+          "similarity_score": "0.846879"
+        },
+        {
+          "code": "44388",
+          "similarity_score": "0.844189"
+        },
+        {
+          "code": "45378",
+          "similarity_score": "0.844189"
+        },
+        {
+          "code": "44389",
+          "similarity_score": "0.823841"
+        },
+        {
+          "code": "45392",
+          "similarity_score": "0.823841"
+        }
+      ]
+    }
+  ]
+}

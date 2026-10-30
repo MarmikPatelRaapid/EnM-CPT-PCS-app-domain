@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+      "documents": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "generated_document": {
+              "type": "string"
+            },
+            "e&mcode": {
+              "type": "string"
+            },
+            "e&mcodedescription": {
+              "type": "string"
+            },
+            "rational": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "generated_document",
+            "e&mcode",
+            "e&mcodedescription",
+            "rational"
+          ],
+          "propertyOrdering": [
+            "generated_document",
+            "e&mcode",
+            "e&mcodedescription",
+            "rational"
+          ]
+        }
+      }
+    },
+    "propertyOrdering": [
+      "documents"
+    ]
+  }

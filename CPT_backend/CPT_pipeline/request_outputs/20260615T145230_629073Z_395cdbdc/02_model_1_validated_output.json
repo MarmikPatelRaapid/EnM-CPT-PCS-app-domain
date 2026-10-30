@@ -1,0 +1,119 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "45378",
+      "norm_procedure_name": "Colonoscopy",
+      "norm_anatomy": "Colon, Rectum, Anus, Terminal Ileum",
+      "norm_approach": "Endoscopic, Transanal",
+      "norm_procedure_type": "Diagnostic",
+      "norm_imaging_guidance": "None",
+      "norm_anesthesia_type": "Moderate Sedation",
+      "norm_other": "Specimen collection by brushing/washing",
+      "procedure_evidences": [
+        {
+          "text": "Colonoscopy, flexible, diagnostic, with collection of specimen(s) by brushing or washing.",
+          "pg_no": 1,
+          "reftxtbefore": "Postoperative Diagnosis: ",
+          "reftxtafter": "Primary Surgeon: Dr. "
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "anus",
+          "pg_no": 1,
+          "reftxtbefore": "advanced smoothly through the ",
+          "reftxtafter": ", rectum, sigmoid colon"
+        },
+        {
+          "text": "rectum",
+          "pg_no": 1,
+          "reftxtbefore": "h the anus, ",
+          "reftxtafter": ", sigmoid colon, descend"
+        },
+        {
+          "text": "sigmoid colon",
+          "pg_no": 1,
+          "reftxtbefore": "rectum, ",
+          "reftxtafter": ", descending colon, tran"
+        },
+        {
+          "text": "descending colon",
+          "pg_no": 1,
+          "reftxtbefore": "sigmoid colon, ",
+          "reftxtafter": ", transverse colon, asce"
+        },
+        {
+          "text": "transverse colon",
+          "pg_no": 1,
+          "reftxtbefore": "descending colon, ",
+          "reftxtafter": ", ascending colon, and in"
+        },
+        {
+          "text": "ascending colon",
+          "pg_no": 1,
+          "reftxtbefore": "transverse colon, ",
+          "reftxtafter": ", and into the cecum. Th"
+        },
+        {
+          "text": "cecum",
+          "pg_no": 1,
+          "reftxtbefore": "ascending colon, and into the ",
+          "reftxtafter": ". The terminal ileum was"
+        },
+        {
+          "text": "terminal ileum",
+          "pg_no": 1,
+          "reftxtbefore": "the cecum. The ",
+          "reftxtafter": " was intubated for appro"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "advanced smoothly through the anus",
+          "pg_no": 1,
+          "reftxtbefore": "The colonoscope (Olympus CF-HQ190) was ",
+          "reftxtafter": ", rectum, sigmoid colon, "
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "diagnostic",
+          "pg_no": 1,
+          "reftxtbefore": "Colonoscopy, flexible, ",
+          "reftxtafter": ", with collection of spec"
+        }
+      ],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [
+        {
+          "text": "Moderate Sedation (Fentanyl and Midazolam)",
+          "pg_no": 1,
+          "reftxtbefore": "Anesthesia Type: ",
+          "reftxtafter": "Indications for Procedure"
+        }
+      ],
+      "other_evidences": [
+        {
+          "text": "collection of specimen(s) by brushing or washing",
+          "pg_no": 1,
+          "reftxtbefore": "flexible, diagnostic, with ",
+          "reftxtafter": ".Primary Surgeon: Dr. Da",
+          "field_label": "Specimen Collection Method"
+        },
+        {
+          "text": "Brushings were taken from these areas for cytology.",
+          "pg_no": 1,
+          "reftxtbefore": "granularity. ",
+          "reftxtafter": "Specimens: Brushings fro",
+          "field_label": "Specimen Collection Method"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [],
+      "code_description": "Colonoscopy, flexible, diagnostic, including collection of specimen(s) by brushing or washing, when performed (separate procedure)",
+      "code_justification": "The report clearly states 'Colonoscopy, flexible, diagnostic, with collection of specimen(s) by brushing or washing' and confirms a complete colonoscopy to the cecum with terminal ileum intubation. Brushings were taken from the descending colon for cytology. CPT code 45378 includes the collection of specimens by brushing or washing.",
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

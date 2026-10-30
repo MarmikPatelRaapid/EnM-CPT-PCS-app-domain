@@ -1,0 +1,321 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "77290",
+      "norm_procedure_name": "CT Simulation for Radiation Therapy Planning",
+      "norm_anatomy": "Pelvis, Lower Extremities",
+      "norm_approach": "N/A",
+      "norm_procedure_type": "Simulation",
+      "norm_imaging_guidance": "CT",
+      "norm_anesthesia_type": "N/A",
+      "norm_other": "Complex",
+      "procedure_evidences": [
+        {
+          "text": "Complex CT Simulation for Radiation Therapy Planning.",
+          "pg_no": 1,
+          "reftxtbefore": "PROCEDURE:Complex ",
+          "reftxtafter": "for Radiation Therapy"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "pelvis",
+          "pg_no": 1,
+          "reftxtbefore": "mobilization cradle was ",
+          "reftxtafter": "to ensure daily reprodu"
+        },
+        {
+          "text": "lower extremities",
+          "pg_no": 1,
+          "reftxtbefore": "cradle was fabricated for",
+          "reftxtafter": " and pelvis to ensure "
+        },
+        {
+          "text": "pelvis",
+          "pg_no": 1,
+          "reftxtbefore": "established in the ",
+          "reftxtafter": ", and radiopaque fiduc"
+        },
+        {
+          "text": "L4",
+          "pg_no": 1,
+          "reftxtbefore": "slice thickness from the",
+          "reftxtafter": " down to the mid-femur"
+        },
+        {
+          "text": "mid-femur",
+          "pg_no": 1,
+          "reftxtbefore": "level of L4 down to the ",
+          "reftxtafter": ". The previously placed"
+        },
+        {
+          "text": "intraprostatic",
+          "pg_no": 1,
+          "reftxtbefore": "placed ",
+          "reftxtafter": " gold fiducial markers"
+        },
+        {
+          "text": "prostate",
+          "pg_no": 1,
+          "reftxtbefore": "definitive ",
+          "reftxtafter": "radiotherapy."
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "Simulation",
+          "pg_no": 1,
+          "reftxtbefore": "Complex CT ",
+          "reftxtafter": " for Radiation Therapy"
+        },
+        {
+          "text": "simulation",
+          "pg_no": 1,
+          "reftxtbefore": "brought into the CT ",
+          "reftxtafter": " suite. The procedure"
+        },
+        {
+          "text": "simulation",
+          "pg_no": 1,
+          "reftxtbefore": "on the CT ",
+          "reftxtafter": " table in the supine "
+        },
+        {
+          "text": "simulation",
+          "pg_no": 1,
+          "reftxtbefore": "institutional ",
+          "reftxtafter": " protocol."
+        },
+        {
+          "text": "simulation",
+          "pg_no": 1,
+          "reftxtbefore": "Successful complex CT ",
+          "reftxtafter": " with custom immobiliz"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "CT",
+          "pg_no": 1,
+          "reftxtbefore": "Complex ",
+          "reftxtafter": " Simulation for Radiati"
+        },
+        {
+          "text": "CT",
+          "pg_no": 1,
+          "reftxtbefore": "into the ",
+          "reftxtafter": " simulation suite. The"
+        },
+        {
+          "text": "CT",
+          "pg_no": 1,
+          "reftxtbefore": "on the ",
+          "reftxtafter": " simulator table in th"
+        },
+        {
+          "text": "CT scan",
+          "pg_no": 1,
+          "reftxtbefore": "non-contrast planning ",
+          "reftxtafter": " was acquired with 2.5"
+        },
+        {
+          "text": "CT dataset",
+          "pg_no": 1,
+          "reftxtbefore": "The ",
+          "reftxtafter": " was successfully push"
+        },
+        {
+          "text": "CT simulation",
+          "pg_no": 1,
+          "reftxtbefore": "Successful complex ",
+          "reftxtafter": " with custom immobiliz"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "Complex",
+          "pg_no": 1,
+          "reftxtbefore": "PROCEDURE:",
+          "reftxtafter": " CT Simulation for Radi",
+          "field_label": "Complexity"
+        },
+        {
+          "text": "custom Vac-Lok immobilization cradle was fabricated",
+          "pg_no": 1,
+          "reftxtbefore": "position. A ",
+          "reftxtafter": " for the lower extremit",
+          "field_label": "Immobilization"
+        },
+        {
+          "text": "Initial isocenter was established in the pelvis",
+          "pg_no": 1,
+          "reftxtbefore": "room lasers. An ",
+          "reftxtafter": ", and radiopaque fiduc",
+          "field_label": "Isocenter Localization"
+        },
+        {
+          "text": "radiopaque fiducial markers were placed on the patient's skin at the anterior and bilateral setup points.",
+          "pg_no": 1,
+          "reftxtbefore": "the pelvis, and ",
+          "reftxtafter": " The previously placed",
+          "field_label": "Fiducial Markers"
+        },
+        {
+          "text": "non-contrast planning CT scan was acquired with 2.5 mm slice thickness from the level of L4 down to the mid-femur.",
+          "pg_no": 1,
+          "reftxtbefore": "setup points. A ",
+          "reftxtafter": " The previously placed",
+          "field_label": "Scan Parameters"
+        },
+        {
+          "text": "Previously placed intraprostatic gold fiducial markers were well visualized on the scan.",
+          "pg_no": 1,
+          "reftxtbefore": "mid-femur. The ",
+          "reftxtafter": " The bladder was comfor",
+          "field_label": "Internal Markers"
+        },
+        {
+          "text": "The bladder was comfortably full, and the rectum was empty, per our institutional simulation protocol.",
+          "pg_no": 1,
+          "reftxtbefore": "on the scan. ",
+          "reftxtafter": "The CT dataset was suc",
+          "field_label": "Patient Preparation"
+        },
+        {
+          "text": "Skin marks were tattooed with permanent ink at the anterior and bilateral crosshairs.",
+          "pg_no": 1,
+          "reftxtbefore": "planning system. The ",
+          "reftxtafter": " The patient tolerated ",
+          "field_label": "Marking"
+        },
+        {
+          "text": "complex",
+          "pg_no": 1,
+          "reftxtbefore": "Successful ",
+          "reftxtafter": " CT simulation with cus",
+          "field_label": "Complexity"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "77436",
+          "similarity_score": "0.818247"
+        },
+        {
+          "code": "55920",
+          "similarity_score": "0.807699"
+        },
+        {
+          "code": "72191",
+          "similarity_score": "0.795056"
+        },
+        {
+          "code": "72192",
+          "similarity_score": "0.795056"
+        },
+        {
+          "code": "72193",
+          "similarity_score": "0.795056"
+        }
+      ],
+      "code_description": "Therapeutic radiology simulation-aided field setting; complex",
+      "code_justification": "The documentation explicitly states 'Complex CT Simulation for Radiation Therapy Planning'. The complexity is further supported by the fabrication of a 'custom Vac-Lok immobilization cradle', establishment of an 'initial isocenter in the pelvis', placement of 'radiopaque fiducial markers' on the skin at multiple setup points, and the acquisition of a 'non-contrast planning CT scan' with specific parameters for detailed planning, including visualization of previously placed intraprostatic gold fiducial markers.",
+      "addon_codes": [],
+      "modifiers": []
+    },
+    {
+      "cpt_code": "77334",
+      "norm_procedure_name": "Fabrication of Custom Immobilization Device",
+      "norm_anatomy": "Lower Extremities, Pelvis",
+      "norm_approach": "N/A",
+      "norm_procedure_type": "Device Construction",
+      "norm_imaging_guidance": "N/A",
+      "norm_anesthesia_type": "N/A",
+      "norm_other": "Custom Vac-Lok immobilization cradle",
+      "procedure_evidences": [
+        {
+          "text": "custom Vac-Lok immobilization cradle was fabricated",
+          "pg_no": 1,
+          "reftxtbefore": "position. A ",
+          "reftxtafter": " for the lower extremit"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "lower extremities",
+          "pg_no": 1,
+          "reftxtbefore": "cradle was fabricated for",
+          "reftxtafter": " and pelvis to ensure "
+        },
+        {
+          "text": "pelvis",
+          "pg_no": 1,
+          "reftxtbefore": "mobilization cradle was ",
+          "reftxtafter": "to ensure daily reprodu"
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "fabricated",
+          "pg_no": 1,
+          "reftxtbefore": "cradle was ",
+          "reftxtafter": " for the lower extremit"
+        },
+        {
+          "text": "design and construction",
+          "pg_no": 1,
+          "reftxtbefore": "Treatment devices, ",
+          "reftxtafter": "; complex (eg, a custom"
+        }
+      ],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "Vac-Lok immobilization cradle",
+          "pg_no": 1,
+          "reftxtbefore": "custom ",
+          "reftxtafter": " was fabricated for the",
+          "field_label": "Device Type"
+        },
+        {
+          "text": "custom",
+          "pg_no": 1,
+          "reftxtbefore": "position. A ",
+          "reftxtafter": " Vac-Lok immobilization",
+          "field_label": "Customization"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "57160",
+          "similarity_score": "0.762905"
+        },
+        {
+          "code": "55920",
+          "similarity_score": "0.745228"
+        },
+        {
+          "code": "53451",
+          "similarity_score": "0.743514"
+        },
+        {
+          "code": "53452",
+          "similarity_score": "0.743514"
+        },
+        {
+          "code": "57155",
+          "similarity_score": "0.738862"
+        }
+      ],
+      "code_description": "Treatment devices, design and construction; complex (eg, a custom bite block, head holder, custom compensator, custom block, custom shield, custom immobilization device)",
+      "code_justification": "The documentation specifies that a 'custom Vac-Lok immobilization cradle was fabricated for the lower extremities and pelvis'. This clearly indicates the design and construction of a custom immobilization device, which falls under the definition of a complex treatment device.",
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

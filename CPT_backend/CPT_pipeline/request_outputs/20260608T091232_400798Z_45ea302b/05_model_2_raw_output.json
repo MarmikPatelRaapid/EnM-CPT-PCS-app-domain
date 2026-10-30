@@ -1,0 +1,16 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "77290",
+      "final_cpt_code": "77290",
+      "final_cpt_code_description": "Therapeutic radiology simulation-aided field setting; complex",
+      "final_cpt_code_justification": "The medical record explicitly documents a 'Complex CT Simulation for Radiation Therapy Planning.' The complexity is evidenced by several factors: the fabrication of a 'custom Vac-Lok immobilization cradle' for reproducibility, the establishment of an 'initial isocenter in the pelvis,' the placement of 'radiopaque fiducial markers' on the skin at anterior and bilateral setup points, the acquisition of a 'non-contrast planning CT scan' with specific parameters (2.5 mm slice thickness, from L4 down to the mid-femur), the visualization of 'previously placed intraprostatic gold fiducial markers,' and the tattooing of 'permanent ink' skin marks. These elements collectively meet the criteria for a complex simulation, which involves extensive patient care, setup, and data acquisition beyond a simple simulation. The alternative codes were rejected because: 77436 is for treatment management of SBRT, not simulation. 55920 is for placement of brachytherapy devices, not external beam simulation, and the intraprostatic markers were previously placed, not inserted during this procedure. 72191, 72192, and 72193 are all for MRI of the pelvis, whereas the documented procedure was a CT scan."
+    },
+    {
+      "original_cpt_code": "77334",
+      "final_cpt_code": "77334",
+      "final_cpt_code_description": "Treatment devices, design and construction; complex (eg, a custom bite block, head holder, custom compensator, custom block, custom shield, custom immobilization device)",
+      "final_cpt_code_justification": "The medical record explicitly states that 'A custom Vac-Lok immobilization cradle was fabricated for the lower extremities and pelvis to ensure daily reproducibility.' The fabrication of a 'custom' immobilization device directly aligns with the description of CPT code 77334, which includes 'custom immobilization device' as an example of a complex treatment device requiring design and construction. The alternative codes were rejected because: 57160 is for fitting and insertion of a vaginal pessary, which is irrelevant for a male patient and an external immobilization device. 55920 is for placement of brachytherapy devices, not the fabrication of an immobilization device. 53451 and 53452 are for urethroplasty, which is a surgical repair of the urethra and unrelated to immobilization device fabrication. 57155 is for insertion of uterine/vaginal brachytherapy devices, which is irrelevant for a male patient and an external immobilization device."
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "established with this clinic",
+        "pg_no": 1,
+        "reftxtbefore": "is a 68-year-old male, ",
+        "reftxtafter": ", who presents today w"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "established with this clinic",
+        "pg_no": 1,
+        "reftxtbefore": "is a 68-year-old male, ",
+        "reftxtafter": ", who presents today w"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established with this clinic",
+        "pg_no": 1,
+        "reftxtbefore": "is a 68-year-old male, ",
+        "reftxtafter": ", who presents today w"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 68,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "68-year-old male",
+        "pg_no": 1,
+        "reftxtbefore": "Mr. Abernathy is a ",
+        "reftxtafter": ", established with thi"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute on chronic systolic heart failure exacerbation",
+        "disease_evidence": [
+          {
+            "text": "Acute on chronic systolic heart failure exacerbation, severe.",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT/IMPRESSION:\n1. ",
+            "reftxtafter": "\n2. Acute kidney inju"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "BMP: Na 135, K 5.2, Cl 98, CO2 22, BUN 48, Creatinine 2.6 (baseline 1.7), Glucose 145.",
+              "pg_no": 1,
+              "reftxtbefore": "in clinic today:\n- ",
+              "reftxtafter": "\n- BNP: 2150 pg/mL ("
+            },
+            {
+              "text": "BNP: 2150 pg/mL (baseline ~500).",
+              "pg_no": 1,
+              "reftxtbefore": "cose 145.\n- ",
+              "reftxtafter": "\n- ECG (performed in "
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "STAT labs drawn in clinic today",
+              "pg_no": 1,
+              "reftxtbefore": "IMAGING/LAB FINDINGS:\n",
+              "reftxtafter": ":\n- BMP: Na 135, K 5."
+            },
+            {
+              "text": "repeat BMP",
+              "pg_no": 1,
+              "reftxtbefore": "clinical evaluation and ",
+              "reftxtafter": ". \n- Strict return pr"
+            }
+          ],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "Discussed the severity of his condition extensively with the patient and his wife.",
+              "pg_no": 1,
+              "reftxtbefore": "reported mild improvem",
+              "reftxtafter": " Given the AKI, hypox"
+            }
+          ],
+          "independent_interpretation_of_test": [
+            {
+              "text": "ECG (performed in clinic, interpreted by me): Sinus tachycardia at 102 bpm, LVH, no acute ST-T wave changes indicating ischemia.",
+              "pg_no": 1,
+              "reftxtbefore": "line ~500).\n- ",
+              "reftxtafter": "\n\nASSESSMENT/IMPRESSI"
+            }
+          ],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Discussed the severity of his condition extensively with the patient and his wife.",
+              "pg_no": 1,
+              "reftxtbefore": "reported mild improvem",
+              "reftxtafter": " Given the AKI, hypox"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Administered Furosemide 80 mg IV push in the clinic.",
+              "pg_no": 1,
+              "reftxtbefore": "PLAN/FOLLOW-UP:\n- ",
+              "reftxtafter": " Patient was placed on"
+            },
+            {
+              "text": "strongly recommended direct admission to the hospital for continuous IV diuresis and close monitoring.",
+              "pg_no": 1,
+              "reftxtbefore": "severe volume overload, I ",
+              "reftxtafter": " \n- The patient adaman"
+            },
+            {
+              "text": "Will temporarily hold Entresto and Jardiance given the acute kidney injury.",
+              "pg_no": 1,
+              "reftxtbefore": "to close follow-up.\n- ",
+              "reftxtafter": "\n- Increase home Furos"
+            },
+            {
+              "text": "Increase home Furosemide to 80 mg PO BID starting tonight.",
+              "pg_no": 1,
+              "reftxtbefore": "the acute kidney injury.\n- ",
+              "reftxtafter": "\n- Strict fluid restri"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [
+      {
+        "norm_disease_name": "Acute kidney injury superimposed on CKD stage 3b",
+        "disease_evidence": [
+          {
+            "text": "Acute kidney injury superimposed on CKD stage 3b, likely cardiorenal syndrome given profound volume overload.",
+            "pg_no": 1,
+            "reftxtbefore": "exacerbation, severe.\n2. ",
+            "reftxtafter": "\n3. Hypoxia secondary"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Creatinine 2.6 (baseline 1.7)",
+              "pg_no": 1,
+              "reftxtbefore": "BUN 48, ",
+              "reftxtafter": ", Glucose 145.\n- BNP"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "STAT labs drawn in clinic today",
+              "pg_no": 1,
+              "reftxtbefore": "IMAGING/LAB FINDINGS:\n",
+              "reftxtafter": ":\n- BMP: Na 135, K 5."
+            },
+            {
+              "text": "repeat BMP",
+              "pg_no": 1,
+              "reftxtbefore": "clinical evaluation and ",
+              "reftxtafter": ". \n- Strict return pr"
+            }
+          ],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "Discussed the severity of his condition extensively with the patient and his wife.",
+              "pg_no": 1,
+              "reftxtbefore": "reported mild improvem",
+              "reftxtafter": " Given the AKI, hypox"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Given the AKI, hypoxia, and severe volume overload, I strongly recommended direct admission to the hospital",
+              "pg_no": 1,
+              "reftxtbefore": "patient and his wife. ",
+              "reftxtafter": " for continuous IV diu"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Will temporarily hold Entresto and Jardiance given the acute kidney injury.",
+              "pg_no": 1,
+              "reftxtbefore": "to close follow-up.\n- ",
+              "reftxtafter": "\n- Increase home Furos"
+            },
+            {
+              "text": "strongly recommended direct admission to the hospital",
+              "pg_no": 1,
+              "reftxtbefore": "severe volume overload, I ",
+              "reftxtafter": " for continuous IV diu"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [
+      {
+        "norm_disease_name": "Hypoxia secondary to pulmonary edema",
+        "disease_evidence": [
+          {
+            "text": "Hypoxia secondary to pulmonary edema.",
+            "pg_no": 1,
+            "reftxtbefore": "found volume overload.\n3. ",
+            "reftxtafter": "\n\nPLAN/FOLLOW-UP:\n- A"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "SpO2 90% on room air.",
+              "pg_no": 1,
+              "reftxtbefore": "RR 24, Temp 98.4F, ",
+              "reftxtafter": "\nNeck: JVD is promine"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "Discussed the severity of his condition extensively with the patient and his wife.",
+              "pg_no": 1,
+              "reftxtbefore": "reported mild improvem",
+              "reftxtafter": " Given the AKI, hypox"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Given the AKI, hypoxia, and severe volume overload, I strongly recommended direct admission to the hospital",
+              "pg_no": 1,
+              "reftxtbefore": "patient and his wife. ",
+              "reftxtafter": " for continuous IV diu"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Patient was placed on 2L O2 via nasal cannula",
+              "pg_no": 1,
+              "reftxtbefore": "IV push in the clinic. ",
+              "reftxtafter": " with improvement of S"
+            },
+            {
+              "text": "strongly recommended direct admission to the hospital",
+              "pg_no": 1,
+              "reftxtbefore": "severe volume overload, I ",
+              "reftxtafter": " for continuous IV diu"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "undiagnosed_problem": []
+}

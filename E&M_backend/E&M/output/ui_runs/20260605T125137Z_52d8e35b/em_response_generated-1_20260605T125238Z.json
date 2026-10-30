@@ -1,0 +1,210 @@
+{
+  "classification": {
+    "complexity": "moderate",
+    "data_to_review": "moderate",
+    "risk": "moderate",
+    "mdm_level": "moderate",
+    "details": {
+      "complexity": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "2 or more stable chronic illnesses",
+            "level": "moderate",
+            "required_count": 2,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "1 or more chronic illness with exacerbation, progression of side effect",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "exacerbation"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "raw_risk_types": [
+          "moderate",
+          "moderate",
+          "moderate"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "moderate"
+        },
+        "normalized_inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "moderate"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "moderate"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "follow-up",
+        "pg_no": 1,
+        "reftxtbefore": "CHIEF COMPLAINT: ",
+        "reftxtafter": " diabetes and hyperte"
+      }
+    ],
+    "service": [
+      {
+        "text": "follow-up",
+        "pg_no": 1,
+        "reftxtbefore": "CHIEF COMPLAINT: ",
+        "reftxtafter": " diabetes and hyperte"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "y.o. male ",
+        "reftxtafter": " presents for routine"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Essential Hypertension: Stable on Lisinopril",
+        "pg_no": 1,
+        "reftxtbefore": "the blurry vision. 2. ",
+        "reftxtafter": ". Will continue curre"
+      },
+      {
+        "text": "Hyperlipidemia: Stable on Atorvastatin",
+        "pg_no": 1,
+        "reftxtbefore": "current dose. 3. ",
+        "reftxtafter": ". Patient to follow u"
+      },
+      {
+        "text": "Type 2 Diabetes Mellitus with hyperglycemia: Currently uncontrolled",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT AND PLAN: 1. ",
+        "reftxtafter": ". Recent A1c from las"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Recent A1c from last week resulted at 8.9%, up from 7.6% six months ago",
+        "pg_no": 1,
+        "reftxtbefore": "ntrolled. ",
+        "reftxtafter": ". We discussed dietar"
+      },
+      {
+        "text": "Ordered CMP",
+        "pg_no": 1,
+        "reftxtbefore": "before breakfast. ",
+        "reftxtafter": " and repeat A1c in 3"
+      },
+      {
+        "text": "repeat A1c in 3 months",
+        "pg_no": 1,
+        "reftxtbefore": "Ordered CMP and ",
+        "reftxtafter": ". Placed referral for"
+      },
+      {
+        "text": "We discussed dietary modifications at length",
+        "pg_no": 1,
+        "reftxtbefore": "ix months ago. ",
+        "reftxtafter": ". Given the elevated "
+      },
+      {
+        "text": "Placed referral for annual diabetic retinopathy screening",
+        "pg_no": 1,
+        "reftxtbefore": "A1c in 3 months. ",
+        "reftxtafter": " given the blurry vis"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Will continue current dose",
+        "pg_no": 1,
+        "reftxtbefore": "Stable on Lisinopril. ",
+        "reftxtafter": ". 3. Hyperlipidemia:"
+      },
+      {
+        "text": "Stable on Atorvastatin",
+        "pg_no": 1,
+        "reftxtbefore": "3. Hyperlipidemia: ",
+        "reftxtafter": ". Patient to follow u"
+      },
+      {
+        "text": "add Glipizide 5 mg daily",
+        "pg_no": 1,
+        "reftxtbefore": "home readings, I will ",
+        "reftxtafter": " before breakfast. Or"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 68,
+    "patient_age_unit": "years",
+    "mdm_level": "Moderate"
+  },
+  "codes": [
+    "99214"
+  ]
+}

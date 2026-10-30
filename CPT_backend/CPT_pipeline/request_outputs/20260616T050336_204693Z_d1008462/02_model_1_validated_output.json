@@ -1,0 +1,93 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "77065",
+      "norm_procedure_name": "Screening Mammography",
+      "norm_anatomy": "Breast, Bilateral",
+      "norm_approach": "Not applicable",
+      "norm_procedure_type": "Diagnostic Imaging",
+      "norm_imaging_guidance": "Not applicable",
+      "norm_anesthesia_type": "None",
+      "norm_other": "Digital, 2-view study of each breast",
+      "procedure_evidences": [
+        {
+          "text": "Screening Mammography, Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM NAME: ",
+          "reftxtafter": ""
+        },
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: Digital mammography was performed with two standard views (craniocaudal and mediolateral oblique) of each breast. Computer-aided detection (CAD) was utilized for image analysis.",
+          "reftxtafter": " was performed with t"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Screening Mammography, ",
+          "reftxtafter": ""
+        },
+        {
+          "text": "each breast",
+          "pg_no": 1,
+          "reftxtbefore": "views (craniocaudal and mediolateral oblique) of ",
+          "reftxtafter": ". Computer-aided det"
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: ",
+          "reftxtafter": " was performed with t"
+        }
+      ],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "two standard views (craniocaudal and mediolateral oblique)",
+          "pg_no": 1,
+          "reftxtbefore": "was performed with ",
+          "reftxtafter": " of each breast. Co",
+          "field_label": "Views"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [],
+      "code_description": "Screening mammography, bilateral (2-view study of each breast), digital",
+      "code_justification": "The report explicitly states 'Screening Mammography, Bilateral' and details 'Digital mammography was performed with two standard views (craniocaudal and mediolateral oblique) of each breast', which aligns with the description for CPT code 77065.",
+      "addon_codes": [
+        {
+          "cpt_code": "77068",
+          "code_description": "Computer-aided detection (CAD) (quantitative analysis and/or search of data set), when performed, in conjunction with mammography or tomosynthesis",
+          "justification": "The report states 'Computer-aided detection (CAD) was utilized for image analysis', which is an add-on service to mammography.",
+          "norm_procedure_name": "Computer-aided detection (CAD)",
+          "norm_other": "Image analysis",
+          "procedure_evidences": [
+            {
+              "text": "Computer-aided detection (CAD)",
+              "pg_no": 1,
+              "reftxtbefore": "each breast. ",
+              "reftxtafter": " was utilized for i"
+            }
+          ],
+          "other_evidences": [
+            {
+              "field_label": "Purpose",
+              "text": "image analysis",
+              "pg_no": 1,
+              "reftxtbefore": "was utilized for ",
+              "reftxtafter": "."
+            }
+          ]
+        }
+      ],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

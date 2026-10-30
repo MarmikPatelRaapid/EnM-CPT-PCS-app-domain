@@ -1,0 +1,306 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Internal Medicine",
+        "pg_no": 1,
+        "reftxtbefore": "Department: ",
+        "reftxtafter": "\nPatient Name: Elean"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Encounter Date: 10/1",
+        "reftxtafter": "\nProvider: Dr. Marcu"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established",
+        "pg_no": 1,
+        "reftxtbefore": "Eleanor Vance is an ",
+        "reftxtafter": " 64-year-old female"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 50,
+    "evidences": [
+      {
+        "text": "50 minutes",
+        "pg_no": 1,
+        "reftxtbefore": "A total of ",
+        "reftxtafter": " was spent on the da"
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 64,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "64",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 08/22/1960\nAge: ",
+        "reftxtafter": "\nSex: Female\nEncoun"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [
+      {
+        "norm_disease_name": "Stage 4 Chronic Kidney Disease",
+        "disease_evidence": [
+          {
+            "text": "Stage 4 Chronic Kidney Disease",
+            "pg_no": 1,
+            "reftxtbefore": "parameters provided.\n3. ",
+            "reftxtafter": ": Monitor renal func"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Reviewed recent comprehensive metabolic panel from 3 days ago showing Creatinine 2.8 mg/dL (up from baseline 2.4) and eGFR 19 mL/min/1.73m2",
+              "pg_no": 1,
+              "reftxtbefore": "ANALYZED:\n1. ",
+              "reftxtafter": ".\n2. Reviewed CBC sh"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "Repeat BMP in 48 hours",
+              "pg_no": 1,
+              "reftxtbefore": "function closely. ",
+              "reftxtafter": ".\n4. Acute fluid ove"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Personally contacted and discussed the patient's clinical status and medication adjustments with her nephrologist, Dr. Patel",
+              "pg_no": 1,
+              "reftxtbefore": "mild pulmonary congestion.\n4. ",
+              "reftxtafter": ", given her declinin"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Metformin must be discontinued immediately due to eGFR < 30",
+              "pg_no": 1,
+              "reftxtbefore": "of metabolic derangement.",
+              "reftxtafter": ". Will initiate Insu"
+            },
+            {
+              "text": "oral Levofloxacin 500 mg daily (renal dose adjusted for eGFR < 20)",
+              "pg_no": 1,
+              "reftxtbefore": "hypoxia. Will initiate ",
+              "reftxtafter": " for 7 days. Prescr"
+            }
+          ]
+        }
+      }
+    ],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Uncontrolled Type 2 Diabetes Mellitus with severe diabetic nephropathy",
+        "disease_evidence": [
+          {
+            "text": "Uncontrolled Type 2 Diabetes Mellitus with severe diabetic nephropathy",
+            "pg_no": 1,
+            "reftxtbefore": "saturations > 92%.\n2. ",
+            "reftxtafter": ": High risk of metab"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Reviewed recent comprehensive metabolic panel from 3 days ago showing Creatinine 2.8 mg/dL (up from baseline 2.4) and eGFR 19 mL/min/1.73m2",
+              "pg_no": 1,
+              "reftxtbefore": "ANALYZED:\n1. ",
+              "reftxtafter": ".\n2. Reviewed CBC sh"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Personally contacted and discussed the patient's clinical status and medication adjustments with her nephrologist, Dr. Patel",
+              "pg_no": 1,
+              "reftxtbefore": "mild pulmonary congestion.\n4. ",
+              "reftxtafter": ", given her declinin"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Metformin must be discontinued immediately due to eGFR < 30",
+              "pg_no": 1,
+              "reftxtbefore": "of metabolic derangement.",
+              "reftxtafter": ". Will initiate Insu"
+            },
+            {
+              "text": "Will initiate Insulin Glargine 10 units subcutaneously at bedtime",
+              "pg_no": 1,
+              "reftxtbefore": "due to eGFR < 30. ",
+              "reftxtafter": " and adjust her rap"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": [
+      {
+        "norm_disease_name": "Acute COPD Exacerbation with Bronchopneumonia",
+        "disease_evidence": [
+          {
+            "text": "Acute COPD Exacerbation with concurrent early Bronchopneumonia",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT & PLAN:\n1. ",
+            "reftxtafter": ": High risk given he"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Reviewed CBC showing leukocytosis with WBC 13.5 x10^3/uL",
+              "pg_no": 1,
+              "reftxtbefore": "min/1.73m2.\n2. ",
+              "reftxtafter": ".\n3. Reviewed chest X"
+            },
+            {
+              "text": "Reviewed chest X-ray report from yesterday showing early left lower lobe infiltrates",
+              "pg_no": 1,
+              "reftxtbefore": "WBC 13.5 x10^3/uL.\n3. ",
+              "reftxtafter": " vs. mild pulmonary"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "Ordered home oxygen therapy at 2L via nasal cannula",
+              "pg_no": 1,
+              "reftxtbefore": "daily for 5 days. ",
+              "reftxtafter": " to maintain satura"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Personally contacted and discussed the patient's clinical status and medication adjustments with her nephrologist, Dr. Patel",
+              "pg_no": 1,
+              "reftxtbefore": "mild pulmonary congestion.\n4. ",
+              "reftxtafter": ", given her declinin"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "initiate oral Levofloxacin 500 mg daily (renal dose adjusted for eGFR < 20) for 7 days",
+              "pg_no": 1,
+              "reftxtbefore": "and hypoxia. Will ",
+              "reftxtafter": ". Prescribed a Predn"
+            },
+            {
+              "text": "Prescribed a Prednisone burst of 40 mg daily for 5 days",
+              "pg_no": 1,
+              "reftxtbefore": "for 7 days. ",
+              "reftxtafter": ". Ordered home oxyge"
+            },
+            {
+              "text": "Ordered home oxygen therapy",
+              "pg_no": 1,
+              "reftxtbefore": "daily for 5 days. ",
+              "reftxtafter": " at 2L via nasal ca"
+            },
+            {
+              "text": "Discussed potential hospitalization given her hypoxia",
+              "pg_no": 1,
+              "reftxtbefore": "N & RISK DISCUSSION:\n",
+              "reftxtafter": ", acute infection, a"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "undiagnosed_problem": [
+    {
+      "norm_disease_name": "Acute fluid overload / CHF vs. renal insufficiency",
+      "disease_evidence": [
+        {
+          "text": "Acute fluid overload / CHF vs. renal insufficiency",
+          "pg_no": 1,
+          "reftxtbefore": "in 48 hours.\n4. ",
+          "reftxtafter": ": Increase oral Tors"
+        }
+      ],
+      "data_to_review": {
+        "review_of_prior_external_note": [],
+        "review_of_test_result": [
+          {
+            "text": "Reviewed chest X-ray report from yesterday showing early left lower lobe infiltrates vs. mild pulmonary congestion",
+            "pg_no": 1,
+            "reftxtbefore": "WBC 13.5 x10^3/uL.\n3. ",
+            "reftxtafter": ".\n4. Personally con"
+          }
+        ],
+        "order_of_test": [],
+        "assessment_requiring_independent_historian": [],
+        "independent_interpretation_of_test": [],
+        "discussion_of_management_or_test_interpretation": []
+      },
+      "risk_of_morbidity": {
+        "type": "moderate",
+        "risk_evidences": [
+          {
+            "text": "Increase oral Torsemide to 20 mg daily",
+            "pg_no": 1,
+            "reftxtbefore": "vs. renal insufficiency: ",
+            "reftxtafter": ".\n\nDECISION-MAKING &"
+          }
+        ]
+      }
+    }
+  ]
+}

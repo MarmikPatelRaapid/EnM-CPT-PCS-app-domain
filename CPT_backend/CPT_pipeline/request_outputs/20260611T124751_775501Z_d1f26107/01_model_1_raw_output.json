@@ -1,0 +1,254 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "77014",
+      "code_description": "Computed tomography guidance for placement of radiation therapy fields",
+      "code_justification": "The document explicitly states 'CT simulation' was performed for treatment planning, which is accurately described by CPT code 77014 for CT guidance in radiation therapy field placement.",
+      "norm_procedure_name": "CT simulation",
+      "norm_anatomy": "Prostate",
+      "norm_approach": "Supine position with customized immobilization device",
+      "norm_imaging_guidance": "CT",
+      "norm_anesthesia_type": null,
+      "norm_other": "Customized immobilization device",
+      "procedure_evidences": [
+        {
+          "text": "CT simulation",
+          "pg_no": 1,
+          "reftxtbefore": "The patient underwent ",
+          "reftxtafter": " in the supine posit"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Prostate",
+          "pg_no": 1,
+          "reftxtbefore": "GTV): ",
+          "reftxtafter": " gland. Clinical Tar"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "supine position with a customized immobilization device (Knee-Lok and foot support) and a comfortably full bladder",
+          "pg_no": 1,
+          "reftxtbefore": "T simulation in the ",
+          "reftxtafter": ". The CT dataset was"
+        }
+      ],
+      "procedure_type_evidences": [],
+      "imaging_guidance_evidences": [
+        {
+          "text": "CT",
+          "pg_no": 1,
+          "reftxtbefore": "The patient underwent ",
+          "reftxtafter": " simulation in the s"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "field_label": "Customized immobilization device",
+          "text": "customized immobilization device (Knee-Lok and foot support)",
+          "pg_no": 1,
+          "reftxtbefore": "position with a ",
+          "reftxtafter": " and a comfortably "
+        }
+      ],
+      "addon_codes": [],
+      "modifiers": []
+    },
+    {
+      "cpt_code": "77295",
+      "code_description": "Therapeutic radiology simulation-aided field setting; complex",
+      "code_justification": "The documentation describes a complex simulation process including 'CT simulation', use of a 'customized immobilization device', and detailed 'CONTOURING' of multiple target volumes (GTV, CTV, PTV) and organs at risk (OARs), which supports the complexity required for CPT 77295.",
+      "norm_procedure_name": "Therapeutic radiology simulation-aided field setting",
+      "norm_anatomy": "Prostate, seminal vesicles, bladder, rectum, penile bulb, femoral heads",
+      "norm_approach": "CT simulation with customized immobilization",
+      "norm_imaging_guidance": "CT",
+      "norm_anesthesia_type": null,
+      "norm_other": "Complex contouring of GTV, CTV, PTV, and OARs",
+      "procedure_evidences": [
+        {
+          "text": "CT simulation",
+          "pg_no": 1,
+          "reftxtbefore": "The patient underwent ",
+          "reftxtafter": " in the supine posit"
+        },
+        {
+          "text": "CONTOURING",
+          "pg_no": 1,
+          "reftxtbefore": "Eclipse treatment planning system. ",
+          "reftxtafter": ": I personally review"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Prostate gland",
+          "pg_no": 1,
+          "reftxtbefore": "GTV): ",
+          "reftxtafter": ". Clinical Target Vo"
+        },
+        {
+          "text": "Prostate and proximal seminal vesicles",
+          "pg_no": 1,
+          "reftxtbefore": "Volume (CTV): ",
+          "reftxtafter": ". Planning Target Vo"
+        },
+        {
+          "text": "Bladder, rectum, penile bulb, and bilateral femoral heads",
+          "pg_no": 1,
+          "reftxtbefore": "OARs contoured: ",
+          "reftxtafter": ". PLAN DESIGN & DOSI"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "CT simulation in the supine position with a customized immobilization device (Knee-Lok and foot support)",
+          "pg_no": 1,
+          "reftxtbefore": "The patient underwent ",
+          "reftxtafter": " and a comfortably "
+        }
+      ],
+      "procedure_type_evidences": [],
+      "imaging_guidance_evidences": [
+        {
+          "text": "CT",
+          "pg_no": 1,
+          "reftxtbefore": "The patient underwent ",
+          "reftxtafter": " simulation in the s"
+        },
+        {
+          "text": "CT dataset was imported into the Eclipse treatment planning system",
+          "pg_no": 1,
+          "reftxtbefore": "full bladder. The ",
+          "reftxtafter": ". CONTOURING: I pers"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "field_label": "Complexity",
+          "text": "customized immobilization device (Knee-Lok and foot support)",
+          "pg_no": 1,
+          "reftxtbefore": "position with a ",
+          "reftxtafter": " and a comfortably "
+        },
+        {
+          "field_label": "Complexity",
+          "text": "I personally reviewed and approved all target volumes and organs at risk (OARs). Gross Tumor Volume (GTV): Prostate gland. Clinical Target Volume (CTV): Prostate and proximal seminal vesicles. Planning Target Volume (PTV): CTV + 0.5 cm margin (0.3 cm posteriorly). OARs contoured: Bladder, rectum, penile bulb, and bilateral femoral heads.",
+          "pg_no": 1,
+          "reftxtbefore": "CONTOURING: ",
+          "reftxtafter": ". PLAN DESIGN & DOSI"
+        }
+      ],
+      "addon_codes": [],
+      "modifiers": []
+    },
+    {
+      "cpt_code": "77301",
+      "code_description": "Radiation therapy dosimetry planning; complex",
+      "code_justification": "The document details a '3-dimensional conformal radiotherapy (3D-CRT) plan' generation, including 'CONTOURING' of GTV, CTV, PTV, and OARs, 'PLAN DESIGN & DOSIMETRY' with multiple photon beams, 'DOSE PRESCRIPTION' (79.2 Gy in 44 fractions), and 'PLAN EVALUATION' with DVH analysis, all indicative of complex dosimetry planning.",
+      "norm_procedure_name": "Radiation therapy dosimetry planning",
+      "norm_anatomy": "Prostate, seminal vesicles, bladder, rectum, penile bulb, femoral heads",
+      "norm_approach": null,
+      "norm_imaging_guidance": null,
+      "norm_anesthesia_type": null,
+      "norm_other": "3-dimensional conformal radiotherapy (3D-CRT) plan, Dose-volume histograms (DVH) evaluation",
+      "procedure_evidences": [
+        {
+          "text": "TREATMENT PLANNING PROCESS",
+          "pg_no": 1,
+          "reftxtbefore": "PhD. DIAGNOSIS: Malignant neoplasm of prostate (cT2b N0 M0), Gleason 7 (4+3). ",
+          "reftxtafter": ": The patient underw"
+        },
+        {
+          "text": "CONTOURING",
+          "pg_no": 1,
+          "reftxtbefore": "Eclipse treatment planning system. ",
+          "reftxtafter": ": I personally review"
+        },
+        {
+          "text": "PLAN DESIGN & DOSIMETRY",
+          "pg_no": 1,
+          "reftxtbefore": "femoral heads. ",
+          "reftxtafter": ": A 3-dimensional co"
+        },
+        {
+          "text": "DOSE PRESCRIPTION",
+          "pg_no": 1,
+          "reftxtbefore": "critical structures. ",
+          "reftxtafter": ": Total Dose: 79.2 G"
+        },
+        {
+          "text": "PLAN EVALUATION",
+          "pg_no": 1,
+          "reftxtbefore": "x 44 fractions. ",
+          "reftxtafter": ": Dose-volume histogr"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Prostate gland",
+          "pg_no": 1,
+          "reftxtbefore": "GTV): ",
+          "reftxtafter": ". Clinical Target Vo"
+        },
+        {
+          "text": "Prostate and proximal seminal vesicles",
+          "pg_no": 1,
+          "reftxtbefore": "Volume (CTV): ",
+          "reftxtafter": ". Planning Target Vo"
+        },
+        {
+          "text": "Bladder, rectum, penile bulb, and bilateral femoral heads",
+          "pg_no": 1,
+          "reftxtbefore": "OARs contoured: ",
+          "reftxtafter": ". PLAN DESIGN & DOSI"
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "3-dimensional conformal radiotherapy (3D-CRT) plan",
+          "pg_no": 1,
+          "reftxtbefore": "DOSIMETRY: A ",
+          "reftxtafter": " was generated. Mult"
+        }
+      ],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "field_label": "Complexity",
+          "text": "3-dimensional conformal radiotherapy (3D-CRT) plan",
+          "pg_no": 1,
+          "reftxtbefore": "DOSIMETRY: A ",
+          "reftxtafter": " was generated. Mult"
+        },
+        {
+          "field_label": "Dosimetry details",
+          "text": "Multiple coplanar 15 MV photon beams were arranged to optimize target coverage while minimizing dose to the adjacent critical structures.",
+          "pg_no": 1,
+          "reftxtbefore": "plan was generated. ",
+          "reftxtafter": " DOSE PRESCRIPTION: "
+        },
+        {
+          "field_label": "Dose Prescription",
+          "text": "Total Dose: 79.2 Gy. Fractionation: 1.8 Gy per fraction x 44 fractions.",
+          "pg_no": 1,
+          "reftxtbefore": "PRESCRIPTION: ",
+          "reftxtafter": " PLAN EVALUATION: Do"
+        },
+        {
+          "field_label": "Plan Evaluation",
+          "text": "Dose-volume histograms (DVH) were generated and critically evaluated.",
+          "pg_no": 1,
+          "reftxtbefore": "EVALUATION: ",
+          "reftxtafter": " PTV coverage: >95%"
+        }
+      ],
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

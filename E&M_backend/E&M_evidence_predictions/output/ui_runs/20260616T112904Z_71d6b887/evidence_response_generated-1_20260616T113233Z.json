@@ -1,0 +1,311 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Valley View Cardiology Group",
+        "pg_no": 1,
+        "reftxtbefore": "",
+        "reftxtafter": "\nClinical Progress No"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "presents to the clinic today for an urgent evaluation",
+        "pg_no": 1,
+        "reftxtbefore": "pe 2 Diabetes who ",
+        "reftxtafter": ". He reports a 4-da"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "Mr. Pendelton is an established male",
+        "pg_no": 1,
+        "reftxtbefore": "PRESENT ILLNESS:\n",
+        "reftxtafter": " with a history of "
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 55,
+    "evidences": [
+      {
+        "text": "Total time spent on the date of this encounter was 55 minutes",
+        "pg_no": 1,
+        "reftxtbefore": "All questions answere",
+        "reftxtafter": ". This included 15 m"
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": null,
+    "age_unit": null,
+    "evidences": []
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute on chronic systolic heart failure",
+        "disease_evidence": [
+          {
+            "text": "Acute on chronic systolic heart failure (decompensated) - Severe exacerbation with resting hypoxia and volume overload, posing an immediate threat of respiratory failure",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT:\n1. ",
+            "reftxtafter": ".\n2. Acute kidney i"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Point-of-care Basic Metabolic Panel (BMP) obtained in clinic today",
+              "pg_no": 1,
+              "reftxtbefore": "DIAGNOSTIC DATA REVI",
+              "reftxtafter": ":\n- Sodium: 132 mEq"
+            },
+            {
+              "text": "Point-of-care BNP: 2,850 pg/mL",
+              "pg_no": 1,
+              "reftxtbefore": "GFR: 18 mL/min/1.73m",
+              "reftxtafter": " (baseline approxima"
+            },
+            {
+              "text": "In-office EKG: Sinus tachycardia at 102 bpm, left bundle branch block (unchanged from prior)",
+              "pg_no": 1,
+              "reftxtbefore": "ately 900 pg/mL)\n",
+              "reftxtafter": ".\n\nASSESSMENT:\n1. A"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "Point-of-care Basic Metabolic Panel (BMP) obtained in clinic today",
+              "pg_no": 1,
+              "reftxtbefore": "DIAGNOSTIC DATA REVI",
+              "reftxtafter": ":\n- Sodium: 132 mEq"
+            },
+            {
+              "text": "Point-of-care BNP",
+              "pg_no": 1,
+              "reftxtbefore": "GFR: 18 mL/min/1.73m",
+              "reftxtafter": ": 2,850 pg/mL (base"
+            },
+            {
+              "text": "In-office EKG",
+              "pg_no": 1,
+              "reftxtbefore": "ately 900 pg/mL)\n",
+              "reftxtafter": ": Sinus tachycardia "
+            }
+          ],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "Discussed the diagnosis, risks of worsening renal function with aggressive diuresis, and the necessity of inpatient monitoring with the patient and his daughter",
+              "pg_no": 1,
+              "reftxtbefore": "ort.\n4. Counseling: ",
+              "reftxtafter": ". All questions answ"
+            }
+          ],
+          "independent_interpretation_of_test": [
+            {
+              "text": "In-office EKG: Sinus tachycardia at 102 bpm, left bundle branch block (unchanged from prior)",
+              "pg_no": 1,
+              "reftxtbefore": "ately 900 pg/mL)\n",
+              "reftxtafter": ".\n\nASSESSMENT:\n1. A"
+            }
+          ],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Contacted the cardiology attending on call, Dr. Marcus Vance, and provided a comprehensive handoff",
+              "pg_no": 1,
+              "reftxtbefore": " Valley View Medical",
+              "reftxtafter": ". Bed assignment se"
+            },
+            {
+              "text": "Discussed the diagnosis, risks of worsening renal function with aggressive diuresis, and the necessity of inpatient monitoring with the patient and his daughter",
+              "pg_no": 1,
+              "reftxtbefore": "ort.\n4. Counseling: ",
+              "reftxtafter": ". All questions answ"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "posing an immediate threat of respiratory failure",
+              "pg_no": 1,
+              "reftxtbefore": "d volume overload, ",
+              "reftxtafter": ".\n2. Acute kidney i"
+            },
+            {
+              "text": "high risk for acute respiratory failure and cardiovascular collapse",
+              "pg_no": 1,
+              "reftxtbefore": "nal syndrome), he is",
+              "reftxtafter": ". Outpatient manage"
+            },
+            {
+              "text": "Direct Admission: Arranged for direct admission to the inpatient cardiology service at Valley View Medical Center",
+              "pg_no": 1,
+              "reftxtbefore": " is unsafe.\n1. ",
+              "reftxtafter": ". Contacted the car"
+            },
+            {
+              "text": "Administered Furosemide 80mg IV push in the clinic",
+              "pg_no": 1,
+              "reftxtbefore": "Intervention: ",
+              "reftxtafter": " to initiate diuresi"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [
+      {
+        "norm_disease_name": "Acute kidney injury on Stage IV Chronic Kidney Disease",
+        "disease_evidence": [
+          {
+            "text": "Acute kidney injury on Stage IV Chronic Kidney Disease - Likely cardiorenal syndrome type 1, secondary to severe venous congestion and hypoperfusion",
+            "pg_no": 1,
+            "reftxtbefore": "tory failure.\n2. ",
+            "reftxtafter": ".\n3. Hypertensive u"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Creatinine: 2.95 mg/dL (significantly elevated from baseline of 2.1)",
+              "pg_no": 1,
+              "reftxtbefore": "BUN: 58 mg/dL\n- ",
+              "reftxtafter": "\n- GFR: 18 mL/min/1"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "Point-of-care Basic Metabolic Panel (BMP)",
+              "pg_no": 1,
+              "reftxtbefore": "DIAGNOSTIC DATA REVI",
+              "reftxtafter": " obtained in clinic"
+            }
+          ],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "Discussed the diagnosis, risks of worsening renal function with aggressive diuresis, and the necessity of inpatient monitoring with the patient and his daughter",
+              "pg_no": 1,
+              "reftxtbefore": "ort.\n4. Counseling: ",
+              "reftxtafter": ". All questions answ"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Contacted the cardiology attending on call, Dr. Marcus Vance, and provided a comprehensive handoff",
+              "pg_no": 1,
+              "reftxtbefore": " Valley View Medical",
+              "reftxtafter": ". Bed assignment se"
+            },
+            {
+              "text": "Discussed the diagnosis, risks of worsening renal function with aggressive diuresis",
+              "pg_no": 1,
+              "reftxtbefore": "ort.\n4. Counseling: ",
+              "reftxtafter": ", and the necessity "
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "worsening renal function (cardiorenal syndrome), he is at high risk",
+              "pg_no": 1,
+              "reftxtbefore": "e patient's decompen",
+              "reftxtafter": " for acute respirato"
+            },
+            {
+              "text": "Direct Admission: Arranged for direct admission to the inpatient cardiology service",
+              "pg_no": 1,
+              "reftxtbefore": " is unsafe.\n1. ",
+              "reftxtafter": " at Valley View Medi"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Hypertensive urgency",
+        "disease_evidence": [
+          {
+            "text": "Hypertensive urgency - Secondary to acute hypervolemia and sympathetic activation",
+            "pg_no": 1,
+            "reftxtbefore": "nd hypoperfusion.\n3.",
+            "reftxtafter": ".\n\nPLAN:\nDue to the"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "Discussed the diagnosis...with the patient and his daughter",
+              "pg_no": 1,
+              "reftxtbefore": "ort.\n4. Counseling: ",
+              "reftxtafter": ". All questions answ"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Contacted the cardiology attending on call, Dr. Marcus Vance, and provided a comprehensive handoff",
+              "pg_no": 1,
+              "reftxtbefore": " Valley View Medical",
+              "reftxtafter": ". Bed assignment se"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Direct Admission: Arranged for direct admission to the inpatient cardiology service",
+              "pg_no": 1,
+              "reftxtbefore": " is unsafe.\n1. ",
+              "reftxtafter": " at Valley View Medi"
+            },
+            {
+              "text": "Administered Furosemide 80mg IV push in the clinic",
+              "pg_no": 1,
+              "reftxtbefore": "Intervention: ",
+              "reftxtafter": " to initiate diuresi"
+            }
+          ]
+        }
+      }
+    ],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

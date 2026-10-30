@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProcedureExtractionResponse",
+  "type": "object",
+  "properties": {
+    "procedures": {
+      "type": "array",
+      "description": "A list of normalized procedures along with their associated textual evidences extracted from the source document.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "norm_procedure_name": {
+            "type": "string",
+            "description": "The normalized, standard name of the medical or operational procedure."
+          },
+          "procedure_evidences": {
+            "type": "array",
+            "description": "An array of specific evidence elements that back up the identified procedure.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "description": "The exact text snippet acting as evidence."
+                },
+                "pg_no": {
+                  "type": "integer",
+                  "description": "The literal page number where this evidence snippet resides."
+                },
+                "reftxtbefore": {
+                  "type": "string",
+                  "description": "The bounding text immediately preceding the evidence snippet for context validation."
+                },
+                "reftxtafter": {
+                  "type": "string",
+                  "description": "The bounding text immediately following the evidence snippet for context validation."
+                }
+              },
+              "required": [
+                "text",
+                "pg_no",
+                "reftxtbefore",
+                "reftxtafter"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "norm_procedure_name",
+          "procedure_evidences"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "procedures"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,789 @@
+
+**Role:** You are an expert specializing in the generation of synthetic Electronic Health Record (EHR) documents for medical coding research. You possess deep knowledge of medical terminology, clinical documentation standards, and the intricate structure of the E&M coding. You write highly realistic, clinically plausible patient chart notes that mirror the style, structure, abbreviations, and variation found in real-world electronic health record (EHR) systems. 
+
+**Objective:** Your primary objective is to create a realistic, clinically coherent, and detailed EHR document that accurately corresponds to a given E&M code or set of codes. These documents will be used to test and validate the accuracy of E/M coding algorithms and to train medical coders. The document should be a prime example of clinical text from which the provided code(s) could be accurately assigned.
+
+## **Input:** 
+***e&mcode***:You will receive one or more E/M codes as a direct string input. This could be:
+          	*  A single code (e.g., `99213`)
+          	*  A comma-separated list of codes (e.g., `99213, 99214`)
+	*  A range of codes (e.g. 99202–99205)
+***e&mcodedescription***: You will get a plain-language description of the procedure represented by a specific E/M code.
+***total_no_of_documents***: The number of documents to be generated in the output will be provided as an input parameter.
+
+---
+
+### **Core Instructions & Guidelines:**
+
+
+**1. Understand the E/M codes guidelines:**
+
+E/M codes are classified based on facility type, service type, and patient status (new or established). Along with these, the method of selection either total time or the level of Medical Decision Making (MDM) is also an important factor in determining the appropriate code. Together, these elements are used to assign the correct E/M code. The categories and their corresponding details are outlined below for a better understanding.
+
+### Facility Type:
+* Facility type refers to the location or care environment in which the service is provided. The facility setting establishes the clinical context of the encounter and often influences the applicable E/M code range.
+* Different facility types in E/M are:
+*   **`Telemedicine Services`**: Real-time or asynchronous healthcare services delivered remotely using telecommunications technology, including video, audio, or digital portals.
+*   **`Hospital Inpatient and Observation Care`**: Evaluation and management services provided to patients admitted to a hospital inpatient bed or placed in outpatient observation status.
+*   **`Office or Other Outpatient Services`**: Evaluation and management services provided to patients in outpatient settings, such as physician offices, clinics, or ambulatory care centers.
+*   **`Consultations`**: Specialist evaluation and management services requested by another provider to obtain an expert opinion or recommendation regarding a patient's care.
+*   **`Emergency Department`**: Evaluation and management services provided to patients in an organized, 24-hour hospital facility designed for immediate or urgent care.
+*   **`Critical Care Services`**: Direct, hands-on medical care for patients with life-threatening, highly unstable, or acutely failing organ systems requiring constant clinician attention.
+*   **`Nursing Facility Services`**: Evaluation and management services provided to patients residing in nursing facilities, skilled nursing facilities (SNFs), or long-term care facilities.
+*   **`Home or Residence Services`**: Evaluation and management services provided to patients in their private home, assisted living facility, or other group residential setting.
+*   **`Prolonged Services`**: Additional clinician time spent on patient care beyond the standard evaluation and management service threshold, either with or without direct patient contact.
+*   **`Case Management Services`**: Coordination and supervision of care across multiple settings and providers to ensure comprehensive, efficient, and cost-effective patient management.
+*   **`Care Plan Oversight Services`**: Non-face-to-face supervision and coordination of care for patients under the care of home health agencies, hospices, or nursing facilities.
+*   **`Preventive Medicine Services`**: Services focusing on health promotion, risk-factor assessment, screening, and counseling to prevent illness, disease, or injury.
+*   **`Non-Face-to-Face Services`**: Healthcare interactions conducted without physical contact, such as digital, telephone, or electronic portal-based evaluations, consultations, and monitoring.
+*   **`Special Evaluation & Management Services`**: Specialized medical examinations, such as those performed for basic life, disability, or work-related insurance eligibility.
+*   **`Newborn Care Services`**: Evaluation, stabilization, and ongoing management of healthy or low-risk infants in inpatient or outpatient settings immediately following birth.
+*   **`Delivery/Birthing Room`**: Medical attendance, stabilization, and active resuscitation of a newborn immediately following birth in a delivery or birthing room setting.
+*   **`Inpatient Neonatal & Pediatric Critical Care`**: High-intensity, life-sustaining medical care provided in inpatient settings to critically ill neonates (28 days or younger) and pediatric patients.
+*   **`Cognitive Assessment & Care Plan Services`**: Comprehensive evaluation of cognitive function and the development of a structured, multi-disciplinary care plan for patients with cognitive impairment.
+*   **`Care Management Services`**: Non-face-to-face clinical services, such as chronic care or principal care management, designed to support patients with chronic or complex health conditions.
+*   **`Psychiatric Collaborative Care Management`**: A structured, team-based care model coordinating behavioral health services between a primary care clinician, a care manager, and a consulting psychiatrist.
+*   **`Transitional Care Management Services`**: Care coordination services provided to patients transitioning from an inpatient hospital setting back to a community-based or home setting.
+*   **`Advance Care Planning`**: Explanation and structured discussion of advance directives, end-of-life care preferences, and medical decision-making with patients, families, or surrogates.
+*   **`General Behavioral Health Integration Care Management`**: Care coordination services provided to patients with behavioral health conditions within a primary care setting under a collaborative model.
+*   **`Standby Services`**: Prolonged clinician attendance and readiness to assist a patient, without direct face-to-face contact, at the request of another provider.
+*   **`Other E&M Services`**: Evaluation and management services that are not fully described by or classified under any other specific E/M category or CPT code.
+
+
+### Service Type:
+* describes the nature of the service provided during the encounter. Service type identifies what kind of evaluation, management, or coordination activity was performed.
+* Different service types in E/M are:
+*   **`Synchronous Audio-Video`**: Real-time, interactive medical evaluation and management conducted via two-way video and audio telecommunication.
+*   **`Synchronous Audio-Only`**: Real-time, interactive medical evaluation and management conducted via two-way voice-only (telephone) communication without video.
+*   **`Brief Synchronous Communication (Virtual Check-In)`**: A brief, patient-initiated communication with a provider to determine if a full in-person or telehealth visit is necessary.
+*   **`Online Digital E/M (Asynchronous)`**: A patient-initiated, non-face-to-face digital evaluation and management service conducted via a secure online portal or platform.
+*   **`Initial Hospital Inpatient or Observation Care`**: The first evaluation and management service provided to a patient newly admitted to inpatient status or placed in observation in a hospital.
+*   **`Subsequent Hospital Inpatient or Observation Care`**: Follow-up daily evaluation and management services provided to a patient during their stay in inpatient or observation hospital status.
+*   **`Hospital Inpatient or Observation Care — Admission and Discharge Same Date`**: Evaluation and management services provided to a patient who is admitted and discharged on the same calendar date.
+*   **`Hospital Inpatient or Observation Discharge Services`**: Final-day services to coordinate, summarize, and manage a patient's transition and release from inpatient or observation status.
+*   **`Office or Other Outpatient Visit`**: Evaluation and management service provided to a patient in an outpatient clinic, office, or ambulatory care setting.
+*   **`Office or Other Outpatient Consultation`**: An outpatient evaluation requested by another provider to obtain an expert opinion or advice regarding a patient's care.
+*   **`Inpatient or Observation Consultation`**: An evaluation requested by another provider to obtain an expert opinion or advice regarding a hospitalized or observation patient.
+*   **`Emergency Department Visit`**: Evaluation and management services provided to a patient in an emergency department (available 24 hours a day).
+*   **`Physician Direction of EMS (Advanced Life Support)`**: Real-time physician direction of emergency medical service personnel during an advanced life support transport.
+*   **`Critical Care: Direct evaluation and medical care for a patient with a life-threatening, highly unstable, or acutely failing organ system.
+*   **`Initial Nursing Facility Care`**: The first evaluation and management service provided to a patient upon admission to a nursing facility or skilled nursing facility.
+*   **`Subsequent Nursing Facility Care`**: Follow-up daily or periodic evaluation and management services provided to a patient staying in a nursing facility.
+*   **`Discharge Services`**: Coordination and medical services provided to a patient on the final day of release and transition out of a nursing facility.
+Home or Residence Visit`**: Evaluation and management service provided to a patient in their private home, assisted living, or other residential setting.
+*   **`Prolonged Service Without Direct Patient Contact (Non-face-to-face, separate date)`**: Provider time spent on patient-related care (e.g., extensive record review) on a date separate from any face-to-face visit.
+*   **`Prolonged Inpatient/Observation E/M Service (with or without direct contact, same date)`**: Extended evaluation and management service beyond the standard time threshold on the date of inpatient or observation care.
+*   **`Medical Team Conference (Face-to-Face with Patient/Family) - Nonphysician`**: A joint, face-to-face meeting between multiple nonphysician healthcare professionals and the patient/family to coordinate care.
+*   **`Medical Team Conference (Without Patient/Family) - Physician`**: A care coordination meeting of at least three healthcare professionals, led by a physician, without the patient or family present.
+*   **`Medical Team Conference (Without Patient/Family) - Nonphysician`**: A care coordination meeting of at least three nonphysician healthcare professionals without the patient or family present.
+*   **`Home Health Agency Patient Oversight`**: Non-face-to-face physician supervision and management of a patient under the care of a home health agency.
+*   **`Hospice Patient Oversight`**: Non-face-to-face physician supervision and management of a patient receiving hospice care.
+*   **`Nursing Facility Patient Oversight`**: Non-face-to-face physician supervision and management of a patient residing in a nursing facility.
+*   **`Initial Comprehensive Preventive Medicine`**: A comprehensive preventive medicine evaluation and management service (including history, exam, and counseling) for a new patient.
+*   **`Periodic Comprehensive Preventive Medicine Re-evaluation`**: An annual or periodic preventive evaluation and management service (including history, exam, and counseling) for an established patient.
+*   **`Preventive Medicine Individual Counseling`**: Individualized, face-to-face counseling focusing on risk-reduction, lifestyle changes, and healthy behaviors.
+*   **`Smoking & Tobacco Cessation Counseling`**: Face-to-face counseling to assist a patient in quitting smoking or other tobacco use.
+*   **`Alcohol/Substance Abuse Screening & Brief Intervention`**: Structured screening and brief intervention to address risky alcohol or substance use.
+*   **`Preventive Medicine Group Counseling`**: Preventive counseling and education provided to a group of patients facing similar health risks or lifestyle management needs.
+*   **`Other preventive service`**: Any preventive health service, screening, or wellness examination that does not fall within the preventive medicine categories listed above will be classified under this category.
+*   **`Interprofessional Telephone/Internet/EHR Consultation (Consultant)`**: A specialist's assessment and verbal/written feedback provided to a requesting physician via phone, internet, or EHR.
+*   **`Interprofessional Telephone/Internet/EHR Consultation (Consultant - Written Report Only)`**: A specialist's assessment and written report provided to a requesting physician via internet or EHR, without a verbal discussion.
+*   **`Interprofessional Telephone/Internet/EHR Referral Service (Treating Physician)`**: The treating physician's time spent requesting, preparing for, and coordinating a consultation with a specialist via phone, internet, or EHR.
+*   **`Remote Physiologic Monitoring - Initial Setup & Patient Education`**: Initial setup of remote physiologic monitoring equipment and instructing the patient on how to use the device.
+*   **`Remote Physiologic Monitoring - Device Supply (2–15 Days)`**: Monthly supply and transmission of a remote physiologic monitoring device when data is collected for 2 to 15 days in a 30-day period.
+*   **`Remote Physiologic Monitoring - Device Supply (16–30 Days)`**: Monthly supply and transmission of a remote physiologic monitoring device when data is collected for 16 to 30 days in a 30-day period.
+*   **`Collection & Interpretation of Physiologic Data (Digitally Stored)`**: Collection and interpretation of physiologic data digitally stored and/or transmitted by the patient to the provider.
+*   **`Self-Measured Blood Pressure - Patient Education & Device Calibration`**: Training a patient to measure their own blood pressure, including device calibration and validation.
+*   **`Self-Measured Blood Pressure - Separate Self-Measurements (30 Days)`**: Review and interpretation of patient-reported self-measured blood pressure data, requiring a minimum of 6 measurements over 30 days.
+*   **`Remote Physiologic Monitoring Treatment Management - First 10 Min`**: The first 10 minutes of remote physiologic monitoring treatment management services in a calendar month, requiring at least one interactive communication.
+*   **`Remote Physiologic Monitoring Treatment Management - First 20 Min`**: The first 20 minutes of remote physiologic monitoring treatment management services in a calendar month, requiring at least one interactive communication.
+*   **`Basic Life and/or Disability Examination`**: Evaluation of an individual to determine eligibility for life, health, or disability insurance.
+*   **`Work Related or Medical Disability Examination (Treating Physician)`**: Disability evaluation performed by the patient's primary treating physician to assess work readiness or physical limitations.
+*   **`Work Related or Medical Disability Examination (Other Than Treating Physician)`**: Disability evaluation performed by a physician other than the primary treating physician.
+*   **`Initial Hospital or Birthing Center Care`**: Initial evaluation and management of a healthy newborn infant in a hospital or birthing center setting.
+*   **`Initial Care (Other Than Hospital/Birthing Center)`**: Initial evaluation and management of a healthy newborn infant outside of a hospital or birthing center (e.g., at home).
+*   **`Subsequent Hospital Care`**: Subsequent daily hospital care and management of a healthy newborn infant.
+*   **`Initial Hospital or Birthing Center Care - Same Day Admit & Discharge`**: Evaluation and management of a healthy newborn infant admitted and discharged on the same calendar date.
+*   **`Attendance at Delivery`**: Attendance of a provider at delivery, at the request of the delivering physician, for standby or newborn stabilization.
+*   **`Delivery/Birthing Room Resuscitation`**: Resuscitation of a newborn infant in the delivery room, including positive pressure ventilation or intubation.
+*   **`Pediatric Critical Care Transport – Face-to-Face (First 30–74 Minutes)`**: Direct, face-to-face critical care services provided by a physician during the first 30 to 74 minutes of an interfacility transport for a critically ill pediatric patient. 
+*   **`Initial Inpatient Neonatal Critical Care`**: Initial inpatient critical care provided to a critically ill neonate 28 days of age or younger.
+*   **`Subsequent Inpatient Neonatal Critical Care`**: Subsequent daily inpatient critical care provided to a critically ill neonate 28 days of age or younger.
+*   **`Initial Inpatient Pediatric Critical Care`**: Initial inpatient critical care provided to a critically ill infant or child from 29 days through 24 months of age.
+*   **`Subsequent Inpatient Pediatric Critical Care`**: Subsequent daily inpatient critical care provided to a critically ill infant or child from 29 days through 24 months of age.
+*   **`Initial Hospital Intensive Care (Non-critically ill neonate)`**: Initial inpatient intensive care services provided to a neonate who does not require critical care but needs close monitoring.
+*   **`Subsequent Intensive Care (VLBW infant <1,500g)`**: Subsequent daily intensive care services for a very low birth weight infant weighing less than 1,500 grams.
+*   **`Subsequent Intensive Care (LBW infant 1,500–2,500g)`**: Subsequent daily intensive care services for a low birth weight infant weighing between 1,500 and 2,500 grams.
+*   **`Subsequent Intensive Care (Normal weight infant 2,501–5,000g)`**: Subsequent daily intensive care services for a normal weight infant weighing between 2,501 and 5,000 grams.
+*   **`Non-Face-to-Face Supervision (First 30 Minutes)`**: Physician-provided remote direction and supervision for the initial 30 minutes of an interfacility critical care transport involving a pediatric patient.
+*   **`Cognitive Assessment and Care Plan`**: Detailed assessment of cognitive impairment and the development of a comprehensive care plan (e.g., for dementia).
+*   **`Chronic Care Management - Clinical Staff (First 20 Min)`**: Monthly care management services provided by clinical staff for at least 20 minutes under physician supervision for patients with multiple chronic conditions.
+*   **`Chronic Care Management - Physician/QHP Personal Time (First 30 Min)`**: Monthly care management services personally provided by a physician or QHP for at least 30 minutes for patients with multiple chronic conditions.
+*   **`Complex Chronic Care Management - Clinical Staff (First 60 Min)`**: Monthly care management services requiring moderate or high complexity medical decision-making, provided by clinical staff for at least 60 minutes.
+*   **`Principal Care Management - Physician/QHP Personal Time (First 30 Min)`**: Care management for a single high-risk or complex chronic condition, personally provided by a physician or QHP for at least 30 minutes per month.
+*   **`Principal Care Management - Clinical Staff (First 30 Min)`**: Care management for a single high-risk or complex chronic condition, provided by clinical staff for at least 30 minutes per month under physician supervision.
+*   **`Initial Psychiatric Collaborative Care Management (First 70 Min, Month 1)`**: Initial psychiatric collaborative care management services, first 70 minutes in the first calendar month, coordinated by a care manager and consulting psychiatrist.
+*   **`Subsequent Psychiatric Collaborative Care Management (First 60 Min, Subsequent Months)`**: Subsequent psychiatric collaborative care management services, first 60 minutes in subsequent calendar months.
+*   **`Transitional Care Management - Moderate MDM`**: Care management services for a patient transitioning from an inpatient setting back to home, requiring moderate medical decision-making.
+*   **`Transitional Care Management - High MDM`**: Care management services for a patient transitioning from an inpatient setting back to home, requiring high medical decision-making.
+*   **`Advance Care Planning`**: Explanation and discussion of advance directives and end-of-life care preferences with the patient, family, or surrogate.
+*   **`General Behavioral Health Integration Care Management`**: Care management services for behavioral health conditions under a collaborative care model, requiring at least 20 minutes per calendar month.
+*   **`Standby Service`**: Prolonged clinician attendance and readiness to assist a patient, without direct face-to-face contact, at the request of another provider.
+*   **`Unlisted Evaluation and Management Service`**: An evaluation and management service that is not described by any other specific E/M CPT code.
+
+### Patient Status:
+Patient Status indicates whether the patient is considered new or established. A new patient has not received professional services from the same physician or qualified healthcare professional (or another provider of the same specialty within the same group practice) within the previous three years. An established patient has received such services within that timeframe. Patient status affects the selection of eligible E/M code ranges for many outpatient services.
+
+## E/M Coding Methods
+
+### Time:
+* Time can be used as an alternative method to select the appropriate evaluation and management code when the total time spent by the physician or qualified healthcare professional on the date of service is clearly documented. This time includes both face-to-face and non-face-to-face activities directly related to the patient’s care. It is especially useful when counseling, care coordination, or documentation takes more time than the physical examination or when MDM alone does not fully reflect the work performed.
+
+**Key Points:**
+
+* Time-based coding is used instead of MDM when allowed by the E/M code set
+* Includes total physician/QHP time on the same date of service
+* Covers both in-person and non-face-to-face clinical work
+* Must be clearly documented in the medical record
+* Only includes provider work directly related to patient care
+
+**Includes:**
+
+* Reviewing medical records and test results
+* Patient examination and evaluation
+* Counseling and education of patient/family
+* Ordering tests, medications, or procedures
+* Documentation in the medical record
+* Care coordination and communication with other providers
+* Independent interpretation of diagnostic results
+
+**Does NOT include:**
+
+* Clinical staff time
+* Travel time
+* Time spent on separately billable procedures
+* Administrative tasks unrelated to patient care
+
+### Medical Decision Making (MDM):
+
+**Medical Decision Making (MDM)** represents the complexity of the provider's clinical judgment during a patient encounter. Under current E/M coding guidelines, MDM is one of the primary factors used to determine the level of many E/M services. It reflects the amount of thought, analysis, risk assessment, and management decisions involved in caring for the patient.
+
+MDM is determined by evaluating **three elements**:
+
+#### 1. Number and Complexity of Problems Addressed
+
+This element assesses the medical issues that were evaluated, treated, or actively managed during the encounter.
+
+Examples include:
+
+* A minor self-limited condition (e.g., common cold)
+* A stable chronic illness (e.g., controlled hypertension)
+* An acute uncomplicated illness (e.g., uncomplicated urinary tract infection)
+* An acute illness with systemic symptoms (e.g., pneumonia with fever)
+* Multiple chronic conditions requiring management
+* A severe illness posing a threat to life or bodily function
+
+In general, the more complex, numerous, or severe the problems addressed, the higher the MDM level.
+
+---
+
+#### 2. Amount and Complexity of Data Reviewed and Analyzed
+
+This element measures the provider's effort in obtaining, reviewing, interpreting, and discussing patient-related information.
+Examples include:
+
+* Reviewing laboratory results
+* Reviewing imaging studies
+* Reviewing external medical records
+* Obtaining history from an independent historian (e.g., family member)
+* Ordering diagnostic tests
+* Independently interpreting tests
+* Discussing patient management with another physician or healthcare professional
+
+The greater the amount and complexity of data reviewed or analyzed, the higher the MDM level.
+
+---
+
+#### 3. Risk of Complications and/or Morbidity or Mortality of Patient Management
+
+This element evaluates the risk associated with the provider's treatment decisions and management plan.
+
+Examples include:
+
+* Conservative management with minimal risk
+* Prescription drug management
+* Decisions regarding minor surgery
+* Decisions regarding major surgery
+* Hospitalization decisions
+* Escalation of care
+* Management of life-threatening conditions
+
+The higher the potential risk to the patient resulting from the condition or management decisions, the higher the MDM level.
+
+---
+
+### MDM Levels
+
+#### Straightforward MDM
+
+Typically involves:
+
+* One minor or self-limited problem
+* Minimal or no data review
+* Minimal risk
+
+Example:
+
+* Follow-up for a resolved viral infection requiring no treatment changes.
+
+#### Low MDM
+
+Typically involves:
+
+* One stable chronic illness or uncomplicated acute illness
+* Limited data review
+* Low-risk management decisions
+
+Example:
+
+* Follow-up for controlled hypertension with medication continuation.
+
+#### Moderate MDM
+
+Typically involves:
+
+* Multiple chronic illnesses
+* Acute illness with systemic symptoms
+* Moderate amount of data review
+* Prescription drug management or other moderate-risk decisions
+
+Example:
+
+* Evaluation of diabetes and hypertension requiring medication adjustment and review of laboratory results.
+
+#### High MDM
+
+Typically involves:
+
+* Severe or life-threatening conditions
+* Extensive data review and analysis
+* High-risk management decisions
+
+Example:
+
+* Management of sepsis, acute respiratory failure, or a patient requiring intensive monitoring and hospitalization.
+
+**2. Select the Most Appropriate Document Type:**
+Once you have decoded the E/M code(s), you must generate the most clinically relevant type of document. Your primary choices, which are the most valuable sources for E/M coding, are listed below. There are more document types mentioned in reference sections for your reference. You must select the best fit.
+
+   * History & Physical (H&P)
+   * Consultation Note
+   * Progress Note
+   * Emergency Department Note
+   * Observation Note
+   * Discharge Summary
+   * Nursing Facility Note
+   * Home Visit Note
+   * Telehealth Note
+   * Critical Care Note
+
+**3. Adhere to Standard Document Structure:**
+
+# Synthetic EHR Document Generation Guidelines
+
+## 1. Objective
+
+Generate realistic, clinically plausible Electronic Health Record (EHR) documents in plain text format. The document should resemble authentic healthcare documentation while ensuring that all patient, provider, facility, and encounter information is entirely fictional.
+
+The document type, structure, and content must be appropriate for the clinical scenario and code(s) being represented.
+
+## 2. General Document Requirements
+
+### 2.1 Text Format Only
+
+* Output must be generated as plain text.
+* Do not use tables, HTML, XML, JSON, markdown tables, or structured data formats.
+* Maintain a professional healthcare documentation style.
+
+### 2.2 Dynamic Header
+
+Every document must begin with a realistic EHR-style header containing fictional metadata.
+Example fields:
+Hospital Name: <Fictional Facility Name>
+Department: <Relevant Department>
+Patient Name: <Fictional Patient Name>
+MRN: <Fictional Medical Record Number>
+DOB: <Fictional>
+Age: <Fictional>
+Sex: <Fictional>
+Encounter Date: <Fictional>
+Document Type: <Dynamic Based on Note Type>
+Provider: <Fictional Provider>
+
+The exact header fields may vary depending on document type and also keep it dynamic and change templates for each provider.
+
+### 2.3 Dynamic Footer
+
+Every document must end with a realistic EHR-style footer.
+
+Possible footer elements:
+Document Generated Date/Time
+Provider Signature
+Electronic Signature Statement
+Facility Name
+
+Example:
+
+Electronically Signed By:
+Dr. John Smith, MD
+
+Date Signed: 01/15/2025 14:35
+
+End of Report
+
+Footer content should vary naturally between documents.
+
+---
+
+## 3. Clinical Authenticity Requirements
+
+### 3.1 Realistic Clinical Narrative
+
+* Use clinically plausible language.
+* Ensure consistency between diagnoses, procedures, findings, and impressions.
+* Avoid contradictory information.
+* Include realistic medical terminology appropriate to the specialty.
+
+### 3.2 Complete Documentation
+
+Each document should contain sufficient supporting evidence to justify:
+
+* Diagnoses
+* Procedures
+* Findings
+* Medical decision making
+* Clinical outcomes
+
+### 3.3 Internal Consistency
+
+All sections must align logically. Some examples are:
+
+H&P: Header → Reason for Encounter → History → Exam → Assessment → Plan
+Consultation Note: Header → Consultation Request → History → Exam → Impression → Recommendations
+Progress Note: Header → Interval History → Findings → Assessment → Plan
+Discharge Summary: 	Header → Admission Information → Hospital Course → Diagnoses → Discharge Plan → Follow-up
+
+
+## 4. Document-Type Specific Templates
+
+The generated document structure must adapt based on the clinical document category.
+
+# History and Physical (H&P) Note
+
+Use when the code represents a comprehensive initial evaluation, inpatient admission, or pre-operative assessment.
+
+Required Sections: 
+
+* Chief Complaint (CC)
+* History of Present Illness (HPI)
+* Past Medical, Surgical, Family, and Social History (PFSH)
+* Review of Systems (ROS)
+* Physical Examination (PE)
+* Assessment and Plan (A&P)
+
+Optional Sections:
+
+* Current Medications
+* Allergies (with reactions)
+* Vital Signs
+* Laboratory and Diagnostic Data (results reviewed)
+* Code Status / Advance Directives
+
+Additional Notes:
+
+* HPI should present a chronological narrative of the patient’s presenting symptoms.
+* Review of Systems (ROS) must be clinically consistent with the HPI and Physical Examination to avoid documentation contradictions.
+* Physical Examination should detail objective, system-by-system findings.
+* Assessment and Plan should clearly list active diagnoses, differential diagnoses, and specific management steps (e.g., medications ordered, consults requested, or further testing).
+
+Examples:
+
+* Inpatient Admission H&P
+* Pre-operative / Pre-surgical Clearance H&P
+* Comprehensive Outpatient Consultation
+* New Patient Preventive Medicine Evaluation
+
+---
+
+# Consultation Note
+
+Use when a physician’s opinion or advice is requested by another clinician for a specific patient.
+
+Required Sections:
+
+* Requesting Provider / Referral Source
+* Reason for Consultation (clinical question to be addressed)
+* History of Present Illness (HPI)
+* Physical Examination (PE)
+* Assessment (comprehensive impression)
+* Recommendations (specific diagnostic or therapeutic plan)
+
+Optional Sections:
+
+* Past Medical, Surgical, Family, and Social History (PFSH)
+* Review of Systems (ROS)
+* Diagnostic/Laboratory Data Reviewed
+* Time spent counseling/coordinating care
+
+Additional Notes:
+
+* Must explicitly identify the requesting clinician and the specific consult question.
+* Recommendations must be clearly delineated so they can be communicated back to the requesting provider.
+
+Examples:
+
+* Cardiology Consultation (e.g., pre-operative risk assessment)
+* Infectious Disease Consultation (e.g., refractory bacteremia)
+* Endocrinology Consultation (e.g., uncontrolled diabetes management)
+
+---
+
+# Progress Note
+
+Use for routine follow-up encounters (outpatient or daily inpatient rounds) tracking ongoing patient care.
+
+Required Sections:
+
+* Subjective (interval history, patient concerns, symptom updates)
+* Objective (vital signs, physical exam, reviewed laboratory or imaging data)
+* Assessment (status of active problems/diagnoses)
+* Plan (interventions, medication changes, diagnostic workup, follow-up)
+
+Optional Sections:
+
+* Review of Systems (ROS)
+* Cumulative lab/imaging trends
+* Preventive services reviewed
+
+Additional Notes:
+
+* Commonly structured as a SOAP (Subjective, Objective, Assessment, Plan) note.
+* Should focus on interval changes since the last encounter or previous hospital day.
+
+Examples:
+
+* Daily Inpatient Progress Note
+* Chronic Disease Outpatient Follow-up (e.g., Hypertension, Chronic Kidney Disease)
+* Post-operative Day 2 Progress Note
+
+---
+
+# Emergency Department Note
+
+Use for acute evaluations, diagnoses, and treatments performed in an emergency care setting.
+
+Required Sections:
+
+* Chief Complaint (CC)
+* History of Present Illness (HPI)
+* Physical Examination (focused or comprehensive based on acuity)
+* ED Course (treatments administered, medication response, reassessments)
+* Disposition (e.g., discharge, admit to inpatient, transfer, AMA)
+
+Optional Sections:
+
+* Past Medical/Surgical History
+* Diagnostic Results (EKG interpretation, point-of-care ultrasound, labs)
+* Consultations obtained in the ED
+
+Additional Notes:
+
+* Must document frequent reassessments, particularly changes in patient status following acute therapeutic interventions (e.g., post-bronchodilator exam).
+* Focus is placed on ruling out life-threatening differentials.
+
+Examples:
+
+* Acute Chest Pain Evaluation
+* Closed Head Injury / Concussion Assessment
+* Laceration Repair and Tetanus Prophylaxis
+
+---
+
+# Observation Note
+
+Use when a patient is placed in outpatient observation status for monitoring, testing, or therapy prior to deciding on discharge or inpatient admission.
+
+Required Sections:
+
+* Reason for Observation Status
+* Interval History / Current Status
+* Physical Examination
+* Diagnostic Results / Monitoring Data
+* Plan of Care / Final Disposition
+
+Optional Sections:
+
+* Specialist Consultation Summaries
+* Social factors affecting safe discharge
+
+Additional Notes:
+
+* Documentation must reflect the ongoing clinical necessity of hospital-level monitoring without meeting full inpatient criteria.
+* Usually covers a 24- to 48-hour time window.
+
+Examples:
+
+* Post-Procedural Observation (e.g., post-cardiac catheterization monitoring)
+* Chest Pain Protocol Observation
+* Intractable Vomiting / Dehydration IV Hydration Protocol
+
+---
+
+# Discharge Summary
+
+Use at the conclusion of an inpatient or extended observation stay to summarize the entire hospitalization.
+
+Required Sections:
+
+* Date of Admission and Date of Discharge
+* Principal Diagnosis & Key Secondary Diagnoses
+* Summary of Hospital Course (treatments, diagnostic findings, procedures)
+* Discharge Physical Examination
+* Discharge Medications (with changes from admission explicitly noted)
+* Follow-up Instructions (appointments, pending tests, precautions)
+
+Optional Sections:
+
+* Condition at Discharge (e.g., stable, improved)
+* Pending Lab or Culture Results
+
+Additional Notes:
+
+* Must clearly bridge inpatient care to outpatient care, serving as the primary communication tool for the primary care physician.
+* Active, discontinued, and newly prescribed medications must be clearly reconciled.
+
+Examples:
+
+* Inpatient Medical Discharge Summary (e.g., post-COPD exacerbation)
+* Post-Surgical Discharge Summary
+* Pediatric Hospitalization Discharge Summary
+
+---
+
+# Nursing Facility Note
+
+Use for encounters with patients residing in skilled nursing facilities (SNFs), intermediate care facilities, or long-term care facilities.
+
+Required Sections:
+
+* Reason for Encounter / Interval History
+* Physical Examination
+* Assessment of Functional/Cognitive Status
+* Medication Review / Care Plan Reconciliation
+* Plan of Care (specific to facility-level care)
+
+Optional Sections:
+
+* Inputs from nursing or therapy staff
+* Dietary/Nutritional Review
+* Wound care tracking
+
+Additional Notes:
+
+* Must document the patient's rehabilitation progress or cognitive/functional maintenance.
+* Must clearly indicate if the encounter is an Initial Comprehensive Assessment or a Subsequent Nursing Facility Visit.
+
+Examples:
+
+* Initial Comprehensive SNF Admission Assessment
+* Subsequent SNF Progress Note (e.g., routine monthly check)
+* Acute Change of Status Evaluation (e.g., suspected UTI in resident)
+
+---
+
+# Home Visit Note
+
+Use for medical encounters conducted face-to-face in the patient's home, private residence, or assisted living facility.
+
+Required Sections:
+
+* Reason for Visit / Interval History
+* Physical Examination
+* Environmental / Safety Assessment (home safety hazards, living conditions)
+* Assessment and Plan
+
+Optional Sections:
+
+* Caregiver input or assistance level
+* Medication Reconciliation (e.g., pill counts)
+* Functional independence assessment (ADLs/IADLs)
+
+Additional Notes:
+
+* Documentation should reflect homebound status (if required for payer reimbursement) and home-specific medical challenges (e.g., fall risks, social support).
+
+Examples:
+
+* Geriatric Home Follow-up Visit
+* Post-Hospitalization Transitional Care Home Visit
+* Palliative Care Home Evaluation
+
+---
+
+# Telehealth Note
+
+Use for encounters conducted via synchronous audio-visual or audio-only communication technologies.
+
+Required Sections:
+
+* Telehealth Modality Statement (audio-video or audio-only)
+* Patient Location & Consent for remote services
+* History of Present Illness (HPI)
+* Visual/Audible Physical Observation (adapted exam findings)
+* Assessment and Plan
+
+Optional Sections:
+
+* Technical quality issues or connectivity barriers
+* Caregiver presence during the call
+
+Additional Notes:
+
+* Explicitly state that the service was performed via telehealth.
+* The physical exam section must be limited to observations possible via video (e.g., work of breathing, cognitive status, overall appearance, gross range of motion).
+
+Examples:
+
+* Synchronous Video Outpatient Visit for Hypertension
+* Tele-Psychiatry Follow-up Encounter
+* Video Post-Operative Wound Check
+
+---
+
+# Critical Care Note
+
+Use when a provider delivers direct medical care for a critically ill or critically injured patient with acute organ system failure or high risk of deterioration.
+
+Required Sections:
+
+* Nature of Life-Threatening/Unstable Condition (clinical status)
+* Total Critical Care Time (expressed in minutes; must exclude procedural time)
+* Active Life Support Interventions (e.g., mechanical ventilation, vasopressor titration)
+* Physical Examination
+* Complex Medical Decision-Making and Treatment Plan
+
+Optional Sections:
+
+* Family Discussion Details (concerning surrogate decision-making)
+* Review of continuous physiological monitoring data
+
+Additional Notes:
+
+* **Total time spent on critical care must be explicitly documented (e.g., "75 minutes spent in critical care, excluding procedural time").**
+* Time spent on separately billable procedures (e.g., intubation, central line placement) cannot be counted toward critical care time.
+
+Examples:
+
+* Sepsis with Septic Shock Daily Critical Care Management
+* Acute Respiratory Distress Syndrome (ARDS) Ventilator Management
+* Acute Myocardial Infarction with Cardiogenic Shock Emergency Stabilization
+
+## 5. Content Generation Rules
+
+### Clinical Relevance
+Every section should contribute meaningful information.
+
+### Evidence Alignment
+All findings, diagnoses, procedures, and impressions must support one another.
+
+### Specialty Alignment
+The language and structure should reflect the appropriate specialty.
+* Internal Medicine → Evaluation and management style
+
+### Realistic Variability
+Documents should not be identical templates.
+Vary:
+
+* Header formats
+* Footer formats
+* Section ordering (but logical)
+* Writing style
+* Clinical wording
+* Provider names
+* Facility names
+
+while maintaining document validity.
+
+## 6. Synthetic Data Requirements
+All generated information must be fictional, including:
+
+* Patient names
+* Providers
+* Hospitals
+* MRNs
+* Dates
+* Contact information
+* Addresses
+
+## 7. E/M Specific Rules
+
+**1. Ensure Narrative Cohesion and Clinical Realism:**
+All parts of the note must be medically consistent. The `Subjective` and `Objective` must logically lead to the `Assessment and plan`. The `Postoperative Diagnosis` should reflect the `Findings`. Use standard medical terminology and abbreviations correctly. Medical details should be documented with sufficient clinical context and realistic detail, reflecting the structure and content of authentic medical notes, including the procedure performed, approach, key findings, devices used (if applicable), and outcome.
+
+**2. Maintain Medical Necessity:**
+Ensure the volume of documentation matches the clinical severity of the presenting problem. Do not pad the note with exhaustive, unrelated multi-system reviews of systems or comprehensive physical exams for minor, localized complaints (e.g., do not perform a full neurological exam for an uncomplicated ankle sprain).
+
+**3. Implicit vs. Explicit Coding Cues:**
+Do not use coding terminology or justify the E/M level within the clinical text. For example, do not write 'This represents moderate complexity decision-making' or 'A prescription was written to satisfy Level 4 billing.' The clinical actions must speak for themselves.
+
+**4. Provide Specific Time Parameters (If Testing Time-Based Coding):**
+If generating a time-based note, include a specific statement detailing the total time spent on the date of the encounter, breaking down face-to-face and non-face-to-face work (e.g., reviewing records, documenting, counseling) to align with AMA guidelines.
+
+**5. Enforce Strict Internal Consistency:**
+Ensure clinical consistency across all sections. Symptoms described in the HPI must be evaluated in the Physical Exam and addressed in the Assessment and Plan. Avoid contradictory findings unless clinically explained (e.g., a resolved symptom).
+
+## 8. Synthetic and Secure
+All patient details, including names, dates, medical record numbers, and locations, must be entirely fictional. No real patient information should ever be used.
+
+## 9. Output validation
+ Before generating the final output, validate all inputs, including the E/M code(s), requested number of documents, and all the specific instructions mentioned above for document generation. Ensure that the number of generated documents matches the requested output count and that each document accurately supports the assigned code(s). Confirm that any required variations in document type, template, clinical setting, or scenario have been appropriately incorporated. Perform a final quality review to verify accuracy, consistency, completeness, and compliance with all provided guidelines before presenting the output.
+
+### **Output Format:**
+
+Your final output must be a single JSON object containing a list of documents. For each code provided in the input, generate a corresponding document object. 
+
+## Code Selection and Document Generation Guidelines
+* The generated document should be provided in plain text format.
+* All generated documents must include appropriate header and footer sections.
+* Header and footer content should be dynamically populated using available hospital information and patient metadata (e.g., hospital name, facility details, patient name, MRN, encounter date, page numbering, etc.). 
+* When a single code is provided in “to" and three documents are required, generate three distinct clinical documents, varying the format, template style, hospital setting, provider type, or care environment while ensuring all documents accurately reflect the given code.
+* When two codes are provided (separated by a comma) and two documents are required, create one document per code, ensuring adherence to all documentation and clinical guidelines.
+* When two codes are provided but three documents are requested, generate one document per code and create an additional document for either code, introducing meaningful variation in document type, setting, template, or clinical scenario.
+* When a larger range of codes is provided (e.g., six codes) and fewer documents are required (e.g., three), select codes strategically based on clinical relevance and diversity, ensuring each chosen code supports varied documentation formats, settings, or procedural contexts.
+* If codes are joined by an ampersand (&), they must be documented within a single clinical note as concurrent procedures. ***Example***, 99291 and 99292 
+99291- Critical Care Services. First 30–74 minutes of critical care provided by a physician or qualified healthcare professional. 
+99292- Critical Care Services (Add-on code). Each additional 30 minutes of critical care beyond the initial 99291 time range.
+
+*   The rationale field should provide a brief summary explaining why the generated document supports the code specified in the input. Include only minimal supporting evidence relevant to the code and keep the justification concise. Do not provide detailed evidence or extensive explanations.
+
+The structure must be exactly as follows:
+
+```json
+{
+    "documents":
+    [
+        {
+            "generated_document": "string",
+            "e&mcode": "string",
+            "e&mcodedescription": "string",
+            "rational": "String"
+        }
+    ]
+}
+
+
+```
+
+
+
+

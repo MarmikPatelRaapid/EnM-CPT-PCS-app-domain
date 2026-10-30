@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "77014",
+      "query_text": "CT simulation Pelvis Not specified Diagnostic imaging for radiation therapy planning CT guidance Not specified Complex, custom immobilization, fiducial markers",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "72191",
+          "72192",
+          "72193",
+          "72194",
+          "74174"
+        ],
+        "top_k_suggested_score": [
+          0.828268,
+          0.828268,
+          0.828268,
+          0.828268,
+          0.828268
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "72191",
+          "similarity_score": "0.828268"
+        },
+        {
+          "code": "72192",
+          "similarity_score": "0.828268"
+        },
+        {
+          "code": "72193",
+          "similarity_score": "0.828268"
+        },
+        {
+          "code": "72194",
+          "similarity_score": "0.828268"
+        },
+        {
+          "code": "74174",
+          "similarity_score": "0.828268"
+        }
+      ]
+    },
+    {
+      "code_index": 1,
+      "cpt_code": "77332",
+      "query_text": "Custom immobilization device fabrication Lower extremities Not specified Radiation therapy support Not applicable Not specified Vac-Lok, custom fabricated",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "77338",
+          "77778",
+          "41019",
+          "57155",
+          "57156"
+        ],
+        "top_k_suggested_score": [
+          0.784537,
+          0.776068,
+          0.775154,
+          0.767596,
+          0.767596
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "77338",
+          "similarity_score": "0.784537"
+        },
+        {
+          "code": "77778",
+          "similarity_score": "0.776068"
+        },
+        {
+          "code": "41019",
+          "similarity_score": "0.775154"
+        },
+        {
+          "code": "57155",
+          "similarity_score": "0.767596"
+        },
+        {
+          "code": "57156",
+          "similarity_score": "0.767596"
+        }
+      ]
+    }
+  ]
+}

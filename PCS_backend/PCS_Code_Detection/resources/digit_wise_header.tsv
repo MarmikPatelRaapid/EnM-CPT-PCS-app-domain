@@ -1,0 +1,18 @@
+first_digit	first_digit_type	second_digit_type	third_digit_type	fourth_digit_type	fifth_digit_type	sixth_digit_type	seventh_digit_type
+0	Section	Body System	Operation	Body Part	Approach	Device	Qualifier
+1	Section	Body System	Operation	Body Part	Approach	Device	Qualifier
+2	Section	Body System	Operation	Body Region	Approach	Device	Qualifier
+3	Section	Body System	Operation	Body System / Region	Approach	Substance	Qualifier
+4	Section	Body System	Operation	Body System	Approach	Function / Device	Qualifier
+5	Section	Body System	Operation	Body System	Duration	Function	Qualifier
+6	Section	Body System	Operation	Body System	Duration	Qualifier	Qualifier
+7	Section	Body System	Operation	Body Region	Approach	Method	Qualifier
+8	Section	Body System	Operation	Body Region	Approach	Method	Qualifier
+9	Section	Body System	Operation	Body Region	Approach	Method	Qualifier
+B	Section	Body System	Type	Body Part	Contrast	Qualifier	Qualifier
+C	Section	Body System	Type	Body Part	Radionuclide	Qualifier	Qualifier
+D	Section	Body System	Modality	Treatment Site	Modality Qualifier	Isotope	Qualifier
+F	Section	Section Qualifier	Type	Body System / Region	Type Qualifier	Equipment	Qualifier
+G	Section	Body System	Type	Qualifier	Qualifier	Qualifier	Qualifier
+H	Section	Body System	Type	Qualifier	Qualifier	Qualifier	Qualifier
+X	Section	Body System	Operation	Body Part	Approach	Device / Substance / Technology	Qualifier

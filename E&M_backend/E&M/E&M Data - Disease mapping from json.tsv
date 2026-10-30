@@ -1,0 +1,15 @@
+actual_name	norm_disease_count	json_class	json_sub_class	json_sub_sub_class
+1 self-limited or minor problem	1	self_limited_minor_problem		
+2 or more self-limited or minor problems	2	self_limited_minor_problem		
+1 stable chronic illness	1	chronic_illness	stable	
+1 acute, uncomplicated illness or injury	1	acute_illness	uncomplicated	outpatient_other
+1 stable, acute illness	1	acute_illness	stable	
+1 acute, uncomplicated illness or injury requiring hospital inpatient or observation level of care	1	acute_illness	uncomplicated	requiring_hospitalization
+2 or more stable chronic illnesses	2	chronic_illness	stable	
+1 or more chronic illness with exacerbation, progression of side effect	1	chronic_illness	exacerbation	
+1 undiagnosed new problem with uncertain prognosis	1	undiagnosed_problem		
+1 acute illness with systemic symptoms	1	acute_illness	with_systemic_symptoms	
+1 acute complicated injury	1	acute_illness	complicated_injury	
+1 or more chronic illness with severe exacerbation, progression of side effect	1	chronic_illness	severe exacerbation	
+1 acute or chronic illness or injury posing a threat to life or body function	1	chronic_illness	life_threatening	
+1 acute or chronic illness or injury posing a threat to life or body function	1	acute_illness	life_threatening	

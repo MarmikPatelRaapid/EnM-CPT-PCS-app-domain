@@ -1,0 +1,22 @@
+--- Page 1 ---
+OPERATIVE REPORT
+
+Patient: John Doe  DOB: 01/15/1965
+Date of Surgery: 03/10/2024
+
+PREOPERATIVE DIAGNOSIS: Acute appendicitis
+
+PROCEDURE PERFORMED: Laparoscopic appendectomy
+
+OPERATIVE FINDINGS: The patient was placed in the supine position under general anesthesia.
+Three laparoscopic ports were inserted. The appendix was identified and found to be acutely
+inflamed. The mesoappendix was divided and the appendix was resected at its base using
+an endoscopic stapler. Specimen was removed via an endoscopic bag.
+
+--- Page 2 ---
+POSTOPERATIVE NOTE
+
+Patient tolerated the procedure well. No complications noted. Estimated blood loss was
+minimal. Patient was transferred to recovery room in stable condition.
+
+Surgeon: Dr. Jane Smith, MD

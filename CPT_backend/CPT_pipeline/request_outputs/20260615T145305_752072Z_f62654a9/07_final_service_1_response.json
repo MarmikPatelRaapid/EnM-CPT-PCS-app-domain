@@ -1,0 +1,130 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "77067",
+      "final_cpt_code": "77067",
+      "final_cpt_code_description": "Screening mammography, bilateral (2-view study of each breast), including computer-aided detection (CAD) when performed",
+      "final_cpt_code_justification": "CPT code 77067 is the best fit. The medical record explicitly documents 'Screening Mammography, Bilateral' for 'Routine annual screening mammogram'. The technique section confirms 'Digital mammography was performed with craniocaudal (CC) and mediolateral oblique (MLO) views of both breasts', which constitutes a 2-view study of each breast. Furthermore, it states 'Computer-aided detection (CAD) was utilized', which is included in the description of 77067. The impression also confirms 'Bilateral screening mammogram demonstrates no evidence of malignancy' and 'BI-RADS Category 1: Negative', reinforcing the screening nature of the exam.\n\nCPT code 3014F was rejected because it is a Category II CPT code, which is used for performance measurement and quality improvement, specifically for documenting and reviewing screening mammography results. It does not represent the professional service of performing and interpreting the mammogram itself.\n\nCPT code 77065 was rejected because it describes 'Diagnostic mammography, unilateral'. The medical record clearly indicates a 'Screening Mammography' and specifies 'Bilateral' breasts were examined, making this code inappropriate.\n\nCPT code 77066 was rejected because it describes 'Diagnostic mammography, bilateral'. While it covers bilateral examination, the procedure performed was explicitly a 'Screening Mammography', not a diagnostic one, as confirmed by the reason for exam and impression.",
+      "procedure_evidences": [
+        {
+          "text": "Screening Mammography, Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": "Reason for Exam / C"
+        },
+        {
+          "text": "Bilateral screening mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "1. ",
+          "reftxtafter": " demonstrates no evi"
+        },
+        {
+          "text": "Routine annual screening mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "3. ",
+          "reftxtafter": " is recommended."
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Screening Mammography, ",
+          "reftxtafter": "Reason for Exam / C"
+        },
+        {
+          "text": "both breasts",
+          "pg_no": 1,
+          "reftxtbefore": "MLO) views of ",
+          "reftxtafter": ". Computer-aided det"
+        },
+        {
+          "text": "BREAST COMPOSITION: The breasts",
+          "pg_no": 1,
+          "reftxtbefore": "Findings:\n",
+          "reftxtafter": " are heterogeneously"
+        },
+        {
+          "text": "RIGHT BREAST",
+          "pg_no": 1,
+          "reftxtbefore": "small masses.\n",
+          "reftxtafter": ": No suspicious mass"
+        },
+        {
+          "text": "LEFT BREAST",
+          "pg_no": 1,
+          "reftxtbefore": "unremarkable.\n",
+          "reftxtafter": ": No suspicious mass"
+        },
+        {
+          "text": "AXILLAE",
+          "pg_no": 1,
+          "reftxtbefore": "unremarkable.\n",
+          "reftxtafter": ": No axillary lymphad"
+        },
+        {
+          "text": "bilaterally",
+          "pg_no": 1,
+          "reftxtbefore": "lymphadenopathy is noted ",
+          "reftxtafter": ".\n\nImpression:\n1. Bi"
+        },
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "1. ",
+          "reftxtafter": " screening mammogram"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "craniocaudal (CC) and mediolateral oblique (MLO) views",
+          "pg_no": 1,
+          "reftxtbefore": "performed with ",
+          "reftxtafter": " of both breasts. Co"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "Screening",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": " Mammography, Bilate"
+        },
+        {
+          "text": "Routine annual screening mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "Reason for Exam / Clinical Indication: ",
+          "reftxtafter": ". No new breast comp"
+        },
+        {
+          "text": "screening",
+          "pg_no": 1,
+          "reftxtbefore": "Bilateral ",
+          "reftxtafter": " mammogram demonstr"
+        },
+        {
+          "text": "Routine annual screening mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "BI-RADS Category 1: Negative.\n3. ",
+          "reftxtafter": " is recommended."
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Technique: ",
+          "reftxtafter": " was performed with "
+        },
+        {
+          "text": "Computer-aided detection (CAD) was utilized",
+          "pg_no": 1,
+          "reftxtbefore": " of both breasts. ",
+          "reftxtafter": ".\nComparison Study: "
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": []
+    }
+  ]
+}

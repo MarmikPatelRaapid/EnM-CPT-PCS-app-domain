@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "72200",
+      "query_text": "Radiologic Examination Sacroiliac Joints N/A Diagnostic Imaging N/A N/A 2",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "72200",
+          "72201",
+          "72202",
+          "27050",
+          "27096"
+        ],
+        "top_k_suggested_score": [
+          0.908299,
+          0.908299,
+          0.908299,
+          0.889111,
+          0.881351
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "72200",
+          "similarity_score": "0.908299"
+        },
+        {
+          "code": "72201",
+          "similarity_score": "0.908299"
+        },
+        {
+          "code": "72202",
+          "similarity_score": "0.908299"
+        },
+        {
+          "code": "27050",
+          "similarity_score": "0.889111"
+        },
+        {
+          "code": "27096",
+          "similarity_score": "0.881351"
+        }
+      ]
+    }
+  ]
+}

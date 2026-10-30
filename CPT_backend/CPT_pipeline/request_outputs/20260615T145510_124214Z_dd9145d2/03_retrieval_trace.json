@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "77067",
+      "query_text": "Screening Mammography Bilateral Breasts Digital Mammography (CC and MLO views) Diagnostic Imaging Computer-Aided Detection (CAD) None BI-RADS Category 2",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "77065",
+          "77066",
+          "77067",
+          "3014F"
+        ],
+        "top_k_suggested_score": [
+          0.865347,
+          0.865347,
+          0.865347,
+          0.836337
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "77065",
+          "similarity_score": "0.865347"
+        },
+        {
+          "code": "77066",
+          "similarity_score": "0.865347"
+        },
+        {
+          "code": "77067",
+          "similarity_score": "0.865347"
+        },
+        {
+          "code": "3014F",
+          "similarity_score": "0.836337"
+        }
+      ]
+    }
+  ]
+}

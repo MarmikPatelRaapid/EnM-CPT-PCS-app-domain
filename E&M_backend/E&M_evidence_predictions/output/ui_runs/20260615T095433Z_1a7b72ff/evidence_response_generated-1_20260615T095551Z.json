@@ -1,0 +1,336 @@
+{
+  "facility": {
+    "facility_type": "Hospital Inpatient or Observation Care Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Inpatient Discharge Summary",
+        "pg_no": 1,
+        "reftxtbefore": "Document Type: ",
+        "reftxtafter": ""
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Hospital Inpatient or Observation Care Services (including admission and discharge services)",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "DISCHARGE DATE: 02/18/2025",
+        "pg_no": 1,
+        "reftxtbefore": "ADMISSION DATE: 02/14/2025\n",
+        "reftxtafter": "\n\nPRINCIPAL DISCHARGE"
+      },
+      {
+        "text": "discharge day management activities",
+        "pg_no": 1,
+        "reftxtbefore": "/2025) performing ",
+        "reftxtafter": " for this patient. "
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Not found",
+    "category": "Not_Found",
+    "evidences": []
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 45,
+    "evidences": [
+      {
+        "text": "I spent a total of 45 minutes on the date of discharge (02/18/2025) performing discharge day management activities for this patient",
+        "pg_no": 1,
+        "reftxtbefore": "DISCHARGE TIME DOCUMENTATION:\n",
+        "reftxtafter": ". This time was spe"
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 72,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 72",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 11/14/1952\n",
+        "reftxtafter": "\nSex: Male\nEncounter"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Chronic kidney disease",
+        "disease_evidence": [
+          {
+            "text": "Chronic kidney disease (CKD), Stage IIIa",
+            "pg_no": 1,
+            "reftxtbefore": "SECONDARY DIAGNOSES:\n1. ",
+            "reftxtafter": ".\n2. Essential hyper"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Creatinine remained stable at 1.6 mg/dL",
+              "pg_no": 1,
+              "reftxtbefore": "o his baseline functional status. ",
+              "reftxtafter": " throughout the adm"
+            },
+            {
+              "text": "reviewing final laboratory results",
+              "pg_no": 1,
+              "reftxtbefore": "al examination, ",
+              "reftxtafter": ", reconciling disch"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+              "pg_no": 1,
+              "reftxtbefore": "the discharge summary, ",
+              "reftxtafter": ", and coordinating "
+            },
+            {
+              "text": "Instructed patient and his spouse on daily weight monitoring",
+              "pg_no": 1,
+              "reftxtbefore": "4. Red Flags: ",
+              "reftxtafter": ". They must call th"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+              "pg_no": 1,
+              "reftxtbefore": "the discharge summary, ",
+              "reftxtafter": ", and coordinating "
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Creatinine remained stable at 1.6 mg/dL throughout the admission",
+              "pg_no": 1,
+              "reftxtbefore": "o his baseline functional status. ",
+              "reftxtafter": ". He is now stable "
+            },
+            {
+              "text": "Continue Metoprolol Succinate 50 mg daily and Lisinopril 10 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "mg daily) for maintenance. ",
+              "reftxtafter": ". Hold diabetic med"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Essential hypertension",
+        "disease_evidence": [
+          {
+            "text": "Essential hypertension",
+            "pg_no": 1,
+            "reftxtbefore": "(CKD), Stage IIIa.\n2. ",
+            "reftxtafter": ".\n3. Type 2 diabete"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "BP 128/74 mmHg",
+              "pg_no": 1,
+              "reftxtbefore": "Vitals: Temp 98.2 F, ",
+              "reftxtafter": ", HR 72 bpm, RR 16"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+              "pg_no": 1,
+              "reftxtbefore": "the discharge summary, ",
+              "reftxtafter": ", and coordinating "
+            },
+            {
+              "text": "Instructed patient and his spouse on daily weight monitoring",
+              "pg_no": 1,
+              "reftxtbefore": "4. Red Flags: ",
+              "reftxtafter": ". They must call th"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+              "pg_no": 1,
+              "reftxtbefore": "the discharge summary, ",
+              "reftxtafter": ", and coordinating "
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Continue Metoprolol Succinate 50 mg daily and Lisinopril 10 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "mg daily) for maintenance. ",
+              "reftxtafter": ". Hold diabetic med"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Type 2 diabetes mellitus",
+        "disease_evidence": [
+          {
+            "text": "Type 2 diabetes mellitus, controlled",
+            "pg_no": 1,
+            "reftxtbefore": "ial hypertension.\n3. ",
+            "reftxtafter": ".\n\nHOSPITAL COURSE:"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "reviewing final laboratory results",
+              "pg_no": 1,
+              "reftxtbefore": "al examination, ",
+              "reftxtafter": ", reconciling disch"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+              "pg_no": 1,
+              "reftxtbefore": "the discharge summary, ",
+              "reftxtafter": ", and coordinating "
+            },
+            {
+              "text": "Instructed patient and his spouse on daily weight monitoring",
+              "pg_no": 1,
+              "reftxtbefore": "4. Red Flags: ",
+              "reftxtafter": ". They must call th"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+              "pg_no": 1,
+              "reftxtbefore": "the discharge summary, ",
+              "reftxtafter": ", and coordinating "
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Hold diabetic medications if oral intake is poor, but otherwise resume home regimen",
+              "pg_no": 1,
+              "reftxtbefore": "Lisinopril 10 mg daily. ",
+              "reftxtafter": ".\n3. Follow-up: Sch"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": []
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": [
+      {
+        "norm_disease_name": "Acute decompensated heart failure",
+        "disease_evidence": [
+          {
+            "text": "Acute decompensated heart failure with preserved ejection fraction (HFpEF), resolved to baseline",
+            "pg_no": 1,
+            "reftxtbefore": "PRINCIPAL DISCHARGE DIAGNOSIS:\n",
+            "reftxtafter": ".\n\nSECONDARY DIAGNO"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "chest X-ray confirmed pulmonary vascular congestion",
+              "pg_no": 1,
+              "reftxtbefore": "lower extremity edema. Upon admission, ",
+              "reftxtafter": ". He was treated ag"
+            },
+            {
+              "text": "reviewing final laboratory results",
+              "pg_no": 1,
+              "reftxtbefore": "al examination, ",
+              "reftxtafter": ", reconciling disch"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+              "pg_no": 1,
+              "reftxtbefore": "the discharge summary, ",
+              "reftxtafter": ", and coordinating "
+            },
+            {
+              "text": "Instructed patient and his spouse on daily weight monitoring",
+              "pg_no": 1,
+              "reftxtbefore": "4. Red Flags: ",
+              "reftxtafter": ". They must call th"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+              "pg_no": 1,
+              "reftxtbefore": "the discharge summary, ",
+              "reftxtafter": ", and coordinating "
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Resume oral Furosemide at an increased dose of 40 mg daily (previously 20 mg daily) for maintenance",
+              "pg_no": 1,
+              "reftxtbefore": "updated. ",
+              "reftxtafter": ". Continue Metropol"
+            },
+            {
+              "text": "Instructed patient and his spouse on daily weight monitoring. They must call the clinic or return to the ED for a weight gain of >3 lbs in 24 hours or >5 lbs in one week, worsening shortness of breath, or chest pain",
+              "pg_no": 1,
+              "reftxtbefore": "4. Red Flags: ",
+              "reftxtafter": ".\n\nDISCHARGE TIME D"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "undiagnosed_problem": []
+}

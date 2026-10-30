@@ -1,0 +1,145 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "45380",
+      "norm_procedure_name": "Colonoscopy with biopsy",
+      "norm_anatomy": "Colon, Sigmoid Colon",
+      "norm_approach": "Endoscopic",
+      "norm_procedure_type": "Diagnostic, Biopsy",
+      "norm_imaging_guidance": "Direct Visualization",
+      "norm_anesthesia_type": "Moderate Sedation",
+      "norm_other": "Polyp (3 mm, sessile)",
+      "procedure_evidences": [
+        {
+          "text": "Colonoscopy, flexible, diagnostic",
+          "pg_no": 1,
+          "reftxtbefore": "Procedure Performed: ",
+          "reftxtafter": "; with collection of spec"
+        },
+        {
+          "text": "biopsied using cold forceps",
+          "pg_no": 1,
+          "reftxtbefore": "ge. This was ",
+          "reftxtafter": ", and the specimen was "
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "sigmoid colon",
+          "pg_no": 1,
+          "reftxtbefore": "through the ",
+          "reftxtafter": ", descending colon, tra"
+        },
+        {
+          "text": "descending colon",
+          "pg_no": 1,
+          "reftxtbefore": "sigmoid colon, ",
+          "reftxtafter": ", transverse colon, asc"
+        },
+        {
+          "text": "transverse colon",
+          "pg_no": 1,
+          "reftxtbefore": "ding colon, ",
+          "reftxtafter": ", ascending colon, and "
+        },
+        {
+          "text": "ascending colon",
+          "pg_no": 1,
+          "reftxtbefore": "erse colon, ",
+          "reftxtafter": ", and into the cecum. T"
+        },
+        {
+          "text": "cecum",
+          "pg_no": 1,
+          "reftxtbefore": "nd into the ",
+          "reftxtafter": ". The terminal ileum wa"
+        },
+        {
+          "text": "SIGMOID COLON",
+          "pg_no": 1,
+          "reftxtbefore": "Findings:\n",
+          "reftxtafter": ": Multiple small divert"
+        },
+        {
+          "text": "3 mm sessile, pale polyp",
+          "pg_no": 1,
+          "reftxtbefore": "noted. A ",
+          "reftxtafter": " was identified approxi"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "flexible colonoscope",
+          "pg_no": 1,
+          "reftxtbefore": "procedure well. A ",
+          "reftxtafter": " (Olympus CF-HQ190L) wa"
+        },
+        {
+          "text": "advanced under direct visualization",
+          "pg_no": 1,
+          "reftxtbefore": "and ",
+          "reftxtafter": " through the sigmoid co"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "diagnostic",
+          "pg_no": 1,
+          "reftxtbefore": "flexible, ",
+          "reftxtafter": "; with collection of spec"
+        },
+        {
+          "text": "biopsied",
+          "pg_no": 1,
+          "reftxtbefore": "This was ",
+          "reftxtafter": " using cold forceps, an"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "direct visualization",
+          "pg_no": 1,
+          "reftxtbefore": "advanced under ",
+          "reftxtafter": " through the sigmoid co"
+        }
+      ],
+      "anesthesia_type_evidences": [
+        {
+          "text": "Moderate Sedation (Fentanyl and Midazolam)",
+          "pg_no": 1,
+          "reftxtbefore": "Anesthesia Type: ",
+          "reftxtafter": "\n\nIndications for Proced"
+        }
+      ],
+      "other_evidences": [
+        {
+          "text": "3 mm",
+          "pg_no": 1,
+          "reftxtbefore": "noted. A ",
+          "reftxtafter": " sessile, pale polyp wa",
+          "field_label": "Polyp Size"
+        },
+        {
+          "text": "sessile",
+          "pg_no": 1,
+          "reftxtbefore": "A 3 mm ",
+          "reftxtafter": ", pale polyp was identi",
+          "field_label": "Polyp Type"
+        },
+        {
+          "text": "cold forceps",
+          "pg_no": 1,
+          "reftxtbefore": "biopsied using ",
+          "reftxtafter": ", and the specimen was ",
+          "field_label": "Biopsy Instrument"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [],
+      "code_description": "Colonoscopy, flexible, proximal to splenic flexure; with biopsy, single or multiple",
+      "code_justification": "The patient underwent a flexible colonoscopy that was advanced to the cecum, indicating a complete colonoscopy (proximal to the splenic flexure). During the procedure, a 3 mm polyp in the sigmoid colon was biopsied using cold forceps, which aligns with the 'with biopsy, single or multiple' component of CPT code 45380. Although the 'Procedure Performed' section mentions 'collection of specimen(s) by brushing or washing', the specific action taken was a biopsy, making 45380 the most appropriate and specific code.",
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

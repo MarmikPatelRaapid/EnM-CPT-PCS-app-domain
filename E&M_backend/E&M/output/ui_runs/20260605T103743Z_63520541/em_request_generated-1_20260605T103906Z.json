@@ -1,0 +1,107 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "new to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "24 yo male, ",
+        "reftxtafter": ", presenting with a s"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "new to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "24 yo male, ",
+        "reftxtafter": ", presenting with a s"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "New Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "new to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "24 yo male, ",
+        "reftxtafter": ", presenting with a s"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 24,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "24 yo male",
+        "pg_no": 1,
+        "reftxtbefore": "HPI: ",
+        "reftxtafter": ", new to the clinic,"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [
+    {
+      "norm_disease_name": "Acute viral pharyngitis",
+      "disease_evidence": [
+        {
+          "text": "Acute viral pharyngitis",
+          "pg_no": 1,
+          "reftxtbefore": "Assessment:\n",
+          "reftxtafter": "\n\nPlan:\nReassured the"
+        }
+      ],
+      "data_to_review": {
+        "review_of_prior_external_note": [],
+        "review_of_test_result": [],
+        "order_of_test": [],
+        "assessment_requiring_independent_historian": [],
+        "independent_interpretation_of_test": [],
+        "discussion_of_management_or_test_interpretation": []
+      },
+      "risk_of_morbidity": {
+        "type": "minimal",
+        "risk_evidences": [
+          {
+            "text": "Recommended supportive care including OTC throat lozenges, saline nasal spray, and adequate oral hydration. Advised to rest.",
+            "pg_no": 1,
+            "reftxtbefore": "t indicated at this time. ",
+            "reftxtafter": " Instructed to call "
+          }
+        ]
+      }
+    }
+  ],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": []
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

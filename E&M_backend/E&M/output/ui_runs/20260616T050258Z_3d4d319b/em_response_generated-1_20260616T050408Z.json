@@ -1,0 +1,206 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "moderate",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 or more chronic illness with exacerbation, progression of side effect",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "exacerbation"
+            ]
+          },
+          {
+            "name": "1 or more chronic illness with severe exacerbation, progression of side effect",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "severe exacerbation"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": false,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 1,
+          "ModerateExtensiveCategory1": 1,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "moderate",
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Outpatient Specialty Care",
+        "pg_no": 1,
+        "reftxtbefore": "y Associates\nDepartment: ",
+        "reftxtafter": "\nPatient Name: Arthur"
+      }
+    ],
+    "service": [
+      {
+        "text": "Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "02/18/2025\nDocument Type: ",
+        "reftxtafter": "\nProvider: Dr. Sarah "
+      }
+    ],
+    "patient": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "Mr. Pendelton is an ",
+        "reftxtafter": " with a history of S"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Stage 4 Chronic Kidney Disease: At high risk of acute-on-chronic kidney injury with aggressive diuresis.",
+        "pg_no": 1,
+        "reftxtbefore": "o to the ED.\n2. ",
+        "reftxtafter": " Ordered urgent BMP f"
+      },
+      {
+        "text": "Acute Decompensated Heart Failure (ADHF): Severely worsened, fluid overloaded.",
+        "pg_no": 1,
+        "reftxtbefore": "ssment and Plan:\n1. ",
+        "reftxtafter": " High risk of acute "
+      },
+      {
+        "text": "Type 2 Diabetes with Diabetic Foot Ulcer and Peripheral Vascular Disease: Severe, infected neuropathic ulcer.",
+        "pg_no": 1,
+        "reftxtbefore": " and potassium.\n3. ",
+        "reftxtafter": " High risk of osteomy"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Ordered urgent BMP for tomorrow morning to monitor creatinine and potassium.",
+        "pg_no": 1,
+        "reftxtbefore": "h aggressive diuresis. ",
+        "reftxtafter": "\n3. Type 2 Diabetes "
+      },
+      {
+        "text": "Discussed admission, but patient strongly prefers outpatient management if possible.",
+        "pg_no": 1,
+        "reftxtbefore": "ute respiratory distress. ",
+        "reftxtafter": " Will initiate aggres"
+      },
+      {
+        "text": "Ordered urgent X-ray of the left foot.",
+        "pg_no": 1,
+        "reftxtbefore": "s and limb loss. ",
+        "reftxtafter": " Initiated broad-spe"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Ordered urgent BMP for tomorrow morning to monitor creatinine and potassium.",
+        "pg_no": 1,
+        "reftxtbefore": "h aggressive diuresis. ",
+        "reftxtafter": "\n3. Type 2 Diabetes "
+      },
+      {
+        "text": "High risk of acute respiratory distress.",
+        "pg_no": 1,
+        "reftxtbefore": "ened, fluid overloaded. ",
+        "reftxtafter": " Discussed admission,"
+      },
+      {
+        "text": "initiate aggressive oral diuretic rescue (double dose of Bumex to 2mg BID) with extremely close monitoring.",
+        "pg_no": 1,
+        "reftxtbefore": "t management if possible. Will ",
+        "reftxtafter": " If no improvement in"
+      },
+      {
+        "text": "High risk of osteomyelitis and limb loss.",
+        "pg_no": 1,
+        "reftxtbefore": "ed neuropathic ulcer. ",
+        "reftxtafter": " Ordered urgent X-ra"
+      },
+      {
+        "text": "Initiated broad-spectrum oral antibiotics (Bactrim DS and Augmentin).",
+        "pg_no": 1,
+        "reftxtbefore": " of the left foot. ",
+        "reftxtafter": " Scheduled urgent ou"
+      },
+      {
+        "text": "Scheduled urgent outpatient vascular surgery consult and podiatry consult within 48 hours.",
+        "pg_no": 1,
+        "reftxtbefore": "DS and Augmentin). ",
+        "reftxtafter": "\n\nElectronically Sign"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 70,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

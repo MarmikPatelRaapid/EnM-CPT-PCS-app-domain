@@ -1,0 +1,210 @@
+{
+  "classification": {
+    "complexity": "moderate",
+    "data_to_review": "moderate",
+    "risk": "moderate",
+    "mdm_level": "moderate",
+    "details": {
+      "complexity": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "2 or more stable chronic illnesses",
+            "level": "moderate",
+            "required_count": 2,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "1 or more chronic illness with exacerbation, progression of side effect",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "exacerbation"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": false,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 1,
+          "ModerateExtensiveCategory1": 1,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "raw_risk_types": [
+          "low",
+          "low",
+          "moderate"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "moderate"
+        },
+        "normalized_inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "moderate"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "moderate"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "clinic",
+        "pg_no": 1,
+        "reftxtbefore": "well-known to the ",
+        "reftxtafter": ", presenting for a "
+      }
+    ],
+    "service": [
+      {
+        "text": "Follow-up",
+        "pg_no": 1,
+        "reftxtbefore": "CHIEF COMPLAINT: ",
+        "reftxtafter": " for diabetes, hype"
+      }
+    ],
+    "patient": [
+      {
+        "text": "well-known to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "old male, ",
+        "reftxtafter": ", presenting for a "
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Type 2 Diabetes Mellitus, without complications, fairly controlled.",
+        "pg_no": 1,
+        "reftxtbefore": "mild exacerbation.\n2. ",
+        "reftxtafter": "\n3. Essential Hyperte"
+      },
+      {
+        "text": "Essential Hypertension, stable.",
+        "pg_no": 1,
+        "reftxtbefore": "fairly controlled.\n3. ",
+        "reftxtafter": "\n\nPLAN/FOLLOW-UP:\n1. "
+      },
+      {
+        "text": "Mild persistent asthma, currently with mild exacerbation.",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT/IMPRESSION:\n1. ",
+        "reftxtafter": "\n2. Type 2 Diabetes "
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Hemoglobin A1c from 3 days ago is 7.2%",
+        "pg_no": 1,
+        "reftxtbefore": "LAB FINDINGS:\n",
+        "reftxtafter": " (improved from 7.5%"
+      },
+      {
+        "text": "Comprehensive metabolic panel is within normal limits",
+        "pg_no": 1,
+        "reftxtbefore": "three months ago). ",
+        "reftxtafter": ", with a serum creat"
+      },
+      {
+        "text": "10-g monofilament test is normal bilaterally.",
+        "pg_no": 1,
+        "reftxtbefore": "o lower extremity edema. ",
+        "reftxtafter": "\n\nLAB FINDINGS:\nHemog"
+      },
+      {
+        "text": "Home blood pressures are running in the 130s/80s.",
+        "pg_no": 1,
+        "reftxtbefore": " hypoglycemic episodes. ",
+        "reftxtafter": " However, he report"
+      },
+      {
+        "text": "We reviewed his asthma action plan and indications to seek emergency care.",
+        "pg_no": 1,
+        "reftxtbefore": "lbuterol PRN for rescue. ",
+        "reftxtafter": "\n2. Diabetes: A1c i"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Will continue current Metformin dose.",
+        "pg_no": 1,
+        "reftxtbefore": "A1c is at goal. ",
+        "reftxtafter": " Emphasized the impo"
+      },
+      {
+        "text": "Continue Lisinopril 20 mg daily.",
+        "pg_no": 1,
+        "reftxtbefore": "is at goal today. ",
+        "reftxtafter": "\n\nFollow up in clini"
+      },
+      {
+        "text": "Discontinue Symbicort 80/4.5 and start Symbicort 160/4.5 mcg 2 puffs BID.",
+        "pg_no": 1,
+        "reftxtbefore": "herapy today. ",
+        "reftxtafter": " Continue Albuterol "
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 58,
+    "patient_age_unit": "years",
+    "mdm_level": "Moderate"
+  },
+  "codes": [
+    "99214"
+  ]
+}

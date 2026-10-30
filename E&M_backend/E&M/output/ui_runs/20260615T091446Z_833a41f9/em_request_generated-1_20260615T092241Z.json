@@ -1,0 +1,228 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Cardiology",
+        "pg_no": 1,
+        "reftxtbefore": "TMENT: Outpatient Cardiology. PATIENT NAME: Robe",
+        "reftxtafter": ". PATIENT NAME: Robe"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "NCOUNTER DATE: 10/24/2023. DOCUMENT TYPE: ",
+        "reftxtafter": ". PROVIDER: Dr. Sara"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established male",
+        "pg_no": 1,
+        "reftxtbefore": "t is a 68-year-old ",
+        "reftxtafter": " with a history of i"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 45,
+    "evidences": [
+      {
+        "text": "Total time spent by the provider on the date of the encounter, including face-to-face evaluation, counseling, and non-face-to-face record review and care coordination, was 45 minutes",
+        "pg_no": 1,
+        "reftxtbefore": "ours with repeat labs. TIME SPENT: ",
+        "reftxtafter": ". --- Electronically "
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 68,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "AGE: 68",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 04/12/1955. ",
+        "reftxtafter": ". SEX: Male. ENCOUN"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute on chronic systolic heart failure exacerbation",
+        "disease_evidence": [
+          {
+            "text": "Acute on chronic systolic heart failure exacerbation",
+            "pg_no": 1,
+            "reftxtbefore": "SSMENT AND PLAN: 1. ",
+            "reftxtafter": ": High complexity an"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Point-of-care EKG shows normal sinus rhythm with LVH, no acute ST-T wave changes",
+              "pg_no": 1,
+              "reftxtbefore": "C DATA REVIEWED: ",
+              "reftxtafter": ". Point-of-care BNP"
+            },
+            {
+              "text": "Point-of-care BNP is markedly elevated at 1450 pg/mL (baseline 450)",
+              "pg_no": 1,
+              "reftxtbefore": "ST-T wave changes. ",
+              "reftxtafter": ". BMP shows Creatini"
+            },
+            {
+              "text": "BMP shows Creatinine 1.9 mg/dL (baseline 1.5), Potassium 4.3 mEq/L",
+              "pg_no": 1,
+              "reftxtbefore": "ine 450). ",
+              "reftxtafter": ". ASSESSMENT AND PLA"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "repeat labs",
+              "pg_no": 1,
+              "reftxtbefore": "n-person visit in 48 hours with ",
+              "reftxtafter": ". TIME SPENT: Total"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Increase Furosemide from 40 mg daily to 80 mg BID for the next 3 days",
+              "pg_no": 1,
+              "reftxtbefore": " diuresis first. Plan: ",
+              "reftxtafter": ". Strict 1.5L fluid"
+            },
+            {
+              "text": "Strict 1.5L fluid restriction and 2g sodium diet",
+              "pg_no": 1,
+              "reftxtbefore": "the next 3 days. ",
+              "reftxtafter": ". Patient is instruc"
+            },
+            {
+              "text": "Patient is instructed to go to the Emergency Department immediately if symptoms worsen or if he develops chest pain",
+              "pg_no": 1,
+              "reftxtbefore": "and 2g sodium diet. ",
+              "reftxtafter": ". 2. Acute Kidney I"
+            },
+            {
+              "text": "Scheduled for a mandatory telehealth check-in tomorrow and an in-person visit in 48 hours",
+              "pg_no": 1,
+              "reftxtbefore": "3. Follow-up: ",
+              "reftxtafter": " with repeat labs. "
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "high risk of morbidity",
+              "pg_no": 1,
+              "reftxtbefore": "eart failure exacerbation: High complexity and ",
+              "reftxtafter": ". The patient is on "
+            },
+            {
+              "text": "The patient is on the verge of requiring inpatient admission",
+              "pg_no": 1,
+              "reftxtbefore": "risk of morbidity. ",
+              "reftxtafter": ". We will attempt ag"
+            },
+            {
+              "text": "Increase Furosemide from 40 mg daily to 80 mg BID for the next 3 days",
+              "pg_no": 1,
+              "reftxtbefore": " diuresis first. Plan: ",
+              "reftxtafter": ". Strict 1.5L fluid"
+            },
+            {
+              "text": "Patient is instructed to go to the Emergency Department immediately if symptoms worsen or if he develops chest pain",
+              "pg_no": 1,
+              "reftxtbefore": "and 2g sodium diet. ",
+              "reftxtafter": ". 2. Acute Kidney I"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": [
+    {
+      "norm_disease_name": "Acute Kidney Injury on CKD Stage 3",
+      "disease_evidence": [
+        {
+          "text": "Acute Kidney Injury on CKD Stage 3",
+          "pg_no": 1,
+          "reftxtbefore": "develops chest pain. 2. ",
+          "reftxtafter": ": Likely cardiorenal"
+        }
+      ],
+      "data_to_review": {
+        "review_of_prior_external_note": [],
+        "review_of_test_result": [
+          {
+            "text": "BMP shows Creatinine 1.9 mg/dL (baseline 1.5)",
+            "pg_no": 1,
+            "reftxtbefore": "ine 450). ",
+            "reftxtafter": ", Potassium 4.3 mEq"
+          }
+        ],
+        "order_of_test": [
+          {
+            "text": "Will recheck BMP in 48 hours",
+            "pg_no": 1,
+            "reftxtbefore": "ently volume overloaded. ",
+            "reftxtafter": ". 3. Follow-up: Sch"
+          }
+        ],
+        "assessment_requiring_independent_historian": [],
+        "independent_interpretation_of_test": [],
+        "discussion_of_management_or_test_interpretation": []
+      },
+      "risk_of_morbidity": {
+        "type": "moderate",
+        "risk_evidences": [
+          {
+            "text": "Increase Furosemide from 40 mg daily to 80 mg BID for the next 3 days",
+            "pg_no": 1,
+            "reftxtbefore": " diuresis first. Plan: ",
+            "reftxtafter": ". Strict 1.5L fluid"
+          }
+        ]
+      }
+    }
+  ]
+}

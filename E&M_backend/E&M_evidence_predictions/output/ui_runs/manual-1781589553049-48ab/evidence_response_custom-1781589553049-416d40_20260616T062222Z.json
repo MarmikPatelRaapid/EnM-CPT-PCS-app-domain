@@ -1,0 +1,326 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Internal Medicine Clinic",
+        "pg_no": 1,
+        "reftxtbefore": "Hospital Name: Evergr",
+        "reftxtafter": "\nPatient Name: Elean"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Internal Medicine Clinic",
+        "pg_no": 1,
+        "reftxtbefore": "Hospital Name: Evergr",
+        "reftxtafter": "\nPatient Name: Elean"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "Eleanor Vance is a ",
+        "reftxtafter": " presenting for foll"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 45,
+    "evidences": [
+      {
+        "text": "45 minutes",
+        "pg_no": 1,
+        "reftxtbefore": "date of encounter: ",
+        "reftxtafter": ". This included revie"
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 65,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "03/15/1958",
+        "pg_no": 1,
+        "reftxtbefore": "MRN: EV789012\nDOB: ",
+        "reftxtafter": "\nSex: Female\nEncount"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Chronic Kidney Disease, Stage 3a",
+        "disease_evidence": [
+          {
+            "text": "Chronic Kidney Disease, Stage 3a",
+            "pg_no": 1,
+            "reftxtbefore": "cardiovascular risk.\n5.  ",
+            "reftxtafter": ": Stable, but requi"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Creatinine: 1.4 mg/dL (eGFR 40 mL/min/1.73m2) (stable from previous)",
+              "pg_no": 1,
+              "reftxtbefore": "Fasting Glucose: 210 mg/dL\n    *   ",
+              "reftxtafter": "\n    *   Potassium: "
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "Monitor renal function with labs every 3 months.",
+              "pg_no": 1,
+              "reftxtbefore": "Avoid NSAIDs.\n    *   ",
+              "reftxtafter": "\n6.  General:\n    * "
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Monitor renal function with labs every 3 months.",
+              "pg_no": 1,
+              "reftxtbefore": "Avoid NSAIDs.\n    *   ",
+              "reftxtafter": "\n6.  General:\n    * "
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [
+      {
+        "norm_disease_name": "Hypertension, uncontrolled",
+        "disease_evidence": [
+          {
+            "text": "Hypertension, uncontrolled",
+            "pg_no": 1,
+            "reftxtbefore": "vascular complications.\n2.  ",
+            "reftxtafter": ": Blood pressure rem"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Add Amlodipine 5 mg daily.",
+              "pg_no": 1,
+              "reftxtbefore": "isinopril to 20 mg daily.\n    *   ",
+              "reftxtafter": "\n    *   Encourage ho"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Hyperlipidemia",
+        "disease_evidence": [
+          {
+            "text": "Hyperlipidemia",
+            "pg_no": 1,
+            "reftxtbefore": "diac causes.\n4.  ",
+            "reftxtafter": ": LDL remains eleva"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Lipid Panel: Total Cholesterol 220 mg/dL, LDL 145 mg/dL, HDL 38 mg/dL, Triglycerides 250 mg/dL",
+              "pg_no": 1,
+              "reftxtbefore": "Potassium: 4.2 mEq/L\n    *   ",
+              "reftxtafter": "\n    *   TSH: 2.1 mI"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "Re-check lipid panel in 3 months.",
+              "pg_no": 1,
+              "reftxtbefore": "to 40 mg nightly.\n    *   ",
+              "reftxtafter": "\n5.  Chronic Kidney "
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Increase Atorvastatin to 40 mg nightly.",
+              "pg_no": 1,
+              "reftxtbefore": "4.  Hyperlipidemia:\n    *   ",
+              "reftxtafter": "\n    *   Re-check li"
+            }
+          ]
+        }
+      }
+    ],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Type 2 Diabetes Mellitus, poorly controlled",
+        "disease_evidence": [
+          {
+            "text": "Type 2 Diabetes Mellitus, poorly controlled",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT:\n1.  ",
+            "reftxtafter": ": Patient presents w"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "HbA1c: 9.8%",
+              "pg_no": 1,
+              "reftxtbefore": "01/18/2024):**\n    *   ",
+              "reftxtafter": " (up from 8.5% 3 mo"
+            },
+            {
+              "text": "Fasting Glucose: 210 mg/dL",
+              "pg_no": 1,
+              "reftxtbefore": "om 8.5% 3 months ago)\n    *   ",
+              "reftxtafter": "\n    *   Creatinine: "
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Referral to Endocrinology for co-management of complex diabetes.",
+              "pg_no": 1,
+              "reftxtbefore": "1000 mg BID.\n    *   ",
+              "reftxtafter": "\n    *   Continue die"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Initiate insulin glargine (Lantus) 10 units subcutaneously nightly.",
+              "pg_no": 1,
+              "reftxtbefore": "current state.\n    *   ",
+              "reftxtafter": " Instructed patient"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": [
+    {
+      "norm_disease_name": "Chest Pain and Palpitations, intermittent, etiology unclear",
+      "disease_evidence": [
+        {
+          "text": "Chest Pain and Palpitations, intermittent, etiology unclear",
+          "pg_no": 1,
+          "reftxtbefore": "ypertensive regimen to reduce cardiovascular risk.\n3.  ",
+          "reftxtafter": ": New onset symptom"
+        }
+      ],
+      "data_to_review": {
+        "review_of_prior_external_note": [
+          {
+            "text": "Reviewed recent cardiology consultation note from Dr. David Lee (01/15/2024)",
+            "pg_no": 1,
+            "reftxtbefore": "nal PVCs noted.\n  **External Records:** ",
+            "reftxtafter": " which recommended f"
+          }
+        ],
+        "review_of_test_result": [
+          {
+            "text": "EKG (performed 01/22/2024 in clinic): Sinus rhythm, rate 85 bpm, no acute ischemic changes, no significant ST-T wave abnormalities. Occasional PVCs noted.",
+            "pg_no": 1,
+            "reftxtbefore": "TSH: 2.1 mIU/L (normal)\n  **",
+            "reftxtafter": "\n  **External Records"
+          }
+        ],
+        "order_of_test": [
+          {
+            "text": "Ordered Cardiac Stress Test (Lexiscan) to evaluate for inducible ischemia.",
+            "pg_no": 1,
+            "reftxtbefore": "and Palpitations:\n    *   ",
+            "reftxtafter": "\n    *   Ordered 24-"
+          },
+          {
+            "text": "Ordered 24-hour Holter Monitor to assess for arrhythmias.",
+            "pg_no": 1,
+            "reftxtbefore": "inducible ischemia.\n    *   ",
+            "reftxtafter": "\n    *   Discussed i"
+          }
+        ],
+        "assessment_requiring_independent_historian": [],
+        "independent_interpretation_of_test": [
+          {
+            "text": "interpreting EKG",
+            "pg_no": 1,
+            "reftxtbefore": "medical records, ",
+            "reftxtafter": ", discussing complex"
+          }
+        ],
+        "discussion_of_management_or_test_interpretation": [
+          {
+            "text": "Will coordinate with cardiology for follow-up after tests are completed.",
+            "pg_no": 1,
+            "reftxtbefore": "symptoms immediately.\n    *   ",
+            "reftxtafter": "\n4.  Hyperlipidemia:"
+          }
+        ]
+      },
+      "risk_of_morbidity": {
+        "type": "moderate",
+        "risk_evidences": [
+          {
+            "text": "Ordered Cardiac Stress Test (Lexiscan) to evaluate for inducible ischemia.",
+            "pg_no": 1,
+            "reftxtbefore": "and Palpitations:\n    *   ",
+            "reftxtafter": "\n    *   Ordered 24-"
+          }
+        ]
+      }
+    }
+  ]
+}

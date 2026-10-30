@@ -1,0 +1,157 @@
+{
+  "type": "object",
+  "required": [
+    "cpt_codes_found"
+  ],
+  "properties": {
+    "cpt_codes_found": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cpt_code_object"
+      }
+    },
+    "cpt_codes_not_found": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "pg_no": {
+          "type": "integer"
+        },
+        "reftxtbefore": {
+          "type": "string"
+        },
+        "reftxtafter": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "pg_no",
+        "reftxtbefore",
+        "reftxtafter"
+      ],
+      "additionalProperties": true
+    },
+    "other_evidence": {
+      "type": "object",
+      "properties": {
+        "field_label": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "pg_no": {
+          "type": "integer"
+        },
+        "reftxtbefore": {
+          "type": "string"
+        },
+        "reftxtafter": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "field_label",
+        "text",
+        "pg_no",
+        "reftxtbefore",
+        "reftxtafter"
+      ],
+      "additionalProperties": true
+    },
+    "cpt_code_object": {
+      "type": "object",
+      "properties": {
+        "cpt_code": {
+          "type": "string"
+        },
+        "code_description": {
+          "type": "string"
+        },
+        "code_justification": {
+          "type": "string"
+        },
+        "norm_procedure_name": {},
+        "norm_anatomy": {},
+        "norm_approach": {},
+        "norm_procedure_type": {},
+        "norm_imaging_guidance": {},
+        "norm_anesthesia_type": {},
+        "norm_other": {},
+        "procedure_evidences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "anatomy_evidences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "approach_evidences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "procedure_type_evidences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "imaging_guidance_evidences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "anesthesia_type_evidences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "other_evidences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/other_evidence"
+          }
+        },
+        "addon_codes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "modifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "required": [
+        "cpt_code"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

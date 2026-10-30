@@ -1,0 +1,95 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "76775",
+      "code_description": "Ultrasound, retroperitoneal (e.g., renal, aorta, nodal, upper abdomen), real time with image documentation; limited",
+      "code_justification": "The report explicitly states 'Ultrasound Retroperitoneal, Limited' and details the examination of only the right kidney. It further clarifies that 'The left kidney, abdominal aorta, and inferior vena cava were not evaluated during this targeted examination,' confirming the limited nature of the study, which aligns with CPT code 76775.",
+      "norm_procedure_name": "Ultrasound Retroperitoneal",
+      "norm_anatomy": "Kidney, Right",
+      "norm_approach": "Transcutaneous",
+      "norm_procedure_type": "Diagnostic Imaging",
+      "norm_imaging_guidance": "Ultrasound",
+      "norm_anesthesia_type": "None",
+      "norm_other": "Limited study",
+      "procedure_evidences": [
+        {
+          "text": "Ultrasound Retroperitoneal, Limited",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": ". INDICATION: 62-year"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "e ultrasound imaging of the ",
+          "reftxtafter": " was performed with i"
+        },
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "pole of the ",
+          "reftxtafter": ". This is unchanged"
+        },
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "pole of the ",
+          "reftxtafter": ". 2. No right hydron"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "Real-time grayscale ultrasound imaging",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: ",
+          "reftxtafter": " of the right kidney"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "Ultrasound",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": " Retroperitoneal, Lim"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "Real-time grayscale ultrasound imaging",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: ",
+          "reftxtafter": " of the right kidney"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "field_label": "Limitation",
+          "text": "Limited",
+          "pg_no": 1,
+          "reftxtbefore": "Ultrasound Retroperitoneal, ",
+          "reftxtafter": ". INDICATION: 62-year"
+        },
+        {
+          "field_label": "Limitation",
+          "text": "not evaluated",
+          "pg_no": 1,
+          "reftxtbefore": "inferior vena cava were ",
+          "reftxtafter": " during this targeted"
+        },
+        {
+          "field_label": "Limitation",
+          "text": "targeted examination",
+          "pg_no": 1,
+          "reftxtbefore": "evaluated during this ",
+          "reftxtafter": ". IMPRESSION: 1. Unc"
+        }
+      ],
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

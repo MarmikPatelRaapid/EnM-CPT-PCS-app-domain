@@ -1,0 +1,182 @@
+{
+  "classification": {
+    "complexity": "",
+    "data_to_review": "extensive",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "",
+        "mdm_level_equivalent": "",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [],
+        "reason": "Complexity data not found. Returning blank complexity value.",
+        "status": "missing"
+      },
+      "data_to_review": {
+        "category": "extensive",
+        "mdm_level_equivalent": "high",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": false,
+          "assessment_requiring_independent_historian": true,
+          "independent_interpretation_of_test": true,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 1,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 2
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "At least two moderate/high data categories were met."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "",
+          "data_to_review": "extensive",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "",
+          "data_to_review": "high",
+          "risk": "high"
+        },
+        "rule": "Two available criteria used; final MDM is midpoint of the two levels.",
+        "missing_criteria": [
+          "complexity"
+        ],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Outpatient Clinic",
+        "pg_no": 1,
+        "reftxtbefore": "Department: Cardiology ",
+        "reftxtafter": "\nPatient Name: Evelyn"
+      }
+    ],
+    "service": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "/2025\nDocument Type: ",
+        "reftxtafter": "\nProvider: Dr. Marcus"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established 76-year-old female",
+        "pg_no": 1,
+        "reftxtbefore": "SUBJECTIVE:\nMrs. Vance is an ",
+        "reftxtafter": " who presents for an "
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute decompensated systolic heart failure with severe volume overload and hypoxia.",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT & PLAN:\n\n1. ",
+        "reftxtafter": " \n2. Acute-on-chronic"
+      },
+      {
+        "text": "Acute-on-chronic kidney injury (Stage IV CKD baseline, now with acute worsening, likely cardiorenal syndrome vs. prerenal etiology).",
+        "pg_no": 1,
+        "reftxtbefore": " and hypoxia. \n2. ",
+        "reftxtafter": "\n3. Uncontrolled perm"
+      },
+      {
+        "text": "Uncontrolled permanent atrial fibrillation with rapid ventricular response.",
+        "pg_no": 1,
+        "reftxtbefore": " prerenal etiology).\n3. ",
+        "reftxtafter": "\n\nPlan:\nGiven the pa"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Reviewed recent echocardiogram from 2 months ago showing severe global hypokinesis and EF of 25%.",
+        "pg_no": 1,
+        "reftxtbefore": "ST elevations.\n3. ",
+        "reftxtafter": "\n\nASSESSMENT & PLAN:"
+      },
+      {
+        "text": "I discussed the clinical situation in detail with the patient and her daughter.",
+        "pg_no": 1,
+        "reftxtbefore": "ent is unsafe. ",
+        "reftxtafter": " I have decided to a"
+      },
+      {
+        "text": "In-office EKG: Atrial fibrillation with rapid ventricular response (HR 108), non-specific ST-T wave changes, no acute ST elevations.",
+        "pg_no": 1,
+        "reftxtbefore": " kidney injury).\n2. ",
+        "reftxtafter": "\n3. Reviewed recent e"
+      },
+      {
+        "text": "I contacted the inpatient hospitalist team directly, discussed her case, and arranged for direct admission to the telemetry floor.",
+        "pg_no": 1,
+        "reftxtbefore": "phrology consultation. ",
+        "reftxtafter": " The patient's daught"
+      },
+      {
+        "text": "Point-of-care BMP: Potassium 5.4 mEq/L, BUN 68 mg/dL, Creatinine 3.2 mg/dL (significantly elevated from baseline 2.4, indicating acute-on-chronic kidney injury).",
+        "pg_no": 1,
+        "reftxtbefore": "& ANALYZED:\n1. ",
+        "reftxtafter": "\n2. In-office EKG: A"
+      },
+      {
+        "text": "In-office EKG: Atrial fibrillation with rapid ventricular response (HR 108)",
+        "pg_no": 1,
+        "reftxtbefore": " kidney injury).\n2. ",
+        "reftxtafter": ", non-specific ST-T w"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "high risk for acute respiratory failure or uremic emergency.",
+        "pg_no": 1,
+        "reftxtbefore": "yarrhythmia, she is at ",
+        "reftxtafter": " Outpatient management"
+      },
+      {
+        "text": "admit her directly to the hospital for urgent intravenous diuresis, continuous cardiac monitoring, and nephrology consultation.",
+        "pg_no": 1,
+        "reftxtbefore": " I have decided to ",
+        "reftxtafter": " I contacted the inpa"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 76,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

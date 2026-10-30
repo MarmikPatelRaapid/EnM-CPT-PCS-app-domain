@@ -1,0 +1,207 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Specialty Care",
+        "pg_no": 1,
+        "reftxtbefore": "y Associates\nDepartment: ",
+        "reftxtafter": "\nPatient Name: Arthur"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "02/18/2025\nDocument Type: ",
+        "reftxtafter": "\nProvider: Dr. Sarah "
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "Mr. Pendelton is an ",
+        "reftxtafter": " with a history of S"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 70,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 70",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 11/14/1954\n",
+        "reftxtafter": "\nSex: Male\nEncounter "
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [
+      {
+        "norm_disease_name": "Stage 4 Chronic Kidney Disease",
+        "disease_evidence": [
+          {
+            "text": "Stage 4 Chronic Kidney Disease: At high risk of acute-on-chronic kidney injury with aggressive diuresis.",
+            "pg_no": 1,
+            "reftxtbefore": "o to the ED.\n2. ",
+            "reftxtafter": " Ordered urgent BMP f"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [
+            {
+              "text": "Ordered urgent BMP for tomorrow morning to monitor creatinine and potassium.",
+              "pg_no": 1,
+              "reftxtbefore": "h aggressive diuresis. ",
+              "reftxtafter": "\n3. Type 2 Diabetes "
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Ordered urgent BMP for tomorrow morning to monitor creatinine and potassium.",
+              "pg_no": 1,
+              "reftxtbefore": "h aggressive diuresis. ",
+              "reftxtafter": "\n3. Type 2 Diabetes "
+            }
+          ]
+        }
+      }
+    ],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute Decompensated Heart Failure",
+        "disease_evidence": [
+          {
+            "text": "Acute Decompensated Heart Failure (ADHF): Severely worsened, fluid overloaded.",
+            "pg_no": 1,
+            "reftxtbefore": "ssment and Plan:\n1. ",
+            "reftxtafter": " High risk of acute "
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Discussed admission, but patient strongly prefers outpatient management if possible.",
+              "pg_no": 1,
+              "reftxtbefore": "ute respiratory distress. ",
+              "reftxtafter": " Will initiate aggres"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "High risk of acute respiratory distress.",
+              "pg_no": 1,
+              "reftxtbefore": "ened, fluid overloaded. ",
+              "reftxtafter": " Discussed admission,"
+            },
+            {
+              "text": "initiate aggressive oral diuretic rescue (double dose of Bumex to 2mg BID) with extremely close monitoring.",
+              "pg_no": 1,
+              "reftxtbefore": "t management if possible. Will ",
+              "reftxtafter": " If no improvement in"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Type 2 Diabetes with Diabetic Foot Ulcer and Peripheral Vascular Disease",
+        "disease_evidence": [
+          {
+            "text": "Type 2 Diabetes with Diabetic Foot Ulcer and Peripheral Vascular Disease: Severe, infected neuropathic ulcer.",
+            "pg_no": 1,
+            "reftxtbefore": " and potassium.\n3. ",
+            "reftxtafter": " High risk of osteomy"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [
+            {
+              "text": "Ordered urgent X-ray of the left foot.",
+              "pg_no": 1,
+              "reftxtbefore": "s and limb loss. ",
+              "reftxtafter": " Initiated broad-spe"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "High risk of osteomyelitis and limb loss.",
+              "pg_no": 1,
+              "reftxtbefore": "ed neuropathic ulcer. ",
+              "reftxtafter": " Ordered urgent X-ra"
+            },
+            {
+              "text": "Initiated broad-spectrum oral antibiotics (Bactrim DS and Augmentin).",
+              "pg_no": 1,
+              "reftxtbefore": " of the left foot. ",
+              "reftxtafter": " Scheduled urgent ou"
+            },
+            {
+              "text": "Scheduled urgent outpatient vascular surgery consult and podiatry consult within 48 hours.",
+              "pg_no": 1,
+              "reftxtbefore": "DS and Augmentin). ",
+              "reftxtafter": "\n\nElectronically Sign"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

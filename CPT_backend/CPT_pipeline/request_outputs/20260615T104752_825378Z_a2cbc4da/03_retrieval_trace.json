@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "45380",
+      "query_text": "Colonoscopy with biopsy Colon, Sigmoid Colon Endoscopic Diagnostic, Biopsy Direct Visualization Moderate Sedation Polyp (3 mm, sessile)",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "45331",
+          "45305",
+          "45342"
+        ],
+        "top_k_suggested_score": [
+          0.900354,
+          0.900307,
+          0.882627
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "45331",
+          "similarity_score": "0.900354"
+        },
+        {
+          "code": "45305",
+          "similarity_score": "0.900307"
+        },
+        {
+          "code": "45342",
+          "similarity_score": "0.882627"
+        }
+      ]
+    }
+  ]
+}

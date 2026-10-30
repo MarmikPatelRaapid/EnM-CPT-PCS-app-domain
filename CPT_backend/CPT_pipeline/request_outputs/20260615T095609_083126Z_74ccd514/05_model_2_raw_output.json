@@ -1,0 +1,10 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "45378",
+      "final_cpt_code": "45378",
+      "final_cpt_code_description": "Colonoscopy, flexible, diagnostic, including collection of specimen(s) by brushing or washing, when performed, and including examination of terminal ileum when performed",
+      "final_cpt_code_justification": "CPT code 45378 is the best fit for this procedure. The medical record explicitly states 'Colonoscopy, flexible, diagnostic.' The procedure involved advancing the scope through the entire colon to the 'cecum' and 'The ileocecal valve was identified and intubated. The terminal ileum appeared normal for approximately 5 cm.' This perfectly aligns with the code description 'Colonoscopy, flexible, diagnostic... and including examination of terminal ileum when performed.' No specimens were taken, which is consistent with the 'when performed' clause for specimen collection. The primary diagnosis of positive FOBT and iron deficiency anemia supports the diagnostic nature of the procedure, and no therapeutic interventions (e.g., polyp removal, biopsy) were performed, as confirmed by 'No polyps, masses, or active bleeding were observed throughout the colon' and 'Specimens: None taken.'\n\nAlternative code 44388 (Colonoscopy, flexible, proximal to splenic flexure; diagnostic) is rejected because while the scope did go proximal to the splenic flexure, 45378 is more specific for a complete colonoscopy to the cecum with terminal ileum intubation, which was achieved. Code 45330 (Sigmoidoscopy, flexible; diagnostic) is rejected because a sigmoidoscopy only examines the rectum and sigmoid colon, whereas this procedure involved a full colonoscopy to the cecum and terminal ileum. Code 91117 (Colon capsule endoscopy) is rejected as the procedure performed was a traditional flexible colonoscopy, not a capsule endoscopy. Code 74270 (Radiologic examination, colon; therapeutic enema) is rejected because this describes a radiologic procedure for therapeutic purposes, not an endoscopic diagnostic colonoscopy."
+    }
+  ]
+}

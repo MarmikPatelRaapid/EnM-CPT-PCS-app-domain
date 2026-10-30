@@ -1,0 +1,275 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "moderate",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 or more chronic illness with exacerbation, progression of side effect",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "exacerbation"
+            ]
+          },
+          {
+            "name": "1 undiagnosed new problem with uncertain prognosis",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "undiagnosed_problem"
+            ]
+          },
+          {
+            "name": "1 or more chronic illness with severe exacerbation, progression of side effect",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "severe exacerbation"
+            ]
+          },
+          {
+            "name": "1 acute or chronic illness or injury posing a threat to life or body function",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "life_threatening"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "high",
+          "high",
+          "moderate"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Outpatient Internal Medicine",
+        "pg_no": 1,
+        "reftxtbefore": "Department: ",
+        "reftxtafter": "\nPatient Name: Elean"
+      }
+    ],
+    "service": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Encounter Date: 10/1",
+        "reftxtafter": "\nProvider: Dr. Marcu"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established",
+        "pg_no": 1,
+        "reftxtbefore": "Eleanor Vance is an ",
+        "reftxtafter": " 64-year-old female"
+      }
+    ],
+    "physician_time_spent_with_patient": [
+      {
+        "text": "50 minutes",
+        "pg_no": 1,
+        "reftxtbefore": "A total of ",
+        "reftxtafter": " was spent on the da"
+      }
+    ],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Stage 4 Chronic Kidney Disease",
+        "pg_no": 1,
+        "reftxtbefore": "parameters provided.\n3. ",
+        "reftxtafter": ": Monitor renal func"
+      },
+      {
+        "text": "Uncontrolled Type 2 Diabetes Mellitus with severe diabetic nephropathy",
+        "pg_no": 1,
+        "reftxtbefore": "saturations > 92%.\n2. ",
+        "reftxtafter": ": High risk of metab"
+      },
+      {
+        "text": "Acute COPD Exacerbation with concurrent early Bronchopneumonia",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT & PLAN:\n1. ",
+        "reftxtafter": ": High risk given he"
+      },
+      {
+        "text": "Acute fluid overload / CHF vs. renal insufficiency",
+        "pg_no": 1,
+        "reftxtbefore": "in 48 hours.\n4. ",
+        "reftxtafter": ": Increase oral Tors"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Reviewed recent comprehensive metabolic panel from 3 days ago showing Creatinine 2.8 mg/dL (up from baseline 2.4) and eGFR 19 mL/min/1.73m2",
+        "pg_no": 1,
+        "reftxtbefore": "ANALYZED:\n1. ",
+        "reftxtafter": ".\n2. Reviewed CBC sh"
+      },
+      {
+        "text": "Repeat BMP in 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "function closely. ",
+        "reftxtafter": ".\n4. Acute fluid ove"
+      },
+      {
+        "text": "Personally contacted and discussed the patient's clinical status and medication adjustments with her nephrologist, Dr. Patel",
+        "pg_no": 1,
+        "reftxtbefore": "mild pulmonary congestion.\n4. ",
+        "reftxtafter": ", given her declinin"
+      },
+      {
+        "text": "Reviewed CBC showing leukocytosis with WBC 13.5 x10^3/uL",
+        "pg_no": 1,
+        "reftxtbefore": "min/1.73m2.\n2. ",
+        "reftxtafter": ".\n3. Reviewed chest X"
+      },
+      {
+        "text": "Reviewed chest X-ray report from yesterday showing early left lower lobe infiltrates",
+        "pg_no": 1,
+        "reftxtbefore": "WBC 13.5 x10^3/uL.\n3. ",
+        "reftxtafter": " vs. mild pulmonary"
+      },
+      {
+        "text": "Ordered home oxygen therapy at 2L via nasal cannula",
+        "pg_no": 1,
+        "reftxtbefore": "daily for 5 days. ",
+        "reftxtafter": " to maintain satura"
+      },
+      {
+        "text": "Reviewed chest X-ray report from yesterday showing early left lower lobe infiltrates vs. mild pulmonary congestion",
+        "pg_no": 1,
+        "reftxtbefore": "WBC 13.5 x10^3/uL.\n3. ",
+        "reftxtafter": ".\n4. Personally con"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Metformin must be discontinued immediately due to eGFR < 30",
+        "pg_no": 1,
+        "reftxtbefore": "of metabolic derangement.",
+        "reftxtafter": ". Will initiate Insu"
+      },
+      {
+        "text": "oral Levofloxacin 500 mg daily (renal dose adjusted for eGFR < 20)",
+        "pg_no": 1,
+        "reftxtbefore": "hypoxia. Will initiate ",
+        "reftxtafter": " for 7 days. Prescr"
+      },
+      {
+        "text": "Will initiate Insulin Glargine 10 units subcutaneously at bedtime",
+        "pg_no": 1,
+        "reftxtbefore": "due to eGFR < 30. ",
+        "reftxtafter": " and adjust her rap"
+      },
+      {
+        "text": "initiate oral Levofloxacin 500 mg daily (renal dose adjusted for eGFR < 20) for 7 days",
+        "pg_no": 1,
+        "reftxtbefore": "and hypoxia. Will ",
+        "reftxtafter": ". Prescribed a Predn"
+      },
+      {
+        "text": "Prescribed a Prednisone burst of 40 mg daily for 5 days",
+        "pg_no": 1,
+        "reftxtbefore": "for 7 days. ",
+        "reftxtafter": ". Ordered home oxyge"
+      },
+      {
+        "text": "Ordered home oxygen therapy",
+        "pg_no": 1,
+        "reftxtbefore": "daily for 5 days. ",
+        "reftxtafter": " at 2L via nasal ca"
+      },
+      {
+        "text": "Discussed potential hospitalization given her hypoxia",
+        "pg_no": 1,
+        "reftxtbefore": "N & RISK DISCUSSION:\n",
+        "reftxtafter": ", acute infection, a"
+      },
+      {
+        "text": "Increase oral Torsemide to 20 mg daily",
+        "pg_no": 1,
+        "reftxtbefore": "vs. renal insufficiency: ",
+        "reftxtafter": ".\n\nDECISION-MAKING &"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": 50,
+    "patient_age": 64,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

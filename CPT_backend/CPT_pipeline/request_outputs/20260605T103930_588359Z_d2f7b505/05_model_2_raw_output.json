@@ -1,0 +1,16 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "62284",
+      "final_cpt_code": "62284",
+      "final_cpt_code_description": "Injection of contrast during myelography, lumbar or sacral",
+      "final_cpt_code_justification": "The medical record explicitly documents the injection of '12 cc of Omnipaque 300 non-ionic contrast material' into the 'subarachnoid space at the L3-L4 level under intermittent fluoroscopic guidance' for myelography. Code 62284 specifically describes the injection of contrast for lumbar myelography, which perfectly matches the documented procedure. The alternatives 62322, 62323, 62326, and 62327 were rejected because they describe injections of diagnostic or therapeutic substances (e.g., anesthetic, steroid) into the epidural or subarachnoid space, not contrast for myelography. Furthermore, 62322 and 62326 specify 'without imaging guidance,' which contradicts the 'intermittent fluoroscopic guidance' used. Codes 62326 and 62327 also specify cervical or thoracic regions, not lumbar. Code 77003 was rejected as it is an add-on code for fluoroscopic guidance for general diagnostic/therapeutic injections, and the specific injection of contrast for myelography is better represented by 62284, which inherently includes the necessary guidance."
+    },
+    {
+      "original_cpt_code": "72270",
+      "final_cpt_code": "72270",
+      "final_cpt_code_description": "Myelography, lumbar, radiological supervision and interpretation",
+      "final_cpt_code_justification": "The medical record clearly states 'EXAM: Lumbar Myelogram, Radiological Supervision and Interpretation' and details the acquisition of 'Standard anteroposterior (AP), lateral, and bilateral oblique radiographs of the lumbar spine' after contrast injection. Code 72270 precisely covers the radiological supervision and interpretation component of a lumbar myelogram. The alternatives 72148, 72149, and 72158 were rejected because they describe Magnetic Resonance Imaging (MRI) of the lumbar spine, which was explicitly contraindicated and not performed; the procedure involved fluoroscopy and radiographs. Codes 72020 and 72021 were rejected as they represent routine radiologic examinations of the spine (thoracic and lumbar) with a limited number of views, which do not accurately reflect the complex diagnostic nature and specific imaging sequence of a myelogram involving contrast administration and dynamic fluoroscopic evaluation."
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "facility": {
+    "facility_type": "Hospital Inpatient or Observation Care Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Discharge Summary",
+        "pg_no": 1,
+        "reftxtbefore": "Encounter Date: 10/14/2024\nDocument Type: ",
+        "reftxtafter": "\nProvider: Dr. Sarah "
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Hospital or Observation Discharge Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "discharge day management activities",
+        "pg_no": 1,
+        "reftxtbefore": "of discharge performi",
+        "reftxtafter": ". This included a fac"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Not found",
+    "category": "Not_Found",
+    "evidences": []
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 45,
+    "evidences": [
+      {
+        "text": "total of 45 minutes on the date of discharge",
+        "pg_no": 1,
+        "reftxtbefore": "I spent a ",
+        "reftxtafter": " performing discharge"
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 74,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 74",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 04/12/1950\n",
+        "reftxtafter": "\nSex: Male\nEncounter "
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Stage 3 Chronic Kidney Disease",
+        "disease_evidence": [
+          {
+            "text": "Stage 3 Chronic Kidney Disease (baseline creatinine 1.8).",
+            "pg_no": 1,
+            "reftxtbefore": "SECONDARY DIAGNOSES:\n1. ",
+            "reftxtafter": "\n2. Essential Hypert"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "renal function remained stable with a discharge creatinine of 1.75",
+              "pg_no": 1,
+              "reftxtbefore": "d orthopnea have com",
+              "reftxtafter": ". He has been succes"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "basic metabolic panel draws",
+              "pg_no": 1,
+              "reftxtbefore": "ht checks, and ",
+              "reftxtafter": ".\n3. Follow-up: Sche"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Lisinopril 10mg PO daily",
+              "pg_no": 1,
+              "reftxtbefore": "PO BID, ",
+              "reftxtafter": ", and Metformin 500m"
+            },
+            {
+              "text": "basic metabolic panel draws",
+              "pg_no": 1,
+              "reftxtbefore": "ht checks, and ",
+              "reftxtafter": ".\n3. Follow-up: Sche"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Essential Hypertension",
+        "disease_evidence": [
+          {
+            "text": "Essential Hypertension.",
+            "pg_no": 1,
+            "reftxtbefore": "creatinine 1.8).\n2. ",
+            "reftxtafter": "\n3. Type 2 Diabetes "
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [
+            {
+              "text": "blood pressure, weight checks",
+              "pg_no": 1,
+              "reftxtbefore": "ordered for twice-we",
+              "reftxtafter": ", and basic metaboli"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Carvedilol 12.5mg PO BID, Lisinopril 10mg PO daily",
+              "pg_no": 1,
+              "reftxtbefore": "placing home Lasix),",
+              "reftxtafter": ", and Metformin 500m"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Type 2 Diabetes Mellitus",
+        "disease_evidence": [
+          {
+            "text": "Type 2 Diabetes Mellitus.",
+            "pg_no": 1,
+            "reftxtbefore": "al Hypertension.\n3. ",
+            "reftxtafter": "\n\nHOSPITAL COURSE:\nT"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [
+            {
+              "text": "basic metabolic panel draws",
+              "pg_no": 1,
+              "reftxtbefore": "ht checks, and ",
+              "reftxtafter": ".\n3. Follow-up: Sche"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Metformin 500mg PO BID",
+              "pg_no": 1,
+              "reftxtbefore": "Lisinopril 10mg PO d",
+              "reftxtafter": ".\n2. Home Health: Ho"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute on chronic systolic heart failure",
+        "disease_evidence": [
+          {
+            "text": "Acute on chronic systolic heart failure (decompensated).",
+            "pg_no": 1,
+            "reftxtbefore": "PRINCIPAL DIAGNOSIS:\n",
+            "reftxtafter": "\n\nSECONDARY DIAGNOSE"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "renal function remained stable with a discharge creatinine of 1.75",
+              "pg_no": 1,
+              "reftxtbefore": "d orthopnea have com",
+              "reftxtafter": ". He has been succes"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "basic metabolic panel draws",
+              "pg_no": 1,
+              "reftxtbefore": "ht checks, and ",
+              "reftxtafter": ".\n3. Follow-up: Sche"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "treated with aggressive intravenous diuresis using IV Lasix 40mg twice daily",
+              "pg_no": 1,
+              "reftxtbefore": "lization, the patien",
+              "reftxtafter": ". His fluid status an"
+            },
+            {
+              "text": "Discharged on Bumex 1mg PO daily (replacing home Lasix), Carvedilol 12.5mg PO BID, Lisinopril 10mg PO daily",
+              "pg_no": 1,
+              "reftxtbefore": "tion Reconciliation:",
+              "reftxtafter": ", and Metformin 500m"
+            },
+            {
+              "text": "Home health nursing ordered",
+              "pg_no": 1,
+              "reftxtbefore": "2. Home Health: ",
+              "reftxtafter": " for twice-weekly bl"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

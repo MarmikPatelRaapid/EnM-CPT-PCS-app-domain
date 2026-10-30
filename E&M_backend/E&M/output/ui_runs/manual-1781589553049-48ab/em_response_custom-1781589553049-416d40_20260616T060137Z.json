@@ -1,0 +1,332 @@
+{
+  "classification": {
+    "complexity": "moderate",
+    "data_to_review": "extensive",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "1 or more chronic illness with exacerbation, progression of side effect",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 3,
+            "path": [
+              "chronic_illness",
+              "exacerbation"
+            ]
+          },
+          {
+            "name": "1 undiagnosed new problem with uncertain prognosis",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "undiagnosed_problem"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "extensive",
+        "mdm_level_equivalent": "high",
+        "field_hits": {
+          "review_of_prior_external_note": true,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": true,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 3,
+          "ModerateExtensiveCategory1": 3,
+          "ModerateHighCategories": 3
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "At least two moderate/high data categories were met."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "low",
+          "moderate",
+          "moderate",
+          "moderate",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "moderate",
+          "data_to_review": "extensive",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "moderate",
+          "data_to_review": "high",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Internal Medicine Clinic",
+        "pg_no": 1,
+        "reftxtbefore": "Department: ",
+        "reftxtafter": "\nPatient Name: Elean"
+      }
+    ],
+    "service": [
+      {
+        "text": "Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Document Type: ",
+        "reftxtafter": "\nProvider: Dr. Sarah"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "is a 66-year-old ",
+        "reftxtafter": " presenting for foll"
+      }
+    ],
+    "physician_time_spent_with_patient": [
+      {
+        "text": "45 minutes",
+        "pg_no": 2,
+        "reftxtbefore": "of encounter: ",
+        "reftxtafter": ". This included rev"
+      }
+    ],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Chronic Kidney Disease, Stage 3a",
+        "pg_no": 2,
+        "reftxtbefore": "cardiovascular risk.\n5.  ",
+        "reftxtafter": ": Stable, but requ"
+      },
+      {
+        "text": "Type 2 Diabetes Mellitus, poorly controlled",
+        "pg_no": 2,
+        "reftxtbefore": "ASSESSMENT:\n1.  ",
+        "reftxtafter": ": Patient presents "
+      },
+      {
+        "text": "Hypertension, uncontrolled",
+        "pg_no": 2,
+        "reftxtbefore": "and neuropathy. \n2.  ",
+        "reftxtafter": ": Blood pressure re"
+      },
+      {
+        "text": "Hyperlipidemia",
+        "pg_no": 2,
+        "reftxtbefore": "non-cardiac causes.\n4.  ",
+        "reftxtafter": ": LDL remains eleva"
+      },
+      {
+        "text": "Chest Pain and Palpitations, intermittent, etiology unclear",
+        "pg_no": 2,
+        "reftxtbefore": "cardiovascular risk.\n3.  ",
+        "reftxtafter": ": New onset symptom"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Creatinine: 1.4 mg/dL (eGFR 40 mL/min/1.73m2) (stable from previous)",
+        "pg_no": 1,
+        "reftxtbefore": "Fasting Glucose: 210 mg/dL\n    *   ",
+        "reftxtafter": "\n    *   Potassium:"
+      },
+      {
+        "text": "Monitor renal function with labs every 3 months.",
+        "pg_no": 2,
+        "reftxtbefore": "    *   Avoid NSAIDs.\n    *   ",
+        "reftxtafter": "\n6.  General:\n    *"
+      },
+      {
+        "text": "Continue renoprotective measures (BP control, diabetes control).",
+        "pg_no": 2,
+        "reftxtbefore": "Kidney Disease:\n    *   ",
+        "reftxtafter": "\n    *   Avoid NSAI"
+      },
+      {
+        "text": "Avoid NSAIDs.",
+        "pg_no": 2,
+        "reftxtbefore": "diabetes control).\n    *   ",
+        "reftxtafter": "\n    *   Monitor re"
+      },
+      {
+        "text": "HbA1c: 9.8% (up from 8.5% 3 months ago)",
+        "pg_no": 1,
+        "reftxtbefore": "*   ",
+        "reftxtafter": "\n    *   Fasting Gl"
+      },
+      {
+        "text": "Fasting Glucose: 210 mg/dL",
+        "pg_no": 1,
+        "reftxtbefore": "3 months ago)\n    *   ",
+        "reftxtafter": "\n    *   Creatinine"
+      },
+      {
+        "text": "Referral to Endocrinology for co-management of complex diabetes.",
+        "pg_no": 2,
+        "reftxtbefore": "BID.\n    *   ",
+        "reftxtafter": "\n    *   Continue d"
+      },
+      {
+        "text": "BP 158/92 mmHg",
+        "pg_no": 1,
+        "reftxtbefore": "VITAL SIGNS: ",
+        "reftxtafter": ", HR 88 bpm, RR 16,"
+      },
+      {
+        "text": "Encourage home BP monitoring and bring log to next visit.",
+        "pg_no": 2,
+        "reftxtbefore": "Amlodipine 5 mg daily.\n    *   ",
+        "reftxtafter": "\n3.  Chest Pain and"
+      },
+      {
+        "text": "Lipid Panel: Total Cholesterol 220 mg/dL, LDL 145 mg/dL, HDL 38 mg/dL, Triglycerides 250 mg/dL",
+        "pg_no": 1,
+        "reftxtbefore": "Potassium: 4.2 mEq/L\n    *   ",
+        "reftxtafter": "\n    *   TSH: 2.1 m"
+      },
+      {
+        "text": "Re-check lipid panel in 3 months.",
+        "pg_no": 2,
+        "reftxtbefore": "to 40 mg nightly.\n    *   ",
+        "reftxtafter": "\n5.  Chronic Kidney"
+      },
+      {
+        "text": "Reviewed recent cardiology consultation note from Dr. David Lee (01/15/2024)",
+        "pg_no": 1,
+        "reftxtbefore": "External Records: ",
+        "reftxtafter": " which recommended "
+      },
+      {
+        "text": "Ordered Cardiac Stress Test (Lexiscan) to evaluate for inducible ischemia.",
+        "pg_no": 2,
+        "reftxtbefore": "and Palpitations:\n    *   ",
+        "reftxtafter": "\n    *   Ordered 24"
+      },
+      {
+        "text": "Ordered 24-hour Holter Monitor to assess for arrhythmias.",
+        "pg_no": 2,
+        "reftxtbefore": "inducible ischemia.\n    *   ",
+        "reftxtafter": "\n    *   Discussed "
+      },
+      {
+        "text": "EKG (performed 01/22/2024 in clinic): Sinus rhythm, rate 85 bpm, no acute ischemic changes, no significant ST-T wave abnormalities. Occasional PVCs noted.",
+        "pg_no": 1,
+        "reftxtbefore": "TSH: 2.1 mIU/L (normal)\n  ",
+        "reftxtafter": "\n  External Records"
+      },
+      {
+        "text": "Will coordinate with cardiology for follow-up after tests are completed.",
+        "pg_no": 2,
+        "reftxtafter": "\n4.  Hyperlipidemia",
+        "reftxtbefore": "symptoms immediately.\n    *   "
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Monitor renal function with labs every 3 months.",
+        "pg_no": 2,
+        "reftxtbefore": "    *   Avoid NSAIDs.\n    *   ",
+        "reftxtafter": "\n6.  General:\n    *"
+      },
+      {
+        "text": "Discontinue Glipizide",
+        "pg_no": 2,
+        "reftxtbefore": "Mellitus:\n    *   ",
+        "reftxtafter": " due to risk of hy"
+      },
+      {
+        "text": "Initiate insulin glargine (Lantus) 10 units subcutaneously nightly.",
+        "pg_no": 2,
+        "reftxtbefore": "current state.\n    *   ",
+        "reftxtafter": " Instructed patient"
+      },
+      {
+        "text": "Increase Metformin XR to 1000 mg BID.",
+        "pg_no": 2,
+        "reftxtbefore": "s of hypoglycemia.\n    *   ",
+        "reftxtafter": "\n    *   Referral t"
+      },
+      {
+        "text": "Increase Lisinopril to 20 mg daily.",
+        "pg_no": 2,
+        "reftxtbefore": "Hypertension:\n    *   ",
+        "reftxtafter": "\n    *   Add Amlodi"
+      },
+      {
+        "text": "Add Amlodipine 5 mg daily.",
+        "pg_no": 2,
+        "reftxtbefore": "to 20 mg daily.\n    *   ",
+        "reftxtafter": "\n    *   Encourage "
+      },
+      {
+        "text": "Increase Atorvastatin to 40 mg nightly.",
+        "pg_no": 2,
+        "reftxtbefore": "Hyperlipidemia:\n    *   ",
+        "reftxtafter": "\n    *   Re-check l"
+      },
+      {
+        "text": "Ordered Cardiac Stress Test (Lexiscan) to evaluate for inducible ischemia.",
+        "pg_no": 2,
+        "reftxtbefore": "and Palpitations:\n    *   ",
+        "reftxtafter": "\n    *   Ordered 24"
+      },
+      {
+        "text": "Ordered 24-hour Holter Monitor to assess for arrhythmias.",
+        "pg_no": 2,
+        "reftxtbefore": "inducible ischemia.\n    *   ",
+        "reftxtafter": "\n    *   Discussed "
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": 45,
+    "patient_age": 66,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "procedures": [
+    {
+      "norm_procedure_name": "Laparoscopic Appendectomy",
+      "procedure_evidences": [
+        {
+          "text": "Laparoscopic appendectomy",
+          "pg_no": 1,
+          "reftxtbefore": "PROCEDURE PERFORMED: ",
+          "reftxtafter": "\n\nOPERATIVE FINDING"
+        }
+      ]
+    }
+  ]
+}

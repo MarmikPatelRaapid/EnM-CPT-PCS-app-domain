@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": [
+    "audited_codes"
+  ],
+  "properties": {
+    "audited_codes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "original_cpt_code",
+          "final_cpt_code",
+          "final_cpt_code_description",
+          "final_cpt_code_justification"
+        ],
+        "properties": {
+          "original_cpt_code": {
+            "type": "string"
+          },
+          "final_cpt_code": {
+            "type": "string"
+          },
+          "final_cpt_code_description": {
+            "type": "string"
+          },
+          "final_cpt_code_justification": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

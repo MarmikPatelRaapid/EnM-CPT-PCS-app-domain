@@ -1,0 +1,155 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "45378",
+      "final_cpt_code": "45378",
+      "final_cpt_code_description": "Colonoscopy, flexible, diagnostic, including collection of specimen(s) by brushing or washing, when performed, and including examination of terminal ileum when performed",
+      "final_cpt_code_justification": "CPT code 45378 is the best fit for this procedure. The medical record explicitly states 'Colonoscopy, flexible, diagnostic.' The procedure involved advancing the scope through the entire colon to the 'cecum' and 'The ileocecal valve was identified and intubated. The terminal ileum appeared normal for approximately 5 cm.' This perfectly aligns with the code description 'Colonoscopy, flexible, diagnostic... and including examination of terminal ileum when performed.' No specimens were taken, which is consistent with the 'when performed' clause for specimen collection. The primary diagnosis of positive FOBT and iron deficiency anemia supports the diagnostic nature of the procedure, and no therapeutic interventions (e.g., polyp removal, biopsy) were performed, as confirmed by 'No polyps, masses, or active bleeding were observed throughout the colon' and 'Specimens: None taken.'\n\nAlternative code 44388 (Colonoscopy, flexible, proximal to splenic flexure; diagnostic) is rejected because while the scope did go proximal to the splenic flexure, 45378 is more specific for a complete colonoscopy to the cecum with terminal ileum intubation, which was achieved. Code 45330 (Sigmoidoscopy, flexible; diagnostic) is rejected because a sigmoidoscopy only examines the rectum and sigmoid colon, whereas this procedure involved a full colonoscopy to the cecum and terminal ileum. Code 91117 (Colon capsule endoscopy) is rejected as the procedure performed was a traditional flexible colonoscopy, not a capsule endoscopy. Code 74270 (Radiologic examination, colon; therapeutic enema) is rejected because this describes a radiologic procedure for therapeutic purposes, not an endoscopic diagnostic colonoscopy.",
+      "procedure_evidences": [
+        {
+          "text": "Colonoscopy, flexible, diagnostic.",
+          "pg_no": 1,
+          "reftxtbefore": "Procedure Performed:\n",
+          "reftxtafter": "\nPrimary Surgeon: Dr."
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "rectum",
+          "pg_no": 1,
+          "reftxtbefore": "on through the ",
+          "reftxtafter": ", sigmoid colon, des"
+        },
+        {
+          "text": "sigmoid colon",
+          "pg_no": 1,
+          "reftxtbefore": "rectum, ",
+          "reftxtafter": ", descending colon, "
+        },
+        {
+          "text": "descending colon",
+          "pg_no": 1,
+          "reftxtbefore": "sigmoid colon, ",
+          "reftxtafter": ", transverse colon, "
+        },
+        {
+          "text": "transverse colon",
+          "pg_no": 1,
+          "reftxtbefore": "descending colon, ",
+          "reftxtafter": ", ascending colon, a"
+        },
+        {
+          "text": "ascending colon",
+          "pg_no": 1,
+          "reftxtbefore": "transverse colon, ",
+          "reftxtafter": ", and into the cecum"
+        },
+        {
+          "text": "cecum",
+          "pg_no": 1,
+          "reftxtbefore": "ascending colon, and into the ",
+          "reftxtafter": ". The ileocecal valv"
+        },
+        {
+          "text": "ileocecal valve",
+          "pg_no": 1,
+          "reftxtbefore": "ecum. The ",
+          "reftxtafter": " was identified and "
+        },
+        {
+          "text": "terminal ileum",
+          "pg_no": 1,
+          "reftxtbefore": "intubated. The ",
+          "reftxtafter": " appeared normal for"
+        },
+        {
+          "text": "Rectum",
+          "pg_no": 1,
+          "reftxtbefore": "Findings:\n- ",
+          "reftxtafter": ": Normal mucosa. Sm"
+        },
+        {
+          "text": "Sigmoid Colon",
+          "pg_no": 1,
+          "reftxtbefore": "noted.\n- ",
+          "reftxtafter": ": Multiple small div"
+        },
+        {
+          "text": "Descending Colon",
+          "pg_no": 1,
+          "reftxtbefore": "bleeding.\n- ",
+          "reftxtafter": ": Normal mucosa.\n- "
+        },
+        {
+          "text": "Transverse Colon",
+          "pg_no": 1,
+          "reftxtbefore": "mucosa.\n- ",
+          "reftxtafter": ": Normal mucosa.\n- "
+        },
+        {
+          "text": "Ascending Colon",
+          "pg_no": 1,
+          "reftxtbefore": "mucosa.\n- ",
+          "reftxtafter": ": Normal mucosa.\n- "
+        },
+        {
+          "text": "Cecum",
+          "pg_no": 1,
+          "reftxtbefore": "mucosa.\n- ",
+          "reftxtafter": ": Normal mucosa. App"
+        },
+        {
+          "text": "colon",
+          "pg_no": 1,
+          "reftxtbefore": "throughout the ",
+          "reftxtafter": ".\n\nEstimated Blood L"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "inserted into the anus and advanced under direct visualization through the rectum, sigmoid colon, descending colon, transverse colon, ascending colon, and into the cecum. The ileocecal valve was identified and intubated. The terminal ileum appeared normal for approximately 5 cm.",
+          "pg_no": 1,
+          "reftxtbefore": "Olympus CF-HQ190L) was ",
+          "reftxtafter": " The scope was then "
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "diagnostic",
+          "pg_no": 1,
+          "reftxtbefore": "Colonoscopy, flexible, ",
+          "reftxtafter": "."
+        },
+        {
+          "text": "No polyps, masses, or active bleeding were observed throughout the colon.",
+          "pg_no": 1,
+          "reftxtbefore": "Appendiceal orifice identified.\n- ",
+          "reftxtafter": "\n\nEstimated Blood Los"
+        },
+        {
+          "text": "Specimens: None taken.",
+          "pg_no": 1,
+          "reftxtbefore": "Blood Loss (EBL): Minimal (<5 mL)\n",
+          "reftxtafter": "\nComplications: None"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "direct visualization",
+          "pg_no": 1,
+          "reftxtbefore": "and advanced under ",
+          "reftxtafter": " through the rectum,"
+        }
+      ],
+      "anesthesia_type_evidences": [
+        {
+          "text": "Moderate Sedation (Fentanyl and Midazolam)",
+          "pg_no": 1,
+          "reftxtbefore": "Anesthesia Type: ",
+          "reftxtafter": "\nIndications for Pro"
+        }
+      ],
+      "other_evidences": []
+    }
+  ]
+}

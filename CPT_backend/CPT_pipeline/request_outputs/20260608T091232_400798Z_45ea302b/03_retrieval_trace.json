@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "77290",
+      "query_text": "CT Simulation for Radiation Therapy Planning Pelvis, Lower Extremities N/A Simulation CT N/A Complex",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "77436",
+          "55920",
+          "72191",
+          "72192",
+          "72193"
+        ],
+        "top_k_suggested_score": [
+          0.818247,
+          0.807699,
+          0.795056,
+          0.795056,
+          0.795056
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "77436",
+          "similarity_score": "0.818247"
+        },
+        {
+          "code": "55920",
+          "similarity_score": "0.807699"
+        },
+        {
+          "code": "72191",
+          "similarity_score": "0.795056"
+        },
+        {
+          "code": "72192",
+          "similarity_score": "0.795056"
+        },
+        {
+          "code": "72193",
+          "similarity_score": "0.795056"
+        }
+      ]
+    },
+    {
+      "code_index": 1,
+      "cpt_code": "77334",
+      "query_text": "Fabrication of Custom Immobilization Device Lower Extremities, Pelvis N/A Device Construction N/A N/A Custom Vac-Lok immobilization cradle",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "57160",
+          "55920",
+          "53451",
+          "53452",
+          "57155"
+        ],
+        "top_k_suggested_score": [
+          0.762905,
+          0.745228,
+          0.743514,
+          0.743514,
+          0.738862
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "57160",
+          "similarity_score": "0.762905"
+        },
+        {
+          "code": "55920",
+          "similarity_score": "0.745228"
+        },
+        {
+          "code": "53451",
+          "similarity_score": "0.743514"
+        },
+        {
+          "code": "53452",
+          "similarity_score": "0.743514"
+        },
+        {
+          "code": "57155",
+          "similarity_score": "0.738862"
+        }
+      ]
+    }
+  ]
+}

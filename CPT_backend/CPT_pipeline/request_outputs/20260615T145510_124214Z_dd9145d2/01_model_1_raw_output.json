@@ -1,0 +1,99 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "77067",
+      "code_description": "Screening mammography, bilateral (2-view study of each breast), including computer-aided detection (CAD) when performed",
+      "code_justification": "The report clearly documents a 'Screening Mammography, Bilateral' performed with 'craniocaudal (CC) and mediolateral oblique (MLO) views of both breasts'. This code includes CAD when performed, so 77068 is not separately billable.",
+      "norm_procedure_name": "Screening Mammography",
+      "norm_anatomy": "Bilateral Breasts",
+      "norm_approach": "Digital Mammography (CC and MLO views)",
+      "norm_procedure_type": "Diagnostic Imaging",
+      "norm_imaging_guidance": "Computer-Aided Detection (CAD)",
+      "norm_anesthesia_type": "None",
+      "norm_other": "BI-RADS Category 2",
+      "procedure_evidences": [
+        {
+          "text": "Screening Mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": ", Bilateral with CAD"
+        },
+        {
+          "text": "Routine screening mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "Clinical Indication: ",
+          "reftxtafter": ". No new breast comp"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Screening Mammography, ",
+          "reftxtafter": " with CAD"
+        },
+        {
+          "text": "both breasts",
+          "pg_no": 1,
+          "reftxtbefore": "MLO) views of ",
+          "reftxtafter": ". Computer-aided det"
+        },
+        {
+          "text": "Right Breast",
+          "pg_no": 1,
+          "reftxtbefore": "ses.\n",
+          "reftxtafter": ": No suspicious mass"
+        },
+        {
+          "text": "Left Breast",
+          "pg_no": 1,
+          "reftxtbefore": "remarkable.\n",
+          "reftxtafter": ": No suspicious mass"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Technique: ",
+          "reftxtafter": " was performed, cons"
+        },
+        {
+          "text": "craniocaudal (CC) and mediolateral oblique (MLO) views",
+          "pg_no": 1,
+          "reftxtbefore": "consisting of ",
+          "reftxtafter": " of both breasts. C"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "Radiology Report",
+          "pg_no": 1,
+          "reftxtbefore": "Document Type: ",
+          "reftxtafter": "\nProvider: Dr. Emil"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "Computer-aided detection (CAD)",
+          "pg_no": 1,
+          "reftxtbefore": "of both breasts. ",
+          "reftxtafter": " was applied to the"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "field_label": "BI-RADS Category",
+          "text": "BI-RADS Category 2",
+          "pg_no": 1,
+          "reftxtbefore": "Impression:\n",
+          "reftxtafter": ": Benign Finding(s)."
+        }
+      ],
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

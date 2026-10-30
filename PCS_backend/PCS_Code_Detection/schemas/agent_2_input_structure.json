@@ -1,0 +1,62 @@
+{
+    "norm_procedure": "string",
+    "current_code": "string",
+    "evidences": {
+        "evidence_for_first_character": [
+            {
+                "text": "string",
+                "pg_no": "integer",
+                "reftxtbefore": "string",
+                "reftxtafter": "string"
+            }
+        ],
+        "evidence_for_second_character": [
+            {
+                "text": "string",
+                "pg_no": "integer",
+                "reftxtbefore": "string",
+                "reftxtafter": "string"
+            }
+        ],
+        "evidence_for_third_character": [
+            {
+                "text": "string",
+                "pg_no": "integer",
+                "reftxtbefore": "string",
+                "reftxtafter": "string"
+            }
+        ],
+        "evidence_for_fourth_character": [
+            {
+                "text": "string",
+                "pg_no": "integer",
+                "reftxtbefore": "string",
+                "reftxtafter": "string"
+            }
+        ],
+        "evidence_for_fifth_character": [
+            {
+                "text": "string",
+                "pg_no": "integer",
+                "reftxtbefore": "string",
+                "reftxtafter": "string"
+            }
+        ],
+        "evidence_for_sixth_character": [
+            {
+                "text": "string",
+                "pg_no": "integer",
+                "reftxtbefore": "string",
+                "reftxtafter": "string"
+            }
+        ],
+        "evidence_for_seventh_character": [
+            {
+                "text": "string",
+                "pg_no": "integer",
+                "reftxtbefore": "string",
+                "reftxtafter": "string"
+            }
+        ]
+    }
+}

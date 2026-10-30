@@ -1,0 +1,225 @@
+{
+  "classification": {
+    "complexity": "moderate",
+    "data_to_review": "moderate",
+    "risk": "high",
+    "mdm_level": "moderate",
+    "details": {
+      "complexity": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 undiagnosed new problem with uncertain prognosis",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "undiagnosed_problem"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "moderate"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "moderate"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Outpatient Cardiology",
+        "pg_no": 1,
+        "reftxtbefore": "TMENT: Outpatient Cardiology. PATIENT NAME: Robe",
+        "reftxtafter": ". PATIENT NAME: Robe"
+      }
+    ],
+    "service": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "NCOUNTER DATE: 10/24/2023. DOCUMENT TYPE: ",
+        "reftxtafter": ". PROVIDER: Dr. Sara"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established male",
+        "pg_no": 1,
+        "reftxtbefore": "t is a 68-year-old ",
+        "reftxtafter": " with a history of i"
+      }
+    ],
+    "physician_time_spent_with_patient": [
+      {
+        "text": "Total time spent by the provider on the date of the encounter, including face-to-face evaluation, counseling, and non-face-to-face record review and care coordination, was 45 minutes",
+        "pg_no": 1,
+        "reftxtbefore": "ours with repeat labs. TIME SPENT: ",
+        "reftxtafter": ". --- Electronically "
+      }
+    ],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute on chronic systolic heart failure exacerbation",
+        "pg_no": 1,
+        "reftxtbefore": "SSMENT AND PLAN: 1. ",
+        "reftxtafter": ": High complexity an"
+      },
+      {
+        "text": "Acute Kidney Injury on CKD Stage 3",
+        "pg_no": 1,
+        "reftxtbefore": "develops chest pain. 2. ",
+        "reftxtafter": ": Likely cardiorenal"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Point-of-care EKG shows normal sinus rhythm with LVH, no acute ST-T wave changes",
+        "pg_no": 1,
+        "reftxtbefore": "C DATA REVIEWED: ",
+        "reftxtafter": ". Point-of-care BNP"
+      },
+      {
+        "text": "Point-of-care BNP is markedly elevated at 1450 pg/mL (baseline 450)",
+        "pg_no": 1,
+        "reftxtbefore": "ST-T wave changes. ",
+        "reftxtafter": ". BMP shows Creatini"
+      },
+      {
+        "text": "BMP shows Creatinine 1.9 mg/dL (baseline 1.5), Potassium 4.3 mEq/L",
+        "pg_no": 1,
+        "reftxtbefore": "ine 450). ",
+        "reftxtafter": ". ASSESSMENT AND PLA"
+      },
+      {
+        "text": "repeat labs",
+        "pg_no": 1,
+        "reftxtbefore": "n-person visit in 48 hours with ",
+        "reftxtafter": ". TIME SPENT: Total"
+      },
+      {
+        "text": "Increase Furosemide from 40 mg daily to 80 mg BID for the next 3 days",
+        "pg_no": 1,
+        "reftxtbefore": " diuresis first. Plan: ",
+        "reftxtafter": ". Strict 1.5L fluid"
+      },
+      {
+        "text": "Strict 1.5L fluid restriction and 2g sodium diet",
+        "pg_no": 1,
+        "reftxtbefore": "the next 3 days. ",
+        "reftxtafter": ". Patient is instruc"
+      },
+      {
+        "text": "Patient is instructed to go to the Emergency Department immediately if symptoms worsen or if he develops chest pain",
+        "pg_no": 1,
+        "reftxtbefore": "and 2g sodium diet. ",
+        "reftxtafter": ". 2. Acute Kidney I"
+      },
+      {
+        "text": "Scheduled for a mandatory telehealth check-in tomorrow and an in-person visit in 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "3. Follow-up: ",
+        "reftxtafter": " with repeat labs. "
+      },
+      {
+        "text": "BMP shows Creatinine 1.9 mg/dL (baseline 1.5)",
+        "pg_no": 1,
+        "reftxtbefore": "ine 450). ",
+        "reftxtafter": ", Potassium 4.3 mEq"
+      },
+      {
+        "text": "Will recheck BMP in 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "ently volume overloaded. ",
+        "reftxtafter": ". 3. Follow-up: Sch"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "high risk of morbidity",
+        "pg_no": 1,
+        "reftxtbefore": "eart failure exacerbation: High complexity and ",
+        "reftxtafter": ". The patient is on "
+      },
+      {
+        "text": "The patient is on the verge of requiring inpatient admission",
+        "pg_no": 1,
+        "reftxtbefore": "risk of morbidity. ",
+        "reftxtafter": ". We will attempt ag"
+      },
+      {
+        "text": "Increase Furosemide from 40 mg daily to 80 mg BID for the next 3 days",
+        "pg_no": 1,
+        "reftxtbefore": " diuresis first. Plan: ",
+        "reftxtafter": ". Strict 1.5L fluid"
+      },
+      {
+        "text": "Patient is instructed to go to the Emergency Department immediately if symptoms worsen or if he develops chest pain",
+        "pg_no": 1,
+        "reftxtbefore": "and 2g sodium diet. ",
+        "reftxtafter": ". 2. Acute Kidney I"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": 45,
+    "patient_age": 68,
+    "patient_age_unit": "years",
+    "mdm_level": "Moderate"
+  },
+  "codes": [
+    "99214"
+  ]
+}

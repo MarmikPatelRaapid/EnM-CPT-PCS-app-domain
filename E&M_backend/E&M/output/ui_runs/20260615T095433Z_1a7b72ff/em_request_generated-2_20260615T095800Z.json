@@ -1,0 +1,274 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Clinic",
+        "pg_no": 1,
+        "reftxtbefore": "Department: Cardiology ",
+        "reftxtafter": "\nPatient Name: Evelyn"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "/2025\nDocument Type: ",
+        "reftxtafter": "\nProvider: Dr. Marcus"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established 76-year-old female",
+        "pg_no": 1,
+        "reftxtbefore": "SUBJECTIVE:\nMrs. Vance is an ",
+        "reftxtafter": " who presents for an "
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 76,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 76",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 04/03/1948\n",
+        "reftxtafter": "\nSex: Female\nEncount"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute decompensated systolic heart failure",
+        "disease_evidence": [
+          {
+            "text": "Acute decompensated systolic heart failure with severe volume overload and hypoxia.",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT & PLAN:\n\n1. ",
+            "reftxtafter": " \n2. Acute-on-chronic"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Reviewed recent echocardiogram from 2 months ago showing severe global hypokinesis and EF of 25%.",
+              "pg_no": 1,
+              "reftxtbefore": "ST elevations.\n3. ",
+              "reftxtafter": "\n\nASSESSMENT & PLAN:"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "I discussed the clinical situation in detail with the patient and her daughter.",
+              "pg_no": 1,
+              "reftxtbefore": "ent is unsafe. ",
+              "reftxtafter": " I have decided to a"
+            }
+          ],
+          "independent_interpretation_of_test": [
+            {
+              "text": "In-office EKG: Atrial fibrillation with rapid ventricular response (HR 108), non-specific ST-T wave changes, no acute ST elevations.",
+              "pg_no": 1,
+              "reftxtbefore": " kidney injury).\n2. ",
+              "reftxtafter": "\n3. Reviewed recent e"
+            }
+          ],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "I discussed the clinical situation in detail with the patient and her daughter.",
+              "pg_no": 1,
+              "reftxtbefore": "ent is unsafe. ",
+              "reftxtafter": " I have decided to a"
+            },
+            {
+              "text": "I contacted the inpatient hospitalist team directly, discussed her case, and arranged for direct admission to the telemetry floor.",
+              "pg_no": 1,
+              "reftxtbefore": "phrology consultation. ",
+              "reftxtafter": " The patient's daught"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "high risk for acute respiratory failure or uremic emergency.",
+              "pg_no": 1,
+              "reftxtbefore": "yarrhythmia, she is at ",
+              "reftxtafter": " Outpatient management"
+            },
+            {
+              "text": "admit her directly to the hospital for urgent intravenous diuresis, continuous cardiac monitoring, and nephrology consultation.",
+              "pg_no": 1,
+              "reftxtbefore": " I have decided to ",
+              "reftxtafter": " I contacted the inpa"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Acute-on-chronic kidney injury",
+        "disease_evidence": [
+          {
+            "text": "Acute-on-chronic kidney injury (Stage IV CKD baseline, now with acute worsening, likely cardiorenal syndrome vs. prerenal etiology).",
+            "pg_no": 1,
+            "reftxtbefore": " and hypoxia. \n2. ",
+            "reftxtafter": "\n3. Uncontrolled perm"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Point-of-care BMP: Potassium 5.4 mEq/L, BUN 68 mg/dL, Creatinine 3.2 mg/dL (significantly elevated from baseline 2.4, indicating acute-on-chronic kidney injury).",
+              "pg_no": 1,
+              "reftxtbefore": "& ANALYZED:\n1. ",
+              "reftxtafter": "\n2. In-office EKG: A"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "I discussed the clinical situation in detail with the patient and her daughter.",
+              "pg_no": 1,
+              "reftxtbefore": "ent is unsafe. ",
+              "reftxtafter": " I have decided to a"
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "I discussed the clinical situation in detail with the patient and her daughter.",
+              "pg_no": 1,
+              "reftxtbefore": "ent is unsafe. ",
+              "reftxtafter": " I have decided to a"
+            },
+            {
+              "text": "I contacted the inpatient hospitalist team directly, discussed her case, and arranged for direct admission to the telemetry floor.",
+              "pg_no": 1,
+              "reftxtbefore": "phrology consultation. ",
+              "reftxtafter": " The patient's daught"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "high risk for acute respiratory failure or uremic emergency.",
+              "pg_no": 1,
+              "reftxtbefore": "yarrhythmia, she is at ",
+              "reftxtafter": " Outpatient management"
+            },
+            {
+              "text": "admit her directly to the hospital for urgent intravenous diuresis, continuous cardiac monitoring, and nephrology consultation.",
+              "pg_no": 1,
+              "reftxtbefore": " I have decided to ",
+              "reftxtafter": " I contacted the inpa"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Uncontrolled permanent atrial fibrillation",
+        "disease_evidence": [
+          {
+            "text": "Uncontrolled permanent atrial fibrillation with rapid ventricular response.",
+            "pg_no": 1,
+            "reftxtbefore": " prerenal etiology).\n3. ",
+            "reftxtafter": "\n\nPlan:\nGiven the pa"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "In-office EKG: Atrial fibrillation with rapid ventricular response (HR 108)",
+              "pg_no": 1,
+              "reftxtbefore": " kidney injury).\n2. ",
+              "reftxtafter": ", non-specific ST-T w"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "I discussed the clinical situation in detail with the patient and her daughter.",
+              "pg_no": 1,
+              "reftxtbefore": "ent is unsafe. ",
+              "reftxtafter": " I have decided to a"
+            }
+          ],
+          "independent_interpretation_of_test": [
+            {
+              "text": "In-office EKG: Atrial fibrillation with rapid ventricular response (HR 108), non-specific ST-T wave changes, no acute ST elevations.",
+              "pg_no": 1,
+              "reftxtbefore": " kidney injury).\n2. ",
+              "reftxtafter": "\n3. Reviewed recent e"
+            }
+          ],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "I discussed the clinical situation in detail with the patient and her daughter.",
+              "pg_no": 1,
+              "reftxtbefore": "ent is unsafe. ",
+              "reftxtafter": " I have decided to a"
+            },
+            {
+              "text": "I contacted the inpatient hospitalist team directly, discussed her case, and arranged for direct admission to the telemetry floor.",
+              "pg_no": 1,
+              "reftxtbefore": "phrology consultation. ",
+              "reftxtafter": " The patient's daught"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "admit her directly to the hospital for urgent intravenous diuresis, continuous cardiac monitoring, and nephrology consultation.",
+              "pg_no": 1,
+              "reftxtbefore": " I have decided to ",
+              "reftxtafter": " I contacted the inpa"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

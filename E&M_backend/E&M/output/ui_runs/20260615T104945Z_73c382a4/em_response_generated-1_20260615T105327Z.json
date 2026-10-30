@@ -1,0 +1,227 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "limited",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 3,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "2 or more stable chronic illnesses",
+            "level": "moderate",
+            "required_count": 2,
+            "observed_count": 3,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "1 or more chronic illness with severe exacerbation, progression of side effect",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "severe exacerbation"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "limited",
+        "mdm_level_equivalent": "low",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": false
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 0
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Low/limited threshold met by category-1 count or independent historian."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "moderate",
+          "moderate",
+          "moderate",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "limited",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "low",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Discharge Summary",
+        "pg_no": 1,
+        "reftxtbefore": "Encounter Date: 10/14/2024\nDocument Type: ",
+        "reftxtafter": "\nProvider: Dr. Sarah "
+      }
+    ],
+    "service": [
+      {
+        "text": "discharge day management activities",
+        "pg_no": 1,
+        "reftxtbefore": "of discharge performi",
+        "reftxtafter": ". This included a fac"
+      }
+    ],
+    "patient": [],
+    "physician_time_spent_with_patient": [
+      {
+        "text": "total of 45 minutes on the date of discharge",
+        "pg_no": 1,
+        "reftxtbefore": "I spent a ",
+        "reftxtafter": " performing discharge"
+      }
+    ],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Stage 3 Chronic Kidney Disease (baseline creatinine 1.8).",
+        "pg_no": 1,
+        "reftxtbefore": "SECONDARY DIAGNOSES:\n1. ",
+        "reftxtafter": "\n2. Essential Hypert"
+      },
+      {
+        "text": "Essential Hypertension.",
+        "pg_no": 1,
+        "reftxtbefore": "creatinine 1.8).\n2. ",
+        "reftxtafter": "\n3. Type 2 Diabetes "
+      },
+      {
+        "text": "Type 2 Diabetes Mellitus.",
+        "pg_no": 1,
+        "reftxtbefore": "al Hypertension.\n3. ",
+        "reftxtafter": "\n\nHOSPITAL COURSE:\nT"
+      },
+      {
+        "text": "Acute on chronic systolic heart failure (decompensated).",
+        "pg_no": 1,
+        "reftxtbefore": "PRINCIPAL DIAGNOSIS:\n",
+        "reftxtafter": "\n\nSECONDARY DIAGNOSE"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "renal function remained stable with a discharge creatinine of 1.75",
+        "pg_no": 1,
+        "reftxtbefore": "d orthopnea have com",
+        "reftxtafter": ". He has been succes"
+      },
+      {
+        "text": "basic metabolic panel draws",
+        "pg_no": 1,
+        "reftxtbefore": "ht checks, and ",
+        "reftxtafter": ".\n3. Follow-up: Sche"
+      },
+      {
+        "text": "blood pressure, weight checks",
+        "pg_no": 1,
+        "reftxtbefore": "ordered for twice-we",
+        "reftxtafter": ", and basic metaboli"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Lisinopril 10mg PO daily",
+        "pg_no": 1,
+        "reftxtbefore": "PO BID, ",
+        "reftxtafter": ", and Metformin 500m"
+      },
+      {
+        "text": "basic metabolic panel draws",
+        "pg_no": 1,
+        "reftxtbefore": "ht checks, and ",
+        "reftxtafter": ".\n3. Follow-up: Sche"
+      },
+      {
+        "text": "Carvedilol 12.5mg PO BID, Lisinopril 10mg PO daily",
+        "pg_no": 1,
+        "reftxtbefore": "placing home Lasix),",
+        "reftxtafter": ", and Metformin 500m"
+      },
+      {
+        "text": "Metformin 500mg PO BID",
+        "pg_no": 1,
+        "reftxtbefore": "Lisinopril 10mg PO d",
+        "reftxtafter": ".\n2. Home Health: Ho"
+      },
+      {
+        "text": "treated with aggressive intravenous diuresis using IV Lasix 40mg twice daily",
+        "pg_no": 1,
+        "reftxtbefore": "lization, the patien",
+        "reftxtafter": ". His fluid status an"
+      },
+      {
+        "text": "Discharged on Bumex 1mg PO daily (replacing home Lasix), Carvedilol 12.5mg PO BID, Lisinopril 10mg PO daily",
+        "pg_no": 1,
+        "reftxtbefore": "tion Reconciliation:",
+        "reftxtafter": ", and Metformin 500m"
+      },
+      {
+        "text": "Home health nursing ordered",
+        "pg_no": 1,
+        "reftxtbefore": "2. Home Health: ",
+        "reftxtafter": " for twice-weekly bl"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Hospital Inpatient or Observation Care Services",
+    "service_type": "Hospital or Observation Discharge Services",
+    "patient_type": "Not found",
+    "time_value": 45,
+    "patient_age": 74,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": []
+}

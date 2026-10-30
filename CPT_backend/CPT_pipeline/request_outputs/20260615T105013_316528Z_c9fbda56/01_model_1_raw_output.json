@@ -1,0 +1,78 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "77067",
+      "code_description": "Screening mammography, bilateral (2-view study of each breast), including computer-aided detection (CAD) when performed",
+      "code_justification": "The report explicitly states 'Screening Mammography, Bilateral' and details the performance of 'Digital mammography... of both breasts' with 'craniocaudal (CC) and mediolateral oblique (MLO) projections', which are the standard 2 views per breast for screening. The code 77067 includes CAD when performed.",
+      "norm_procedure_name": "Screening Mammography",
+      "norm_anatomy": "Bilateral Breasts",
+      "norm_approach": "Digital Mammography",
+      "norm_procedure_type": "Diagnostic Imaging",
+      "norm_imaging_guidance": "N/A",
+      "norm_anesthesia_type": "N/A",
+      "norm_other": "N/A",
+      "procedure_evidences": [
+        {
+          "text": "Screening Mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": ", Bilateral with CAD"
+        },
+        {
+          "text": "mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "Routine screening ",
+          "reftxtafter": "; no specific breast"
+        },
+        {
+          "text": "mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Digital ",
+          "reftxtafter": " was performed in "
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Screening Mammography, ",
+          "reftxtafter": " with CAD"
+        },
+        {
+          "text": "both breasts",
+          "pg_no": 1,
+          "reftxtbefore": "projections of ",
+          "reftxtafter": ". Computer-aided det"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Technique: ",
+          "reftxtafter": " was performed in "
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "Screening",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": " Mammography, Bilat"
+        },
+        {
+          "text": "Routine screening mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "Clinical Indication: ",
+          "reftxtafter": "; no specific breast"
+        }
+      ],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [],
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

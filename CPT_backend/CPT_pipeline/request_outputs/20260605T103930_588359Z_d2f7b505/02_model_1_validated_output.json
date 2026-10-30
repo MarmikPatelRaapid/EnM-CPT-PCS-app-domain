@@ -1,0 +1,172 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "62284",
+      "norm_procedure_name": "Injection of contrast for myelography",
+      "norm_anatomy": "Lumbar spine (L3-L4 interspace, subarachnoid space, thecal sac)",
+      "norm_approach": "Percutaneous",
+      "norm_procedure_type": "Diagnostic injection",
+      "norm_imaging_guidance": "Fluoroscopic guidance",
+      "norm_anesthesia_type": "Local anesthesia",
+      "norm_other": "12 cc Omnipaque 300 non-ionic contrast material",
+      "procedure_evidences": [
+        {
+          "text": "A 22-gauge spinal needle was advanced into the subarachnoid space at the L3-L4 level under intermittent fluoroscopic guidance. The stylet was removed, and clear cerebrospinal fluid was obtained. Subsequently, 12 cc of Omnipaque 300 non-ionic contrast material was injected slowly into the thecal sac. The needle was then removed, and hemostasis was achieved with a sterile bandage.",
+          "pg_no": 1,
+          "reftxtbefore": "A 22-gauge spinal nee",
+          "reftxtafter": "dle was advanced into"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "L3-L4 interspace",
+          "pg_no": 1,
+          "reftxtbefore": "on the fluoroscopy ta",
+          "reftxtafter": "ble. The L3-L4 inters"
+        },
+        {
+          "text": "subarachnoid space at the L3-L4 level",
+          "pg_no": 1,
+          "reftxtbefore": "spinal needle was adv",
+          "reftxtafter": "anced into the subara"
+        },
+        {
+          "text": "thecal sac",
+          "pg_no": 1,
+          "reftxtbefore": "contrast material was",
+          "reftxtafter": " injected slowly into"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "A 22-gauge spinal needle was advanced",
+          "pg_no": 1,
+          "reftxtbefore": "A 22-gauge spinal nee",
+          "reftxtafter": "dle was advanced into"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "injected slowly into the thecal sac",
+          "pg_no": 1,
+          "reftxtbefore": "non-ionic contrast ma",
+          "reftxtafter": "terial was injected s"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "intermittent fluoroscopic guidance",
+          "pg_no": 1,
+          "reftxtbefore": "L3-L4 level under int",
+          "reftxtafter": "ermittent fluoroscopi"
+        }
+      ],
+      "anesthesia_type_evidences": [
+        {
+          "text": "Local anesthesia was achieved by infiltrating the skin and subcutaneous tissues with 1% lidocaine.",
+          "pg_no": 1,
+          "reftxtbefore": "sterile fashion. Loca",
+          "reftxtafter": "l anesthesia was achi"
+        }
+      ],
+      "other_evidences": [
+        {
+          "text": "12 cc of Omnipaque 300 non-ionic contrast material",
+          "pg_no": 1,
+          "reftxtbefore": "obtained. Subsequently",
+          "reftxtafter": ", 12 cc of Omnipaque ",
+          "field_label": "Contrast Material"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [],
+      "code_description": "Injection of contrast during myelography, lumbar or sacral",
+      "code_justification": "The documentation clearly describes the injection of contrast material into the lumbar subarachnoid space at L3-L4 for myelography. This code specifically covers the injection procedure for lumbar myelography.",
+      "addon_codes": [],
+      "modifiers": []
+    },
+    {
+      "cpt_code": "72270",
+      "norm_procedure_name": "Myelography",
+      "norm_anatomy": "Lumbar spine",
+      "norm_approach": "Radiological supervision and interpretation",
+      "norm_procedure_type": "Diagnostic imaging",
+      "norm_imaging_guidance": "Fluoroscopy",
+      "norm_anesthesia_type": null,
+      "norm_other": "AP, lateral, and bilateral oblique radiographs",
+      "procedure_evidences": [
+        {
+          "text": "Lumbar Myelogram, Radiological Supervision and Interpretation",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": "Lumbar Myelogram, Rad"
+        },
+        {
+          "text": "Standard anteroposterior (AP), lateral, and bilateral oblique radiographs of the lumbar spine were obtained.",
+          "pg_no": 1,
+          "reftxtbefore": "thecal sac. Standard ",
+          "reftxtafter": "anteroposterior (AP),"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Lumbar",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": "Lumbar Myelogram, Rad"
+        },
+        {
+          "text": "lumbar spine",
+          "pg_no": 1,
+          "reftxtbefore": "radiographs of the lu",
+          "reftxtafter": "mbar spine were obtai"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "Radiological Supervision and Interpretation",
+          "pg_no": 1,
+          "reftxtbefore": "Lumbar Myelogram, Rad",
+          "reftxtafter": "iological Supervision"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "radiographs of the lumbar spine were obtained",
+          "pg_no": 1,
+          "reftxtbefore": "oblique radiographs o",
+          "reftxtafter": "f the lumbar spine we"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "fluoroscopy",
+          "pg_no": 1,
+          "reftxtbefore": "on the ",
+          "reftxtafter": "fluoroscopy table. Th"
+        },
+        {
+          "text": "fluoroscopy table was tilted",
+          "pg_no": 1,
+          "reftxtbefore": "The ",
+          "reftxtafter": "fluoroscopy table was"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "Standard anteroposterior (AP), lateral, and bilateral oblique radiographs",
+          "pg_no": 1,
+          "reftxtbefore": "thecal sac. Standard ",
+          "reftxtafter": "anteroposterior (AP),",
+          "field_label": "Views"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [],
+      "code_description": "Myelography, lumbar, radiological supervision and interpretation",
+      "code_justification": "The report explicitly states 'Lumbar Myelogram, Radiological Supervision and Interpretation' as the exam. The technique describes obtaining standard AP, lateral, and bilateral oblique radiographs of the lumbar spine after contrast injection, which aligns with the supervision and interpretation component of a lumbar myelogram.",
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

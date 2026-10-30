@@ -1,0 +1,132 @@
+{
+  "classification": {
+    "complexity": "Straightforward",
+    "data_to_review": "minimal",
+    "risk": "minimal",
+    "mdm_level": "straightforward",
+    "details": {
+      "complexity": {
+        "category": "Straightforward",
+        "mdm_level_equivalent": "straightforward",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 self-limited or minor problem",
+            "level": "straightforward",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "self_limited_minor_problem"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "minimal",
+        "mdm_level_equivalent": "straightforward",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": false,
+          "order_of_test": false,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": false
+        },
+        "counts": {
+          "LimitedCategory1": 0,
+          "ModerateExtensiveCategory1": 0,
+          "ModerateHighCategories": 0
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Minimal Data To Review: no supported evidence found."
+      },
+      "risk": {
+        "category": "minimal",
+        "mdm_level_equivalent": "straightforward",
+        "raw_risk_types": [
+          "minimal"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "Straightforward",
+          "data_to_review": "minimal",
+          "risk": "minimal"
+        },
+        "normalized_inputs": {
+          "complexity": "straightforward",
+          "data_to_review": "straightforward",
+          "risk": "straightforward"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "straightforward"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "new to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "24 yo male, ",
+        "reftxtafter": ", presenting with a s"
+      }
+    ],
+    "service": [
+      {
+        "text": "new to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "24 yo male, ",
+        "reftxtafter": ", presenting with a s"
+      }
+    ],
+    "patient": [
+      {
+        "text": "new to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "24 yo male, ",
+        "reftxtafter": ", presenting with a s"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute viral pharyngitis",
+        "pg_no": 1,
+        "reftxtbefore": "Assessment:\n",
+        "reftxtafter": "\n\nPlan:\nReassured the"
+      }
+    ],
+    "data_to_review": [],
+    "risk_of_morbidity": [
+      {
+        "text": "Recommended supportive care including OTC throat lozenges, saline nasal spray, and adequate oral hydration. Advised to rest.",
+        "pg_no": 1,
+        "reftxtbefore": "t indicated at this time. ",
+        "reftxtafter": " Instructed to call "
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "New Patient",
+    "time_value": null,
+    "patient_age": 24,
+    "patient_age_unit": "years",
+    "mdm_level": "Straightforward"
+  },
+  "codes": [
+    "99202"
+  ]
+}

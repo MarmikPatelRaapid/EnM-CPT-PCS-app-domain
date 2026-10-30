@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "77067",
+      "query_text": "Screening Mammography Breast, Bilateral Digital, CC and MLO views Screening Computer-aided detection (CAD) None None",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "77065",
+          "77066",
+          "77067",
+          "3014F"
+        ],
+        "top_k_suggested_score": [
+          0.898034,
+          0.898034,
+          0.898034,
+          0.877985
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "77065",
+          "similarity_score": "0.898034"
+        },
+        {
+          "code": "77066",
+          "similarity_score": "0.898034"
+        },
+        {
+          "code": "77067",
+          "similarity_score": "0.898034"
+        },
+        {
+          "code": "3014F",
+          "similarity_score": "0.877985"
+        }
+      ]
+    }
+  ]
+}

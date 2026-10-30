@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "77067",
+      "query_text": "Screening Mammography Bilateral Breasts Digital Mammography Diagnostic Imaging N/A N/A N/A",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "3014F",
+          "77067",
+          "77065",
+          "77066",
+          "0633"
+        ],
+        "top_k_suggested_score": [
+          0.902897,
+          0.902897,
+          0.897265,
+          0.897265,
+          0.849833
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "3014F",
+          "similarity_score": "0.902897"
+        },
+        {
+          "code": "77067",
+          "similarity_score": "0.902897"
+        },
+        {
+          "code": "77065",
+          "similarity_score": "0.897265"
+        },
+        {
+          "code": "77066",
+          "similarity_score": "0.897265"
+        },
+        {
+          "code": "0633",
+          "similarity_score": "0.849833"
+        }
+      ]
+    }
+  ]
+}

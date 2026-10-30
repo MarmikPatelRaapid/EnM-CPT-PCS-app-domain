@@ -1,0 +1,255 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "presents to the clinic today for an urgent evaluation",
+        "pg_no": 1,
+        "reftxtbefore": "Type 2 Diabetes who ",
+        "reftxtafter": " He reports a 4-day "
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "presents to the clinic today for an urgent evaluation",
+        "pg_no": 1,
+        "reftxtbefore": "Type 2 Diabetes who ",
+        "reftxtafter": " He reports a 4-day "
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "Mr. Pendelton is an established 74-year-old male",
+        "pg_no": 1,
+        "reftxtbefore": "OF PRESENT ILLNESS:\n",
+        "reftxtafter": " with a history of s"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 55,
+    "evidences": [
+      {
+        "text": "Total time spent on the date of this encounter was 55 minutes",
+        "pg_no": 1,
+        "reftxtbefore": "All questions answere",
+        "reftxtafter": " This included 15 mi"
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 74,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 74",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 11/14/1950\n",
+        "reftxtafter": "\nSex: Male\nEncounter"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [
+      {
+        "norm_disease_name": "Acute kidney injury on Stage IV Chronic Kidney Disease",
+        "disease_evidence": [
+          {
+            "text": "Acute kidney injury on Stage IV Chronic Kidney Disease - Likely cardiorenal syndrome type 1, secondary to severe venous congestion and hypoperfusion",
+            "pg_no": 1,
+            "reftxtbefore": "respiratory failure.\n",
+            "reftxtafter": "\n3. Hypertensive urge"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Creatinine: 2.95 mg/dL (significantly elevated from baseline of 2.1)",
+              "pg_no": 1,
+              "reftxtbefore": "BUN: 58 mg/dL\n- ",
+              "reftxtafter": "\n- GFR: 18 mL/min/1."
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Discussed the diagnosis, risks of worsening renal function with aggressive diuresis, and the necessity of inpatient monitoring with the patient and his daughter",
+              "pg_no": 1,
+              "reftxtbefore": "ulance transport dire",
+              "reftxtafter": " All questions answere"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Due to the severity of the patient's decompensated heart failure, resting hypoxia, and worsening renal function (cardiorenal syndrome), he is at high risk for acute respiratory failure and cardiovascular collapse. Outpatient management is unsafe.",
+              "pg_no": 1,
+              "reftxtbefore": "ympathetic activation",
+              "reftxtafter": "\n1. Direct Admission:"
+            },
+            {
+              "text": "Arranged for direct admission to the inpatient cardiology service at Valley View Medical Center",
+              "pg_no": 1,
+              "reftxtbefore": "management is unsafe.",
+              "reftxtafter": " Contacted the cardi"
+            }
+          ]
+        }
+      }
+    ],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute on chronic systolic heart failure",
+        "disease_evidence": [
+          {
+            "text": "Acute on chronic systolic heart failure (decompensated) - Severe exacerbation with resting hypoxia and volume overload, posing an immediate threat of respiratory failure",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT:\n1. ",
+            "reftxtafter": "\n2. Acute kidney inju"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Point-of-care Basic Metabolic Panel (BMP) obtained in clinic today:\n- Sodium: 132 mEq/L (low)\n- Potassium: 5.1 mEq/L\n- Bicarbonate: 20 mEq/L\n- BUN: 58 mg/dL\n- Creatinine: 2.95 mg/dL (significantly elevated from baseline of 2.1)\n- GFR: 18 mL/min/1.73m2",
+              "pg_no": 1,
+              "reftxtbefore": "capillary refill of 3",
+              "reftxtafter": "\nPoint-of-care BNP: "
+            },
+            {
+              "text": "Point-of-care BNP: 2,850 pg/mL (baseline approximately 900 pg/mL)",
+              "pg_no": 1,
+              "reftxtbefore": "GFR: 18 mL/min/1.73m",
+              "reftxtafter": "\nIn-office EKG: Sinu"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "Discussed the diagnosis, risks of worsening renal function with aggressive diuresis, and the necessity of inpatient monitoring with the patient and his daughter",
+              "pg_no": 1,
+              "reftxtbefore": "ulance transport dire",
+              "reftxtafter": " All questions answere"
+            }
+          ],
+          "independent_interpretation_of_test": [
+            {
+              "text": "In-office EKG: Sinus tachycardia at 102 bpm, left bundle branch block (unchanged from prior)",
+              "pg_no": 1,
+              "reftxtbefore": "mately 900 pg/mL)\n",
+              "reftxtafter": "\n\nASSESSMENT:\n1. Acu"
+            }
+          ],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Contacted the cardiology attending on call, Dr. Marcus Vance, and provided a comprehensive handoff",
+              "pg_no": 1,
+              "reftxtbefore": "lley View Medical Cen",
+              "reftxtafter": " Bed assignment secu"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "posing an immediate threat of respiratory failure",
+              "pg_no": 1,
+              "reftxtbefore": "and volume overload, ",
+              "reftxtafter": "\n2. Acute kidney inju"
+            },
+            {
+              "text": "he is at high risk for acute respiratory failure and cardiovascular collapse",
+              "pg_no": 1,
+              "reftxtbefore": "cardiorenal syndrome)",
+              "reftxtafter": " Outpatient manageme"
+            },
+            {
+              "text": "Arranged for direct admission to the inpatient cardiology service at Valley View Medical Center",
+              "pg_no": 1,
+              "reftxtbefore": "management is unsafe.",
+              "reftxtafter": " Contacted the cardi"
+            },
+            {
+              "text": "Administered Furosemide 80mg IV push in the clinic",
+              "pg_no": 1,
+              "reftxtbefore": "d assignment secured.",
+              "reftxtafter": " to initiate diuresi"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [
+      {
+        "norm_disease_name": "Hypertensive urgency",
+        "disease_evidence": [
+          {
+            "text": "Hypertensive urgency - Secondary to acute hypervolemia and sympathetic activation",
+            "pg_no": 1,
+            "reftxtbefore": "and hypoperfusion.\n3.",
+            "reftxtafter": "\n\nPLAN:\nDue to the s"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Contacted the cardiology attending on call, Dr. Marcus Vance, and provided a comprehensive handoff",
+              "pg_no": 1,
+              "reftxtbefore": "lley View Medical Cen",
+              "reftxtafter": " Bed assignment secu"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Arranged for direct admission to the inpatient cardiology service at Valley View Medical Center",
+              "pg_no": 1,
+              "reftxtbefore": "management is unsafe.",
+              "reftxtafter": " Contacted the cardi"
+            }
+          ]
+        }
+      }
+    ],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

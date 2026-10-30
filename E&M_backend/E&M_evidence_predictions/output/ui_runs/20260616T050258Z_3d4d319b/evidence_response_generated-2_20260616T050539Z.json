@@ -1,0 +1,189 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Oakridge Family Medicine\nDepartment: Primary Care",
+        "pg_no": 1,
+        "reftxtbefore": "Hospital Name: ",
+        "reftxtafter": "\nPatient Name: Elean"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Encounter Date: 02/1",
+        "reftxtafter": "\nProvider: Dr. Marcu"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "Mrs. Vance is an established patient",
+        "pg_no": 1,
+        "reftxtbefore": "tory of Present Illn",
+        "reftxtafter": " with a history of w"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 56,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 56",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 08/22/1968\n",
+        "reftxtafter": "\nSex: Female\nEncoun"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Type 2 Diabetes Mellitus",
+        "disease_evidence": [
+          {
+            "text": "Type 2 Diabetes Mellitus: Stable, though currently showing mild stress hyperglycemia due to acute infection",
+            "pg_no": 1,
+            "reftxtbefore": " to guide therapy.\n2. ",
+            "reftxtafter": ". Instructed to cont"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "monitoring her blood sugars, which have been slightly elevated (160-180 mg/dL)",
+              "pg_no": 1,
+              "reftxtbefore": "fever. She has been ",
+              "reftxtafter": " compared to her usu"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Instructed to continue current Metformin regimen and monitor blood glucose closely",
+              "pg_no": 1,
+              "reftxtbefore": " to acute infection. ",
+              "reftxtafter": ".\n3. Hypertension: S"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Hypertension",
+        "disease_evidence": [
+          {
+            "text": "Hypertension: Stable",
+            "pg_no": 1,
+            "reftxtbefore": "od glucose closely.\n3",
+            "reftxtafter": ". Continue Lisinopri"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Continue Lisinopril 10 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "pertension: Stable. ",
+              "reftxtafter": ".\n\nElectronically S"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": []
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [
+      {
+        "norm_disease_name": "Acute Pyelonephritis",
+        "disease_evidence": [
+          {
+            "text": "Acute Pyelonephritis (Right-sided): Acute systemic infection",
+            "pg_no": 1,
+            "reftxtbefore": "sment and Plan:\n1. ",
+            "reftxtafter": ". Given her stable v"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Urinalysis (In-office): Cloudy, positive for nitrites, moderate leukocyte esterase, 20-30 WBCs, and trace blood",
+              "pg_no": 1,
+              "reftxtbefore": "Diagnostics:\n- ",
+              "reftxtafter": ".\n\nAssessment and P"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "Sent urine culture to guide therapy",
+              "pg_no": 1,
+              "reftxtbefore": " for 7 days. ",
+              "reftxtafter": ".\n2. Type 2 Diabetes"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Prescribed Ciprofloxacin 500 mg PO BID for 7 days",
+              "pg_no": 1,
+              "reftxtbefore": " managed outpatient. ",
+              "reftxtafter": ". Sent urine culture"
+            }
+          ]
+        }
+      }
+    ],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

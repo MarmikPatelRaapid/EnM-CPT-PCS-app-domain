@@ -1,0 +1,206 @@
+{
+  "classification": {
+    "complexity": "moderate",
+    "data_to_review": "limited",
+    "risk": "moderate",
+    "mdm_level": "moderate",
+    "details": {
+      "complexity": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "2 or more stable chronic illnesses",
+            "level": "moderate",
+            "required_count": 2,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "limited",
+        "mdm_level_equivalent": "low",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": false
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 0
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Low/limited threshold met by category-1 count or independent historian."
+      },
+      "risk": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "raw_risk_types": [
+          "low",
+          "low",
+          "moderate"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "moderate",
+          "data_to_review": "limited",
+          "risk": "moderate"
+        },
+        "normalized_inputs": {
+          "complexity": "moderate",
+          "data_to_review": "low",
+          "risk": "moderate"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "moderate"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "clinic",
+        "pg_no": 1,
+        "reftxtbefore": "male, well known to the ",
+        "reftxtafter": ", presenting for rout"
+      }
+    ],
+    "service": [
+      {
+        "text": "Follow-up diabetes and hypertension",
+        "pg_no": 1,
+        "reftxtbefore": "CHIEF COMPLAINT: ",
+        "reftxtafter": ". HISTORY OF PRESENT "
+      }
+    ],
+    "patient": [
+      {
+        "text": "well known to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "is a 62-year-old male, ",
+        "reftxtafter": ", presenting for rout"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Essential Hypertension. Clinically stable",
+        "pg_no": 1,
+        "reftxtbefore": "foot care has been placed. 2. ",
+        "reftxtafter": ". Continue Lisinopril"
+      },
+      {
+        "text": "Hyperlipidemia. Stable on high-intensity statin",
+        "pg_no": 1,
+        "reftxtbefore": "Lisinopril 20 mg daily. 3. ",
+        "reftxtafter": ". Continue Atorvastat"
+      },
+      {
+        "text": "Type 2 Diabetes Mellitus with hyperglycemia and new-onset peripheral neuropathy",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT AND PLAN: 1. ",
+        "reftxtafter": ". The patient's diabe"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Recent BMP and lipid panel from last week were reviewed",
+        "pg_no": 1,
+        "reftxtbefore": "A1c today is 8.9%, increased from 7.4% six months ago. ",
+        "reftxtafter": "; creatinine is stabl"
+      },
+      {
+        "text": "Point of care A1c today is 8.9%",
+        "pg_no": 1,
+        "reftxtbefore": "Achilles. LAB FINDINGS: ",
+        "reftxtafter": ", increased from 7.4%"
+      },
+      {
+        "text": "ordered a spot urine microalbumin/creatinine ratio today",
+        "pg_no": 1,
+        "reftxtbefore": "initiate Gabapentin 100 mg TID. I have ",
+        "reftxtafter": ". A referral to Podia"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Continue Lisinopril 20 mg daily",
+        "pg_no": 1,
+        "reftxtbefore": "Clinically stable. ",
+        "reftxtafter": ". 3. Hyperlipidemia."
+      },
+      {
+        "text": "Continue Atorvastatin",
+        "pg_no": 1,
+        "reftxtbefore": "high-intensity statin. ",
+        "reftxtafter": ". Follow up in 4 week"
+      },
+      {
+        "text": "discontinue the Metformin today",
+        "pg_no": 1,
+        "reftxtbefore": "to GI side effects from Metformin. We will ",
+        "reftxtafter": ". I will start him on"
+      },
+      {
+        "text": "start him on Glipizide 5 mg daily",
+        "pg_no": 1,
+        "reftxtbefore": "discontinue the Metformin today. I will ",
+        "reftxtafter": " before breakfast. F"
+      },
+      {
+        "text": "initiate Gabapentin 100 mg TID",
+        "pg_no": 1,
+        "reftxtbefore": "diabetic neuropathy, we will ",
+        "reftxtafter": ". I have ordered a sp"
+      },
+      {
+        "text": "A referral to Podiatry for comprehensive diabetic foot care has been placed",
+        "pg_no": 1,
+        "reftxtbefore": "albumin/creatinine ratio today. ",
+        "reftxtafter": ". 2. Essential Hyper"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 62,
+    "patient_age_unit": "years",
+    "mdm_level": "Moderate"
+  },
+  "codes": [
+    "99214"
+  ]
+}

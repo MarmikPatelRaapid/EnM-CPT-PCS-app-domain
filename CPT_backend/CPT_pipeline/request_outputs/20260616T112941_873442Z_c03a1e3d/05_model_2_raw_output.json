@@ -1,0 +1,10 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "77067",
+      "final_cpt_code": "77067",
+      "final_cpt_code_description": "Screening mammography, bilateral (2-view study of each breast), including computer-aided detection (CAD) when performed",
+      "final_cpt_code_justification": "The medical record explicitly documents a 'Screening Mammography, Bilateral' performed as a 'Routine annual screening mammogram'. The technique involved 'Digital mammography' with 'craniocaudal (CC) and mediolateral oblique (MLO) views of both breasts', which constitutes a 2-view study of each breast. Furthermore, 'Computer-aided detection (CAD) was utilized'. This perfectly aligns with all components of CPT code 77067. Code 77065 was rejected because the procedure was bilateral, not unilateral, and was for screening, not diagnostic purposes. Code 77066 was rejected because the procedure was for screening, not diagnostic purposes. Code 3014F was rejected as it is a Category II CPT code used for performance measurement and not for billing the professional service of a screening mammography."
+    }
+  ]
+}

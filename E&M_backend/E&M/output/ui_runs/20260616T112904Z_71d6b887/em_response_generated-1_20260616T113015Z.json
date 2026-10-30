@@ -1,0 +1,235 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "extensive",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 or more chronic illness with exacerbation, progression of side effect",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "exacerbation"
+            ]
+          },
+          {
+            "name": "1 acute illness with systemic symptoms",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "with_systemic_symptoms"
+            ]
+          },
+          {
+            "name": "1 or more chronic illness with severe exacerbation, progression of side effect",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "severe exacerbation"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "extensive",
+        "mdm_level_equivalent": "high",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": false,
+          "assessment_requiring_independent_historian": true,
+          "independent_interpretation_of_test": true,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 1,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 2
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "At least two moderate/high data categories were met."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "extensive",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "high",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "presents to the clinic today for an urgent evaluation",
+        "pg_no": 1,
+        "reftxtbefore": "Type 2 Diabetes who ",
+        "reftxtafter": " He reports a 4-day "
+      }
+    ],
+    "service": [
+      {
+        "text": "presents to the clinic today for an urgent evaluation",
+        "pg_no": 1,
+        "reftxtbefore": "Type 2 Diabetes who ",
+        "reftxtafter": " He reports a 4-day "
+      }
+    ],
+    "patient": [
+      {
+        "text": "Mr. Pendelton is an established 74-year-old male",
+        "pg_no": 1,
+        "reftxtbefore": "OF PRESENT ILLNESS:\n",
+        "reftxtafter": " with a history of s"
+      }
+    ],
+    "physician_time_spent_with_patient": [
+      {
+        "text": "Total time spent on the date of this encounter was 55 minutes",
+        "pg_no": 1,
+        "reftxtbefore": "All questions answere",
+        "reftxtafter": " This included 15 mi"
+      }
+    ],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute kidney injury on Stage IV Chronic Kidney Disease - Likely cardiorenal syndrome type 1, secondary to severe venous congestion and hypoperfusion",
+        "pg_no": 1,
+        "reftxtbefore": "respiratory failure.\n",
+        "reftxtafter": "\n3. Hypertensive urge"
+      },
+      {
+        "text": "Acute on chronic systolic heart failure (decompensated) - Severe exacerbation with resting hypoxia and volume overload, posing an immediate threat of respiratory failure",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT:\n1. ",
+        "reftxtafter": "\n2. Acute kidney inju"
+      },
+      {
+        "text": "Hypertensive urgency - Secondary to acute hypervolemia and sympathetic activation",
+        "pg_no": 1,
+        "reftxtbefore": "and hypoperfusion.\n3.",
+        "reftxtafter": "\n\nPLAN:\nDue to the s"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Creatinine: 2.95 mg/dL (significantly elevated from baseline of 2.1)",
+        "pg_no": 1,
+        "reftxtbefore": "BUN: 58 mg/dL\n- ",
+        "reftxtafter": "\n- GFR: 18 mL/min/1."
+      },
+      {
+        "text": "Discussed the diagnosis, risks of worsening renal function with aggressive diuresis, and the necessity of inpatient monitoring with the patient and his daughter",
+        "pg_no": 1,
+        "reftxtbefore": "ulance transport dire",
+        "reftxtafter": " All questions answere"
+      },
+      {
+        "text": "Point-of-care Basic Metabolic Panel (BMP) obtained in clinic today:\n- Sodium: 132 mEq/L (low)\n- Potassium: 5.1 mEq/L\n- Bicarbonate: 20 mEq/L\n- BUN: 58 mg/dL\n- Creatinine: 2.95 mg/dL (significantly elevated from baseline of 2.1)\n- GFR: 18 mL/min/1.73m2",
+        "pg_no": 1,
+        "reftxtbefore": "capillary refill of 3",
+        "reftxtafter": "\nPoint-of-care BNP: "
+      },
+      {
+        "text": "Point-of-care BNP: 2,850 pg/mL (baseline approximately 900 pg/mL)",
+        "pg_no": 1,
+        "reftxtbefore": "GFR: 18 mL/min/1.73m",
+        "reftxtafter": "\nIn-office EKG: Sinu"
+      },
+      {
+        "text": "In-office EKG: Sinus tachycardia at 102 bpm, left bundle branch block (unchanged from prior)",
+        "pg_no": 1,
+        "reftxtbefore": "mately 900 pg/mL)\n",
+        "reftxtafter": "\n\nASSESSMENT:\n1. Acu"
+      },
+      {
+        "text": "Contacted the cardiology attending on call, Dr. Marcus Vance, and provided a comprehensive handoff",
+        "pg_no": 1,
+        "reftxtbefore": "lley View Medical Cen",
+        "reftxtafter": " Bed assignment secu"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Due to the severity of the patient's decompensated heart failure, resting hypoxia, and worsening renal function (cardiorenal syndrome), he is at high risk for acute respiratory failure and cardiovascular collapse. Outpatient management is unsafe.",
+        "pg_no": 1,
+        "reftxtbefore": "ympathetic activation",
+        "reftxtafter": "\n1. Direct Admission:"
+      },
+      {
+        "text": "Arranged for direct admission to the inpatient cardiology service at Valley View Medical Center",
+        "pg_no": 1,
+        "reftxtbefore": "management is unsafe.",
+        "reftxtafter": " Contacted the cardi"
+      },
+      {
+        "text": "posing an immediate threat of respiratory failure",
+        "pg_no": 1,
+        "reftxtbefore": "and volume overload, ",
+        "reftxtafter": "\n2. Acute kidney inju"
+      },
+      {
+        "text": "he is at high risk for acute respiratory failure and cardiovascular collapse",
+        "pg_no": 1,
+        "reftxtbefore": "cardiorenal syndrome)",
+        "reftxtafter": " Outpatient manageme"
+      },
+      {
+        "text": "Administered Furosemide 80mg IV push in the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "d assignment secured.",
+        "reftxtafter": " to initiate diuresi"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": 55,
+    "patient_age": 74,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

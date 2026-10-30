@@ -1,0 +1,15 @@
+-> work on UI to support selection of E&M, CPT and PCS coding category
+-> based on this coding category -> its respective category should be displayed after selecting any of the coding category
+-> for E&M no category -> directly the Generate Documents should be activated
+-> for CPT -> the categories that should displayed are -> Anesthesia, Surgery, Radiology, Pathology & Laboratory, Medicines, Proprietary Laboratory Analyses (PLA)
+-> for PCS -> the categories that should displayed are -> Medical and Surgical, Obstetrics, Placement, Administration, Measurement and Monitoring, Extracorporeal or Systemic Assistance and Performance, Extracorporeal or Systemic Therapies, Osteopathic, Other Procedures, Chiropractic, Imaging, Nuclear Medicine, Radiation Therapy, Physical Rehabilitation and Diagnostic Audiology, Mental Health, Substance Abuse Treatment, New Technology
+
+-> user should be able to select multiple same as it is implmented currently
+-> for PCS disable the range kind of CPT Codes input in its input fields, only support is single pcs code or mulitple code separated by comma
+-> as there are large number of PCS category provide better and consistent UI/UX 
+	-> one idea is to make cpt codes and number of documents fields small and shift cpt codes field slight right side and put number of documents field under the cpt codes field so there will be enough space to display the all options of PCS
+	->second idea is to make E&M, PCS, CPT buttons -> user can select any one button at a time (i.e no multi-selection) -> accrding to this main category of coding now furhter respective category should display at right side of these three buttons as category input field and put cpt code and number of document fields below the main category buttons this will create enough space for respective categories at the right side in the window
+
+-> one requirement is that change name from "CPT codes" to some general naming for input field as now its the placeholder for all E&M, CPT and PCS code so give short concise and general name which is suitable for all these three type of coding
+
+-> also now as we select E&M, CPT and PCS at first -> the respective buttons should be displayed acoording to the category after generation of document

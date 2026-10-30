@@ -1,0 +1,230 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "return to the clinic in 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "s per day and strict",
+        "reftxtafter": " for a repeat clinic"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "return to the clinic in 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "s per day and strict",
+        "reftxtafter": " for a repeat clinic"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "well known to me",
+        "pg_no": 1,
+        "reftxtbefore": "a 72-year-old male, ",
+        "reftxtafter": ", presenting today fo"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 72,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "72-year-old",
+        "pg_no": 1,
+        "reftxtbefore": "The patient is a ",
+        "reftxtafter": " male, well known to"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute on chronic systolic heart failure exacerbation",
+        "disease_evidence": [
+          {
+            "text": "Acute on chronic systolic heart failure exacerbation, severe.",
+            "pg_no": 1,
+            "reftxtbefore": "SSMENT/IMPRESSION: 1. ",
+            "reftxtafter": " 2. Acute kidney inj"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "BNP of 1850 pg/mL (baseline typically 400-500)",
+              "pg_no": 1,
+              "reftxtbefore": "inic today reveals a ",
+              "reftxtafter": ". Stat BMP drawn in "
+            },
+            {
+              "text": "Creatinine 2.1 mg/dL (baseline 1.4), BUN 45, Potassium 4.9, Sodium 134",
+              "pg_no": 1,
+              "reftxtbefore": "nic shows ",
+              "reftxtafter": ". ASSESSMENT/IMPRESSI"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "stat BMP to monitor his creatinine and potassium levels closely",
+              "pg_no": 1,
+              "reftxtbefore": "al evaluation and ",
+              "reftxtafter": ". 6. Strict return p"
+            }
+          ],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "discussion with the patient and his daughter",
+              "pg_no": 1,
+              "reftxtbefore": "a lengthy ",
+              "reftxtafter": " regarding the high "
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussion with the patient and his daughter regarding the high risk of further decompensation and strongly recommended hospital admission",
+              "pg_no": 1,
+              "reftxtbefore": "a lengthy ",
+              "reftxtafter": " for IV diuresis and"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Increase Furosemide to 80 mg PO BID",
+              "pg_no": 1,
+              "reftxtbefore": "diuretic strategy. 1. ",
+              "reftxtafter": " for the next 3 days"
+            },
+            {
+              "text": "Hold Entresto temporarily",
+              "pg_no": 1,
+              "reftxtbefore": "the next 3 days. 2. ",
+              "reftxtafter": " due to the acute ki"
+            },
+            {
+              "text": "Hold Jardiance temporarily",
+              "pg_no": 1,
+              "reftxtbefore": "w blood pressure. 3. ",
+              "reftxtafter": " to avoid further vo"
+            },
+            {
+              "text": "high-risk outpatient diuretic strategy",
+              "pg_no": 1,
+              "reftxtbefore": "the ER, we will proceed with a ",
+              "reftxtafter": ". 1. Increase Furose"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [
+      {
+        "norm_disease_name": "Acute kidney injury superimposed on CKD stage 3",
+        "disease_evidence": [
+          {
+            "text": "Acute kidney injury (AKI) superimposed on CKD stage 3, likely cardiorenal syndrome.",
+            "pg_no": 1,
+            "reftxtbefore": "exacerbation, severe. 2. ",
+            "reftxtafter": " PLAN: The patient i"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Creatinine 2.1 mg/dL (baseline 1.4)",
+              "pg_no": 1,
+              "reftxtbefore": "nic shows ",
+              "reftxtafter": ", BUN 45, Potassium "
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "stat BMP to monitor his creatinine and potassium levels closely",
+              "pg_no": 1,
+              "reftxtbefore": "al evaluation and ",
+              "reftxtafter": ". 6. Strict return p"
+            }
+          ],
+          "assessment_requiring_independent_historian": [
+            {
+              "text": "discussion with the patient and his daughter",
+              "pg_no": 1,
+              "reftxtbefore": "a lengthy ",
+              "reftxtafter": " regarding the high "
+            }
+          ],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussion with the patient and his daughter regarding the high risk of further decompensation",
+              "pg_no": 1,
+              "reftxtbefore": "a lengthy ",
+              "reftxtafter": " and strongly recomm"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Hold Entresto temporarily due to the acute kidney injury",
+              "pg_no": 1,
+              "reftxtbefore": "the next 3 days. 2. ",
+              "reftxtafter": " and borderline low b"
+            },
+            {
+              "text": "Hold Jardiance temporarily to avoid further volume depletion compounding the AKI",
+              "pg_no": 1,
+              "reftxtbefore": "low blood pressure. 3. ",
+              "reftxtafter": ". 4. Strict fluid r"
+            },
+            {
+              "text": "stat BMP to monitor his creatinine and potassium levels closely",
+              "pg_no": 1,
+              "reftxtbefore": "al evaluation and ",
+              "reftxtafter": ". 6. Strict return p"
+            }
+          ]
+        }
+      }
+    ],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

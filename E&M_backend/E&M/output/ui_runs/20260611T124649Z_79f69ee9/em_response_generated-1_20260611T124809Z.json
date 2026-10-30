@@ -1,0 +1,219 @@
+{
+  "classification": {
+    "complexity": "moderate",
+    "data_to_review": "extensive",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 acute illness with systemic symptoms",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "with_systemic_symptoms"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "extensive",
+        "mdm_level_equivalent": "high",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": true,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 3,
+          "ModerateHighCategories": 2
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "At least two moderate/high data categories were met."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "moderate",
+          "data_to_review": "extensive",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "moderate",
+          "data_to_review": "high",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "return to the clinic in 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "s per day and strict",
+        "reftxtafter": " for a repeat clinic"
+      }
+    ],
+    "service": [
+      {
+        "text": "return to the clinic in 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "s per day and strict",
+        "reftxtafter": " for a repeat clinic"
+      }
+    ],
+    "patient": [
+      {
+        "text": "well known to me",
+        "pg_no": 1,
+        "reftxtbefore": "a 72-year-old male, ",
+        "reftxtafter": ", presenting today fo"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute on chronic systolic heart failure exacerbation, severe.",
+        "pg_no": 1,
+        "reftxtbefore": "SSMENT/IMPRESSION: 1. ",
+        "reftxtafter": " 2. Acute kidney inj"
+      },
+      {
+        "text": "Acute kidney injury (AKI) superimposed on CKD stage 3, likely cardiorenal syndrome.",
+        "pg_no": 1,
+        "reftxtbefore": "exacerbation, severe. 2. ",
+        "reftxtafter": " PLAN: The patient i"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "BNP of 1850 pg/mL (baseline typically 400-500)",
+        "pg_no": 1,
+        "reftxtbefore": "inic today reveals a ",
+        "reftxtafter": ". Stat BMP drawn in "
+      },
+      {
+        "text": "Creatinine 2.1 mg/dL (baseline 1.4), BUN 45, Potassium 4.9, Sodium 134",
+        "pg_no": 1,
+        "reftxtbefore": "nic shows ",
+        "reftxtafter": ". ASSESSMENT/IMPRESSI"
+      },
+      {
+        "text": "stat BMP to monitor his creatinine and potassium levels closely",
+        "pg_no": 1,
+        "reftxtbefore": "al evaluation and ",
+        "reftxtafter": ". 6. Strict return p"
+      },
+      {
+        "text": "discussion with the patient and his daughter",
+        "pg_no": 1,
+        "reftxtbefore": "a lengthy ",
+        "reftxtafter": " regarding the high "
+      },
+      {
+        "text": "discussion with the patient and his daughter regarding the high risk of further decompensation and strongly recommended hospital admission",
+        "pg_no": 1,
+        "reftxtbefore": "a lengthy ",
+        "reftxtafter": " for IV diuresis and"
+      },
+      {
+        "text": "Creatinine 2.1 mg/dL (baseline 1.4)",
+        "pg_no": 1,
+        "reftxtbefore": "nic shows ",
+        "reftxtafter": ", BUN 45, Potassium "
+      },
+      {
+        "text": "discussion with the patient and his daughter regarding the high risk of further decompensation",
+        "pg_no": 1,
+        "reftxtbefore": "a lengthy ",
+        "reftxtafter": " and strongly recomm"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Increase Furosemide to 80 mg PO BID",
+        "pg_no": 1,
+        "reftxtbefore": "diuretic strategy. 1. ",
+        "reftxtafter": " for the next 3 days"
+      },
+      {
+        "text": "Hold Entresto temporarily",
+        "pg_no": 1,
+        "reftxtbefore": "the next 3 days. 2. ",
+        "reftxtafter": " due to the acute ki"
+      },
+      {
+        "text": "Hold Jardiance temporarily",
+        "pg_no": 1,
+        "reftxtbefore": "w blood pressure. 3. ",
+        "reftxtafter": " to avoid further vo"
+      },
+      {
+        "text": "high-risk outpatient diuretic strategy",
+        "pg_no": 1,
+        "reftxtbefore": "the ER, we will proceed with a ",
+        "reftxtafter": ". 1. Increase Furose"
+      },
+      {
+        "text": "Hold Entresto temporarily due to the acute kidney injury",
+        "pg_no": 1,
+        "reftxtbefore": "the next 3 days. 2. ",
+        "reftxtafter": " and borderline low b"
+      },
+      {
+        "text": "Hold Jardiance temporarily to avoid further volume depletion compounding the AKI",
+        "pg_no": 1,
+        "reftxtbefore": "low blood pressure. 3. ",
+        "reftxtafter": ". 4. Strict fluid r"
+      },
+      {
+        "text": "stat BMP to monitor his creatinine and potassium levels closely",
+        "pg_no": 1,
+        "reftxtbefore": "al evaluation and ",
+        "reftxtafter": ". 6. Strict return p"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 72,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

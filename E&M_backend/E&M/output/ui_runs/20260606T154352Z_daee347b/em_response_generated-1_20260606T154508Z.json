@@ -1,0 +1,240 @@
+{
+  "classification": {
+    "complexity": "moderate",
+    "data_to_review": "moderate",
+    "risk": "moderate",
+    "mdm_level": "moderate",
+    "details": {
+      "complexity": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "1 acute, uncomplicated illness or injury requiring hospital inpatient or observation level of care",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "uncomplicated",
+              "requiring_hospitalization"
+            ]
+          },
+          {
+            "name": "2 or more stable chronic illnesses",
+            "level": "moderate",
+            "required_count": 2,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": false,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 1,
+          "ModerateExtensiveCategory1": 1,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "raw_risk_types": [
+          "moderate",
+          "moderate",
+          "moderate",
+          "moderate"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "moderate"
+        },
+        "normalized_inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "moderate"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "moderate"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "DISCHARGE SUMMARY",
+        "pg_no": 1,
+        "reftxtbefore": "",
+        "reftxtafter": "\n\nPATIENT: Margaret "
+      }
+    ],
+    "service": [
+      {
+        "text": "DISCHARGE SUMMARY",
+        "pg_no": 1,
+        "reftxtbefore": "",
+        "reftxtafter": "\n\nPATIENT: Margaret "
+      }
+    ],
+    "patient": [],
+    "physician_time_spent_with_patient": [
+      {
+        "text": "I spent a total of 45 minutes today",
+        "pg_no": 1,
+        "reftxtbefore": "DISCHARGE TIME SPENT:\n",
+        "reftxtafter": " performing the final"
+      }
+    ],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Essential hypertension",
+        "pg_no": 1,
+        "reftxtbefore": "y-acquired pneumonia\n3. ",
+        "reftxtafter": ".\n4. Type 2 diabetes"
+      },
+      {
+        "text": "Type 2 diabetes mellitus, uncomplicated",
+        "pg_no": 1,
+        "reftxtbefore": "ial hypertension.\n4. ",
+        "reftxtafter": ".\n\nHOSPITAL COURSE:"
+      },
+      {
+        "text": "Acute on chronic diastolic heart failure, improved",
+        "pg_no": 1,
+        "reftxtbefore": "DISCHARGE DIAGNOSES:\n1. ",
+        "reftxtafter": ".\n2. Community-acqui"
+      },
+      {
+        "text": "Community-acquired pneumonia, clinically stable on oral antibiotics",
+        "pg_no": 1,
+        "reftxtbefore": "heart failure, improved.\n2. ",
+        "reftxtafter": ".\n3. Essential hyper"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "BP 128/76",
+        "pg_no": 1,
+        "reftxtbefore": "N DISCHARGE:\nVITALS: ",
+        "reftxtafter": ", HR 72, RR 16, Tem"
+      },
+      {
+        "text": "discussing the hospital course and discharge instructions with the patient and her daughter",
+        "pg_no": 1,
+        "reftxtbefore": "he final physical examination, ",
+        "reftxtafter": ", performing medicat"
+      },
+      {
+        "text": "Chest x-ray confirmed a right lower lobe infiltrate and bilateral pleural effusions",
+        "pg_no": 1,
+        "reftxtbefore": "productive cough. ",
+        "reftxtafter": ". BNP was elevated a"
+      },
+      {
+        "text": "BNP was elevated at 850",
+        "pg_no": 1,
+        "reftxtbefore": "bilateral pleural effusions. ",
+        "reftxtafter": ". She was admitted t"
+      },
+      {
+        "text": "Echocardiogram showed an EF of 55% with Grade II diastolic dysfunction",
+        "pg_no": 1,
+        "reftxtbefore": "remained negative. ",
+        "reftxtafter": ". \n\nPHYSICAL EXAMINA"
+      },
+      {
+        "text": "Chest x-ray confirmed a right lower lobe infiltrate",
+        "pg_no": 1,
+        "reftxtbefore": "orthopnea, and a productive cough. ",
+        "reftxtafter": " and bilateral pleur"
+      },
+      {
+        "text": "Blood cultures remained negative",
+        "pg_no": 1,
+        "reftxtbefore": "to oral Levaquin on hospital day 4. ",
+        "reftxtafter": ". Echocardiogram sh"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Continue home Metformin 500 mg BID and Lisinopril 10 mg daily",
+        "pg_no": 1,
+        "reftxtbefore": "quin 500 mg daily (\n   - ",
+        "reftxtafter": ".\n4. Follow-up: Pat"
+      },
+      {
+        "text": "Continue home Metformin 500 mg BID",
+        "pg_no": 1,
+        "reftxtbefore": "oral Levaquin 500 mg\n   - ",
+        "reftxtafter": " and Lisinopril 10 m"
+      },
+      {
+        "text": "Transitioned back to home dose of oral Torsemide 20 mg daily",
+        "pg_no": 1,
+        "reftxtbefore": "Medications: \n   - ",
+        "reftxtafter": ".\n   - Complete the "
+      },
+      {
+        "text": "Diet: 2-gram sodium restriction, fluid restriction of 1.5 L/day",
+        "pg_no": 1,
+        "reftxtbefore": "INSTRUCTIONS:\n1. ",
+        "reftxtafter": ".\n2. Activity: As t"
+      },
+      {
+        "text": "Complete the 7-day course of oral Levaquin 500 mg daily (3 days remaining)",
+        "pg_no": 1,
+        "reftxtbefore": "Torsemide 20 mg daily.\n   - ",
+        "reftxtafter": ".\n   - Continue home"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Hospital Inpatient or Observation Care Services",
+    "service_type": "Hospital Discharge Day Management Service",
+    "patient_type": "Not found",
+    "time_value": 45,
+    "patient_age": 75,
+    "patient_age_unit": "years",
+    "mdm_level": "Moderate"
+  },
+  "codes": []
+}

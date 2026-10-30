@@ -1,0 +1,15 @@
+{
+  "documents": [
+    {
+      "generated_document": "CHIEF COMPLAINT: Follow-up diabetes and hypertension. HPI/history: 62-year-old male established patient presents for routine follow-up of his Type 2 diabetes and hypertension. He reports his home blood sugars have been running high, mostly in the 180-220 range fasting. He admits he has not been taking his Metformin regularly over the last two months because it causes significant abdominal cramping and diarrhea. He also notes a new symptom of tingling and numbness in both feet, which started about a month ago and is worse at night. Denies any chest pain, shortness of breath, or vision changes. His blood pressure has been good at home. ROS: General: No weight loss or fatigue. Endocrine: Positive for polyuria. Neuro: Positive for bilateral foot tingling. CV: Negative for orthopnea or edema. PMH: Type 2 Diabetes Mellitus, Essential Hypertension, Hyperlipidemia. Medications: Metformin 1000mg BID, Lisinopril 10mg daily, Atorvastatin 40mg daily. Allergies: NKDA. Physical examination: BP 132/82, HR 76, Temp 98.6F, BMI 31.2. General: Well-developed, in no acute distress. Neck: Supple, no thyromegaly. CV: Regular rate and rhythm, no murmurs. Lungs: Clear to auscultation bilaterally. Extremities: No edema. Neurologic: Decreased sensation to 10g monofilament testing in the plantar aspect of bilateral feet. Reflexes are 1+ at the ankles. Skin: Intact, no foot ulcers or erythema. Imaging/lab findings: Point of care A1c today is 8.9%, increased from 7.4% six months ago. Assessment/impression: 1. Type 2 diabetes mellitus, uncontrolled, with new-onset diabetic polyneuropathy. 2. Essential hypertension, stable. 3. Metformin intolerance. Plan/follow-up: 1. Diabetes: Patient is intolerant to Metformin; will discontinue today. Initiating Glipizide 5mg daily. Discussed the risk of hypoglycemia and signs to watch for. 2. Neuropathy: Started Gabapentin 100mg TID for symptomatic relief of foot tingling. Emphasized daily foot inspections. 3. Hypertension: Continue Lisinopril 10mg. 4. Orders: CMP, lipid panel, and urine microalbumin sent to lab today. 5. Follow-up in 4 weeks to check fasting sugars and medication tolerance.",
+      "cpt_code": "99214",
+      "Relevant_icd10cm_codes": [
+        "E11.42",
+        "E11.65",
+        "I10",
+        "T50.225A"
+      ],
+      "Justification": "The patient is an established patient presenting for evaluation of multiple chronic conditions. The MDM is moderate based on the assessment of one chronic illness with exacerbation/progression (uncontrolled Type 2 diabetes with new-onset neuropathy) and one stable chronic illness (hypertension), meeting the moderate threshold for problems addressed. The risk of complications is moderate due to prescription drug management, including discontinuing a medication due to adverse side effects and initiating two new prescription medications (Glipizide and Gabapentin). Two out of three MDM elements meet the moderate level, supporting CPT 99214."
+    }
+  ]
+}

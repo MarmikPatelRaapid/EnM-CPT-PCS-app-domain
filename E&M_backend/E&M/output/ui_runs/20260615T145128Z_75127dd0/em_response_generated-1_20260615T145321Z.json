@@ -1,0 +1,238 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "moderate",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 or more chronic illness with severe exacerbation, progression of side effect",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 3,
+            "path": [
+              "chronic_illness",
+              "severe exacerbation"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Apex Specialty Clinic\nDepartment: Internal Medicine / Nephrology",
+        "pg_no": 1,
+        "reftxtbefore": "Hospital Name: ",
+        "reftxtafter": "\nPatient Name: Arthur"
+      }
+    ],
+    "service": [
+      {
+        "text": "Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Document Type: ",
+        "reftxtafter": "\nProvider: Dr. Sarah"
+      }
+    ],
+    "patient": [
+      {
+        "text": "well-known to this practice",
+        "pg_no": 1,
+        "reftxtbefore": "old male, ",
+        "reftxtafter": ", with a history of "
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute-on-Chronic Kidney Injury (Stage 4 baseline, now progressed to Stage 5 range) with severe hyperkalemia (Potassium 5.9). This represents a severe, life-threatening deterioration of renal function.",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT AND PLAN:\n1. ",
+        "reftxtafter": "\n2. Acute Decompensat"
+      },
+      {
+        "text": "Acute Decompensated Heart Failure with volume overload and hypoxia (SpO2 91% on room air). Highly unstable.",
+        "pg_no": 1,
+        "reftxtbefore": "of renal function.\n2. ",
+        "reftxtafter": "\n3. Uncontrolled Typ"
+      },
+      {
+        "text": "Uncontrolled Type 2 Diabetes Mellitus with severe hyperglycemia.",
+        "pg_no": 1,
+        "reftxtbefore": "Highly unstable.\n3. ",
+        "reftxtafter": "\n\nPLAN:\n- Given the "
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Potassium: 5.9 mEq/L (High, critical baseline)",
+        "pg_no": 1,
+        "reftxtbefore": "Sodium: 132 mEq/L (Low)\n- ",
+        "reftxtafter": "\n- BUN: 72 mg/dL (Hi"
+      },
+      {
+        "text": "Creatinine: 3.4 mg/dL (Baseline is 2.1, indicating acute-on-chronic kidney injury)",
+        "pg_no": 1,
+        "reftxtbefore": "BUN: 72 mg/dL (High)\n- ",
+        "reftxtafter": "\n- eGFR: 13 mL/min/1"
+      },
+      {
+        "text": "eGFR: 13 mL/min/1.73m2 (Stage 5 range)",
+        "pg_no": 1,
+        "reftxtbefore": "kidney injury)\n- ",
+        "reftxtafter": "\n- Glucose: 364 mg/d"
+      },
+      {
+        "text": "Ordered repeat BMP (Potassium, Creatinine) to be drawn tomorrow morning at the local lab.",
+        "pg_no": 1,
+        "reftxtbefore": "and renal failure risk.\n- ",
+        "reftxtafter": " \n- Patient and famil"
+      },
+      {
+        "text": "Urgently contacted the on-call Nephrologist, Dr. Vance, to discuss the patient's critical labs and potential need for emergent inpatient hemodialysis if hyperkalemia and fluid overload fail to respond to aggressive diuresis.",
+        "pg_no": 1,
+        "reftxtbefore": "admitted to the hospital.\n- ",
+        "reftxtafter": "\n- Initiated insulin "
+      },
+      {
+        "text": "SpO2 91% on room air.",
+        "pg_no": 1,
+        "reftxtbefore": "Temp 98.4 F, ",
+        "reftxtafter": "\n- General: Moderate"
+      },
+      {
+        "text": "Jugular venous distension (JVD) elevated at 8 cm.",
+        "pg_no": 1,
+        "reftxtbefore": "- Cardiovascular: ",
+        "reftxtafter": " Tachycardic, regula"
+      },
+      {
+        "text": "Bilateral rales in the lower half of both lung fields.",
+        "pg_no": 1,
+        "reftxtbefore": "- Pulmonary: ",
+        "reftxtafter": " Increased work of b"
+      },
+      {
+        "text": "+3 pitting edema bilaterally extending to the mid-thigh.",
+        "pg_no": 1,
+        "reftxtbefore": "wave present.\n- Extremities: ",
+        "reftxtafter": " Cool extremities wi"
+      },
+      {
+        "text": "Glucose: 364 mg/dL (High)",
+        "pg_no": 1,
+        "reftxtbefore": "eGFR: 13 mL/min/1.73m2 (Stage 5 range)\n- ",
+        "reftxtafter": "\n\nASSESSMENT AND PLA"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Lisinopril 20 mg daily is discontinued immediately",
+        "pg_no": 1,
+        "reftxtbefore": "- Given the critical hyperkalemia and acute-on-chronic kidney injury, ",
+        "reftxtafter": " to prevent further p"
+      },
+      {
+        "text": "Administered Bumex 2 mg IV in clinic.",
+        "pg_no": 1,
+        "reftxtbefore": "and renal decline.\n- ",
+        "reftxtafter": " Will monitor urine "
+      },
+      {
+        "text": "patient will be directly admitted to the hospital.",
+        "pg_no": 1,
+        "reftxtbefore": "hypoxia worsens, ",
+        "reftxtafter": "\n- Urgently contacte"
+      },
+      {
+        "text": "potential need for emergent inpatient hemodialysis",
+        "pg_no": 1,
+        "reftxtbefore": "critical labs and ",
+        "reftxtafter": " if hyperkalemia and"
+      },
+      {
+        "text": "strict fluid restriction (<1.5L/day)",
+        "pg_no": 1,
+        "reftxtbefore": "counseled on ",
+        "reftxtafter": ", low-potassium diet"
+      },
+      {
+        "text": "Initiated insulin glargine 10 units subcutaneously daily and discontinued Glipizide due to poor glycemic control and renal failure risk.",
+        "pg_no": 1,
+        "reftxtbefore": "aggressive diuresis.\n- ",
+        "reftxtafter": "\n- Ordered repeat BM"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 70,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

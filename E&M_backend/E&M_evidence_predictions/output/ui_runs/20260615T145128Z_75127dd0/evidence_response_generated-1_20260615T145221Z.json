@@ -1,0 +1,269 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Apex Specialty Clinic\nDepartment: Internal Medicine / Nephrology",
+        "pg_no": 1,
+        "reftxtbefore": "Hospital Name: ",
+        "reftxtafter": "\nPatient Name: Arthur"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Document Type: ",
+        "reftxtafter": "\nProvider: Dr. Sarah"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "well-known to this practice",
+        "pg_no": 1,
+        "reftxtbefore": "old male, ",
+        "reftxtafter": ", with a history of "
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 70,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 70",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 11/14/1954\n",
+        "reftxtafter": "\nSex: Male\nEncounter "
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute-on-Chronic Kidney Injury with severe hyperkalemia",
+        "disease_evidence": [
+          {
+            "text": "Acute-on-Chronic Kidney Injury (Stage 4 baseline, now progressed to Stage 5 range) with severe hyperkalemia (Potassium 5.9). This represents a severe, life-threatening deterioration of renal function.",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT AND PLAN:\n1. ",
+            "reftxtafter": "\n2. Acute Decompensat"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Potassium: 5.9 mEq/L (High, critical baseline)",
+              "pg_no": 1,
+              "reftxtbefore": "Sodium: 132 mEq/L (Low)\n- ",
+              "reftxtafter": "\n- BUN: 72 mg/dL (Hi"
+            },
+            {
+              "text": "Creatinine: 3.4 mg/dL (Baseline is 2.1, indicating acute-on-chronic kidney injury)",
+              "pg_no": 1,
+              "reftxtbefore": "BUN: 72 mg/dL (High)\n- ",
+              "reftxtafter": "\n- eGFR: 13 mL/min/1"
+            },
+            {
+              "text": "eGFR: 13 mL/min/1.73m2 (Stage 5 range)",
+              "pg_no": 1,
+              "reftxtbefore": "kidney injury)\n- ",
+              "reftxtafter": "\n- Glucose: 364 mg/d"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "Ordered repeat BMP (Potassium, Creatinine) to be drawn tomorrow morning at the local lab.",
+              "pg_no": 1,
+              "reftxtbefore": "and renal failure risk.\n- ",
+              "reftxtafter": " \n- Patient and famil"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Urgently contacted the on-call Nephrologist, Dr. Vance, to discuss the patient's critical labs and potential need for emergent inpatient hemodialysis if hyperkalemia and fluid overload fail to respond to aggressive diuresis.",
+              "pg_no": 1,
+              "reftxtbefore": "admitted to the hospital.\n- ",
+              "reftxtafter": "\n- Initiated insulin "
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Lisinopril 20 mg daily is discontinued immediately",
+              "pg_no": 1,
+              "reftxtbefore": "- Given the critical hyperkalemia and acute-on-chronic kidney injury, ",
+              "reftxtafter": " to prevent further p"
+            },
+            {
+              "text": "Administered Bumex 2 mg IV in clinic.",
+              "pg_no": 1,
+              "reftxtbefore": "and renal decline.\n- ",
+              "reftxtafter": " Will monitor urine "
+            },
+            {
+              "text": "patient will be directly admitted to the hospital.",
+              "pg_no": 1,
+              "reftxtbefore": "hypoxia worsens, ",
+              "reftxtafter": "\n- Urgently contacte"
+            },
+            {
+              "text": "potential need for emergent inpatient hemodialysis",
+              "pg_no": 1,
+              "reftxtbefore": "critical labs and ",
+              "reftxtafter": " if hyperkalemia and"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Acute Decompensated Heart Failure",
+        "disease_evidence": [
+          {
+            "text": "Acute Decompensated Heart Failure with volume overload and hypoxia (SpO2 91% on room air). Highly unstable.",
+            "pg_no": 1,
+            "reftxtbefore": "of renal function.\n2. ",
+            "reftxtafter": "\n3. Uncontrolled Typ"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "SpO2 91% on room air.",
+              "pg_no": 1,
+              "reftxtbefore": "Temp 98.4 F, ",
+              "reftxtafter": "\n- General: Moderate"
+            },
+            {
+              "text": "Jugular venous distension (JVD) elevated at 8 cm.",
+              "pg_no": 1,
+              "reftxtbefore": "- Cardiovascular: ",
+              "reftxtafter": " Tachycardic, regula"
+            },
+            {
+              "text": "Bilateral rales in the lower half of both lung fields.",
+              "pg_no": 1,
+              "reftxtbefore": "- Pulmonary: ",
+              "reftxtafter": " Increased work of b"
+            },
+            {
+              "text": "+3 pitting edema bilaterally extending to the mid-thigh.",
+              "pg_no": 1,
+              "reftxtbefore": "wave present.\n- Extremities: ",
+              "reftxtafter": " Cool extremities wi"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Urgently contacted the on-call Nephrologist, Dr. Vance, to discuss the patient's critical labs and potential need for emergent inpatient hemodialysis if hyperkalemia and fluid overload fail to respond to aggressive diuresis.",
+              "pg_no": 1,
+              "reftxtbefore": "admitted to the hospital.\n- ",
+              "reftxtafter": "\n- Initiated insulin "
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Administered Bumex 2 mg IV in clinic.",
+              "pg_no": 1,
+              "reftxtbefore": "and renal decline.\n- ",
+              "reftxtafter": " Will monitor urine "
+            },
+            {
+              "text": "patient will be directly admitted to the hospital.",
+              "pg_no": 1,
+              "reftxtbefore": "hypoxia worsens, ",
+              "reftxtafter": "\n- Urgently contacte"
+            },
+            {
+              "text": "strict fluid restriction (<1.5L/day)",
+              "pg_no": 1,
+              "reftxtbefore": "counseled on ",
+              "reftxtafter": ", low-potassium diet"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Uncontrolled Type 2 Diabetes Mellitus",
+        "disease_evidence": [
+          {
+            "text": "Uncontrolled Type 2 Diabetes Mellitus with severe hyperglycemia.",
+            "pg_no": 1,
+            "reftxtbefore": "Highly unstable.\n3. ",
+            "reftxtafter": "\n\nPLAN:\n- Given the "
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Glucose: 364 mg/dL (High)",
+              "pg_no": 1,
+              "reftxtbefore": "eGFR: 13 mL/min/1.73m2 (Stage 5 range)\n- ",
+              "reftxtafter": "\n\nASSESSMENT AND PLA"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "Initiated insulin glargine 10 units subcutaneously daily and discontinued Glipizide due to poor glycemic control and renal failure risk.",
+              "pg_no": 1,
+              "reftxtbefore": "aggressive diuresis.\n- ",
+              "reftxtafter": "\n- Ordered repeat BM"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

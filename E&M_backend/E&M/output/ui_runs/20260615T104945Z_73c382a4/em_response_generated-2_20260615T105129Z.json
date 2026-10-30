@@ -1,0 +1,225 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "moderate",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "1 or more chronic illness with severe exacerbation, progression of side effect",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 2,
+            "path": [
+              "chronic_illness",
+              "severe exacerbation"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": false,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 1,
+          "ModerateExtensiveCategory1": 1,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "moderate",
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Sex: Female\nEncounter",
+        "reftxtafter": "\nProvider: Dr. Robert"
+      }
+    ],
+    "service": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Sex: Female\nEncounter",
+        "reftxtafter": "\nProvider: Dr. Robert"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established",
+        "pg_no": 1,
+        "reftxtbefore": "SUBJECTIVE:\nAn ",
+        "reftxtafter": " 68-year-old female p"
+      }
+    ],
+    "physician_time_spent_with_patient": [
+      {
+        "text": "A total of 50 minutes was spent on the date of this encounter in the care of this patient",
+        "pg_no": 1,
+        "reftxtbefore": "TIME DOCUMENTATION:\n",
+        "reftxtafter": ". This time included"
+      }
+    ],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Type 2 Diabetes with Neuropathic Ulcer: Stable",
+        "pg_no": 1,
+        "reftxtbefore": "ood pressure control. \n3. ",
+        "reftxtafter": ", but high risk give"
+      },
+      {
+        "text": "Chronic Kidney Disease, Stage IV (Worsening)",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT & PLAN:\n1. ",
+        "reftxtafter": ": The patient exhibit"
+      },
+      {
+        "text": "Severe Uncontrolled Hypertension",
+        "pg_no": 1,
+        "reftxtbefore": "the next 48 hours.\n2. ",
+        "reftxtafter": ": Blood pressure is s"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "GFR has dropped from a baseline of 28 to 18",
+        "pg_no": 1,
+        "reftxtbefore": "in renal function. ",
+        "reftxtafter": " (Stage IV Chronic K"
+      },
+      {
+        "text": "Basic Metabolic Panel from yesterday shows a significant decline in renal function. GFR has dropped from a baseline of 28 to 18 (Stage IV Chronic Kidney Disease). Potassium is elevated at 5.4 mEq/L. Creatinine is elevated at 2.9 mg/dL (baseline 1.9). Urinalysis shows 3+ proteinuria",
+        "pg_no": 1,
+        "reftxtbefore": "LABORATORY DATA REVI",
+        "reftxtafter": "\n\nASSESSMENT & PLAN:"
+      },
+      {
+        "text": "I have contacted the on-call nephrologist to arrange an urgent consultation within the next 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "lacement therapy. ",
+        "reftxtafter": ".\n2. Severe Uncontroll"
+      },
+      {
+        "text": "I have contacted the on-call nephrologist",
+        "pg_no": 1,
+        "reftxtbefore": "lacement therapy. ",
+        "reftxtafter": " to arrange an urge"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Metformin will be held temporarily due to GFR < 30 to avoid lactic acidosis",
+        "pg_no": 1,
+        "reftxtbefore": "en renal decline. ",
+        "reftxtafter": ". Insulin regimen ad"
+      },
+      {
+        "text": "Insulin regimen adjusted",
+        "pg_no": 1,
+        "reftxtbefore": "to avoid lactic acidosis. ",
+        "reftxtafter": ".\n\nDue to the high r"
+      },
+      {
+        "text": "high risk of progression to end-stage renal disease (ESRD) and potential need for renal replacement therapy",
+        "pg_no": 1,
+        "reftxtbefore": "perkalemia. This represents a ",
+        "reftxtafter": ". I have contacted th"
+      },
+      {
+        "text": "hold her Lisinopril immediately",
+        "pg_no": 1,
+        "reftxtbefore": "and hyperkalemia, I will ",
+        "reftxtafter": ". I will start Carve"
+      },
+      {
+        "text": "start Carvedilol 6.25mg PO BID",
+        "pg_no": 1,
+        "reftxtbefore": "Lisinopril immediately. I will ",
+        "reftxtafter": " and increase her To"
+      },
+      {
+        "text": "high risk of morbidity and potential hospitalization from rapid renal decline, hyperkalemia, and severe hypertension",
+        "pg_no": 1,
+        "reftxtbefore": "Due to the ",
+        "reftxtafter": ", the patient require"
+      },
+      {
+        "text": "increase her Torsemide to 20mg PO daily",
+        "pg_no": 1,
+        "reftxtbefore": "6.25mg PO BID and ",
+        "reftxtafter": " to assist with flu"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": 50,
+    "patient_age": 68,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

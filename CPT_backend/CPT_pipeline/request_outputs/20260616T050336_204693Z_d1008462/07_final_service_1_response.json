@@ -1,0 +1,58 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "77065",
+      "final_cpt_code": "77065",
+      "final_cpt_code_description": "Screening mammography, bilateral (2-view study of each breast), digital",
+      "final_cpt_code_justification": "The medical record explicitly documents 'Screening Mammography, Bilateral' for a 'Routine annual screening mammogram' on an asymptomatic patient. The technique section further specifies 'Digital mammography was performed with two standard views (craniocaudal and mediolateral oblique) of each breast.' This perfectly aligns with the description of CPT code 77065: 'Screening mammography, bilateral (2-view study of each breast), digital.' This code accurately captures the type of study (screening), laterality (bilateral), number of views, and technology used (digital).\n\nCPT code 3014F was rejected because, while it clinically describes the procedure including CAD, it is a Category II CPT code. Category II codes are used for performance measurement and quality improvement, not for billing professional services as a primary procedure code.\n\nCPT code 77067 was rejected because it describes 'Screening mammography, unilateral.' The medical record clearly indicates a 'Bilateral' study, with 'two standard views... of each breast,' making 77067 inappropriate due to laterality.\n\nCPT code 77066 was rejected for two reasons: First, it describes 'Diagnostic mammography,' whereas the medical record specifies 'Screening Mammography' for a 'Routine annual screening mammogram' on an asymptomatic patient. Second, it specifies 'unilateral,' while the study performed was 'Bilateral.'",
+      "procedure_evidences": [
+        {
+          "text": "Screening Mammography, Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM NAME: ",
+          "reftxtafter": ""
+        },
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: Digital mammography was performed with two standard views (craniocaudal and mediolateral oblique) of each breast. Computer-aided detection (CAD) was utilized for image analysis.",
+          "reftxtafter": " was performed with t"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Screening Mammography, ",
+          "reftxtafter": ""
+        },
+        {
+          "text": "each breast",
+          "pg_no": 1,
+          "reftxtbefore": "views (craniocaudal and mediolateral oblique) of ",
+          "reftxtafter": ". Computer-aided det"
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: ",
+          "reftxtafter": " was performed with t"
+        }
+      ],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "two standard views (craniocaudal and mediolateral oblique)",
+          "pg_no": 1,
+          "reftxtbefore": "was performed with ",
+          "reftxtafter": " of each breast. Co",
+          "field_label": "Views"
+        }
+      ]
+    }
+  ]
+}

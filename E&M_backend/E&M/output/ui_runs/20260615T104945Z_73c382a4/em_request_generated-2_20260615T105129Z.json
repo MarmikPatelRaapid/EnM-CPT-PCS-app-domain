@@ -1,0 +1,239 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Sex: Female\nEncounter",
+        "reftxtafter": "\nProvider: Dr. Robert"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "Sex: Female\nEncounter",
+        "reftxtafter": "\nProvider: Dr. Robert"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established",
+        "pg_no": 1,
+        "reftxtbefore": "SUBJECTIVE:\nAn ",
+        "reftxtafter": " 68-year-old female p"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 50,
+    "evidences": [
+      {
+        "text": "A total of 50 minutes was spent on the date of this encounter in the care of this patient",
+        "pg_no": 1,
+        "reftxtbefore": "TIME DOCUMENTATION:\n",
+        "reftxtafter": ". This time included"
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 68,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 68",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 08/22/1956\n",
+        "reftxtafter": "\nSex: Female\nEncounte"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Type 2 Diabetes with Neuropathic Ulcer",
+        "disease_evidence": [
+          {
+            "text": "Type 2 Diabetes with Neuropathic Ulcer: Stable",
+            "pg_no": 1,
+            "reftxtbefore": "ood pressure control. \n3. ",
+            "reftxtafter": ", but high risk give"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "GFR has dropped from a baseline of 28 to 18",
+              "pg_no": 1,
+              "reftxtbefore": "in renal function. ",
+              "reftxtafter": " (Stage IV Chronic K"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Metformin will be held temporarily due to GFR < 30 to avoid lactic acidosis",
+              "pg_no": 1,
+              "reftxtbefore": "en renal decline. ",
+              "reftxtafter": ". Insulin regimen ad"
+            },
+            {
+              "text": "Insulin regimen adjusted",
+              "pg_no": 1,
+              "reftxtbefore": "to avoid lactic acidosis. ",
+              "reftxtafter": ".\n\nDue to the high r"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Chronic Kidney Disease, Stage IV",
+        "disease_evidence": [
+          {
+            "text": "Chronic Kidney Disease, Stage IV (Worsening)",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT & PLAN:\n1. ",
+            "reftxtafter": ": The patient exhibit"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Basic Metabolic Panel from yesterday shows a significant decline in renal function. GFR has dropped from a baseline of 28 to 18 (Stage IV Chronic Kidney Disease). Potassium is elevated at 5.4 mEq/L. Creatinine is elevated at 2.9 mg/dL (baseline 1.9). Urinalysis shows 3+ proteinuria",
+              "pg_no": 1,
+              "reftxtbefore": "LABORATORY DATA REVI",
+              "reftxtafter": "\n\nASSESSMENT & PLAN:"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "I have contacted the on-call nephrologist to arrange an urgent consultation within the next 48 hours",
+              "pg_no": 1,
+              "reftxtbefore": "lacement therapy. ",
+              "reftxtafter": ".\n2. Severe Uncontroll"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "high risk of progression to end-stage renal disease (ESRD) and potential need for renal replacement therapy",
+              "pg_no": 1,
+              "reftxtbefore": "perkalemia. This represents a ",
+              "reftxtafter": ". I have contacted th"
+            },
+            {
+              "text": "hold her Lisinopril immediately",
+              "pg_no": 1,
+              "reftxtbefore": "and hyperkalemia, I will ",
+              "reftxtafter": ". I will start Carve"
+            },
+            {
+              "text": "start Carvedilol 6.25mg PO BID",
+              "pg_no": 1,
+              "reftxtbefore": "Lisinopril immediately. I will ",
+              "reftxtafter": " and increase her To"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Severe Uncontrolled Hypertension",
+        "disease_evidence": [
+          {
+            "text": "Severe Uncontrolled Hypertension",
+            "pg_no": 1,
+            "reftxtbefore": "the next 48 hours.\n2. ",
+            "reftxtafter": ": Blood pressure is s"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "I have contacted the on-call nephrologist",
+              "pg_no": 1,
+              "reftxtbefore": "lacement therapy. ",
+              "reftxtafter": " to arrange an urge"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "high risk of morbidity and potential hospitalization from rapid renal decline, hyperkalemia, and severe hypertension",
+              "pg_no": 1,
+              "reftxtbefore": "Due to the ",
+              "reftxtafter": ", the patient require"
+            },
+            {
+              "text": "hold her Lisinopril immediately",
+              "pg_no": 1,
+              "reftxtbefore": "and hyperkalemia, I will ",
+              "reftxtafter": ". I will start Carve"
+            },
+            {
+              "text": "start Carvedilol 6.25mg PO BID",
+              "pg_no": 1,
+              "reftxtbefore": "Lisinopril immediately. I will ",
+              "reftxtafter": " and increase her To"
+            },
+            {
+              "text": "increase her Torsemide to 20mg PO daily",
+              "pg_no": 1,
+              "reftxtbefore": "6.25mg PO BID and ",
+              "reftxtafter": " to assist with flu"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

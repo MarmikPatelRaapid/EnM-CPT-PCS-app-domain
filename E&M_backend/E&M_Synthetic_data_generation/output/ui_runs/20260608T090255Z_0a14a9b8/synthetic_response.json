@@ -1,0 +1,12 @@
+{
+  "documents": [
+    {
+      "generated_document": "EXAM: CT Simulation for Radiation Therapy Planning. CLINICAL INDICATION: 68-year-old male with biopsy-proven adenocarcinoma of the prostate, Gleason 7 (4+3), presenting for definitive radiation therapy planning. TECHNIQUE: The patient was positioned supine on the CT simulator couch. A custom Vac-Lok immobilization cradle was fabricated for the lower extremities to ensure daily reproducibility. A full bladder and empty rectum protocol was confirmed prior to scanning. Non-contrast helical CT images were acquired from the L4 vertebral body down to the proximal third of the femurs with a slice thickness of 2.5 mm. FINDINGS: The patient tolerated the simulation procedure well. The custom immobilization device was successfully created and indexed to the treatment table. The acquired CT dataset was transferred to the treatment planning system (TPS) for target volume and organ-at-risk (OAR) delineation. The isocenter was provisionally marked on the patient's skin with permanent tattoos (anterior and bilateral lateral marks). IMPRESSION: Successful CT simulation and immobilization for prostate radiation therapy planning. The dataset is adequate for 3D conformal/IMRT treatment planning. Patient will return for treatment initiation once the dosimetric plan is approved.",
+      "cpt_code": "77215",
+      "Relevant_icd10cm_codes": [
+        "C61"
+      ],
+      "Justification": "The documentation details a radiation therapy simulation procedure, including patient positioning, fabrication of a custom immobilization device, and CT image acquisition for treatment planning. The CPT code 77215 is assigned as requested to represent this simulation service within the radiation oncology series."
+    }
+  ]
+}

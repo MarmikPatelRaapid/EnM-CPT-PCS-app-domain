@@ -1,0 +1,213 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "clinic",
+        "pg_no": 1,
+        "reftxtbefore": "male, well known to the ",
+        "reftxtafter": ", presenting for rout"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Follow-up diabetes and hypertension",
+        "pg_no": 1,
+        "reftxtbefore": "CHIEF COMPLAINT: ",
+        "reftxtafter": ". HISTORY OF PRESENT "
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "well known to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "is a 62-year-old male, ",
+        "reftxtafter": ", presenting for rout"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 62,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "62-year-old",
+        "pg_no": 1,
+        "reftxtbefore": "The patient is a ",
+        "reftxtafter": " male, well known to"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Essential Hypertension",
+        "disease_evidence": [
+          {
+            "text": "Essential Hypertension. Clinically stable",
+            "pg_no": 1,
+            "reftxtbefore": "foot care has been placed. 2. ",
+            "reftxtafter": ". Continue Lisinopril"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Continue Lisinopril 20 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "Clinically stable. ",
+              "reftxtafter": ". 3. Hyperlipidemia."
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Hyperlipidemia",
+        "disease_evidence": [
+          {
+            "text": "Hyperlipidemia. Stable on high-intensity statin",
+            "pg_no": 1,
+            "reftxtbefore": "Lisinopril 20 mg daily. 3. ",
+            "reftxtafter": ". Continue Atorvastat"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Recent BMP and lipid panel from last week were reviewed",
+              "pg_no": 1,
+              "reftxtbefore": "A1c today is 8.9%, increased from 7.4% six months ago. ",
+              "reftxtafter": "; creatinine is stabl"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Continue Atorvastatin",
+              "pg_no": 1,
+              "reftxtbefore": "high-intensity statin. ",
+              "reftxtafter": ". Follow up in 4 week"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Type 2 Diabetes Mellitus with hyperglycemia and new-onset peripheral neuropathy",
+        "disease_evidence": [
+          {
+            "text": "Type 2 Diabetes Mellitus with hyperglycemia and new-onset peripheral neuropathy",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT AND PLAN: 1. ",
+            "reftxtafter": ". The patient's diabe"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Point of care A1c today is 8.9%",
+              "pg_no": 1,
+              "reftxtbefore": "Achilles. LAB FINDINGS: ",
+              "reftxtafter": ", increased from 7.4%"
+            },
+            {
+              "text": "Recent BMP and lipid panel from last week were reviewed",
+              "pg_no": 1,
+              "reftxtbefore": "A1c today is 8.9%, increased from 7.4% six months ago. ",
+              "reftxtafter": "; creatinine is stabl"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "ordered a spot urine microalbumin/creatinine ratio today",
+              "pg_no": 1,
+              "reftxtbefore": "initiate Gabapentin 100 mg TID. I have ",
+              "reftxtafter": ". A referral to Podia"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "discontinue the Metformin today",
+              "pg_no": 1,
+              "reftxtbefore": "to GI side effects from Metformin. We will ",
+              "reftxtafter": ". I will start him on"
+            },
+            {
+              "text": "start him on Glipizide 5 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "discontinue the Metformin today. I will ",
+              "reftxtafter": " before breakfast. F"
+            },
+            {
+              "text": "initiate Gabapentin 100 mg TID",
+              "pg_no": 1,
+              "reftxtbefore": "diabetic neuropathy, we will ",
+              "reftxtafter": ". I have ordered a sp"
+            },
+            {
+              "text": "A referral to Podiatry for comprehensive diabetic foot care has been placed",
+              "pg_no": 1,
+              "reftxtbefore": "albumin/creatinine ratio today. ",
+              "reftxtafter": ". 2. Essential Hyper"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

@@ -1,0 +1,242 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "extensive",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 acute complicated injury",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "complicated_injury"
+            ]
+          },
+          {
+            "name": "1 acute or chronic illness or injury posing a threat to life or body function",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "life_threatening"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "extensive",
+        "mdm_level_equivalent": "high",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": true,
+          "independent_interpretation_of_test": true,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 3,
+          "ModerateHighCategories": 3
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "At least two moderate/high data categories were met."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "extensive",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "high",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "established with this clinic",
+        "pg_no": 1,
+        "reftxtbefore": "is a 68-year-old male, ",
+        "reftxtafter": ", who presents today w"
+      }
+    ],
+    "service": [
+      {
+        "text": "established with this clinic",
+        "pg_no": 1,
+        "reftxtbefore": "is a 68-year-old male, ",
+        "reftxtafter": ", who presents today w"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established with this clinic",
+        "pg_no": 1,
+        "reftxtbefore": "is a 68-year-old male, ",
+        "reftxtafter": ", who presents today w"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute on chronic systolic heart failure exacerbation, severe.",
+        "pg_no": 1,
+        "reftxtbefore": "ASSESSMENT/IMPRESSION:\n1. ",
+        "reftxtafter": "\n2. Acute kidney inju"
+      },
+      {
+        "text": "Acute kidney injury superimposed on CKD stage 3b, likely cardiorenal syndrome given profound volume overload.",
+        "pg_no": 1,
+        "reftxtbefore": "exacerbation, severe.\n2. ",
+        "reftxtafter": "\n3. Hypoxia secondary"
+      },
+      {
+        "text": "Hypoxia secondary to pulmonary edema.",
+        "pg_no": 1,
+        "reftxtbefore": "found volume overload.\n3. ",
+        "reftxtafter": "\n\nPLAN/FOLLOW-UP:\n- A"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "BMP: Na 135, K 5.2, Cl 98, CO2 22, BUN 48, Creatinine 2.6 (baseline 1.7), Glucose 145.",
+        "pg_no": 1,
+        "reftxtbefore": "in clinic today:\n- ",
+        "reftxtafter": "\n- BNP: 2150 pg/mL ("
+      },
+      {
+        "text": "BNP: 2150 pg/mL (baseline ~500).",
+        "pg_no": 1,
+        "reftxtbefore": "cose 145.\n- ",
+        "reftxtafter": "\n- ECG (performed in "
+      },
+      {
+        "text": "STAT labs drawn in clinic today",
+        "pg_no": 1,
+        "reftxtbefore": "IMAGING/LAB FINDINGS:\n",
+        "reftxtafter": ":\n- BMP: Na 135, K 5."
+      },
+      {
+        "text": "repeat BMP",
+        "pg_no": 1,
+        "reftxtbefore": "clinical evaluation and ",
+        "reftxtafter": ". \n- Strict return pr"
+      },
+      {
+        "text": "Discussed the severity of his condition extensively with the patient and his wife.",
+        "pg_no": 1,
+        "reftxtbefore": "reported mild improvem",
+        "reftxtafter": " Given the AKI, hypox"
+      },
+      {
+        "text": "ECG (performed in clinic, interpreted by me): Sinus tachycardia at 102 bpm, LVH, no acute ST-T wave changes indicating ischemia.",
+        "pg_no": 1,
+        "reftxtbefore": "line ~500).\n- ",
+        "reftxtafter": "\n\nASSESSMENT/IMPRESSI"
+      },
+      {
+        "text": "Creatinine 2.6 (baseline 1.7)",
+        "pg_no": 1,
+        "reftxtbefore": "BUN 48, ",
+        "reftxtafter": ", Glucose 145.\n- BNP"
+      },
+      {
+        "text": "Given the AKI, hypoxia, and severe volume overload, I strongly recommended direct admission to the hospital",
+        "pg_no": 1,
+        "reftxtbefore": "patient and his wife. ",
+        "reftxtafter": " for continuous IV diu"
+      },
+      {
+        "text": "SpO2 90% on room air.",
+        "pg_no": 1,
+        "reftxtbefore": "RR 24, Temp 98.4F, ",
+        "reftxtafter": "\nNeck: JVD is promine"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Administered Furosemide 80 mg IV push in the clinic.",
+        "pg_no": 1,
+        "reftxtbefore": "PLAN/FOLLOW-UP:\n- ",
+        "reftxtafter": " Patient was placed on"
+      },
+      {
+        "text": "strongly recommended direct admission to the hospital for continuous IV diuresis and close monitoring.",
+        "pg_no": 1,
+        "reftxtbefore": "severe volume overload, I ",
+        "reftxtafter": " \n- The patient adaman"
+      },
+      {
+        "text": "Will temporarily hold Entresto and Jardiance given the acute kidney injury.",
+        "pg_no": 1,
+        "reftxtbefore": "to close follow-up.\n- ",
+        "reftxtafter": "\n- Increase home Furos"
+      },
+      {
+        "text": "Increase home Furosemide to 80 mg PO BID starting tonight.",
+        "pg_no": 1,
+        "reftxtbefore": "the acute kidney injury.\n- ",
+        "reftxtafter": "\n- Strict fluid restri"
+      },
+      {
+        "text": "strongly recommended direct admission to the hospital",
+        "pg_no": 1,
+        "reftxtbefore": "severe volume overload, I ",
+        "reftxtafter": " for continuous IV diu"
+      },
+      {
+        "text": "Patient was placed on 2L O2 via nasal cannula",
+        "pg_no": 1,
+        "reftxtbefore": "IV push in the clinic. ",
+        "reftxtafter": " with improvement of S"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 68,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

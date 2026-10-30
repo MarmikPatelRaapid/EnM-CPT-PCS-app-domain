@@ -1,0 +1,10 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "72200",
+      "final_cpt_code": "72200",
+      "final_cpt_code_description": "Radiologic examination, sacroiliac joints; less than 3 views",
+      "final_cpt_code_justification": "The medical record explicitly documents a 'Radiologic Examination, Sacroiliac Joints, 2 views'. The technique section further confirms 'AP and oblique views of the sacroiliac joints were obtained', totaling 2 views. CPT code 72200 is defined as 'Radiologic examination, sacroiliac joints; less than 3 views', which perfectly matches the documented procedure and number of views. The other codes are rejected for the following reasons: 72201 is for '3 or more views', which does not match the 2 views performed. 72202 specifies 'stereoscopic' views, which is not documented in the technique section ('AP and oblique views'). Code 27050 describes an 'Arthrotomy, sacroiliac joint, with biopsy', which is a surgical procedure, not a diagnostic radiologic examination. Code 27096 describes an 'Injection procedure for sacroiliac joint', which is also an interventional procedure and not a diagnostic imaging study. Therefore, 72200 is the most accurate and specific code."
+    }
+  ]
+}

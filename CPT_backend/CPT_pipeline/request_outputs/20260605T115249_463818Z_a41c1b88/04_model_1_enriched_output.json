@@ -1,0 +1,117 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "76775",
+      "norm_procedure_name": "Ultrasound Retroperitoneal",
+      "norm_anatomy": "Right Kidney",
+      "norm_approach": "External",
+      "norm_procedure_type": "Diagnostic Imaging",
+      "norm_imaging_guidance": "Ultrasound",
+      "norm_anesthesia_type": "None",
+      "norm_other": "Renal cyst follow-up",
+      "procedure_evidences": [
+        {
+          "text": "Ultrasound Retroperitoneal, Limited",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": ". INDICATION: 62-ye"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "male with right flank",
+          "reftxtafter": ", follow-up of known"
+        },
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "imaging of the ",
+          "reftxtafter": " was performed with"
+        },
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "The ",
+          "reftxtafter": " is visualized and "
+        },
+        {
+          "text": "lower pole of the right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "cyst is re-demonstrated in the ",
+          "reftxtafter": ", measuring 2.4 x 2"
+        },
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "pole of the ",
+          "reftxtafter": "."
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "Ultrasound",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": " Retroperitoneal, L"
+        },
+        {
+          "text": "imaging",
+          "pg_no": 1,
+          "reftxtbefore": "grayscale ultrasound ",
+          "reftxtafter": " of the right kidne"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "Real-time grayscale ultrasound imaging",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: ",
+          "reftxtafter": " of the right kidne"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "62-year-old male with right flank pain, follow-up of known right renal cyst.",
+          "pg_no": 1,
+          "reftxtbefore": "Limited. INDICATION: ",
+          "reftxtafter": " TECHNIQUE: Real-ti",
+          "field_label": "Indication"
+        },
+        {
+          "text": "A simple anechoic cyst is re-demonstrated in the lower pole of the right kidney, measuring 2.4 x 2.1 x 2.2 cm.",
+          "pg_no": 1,
+          "reftxtbefore": "solid mass. ",
+          "reftxtafter": " This is unchanged ",
+          "field_label": "Findings"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "74470",
+          "similarity_score": "0.85932"
+        },
+        {
+          "code": "76770",
+          "similarity_score": "0.840743"
+        },
+        {
+          "code": "76775",
+          "similarity_score": "0.840743"
+        },
+        {
+          "code": "76776",
+          "similarity_score": "0.840743"
+        }
+      ],
+      "code_description": "Ultrasound, retroperitoneal (e.g., renal, aorta, nodes), limited",
+      "code_justification": "The documentation clearly states 'Ultrasound Retroperitoneal, Limited' and specifies that only the right kidney was evaluated, with the left kidney, abdominal aorta, and inferior vena cava not evaluated. This aligns perfectly with the definition of a limited retroperitoneal ultrasound.",
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

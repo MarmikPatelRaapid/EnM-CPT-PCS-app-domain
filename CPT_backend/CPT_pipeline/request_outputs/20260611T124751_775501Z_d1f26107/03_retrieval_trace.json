@@ -1,0 +1,118 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "77014",
+      "query_text": "CT simulation Prostate Supine position with customized immobilization device CT Customized immobilization device",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "55876",
+          "55875"
+        ],
+        "top_k_suggested_score": [
+          0.786063,
+          0.785824
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "55876",
+          "similarity_score": "0.786063"
+        },
+        {
+          "code": "55875",
+          "similarity_score": "0.785824"
+        }
+      ]
+    },
+    {
+      "code_index": 1,
+      "cpt_code": "77295",
+      "query_text": "Therapeutic radiology simulation-aided field setting Prostate, seminal vesicles, bladder, rectum, penile bulb, femoral heads CT simulation with customized immobilization CT Complex contouring of GTV, CTV, PTV, and OARs",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "55713",
+          "55714",
+          "55715",
+          "55875",
+          "55706"
+        ],
+        "top_k_suggested_score": [
+          0.780723,
+          0.780723,
+          0.780723,
+          0.762593,
+          0.761172
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "55713",
+          "similarity_score": "0.780723"
+        },
+        {
+          "code": "55714",
+          "similarity_score": "0.780723"
+        },
+        {
+          "code": "55715",
+          "similarity_score": "0.780723"
+        },
+        {
+          "code": "55875",
+          "similarity_score": "0.762593"
+        },
+        {
+          "code": "55706",
+          "similarity_score": "0.761172"
+        }
+      ]
+    },
+    {
+      "code_index": 2,
+      "cpt_code": "77301",
+      "query_text": "Radiation therapy dosimetry planning Prostate, seminal vesicles, bladder, rectum, penile bulb, femoral heads 3-dimensional conformal radiotherapy (3D-CRT) plan, Dose-volume histograms (DVH) evaluation",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "76873",
+          "4165F",
+          "77300",
+          "77301",
+          "0520F"
+        ],
+        "top_k_suggested_score": [
+          0.847747,
+          0.826696,
+          0.820569,
+          0.809932,
+          0.80133
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "76873",
+          "similarity_score": "0.847747"
+        },
+        {
+          "code": "4165F",
+          "similarity_score": "0.826696"
+        },
+        {
+          "code": "77300",
+          "similarity_score": "0.820569"
+        },
+        {
+          "code": "77301",
+          "similarity_score": "0.809932"
+        },
+        {
+          "code": "0520F",
+          "similarity_score": "0.80133"
+        }
+      ]
+    }
+  ]
+}

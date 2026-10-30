@@ -1,0 +1,195 @@
+{
+  "classification": {
+    "complexity": "low",
+    "data_to_review": "limited",
+    "risk": "moderate",
+    "mdm_level": "low",
+    "details": {
+      "complexity": {
+        "category": "low",
+        "mdm_level_equivalent": "low",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "1 acute, uncomplicated illness or injury",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "uncomplicated",
+              "outpatient_other"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "limited",
+        "mdm_level_equivalent": "low",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": false
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 0
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Low/limited threshold met by category-1 count or independent historian."
+      },
+      "risk": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "raw_risk_types": [
+          "low",
+          "moderate",
+          "low"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "low",
+          "data_to_review": "limited",
+          "risk": "moderate"
+        },
+        "normalized_inputs": {
+          "complexity": "low",
+          "data_to_review": "low",
+          "risk": "moderate"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "low"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "routine follow-up",
+        "pg_no": 1,
+        "reftxtbefore": "patient presents for ",
+        "reftxtafter": " of his Type 2 diabe"
+      }
+    ],
+    "service": [
+      {
+        "text": "routine follow-up",
+        "pg_no": 1,
+        "reftxtbefore": "patient presents for ",
+        "reftxtafter": " of his Type 2 diabe"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "62-year-old male ",
+        "reftxtafter": " presents for routin"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Essential hypertension, stable",
+        "pg_no": 1,
+        "reftxtbefore": "iabetic polyneuropathy. 2. ",
+        "reftxtafter": ". 3. Metformin into"
+      },
+      {
+        "text": "Type 2 diabetes mellitus, uncontrolled, with new-onset diabetic polyneuropathy",
+        "pg_no": 1,
+        "reftxtbefore": "ssion: 1. ",
+        "reftxtafter": ". 2. Essential hype"
+      },
+      {
+        "text": "Metformin intolerance",
+        "pg_no": 1,
+        "reftxtbefore": "hypertension, stable. 3. ",
+        "reftxtafter": ". Plan/follow-up: 1"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "CMP, lipid panel, and urine microalbumin sent to lab today",
+        "pg_no": 1,
+        "reftxtbefore": "nsion: Continue Lis",
+        "reftxtafter": ". 5. Follow-up in 4"
+      },
+      {
+        "text": "Point of care A1c today is 8.9%",
+        "pg_no": 1,
+        "reftxtbefore": "Skin: Intact, no fo",
+        "reftxtafter": ", increased from 7.4"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Continue Lisinopril 10mg",
+        "pg_no": 1,
+        "reftxtbefore": "3. Hypertension: ",
+        "reftxtafter": ". 4. Orders: CMP, l"
+      },
+      {
+        "text": "will discontinue today. Initiating Glipizide 5mg daily",
+        "pg_no": 1,
+        "reftxtbefore": "nt to Metformin; ",
+        "reftxtafter": ". Discussed the risk"
+      },
+      {
+        "text": "Started Gabapentin 100mg TID for symptomatic relief of foot tingling",
+        "pg_no": 1,
+        "reftxtbefore": "athy: ",
+        "reftxtafter": ". Emphasized daily "
+      },
+      {
+        "text": "Discussed the risk of hypoglycemia and signs to watch for",
+        "pg_no": 1,
+        "reftxtbefore": "Glipizide 5mg daily. ",
+        "reftxtafter": ". 2. Neuropathy: St"
+      },
+      {
+        "text": "Patient is intolerant to Metformin; will discontinue today",
+        "pg_no": 1,
+        "reftxtbefore": "1. Diabetes: ",
+        "reftxtafter": ". Initiating Glipizi"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 62,
+    "patient_age_unit": "years",
+    "mdm_level": "Low"
+  },
+  "codes": [
+    "99213"
+  ]
+}

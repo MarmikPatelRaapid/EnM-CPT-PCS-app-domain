@@ -1,0 +1,13 @@
+{
+  "documents": [
+    {
+      "generated_document": "EXAM: Ultrasound Retroperitoneal, Limited. INDICATION: 62-year-old male with right flank pain, follow-up of known right renal cyst. TECHNIQUE: Real-time grayscale ultrasound imaging of the right kidney was performed with image documentation. FINDINGS: The right kidney is visualized and measures 11.2 x 5.1 x 4.8 cm. Cortical thickness and echogenicity are within normal limits. There is no evidence of right-sided hydronephrosis, shadowing renal calculus, or solid mass. A simple anechoic cyst is re-demonstrated in the lower pole of the right kidney, measuring 2.4 x 2.1 x 2.2 cm. This is unchanged from the prior examination dated 8 months ago. The left kidney, abdominal aorta, and inferior vena cava were not evaluated during this targeted examination. IMPRESSION: 1. Unchanged 2.4 cm simple cyst in the lower pole of the right kidney. 2. No right hydronephrosis or sonographic evidence of obstructive uropathy.",
+      "cpt_code": "76775",
+      "Relevant_icd10cm_codes": [
+        "N28.1",
+        "R10.481"
+      ],
+      "Justification": "CPT 76775 is selected for a limited retroperitoneal ultrasound. The documentation shows a targeted evaluation of only the right kidney to assess a known cyst and flank pain. Because the exam did not include the left kidney, abdominal aorta, and inferior vena cava, it does not meet the requirements for a complete retroperitoneal ultrasound (76770) and is correctly coded as a limited study."
+    }
+  ]
+}

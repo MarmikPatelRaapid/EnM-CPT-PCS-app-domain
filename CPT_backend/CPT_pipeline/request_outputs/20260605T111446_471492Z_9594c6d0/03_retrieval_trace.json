@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "76775",
+      "query_text": "Ultrasound Retroperitoneal Kidney, Right Transcutaneous Diagnostic Imaging Ultrasound None Limited study",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "76770",
+          "76771",
+          "76772",
+          "76773",
+          "76774"
+        ],
+        "top_k_suggested_score": [
+          0.882035,
+          0.882035,
+          0.882035,
+          0.882035,
+          0.882035
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "76770",
+          "similarity_score": "0.882035"
+        },
+        {
+          "code": "76771",
+          "similarity_score": "0.882035"
+        },
+        {
+          "code": "76772",
+          "similarity_score": "0.882035"
+        },
+        {
+          "code": "76773",
+          "similarity_score": "0.882035"
+        },
+        {
+          "code": "76774",
+          "similarity_score": "0.882035"
+        }
+      ]
+    }
+  ]
+}

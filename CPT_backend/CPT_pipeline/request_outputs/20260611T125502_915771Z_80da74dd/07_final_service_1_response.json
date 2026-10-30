@@ -1,0 +1,120 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "77014",
+      "final_cpt_code": "77014",
+      "final_cpt_code_description": "Computed tomography guidance for placement of radiation therapy fields",
+      "final_cpt_code_justification": "The medical record clearly documents a \"complex CT simulation\" for \"radiation therapy planning\" for prostate cancer. A \"non-contrast planning CT scan of the pelvis\" was acquired, and \"radiopaque fiducial markers were placed\" for setup. CPT code 77014 specifically describes \"Computed tomography guidance for placement of radiation therapy fields,\" which precisely matches the documented procedure's purpose, technique, and clinical context. The use of fiducial markers and the explicit mention of \"radiation therapy planning\" are key indicators for this code, making it the most accurate and specific choice.\n\n**Rejection of Alternatives:**\n*   **72191 (Computed tomography, pelvis; without contrast material):** This code was rejected because, while it matches the anatomy (\"pelvis\") and contrast (\"without contrast\"), it is a diagnostic CT code. It does not capture the specific purpose of \"guidance for placement of radiation therapy fields\" as documented, making 77014 more specific and accurate for this radiation oncology service.\n*   **72192 (Computed tomography, pelvis; with contrast material):** This code was rejected because the medical record explicitly states a \"non-contrast planning CT scan.\" This code specifies \"with contrast material,\" which is a direct mismatch.\n*   **72193 (Computed tomography, pelvis; without contrast material, followed by contrast material(s) and further sections):** This code was rejected because the medical record explicitly states a \"non-contrast planning CT scan\" and does not document the administration of contrast material or subsequent sections. This code implies both without and with contrast, which is a mismatch.\n*   **72194 (Computed tomography, pelvis; without contrast material, followed by contrast material(s) and further sections):** This code was rejected for the same reasons as 72193. The medical record documents a \"non-contrast planning CT scan\" only, not a study involving both without and with contrast.\n*   **74174 (Computed tomography, abdomen and pelvis; with contrast material(s)):** This code was rejected because the medical record specifies a CT scan of the \"pelvis\" only, not the \"abdomen and pelvis.\" Furthermore, the scan was \"non-contrast,\" while this code specifies \"with contrast material(s),\" representing a mismatch in both anatomical extent and contrast usage.",
+      "procedure_evidences": [
+        {
+          "text": "CT simulator table",
+          "pg_no": 1,
+          "reftxtbefore": "tient was placed on the ",
+          "reftxtafter": " in the supine posit"
+        },
+        {
+          "text": "complex CT simulation",
+          "pg_no": 1,
+          "reftxtbefore": "Assessment/impression: Successful ",
+          "reftxtafter": " and custom immobiliz"
+        },
+        {
+          "text": "radiation therapy planning",
+          "pg_no": 1,
+          "reftxtbefore": "simulation and custom immobilization for prostate cancer ",
+          "reftxtafter": "."
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "pelvis",
+          "pg_no": 1,
+          "reftxtbefore": "planning CT scan of the ",
+          "reftxtafter": " was acquired from th"
+        },
+        {
+          "text": "prostate gland",
+          "pg_no": 1,
+          "reftxtbefore": "visualization of the ",
+          "reftxtafter": ", seminal vesicles, a"
+        },
+        {
+          "text": "seminal vesicles",
+          "pg_no": 1,
+          "reftxtbefore": "gland, ",
+          "reftxtafter": ", and surrounding cri"
+        },
+        {
+          "text": "rectum",
+          "pg_no": 1,
+          "reftxtbefore": "structures including the ",
+          "reftxtafter": ", bladder, bilateral"
+        },
+        {
+          "text": "bladder",
+          "pg_no": 1,
+          "reftxtbefore": "rectum, ",
+          "reftxtafter": ", bilateral femoral "
+        },
+        {
+          "text": "bilateral femoral heads",
+          "pg_no": 1,
+          "reftxtbefore": "bladder, ",
+          "reftxtafter": ", and penile bulb. No"
+        },
+        {
+          "text": "penile bulb",
+          "pg_no": 1,
+          "reftxtbefore": "femoral heads, and ",
+          "reftxtafter": ". No acute incidenta"
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "radiation therapy planning",
+          "pg_no": 1,
+          "reftxtbefore": "simulation and custom immobilization for prostate cancer ",
+          "reftxtafter": "."
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "CT simulator table",
+          "pg_no": 1,
+          "reftxtbefore": "tient was placed on the ",
+          "reftxtafter": " in the supine posit"
+        },
+        {
+          "text": "non-contrast planning CT scan",
+          "pg_no": 1,
+          "reftxtbefore": "points. A ",
+          "reftxtafter": " of the pelvis was ac"
+        },
+        {
+          "text": "CT images",
+          "pg_no": 1,
+          "reftxtbefore": "thickness. The acquired ",
+          "reftxtafter": " demonstrate adequate"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "custom Vac-Lok immobilization device was fabricated",
+          "pg_no": 1,
+          "reftxtbefore": "position. A ",
+          "reftxtafter": " for the lower extrem",
+          "field_label": "Custom Immobilization"
+        },
+        {
+          "text": "radiopaque fiducial markers were placed",
+          "pg_no": 1,
+          "reftxtbefore": "room lasers, and ",
+          "reftxtafter": " on the skin at the a",
+          "field_label": "Fiducial Markers"
+        }
+      ]
+    }
+  ]
+}

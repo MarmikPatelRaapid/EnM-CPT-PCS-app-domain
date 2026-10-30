@@ -1,0 +1,18 @@
+{
+  "norm_procedure": "Laparoscopic Appendectomy",
+  "current_code": "",
+  "next_character_data": [
+    {
+      "next_character_value": "0",
+      "next_character_desc": "Medical and Surgical",
+      "next_character_evidences": [
+        {
+          "text": "Laparoscopic appendectomy",
+          "pg_no": 1,
+          "reftxtbefore": "PROCEDURE PERFORMED: ",
+          "reftxtafter": "\n\nOPERATIVE FINDING"
+        }
+      ]
+    }
+  ]
+}

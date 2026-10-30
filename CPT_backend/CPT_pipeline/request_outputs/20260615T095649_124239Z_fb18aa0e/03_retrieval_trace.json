@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "77066",
+      "query_text": "Screening Mammography Bilateral Breasts 2-view (CC and MLO) projections Screening Digital Mammography with CAD",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "77067",
+          "3014F",
+          "77065",
+          "77066"
+        ],
+        "top_k_suggested_score": [
+          0.85227,
+          0.850997,
+          0.844259,
+          0.844259
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "77067",
+          "similarity_score": "0.85227"
+        },
+        {
+          "code": "3014F",
+          "similarity_score": "0.850997"
+        },
+        {
+          "code": "77065",
+          "similarity_score": "0.844259"
+        },
+        {
+          "code": "77066",
+          "similarity_score": "0.844259"
+        }
+      ]
+    }
+  ]
+}

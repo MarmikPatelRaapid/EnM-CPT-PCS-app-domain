@@ -1,0 +1,13 @@
+{
+  "documents": [
+    {
+      "generated_document": "EXAM: Radiologic Examination, Sacroiliac Joints, 2 views. DATE OF EXAM: 10/24/2023. CLINICAL INDICATION: 45-year-old male presenting with chronic lower back pain and morning stiffness. Evaluate for sacroiliitis. TECHNIQUE: AP and oblique views of the sacroiliac joints were obtained. COMPARISON: No prior relevant imaging available for comparison. FINDINGS: The bilateral sacroiliac joints are adequately visualized. There is mild subchondral sclerosis noted at the inferior aspect of the bilateral sacroiliac joints, slightly more pronounced on the right side. The sacroiliac joint spaces are well-preserved bilaterally. No marginal erosions, joint widening, or ankylosis is identified. The visualized portions of the sacrum and iliac wings are unremarkable. No acute osseous abnormality is seen. IMPRESSION: 1. Mild bilateral sacroiliac joint sclerosis, likely representing early degenerative changes rather than an inflammatory arthropathy. 2. No definitive radiographic features of acute sacroiliitis. Electronically signed by: David Aris, MD, Board Certified Radiologist.",
+      "cpt_code": "77201",
+      "Relevant_icd10cm_codes": [
+        "M54.50",
+        "M19.08"
+      ],
+      "Justification": "The radiology report clearly documents a radiologic examination of the sacroiliac joints consisting of exactly 2 views (AP and oblique). The imaging was performed to evaluate for sacroiliitis in a patient presenting with lower back pain. CPT 77201 is assigned to capture the radiological examination of the sacroiliac joints utilizing less than 3 views."
+    }
+  ]
+}

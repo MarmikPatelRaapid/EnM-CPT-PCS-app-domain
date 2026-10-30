@@ -1,0 +1,239 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "moderate",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 stable chronic illness",
+            "level": "low",
+            "required_count": 1,
+            "observed_count": 3,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "2 or more stable chronic illnesses",
+            "level": "moderate",
+            "required_count": 2,
+            "observed_count": 3,
+            "path": [
+              "chronic_illness",
+              "stable"
+            ]
+          },
+          {
+            "name": "1 acute or chronic illness or injury posing a threat to life or body function",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "life_threatening"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": false,
+          "assessment_requiring_independent_historian": true,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 1,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "low",
+          "low",
+          "moderate",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Inpatient Discharge Summary",
+        "pg_no": 1,
+        "reftxtbefore": "Document Type: ",
+        "reftxtafter": ""
+      }
+    ],
+    "service": [
+      {
+        "text": "DISCHARGE DATE: 02/18/2025",
+        "pg_no": 1,
+        "reftxtbefore": "ADMISSION DATE: 02/14/2025\n",
+        "reftxtafter": "\n\nPRINCIPAL DISCHARGE"
+      },
+      {
+        "text": "discharge day management activities",
+        "pg_no": 1,
+        "reftxtbefore": "/2025) performing ",
+        "reftxtafter": " for this patient. "
+      }
+    ],
+    "patient": [],
+    "physician_time_spent_with_patient": [
+      {
+        "text": "I spent a total of 45 minutes on the date of discharge (02/18/2025) performing discharge day management activities for this patient",
+        "pg_no": 1,
+        "reftxtbefore": "DISCHARGE TIME DOCUMENTATION:\n",
+        "reftxtafter": ". This time was spe"
+      }
+    ],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Chronic kidney disease (CKD), Stage IIIa",
+        "pg_no": 1,
+        "reftxtbefore": "SECONDARY DIAGNOSES:\n1. ",
+        "reftxtafter": ".\n2. Essential hyper"
+      },
+      {
+        "text": "Essential hypertension",
+        "pg_no": 1,
+        "reftxtbefore": "(CKD), Stage IIIa.\n2. ",
+        "reftxtafter": ".\n3. Type 2 diabete"
+      },
+      {
+        "text": "Type 2 diabetes mellitus, controlled",
+        "pg_no": 1,
+        "reftxtbefore": "ial hypertension.\n3. ",
+        "reftxtafter": ".\n\nHOSPITAL COURSE:"
+      },
+      {
+        "text": "Acute decompensated heart failure with preserved ejection fraction (HFpEF), resolved to baseline",
+        "pg_no": 1,
+        "reftxtbefore": "PRINCIPAL DISCHARGE DIAGNOSIS:\n",
+        "reftxtafter": ".\n\nSECONDARY DIAGNO"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Creatinine remained stable at 1.6 mg/dL",
+        "pg_no": 1,
+        "reftxtbefore": "o his baseline functional status. ",
+        "reftxtafter": " throughout the adm"
+      },
+      {
+        "text": "reviewing final laboratory results",
+        "pg_no": 1,
+        "reftxtbefore": "al examination, ",
+        "reftxtafter": ", reconciling disch"
+      },
+      {
+        "text": "discussing the hospital course and detailed home care instructions with the patient and his spouse",
+        "pg_no": 1,
+        "reftxtbefore": "the discharge summary, ",
+        "reftxtafter": ", and coordinating "
+      },
+      {
+        "text": "Instructed patient and his spouse on daily weight monitoring",
+        "pg_no": 1,
+        "reftxtbefore": "4. Red Flags: ",
+        "reftxtafter": ". They must call th"
+      },
+      {
+        "text": "BP 128/74 mmHg",
+        "pg_no": 1,
+        "reftxtbefore": "Vitals: Temp 98.2 F, ",
+        "reftxtafter": ", HR 72 bpm, RR 16"
+      },
+      {
+        "text": "chest X-ray confirmed pulmonary vascular congestion",
+        "pg_no": 1,
+        "reftxtbefore": "lower extremity edema. Upon admission, ",
+        "reftxtafter": ". He was treated ag"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "Creatinine remained stable at 1.6 mg/dL throughout the admission",
+        "pg_no": 1,
+        "reftxtbefore": "o his baseline functional status. ",
+        "reftxtafter": ". He is now stable "
+      },
+      {
+        "text": "Continue Metoprolol Succinate 50 mg daily and Lisinopril 10 mg daily",
+        "pg_no": 1,
+        "reftxtbefore": "mg daily) for maintenance. ",
+        "reftxtafter": ". Hold diabetic med"
+      },
+      {
+        "text": "Hold diabetic medications if oral intake is poor, but otherwise resume home regimen",
+        "pg_no": 1,
+        "reftxtbefore": "Lisinopril 10 mg daily. ",
+        "reftxtafter": ".\n3. Follow-up: Sch"
+      },
+      {
+        "text": "Resume oral Furosemide at an increased dose of 40 mg daily (previously 20 mg daily) for maintenance",
+        "pg_no": 1,
+        "reftxtbefore": "updated. ",
+        "reftxtafter": ". Continue Metropol"
+      },
+      {
+        "text": "Instructed patient and his spouse on daily weight monitoring. They must call the clinic or return to the ED for a weight gain of >3 lbs in 24 hours or >5 lbs in one week, worsening shortness of breath, or chest pain",
+        "pg_no": 1,
+        "reftxtbefore": "4. Red Flags: ",
+        "reftxtafter": ".\n\nDISCHARGE TIME D"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Hospital Inpatient or Observation Care Services",
+    "service_type": "Hospital Inpatient or Observation Care Services (including admission and discharge services)",
+    "patient_type": "Not found",
+    "time_value": 45,
+    "patient_age": 72,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": []
+}

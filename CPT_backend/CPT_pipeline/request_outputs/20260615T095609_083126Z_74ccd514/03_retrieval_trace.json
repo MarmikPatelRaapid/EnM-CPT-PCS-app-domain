@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "45378",
+      "query_text": "Colonoscopy Colon, Rectum, Sigmoid Colon, Descending Colon, Transverse Colon, Ascending Colon, Cecum, Ileocecal Valve, Terminal Ileum Flexible, Anus Diagnostic Direct Visualization Moderate Sedation",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "45378",
+          "44388",
+          "45330",
+          "91117",
+          "74270"
+        ],
+        "top_k_suggested_score": [
+          0.791489,
+          0.786617,
+          0.784876,
+          0.778821,
+          0.774268
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "45378",
+          "similarity_score": "0.791489"
+        },
+        {
+          "code": "44388",
+          "similarity_score": "0.786617"
+        },
+        {
+          "code": "45330",
+          "similarity_score": "0.784876"
+        },
+        {
+          "code": "91117",
+          "similarity_score": "0.778821"
+        },
+        {
+          "code": "74270",
+          "similarity_score": "0.774268"
+        }
+      ]
+    }
+  ]
+}

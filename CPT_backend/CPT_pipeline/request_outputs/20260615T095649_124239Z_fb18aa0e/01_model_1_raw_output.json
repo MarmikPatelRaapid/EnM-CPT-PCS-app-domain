@@ -1,0 +1,79 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "77066",
+      "code_description": "Screening mammography, bilateral (2-view study of each breast), digital, including computer-aided detection (CAD) when performed",
+      "code_justification": "The report explicitly states 'Screening Mammography, Bilateral (Digital)' and details that 'Digital mammography was performed in craniocaudal (CC) and mediolateral oblique (MLO) projections of both breasts' and 'Computer-aided detection (CAD) was utilized'. This perfectly aligns with CPT code 77066 for a bilateral digital screening mammogram including CAD.",
+      "norm_procedure_name": "Screening Mammography",
+      "norm_anatomy": "Bilateral Breasts",
+      "norm_approach": "2-view (CC and MLO) projections",
+      "norm_procedure_type": "Screening",
+      "norm_imaging_guidance": "Digital Mammography with CAD",
+      "norm_anesthesia_type": null,
+      "norm_other": null,
+      "procedure_evidences": [
+        {
+          "text": "Screening Mammography, Bilateral (Digital)",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: Screening ",
+          "reftxtafter": "Mammography, Bilateral"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Screening Mammography, ",
+          "reftxtafter": " (Digital)Reason for "
+        },
+        {
+          "text": "both breasts",
+          "pg_no": 1,
+          "reftxtbefore": "projections of ",
+          "reftxtafter": ". Computer-aided det"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "craniocaudal (CC) and mediolateral oblique (MLO) projections",
+          "pg_no": 1,
+          "reftxtbefore": "performed in ",
+          "reftxtafter": " of both breasts. C"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "Screening",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": " Mammography, Bilate"
+        },
+        {
+          "text": "Routine screening mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "Indication: ",
+          "reftxtafter": "; no new breast comp"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Technique: ",
+          "reftxtafter": " was performed in c"
+        },
+        {
+          "text": "Computer-aided detection (CAD) was utilized",
+          "pg_no": 1,
+          "reftxtbefore": "breasts. ",
+          "reftxtafter": ".Comparison Study: "
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [],
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

@@ -1,0 +1,14 @@
+{
+  "documents": [
+    {
+      "generated_document": "CHIEF COMPLAINT: Worsening shortness of breath and weight gain. HISTORY OF PRESENT ILLNESS: 68 yo male established patient with known HFrEF (EF 25%), CKD stage 3b, and T2DM presenting with 4 days of progressive dyspnea on exertion, orthopnea requiring 3 pillows, and an 8 lb weight gain since last week. He reports mild chest heaviness when walking to the bathroom but denies frank resting angina. Adherence to oral Lasix has been poor; states he ran out 5 days ago and couldn't get to the pharmacy. REVIEW OF SYSTEMS: Positive for DOE, orthopnea, lower extremity swelling. Negative for fever, chills, syncope, or palpitations. PAST MEDICAL HISTORY: HFrEF, CAD s/p PCI in 2019, CKD 3b, T2DM. MEDICATIONS: Metoprolol succinate 50mg daily, Entresto 24/26mg BID, Empagliflozin 10mg daily, Furosemide 40mg daily, Aspirin 81mg, Atorvastatin 40mg. PHYSICAL EXAM: BP 155/90, HR 92, RR 22, O2 91% on room air. Gen: Mild respiratory distress, speaking in short sentences. Neck: JVD present to the angle of the mandible at 45 degrees. CV: Tachycardic, regular rhythm, S3 gallop present. Lungs: Crackles in bilateral bases extending halfway up the lung fields. Ext: 2+ pitting edema to the knees bilaterally, warm to touch. ASSESSMENT AND PLAN: 1. Acute on chronic systolic heart failure exacerbation. Patient is in significant volume overload with impending respiratory compromise. Discussed direct admission to the hospital for IV diuresis and monitoring. Patient strongly prefers to avoid hospitalization due to family obligations. Given his stability on room air (O2 >90%), we will attempt aggressive outpatient management. Administered IV Furosemide 80mg in clinic today. Will double his home oral Lasix dose to 80mg BID for the next 3 days. 2. CKD Stage 3b. High risk of AKI with aggressive diuresis. Ordered stat BMP today to check baseline K+ and Cr, will repeat in 48 hours. 3. T2DM. Continue current regimen. Follow up: Patient to return to clinic in exactly 48 hours for re-evaluation. Strict return precautions given; instructed to go to ER immediately if breathing worsens at rest.",
+      "cpt_code": "99215",
+      "Relevant_icd10cm_codes": [
+        "I50.23",
+        "N18.32",
+        "E11.9"
+      ],
+      "Justification": "The CPT code 99215 is supported by a high level of Medical Decision Making (MDM) for an established patient. The patient presents with a severe exacerbation of a chronic illness (acute on chronic systolic heart failure) posing a threat to bodily function. The risk of morbidity is high, evidenced by the consideration of hospital admission, administration of IV diuretics in the clinic, and the need for intensive monitoring of renal function (stat BMP) due to the patient's underlying Stage 3b chronic kidney disease. Two out of three MDM elements meet the high criteria, justifying a level 5 established patient E&M visit."
+    }
+  ]
+}

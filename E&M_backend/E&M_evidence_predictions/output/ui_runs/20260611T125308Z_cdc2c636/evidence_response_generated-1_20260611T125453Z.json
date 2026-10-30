@@ -1,0 +1,194 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "in clinic",
+        "pg_no": 1,
+        "reftxtbefore": "Furosemide 80mg ",
+        "reftxtafter": " today. Will double"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "in clinic",
+        "pg_no": 1,
+        "reftxtbefore": "Furosemide 80mg ",
+        "reftxtafter": " today. Will double"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "yo male ",
+        "reftxtafter": " with known HFrEF ("
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 68,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "68 yo",
+        "pg_no": 1,
+        "reftxtbefore": "PRESENT ILLNESS: ",
+        "reftxtafter": " male established pa"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "CKD Stage 3b",
+        "disease_evidence": [
+          {
+            "text": "CKD Stage 3b",
+            "pg_no": 1,
+            "reftxtbefore": "or the next 3 days. 2. ",
+            "reftxtafter": ". High risk of AKI "
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [
+            {
+              "text": "Ordered stat BMP today to check baseline K+ and Cr, will repeat in 48 hours",
+              "pg_no": 1,
+              "reftxtbefore": "gressive diuresis. ",
+              "reftxtafter": ". 3. T2DM. Continue"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Ordered stat BMP today to check baseline K+ and Cr, will repeat in 48 hours",
+              "pg_no": 1,
+              "reftxtbefore": "gressive diuresis. ",
+              "reftxtafter": ". 3. T2DM. Continue"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "T2DM",
+        "disease_evidence": [
+          {
+            "text": "T2DM",
+            "pg_no": 1,
+            "reftxtbefore": "in 48 hours. 3. ",
+            "reftxtafter": ". Continue current "
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "minimal",
+          "risk_evidences": [
+            {
+              "text": "Continue current regimen",
+              "pg_no": 1,
+              "reftxtbefore": "hours. 3. T2DM. ",
+              "reftxtafter": ". Follow up: Patien"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute on chronic systolic heart failure exacerbation",
+        "disease_evidence": [
+          {
+            "text": "Acute on chronic systolic heart failure exacerbation",
+            "pg_no": 1,
+            "reftxtbefore": "SSMENT AND PLAN: 1. ",
+            "reftxtafter": ". Patient is in sig"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Discussed direct admission to the hospital for IV diuresis and monitoring",
+              "pg_no": 1,
+              "reftxtbefore": "espiratory compromise. ",
+              "reftxtafter": ". Patient strongly p"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "high",
+          "risk_evidences": [
+            {
+              "text": "impending respiratory compromise",
+              "pg_no": 1,
+              "reftxtbefore": "nificant volume overlo",
+              "reftxtafter": "ad with . Discussed direct a"
+            },
+            {
+              "text": "Discussed direct admission to the hospital for IV diuresis and monitoring",
+              "pg_no": 1,
+              "reftxtbefore": "espiratory compromise. ",
+              "reftxtafter": ". Patient strongly p"
+            },
+            {
+              "text": "Administered IV Furosemide 80mg in clinic today",
+              "pg_no": 1,
+              "reftxtbefore": "tpatient management. ",
+              "reftxtafter": ". Will double his ho"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

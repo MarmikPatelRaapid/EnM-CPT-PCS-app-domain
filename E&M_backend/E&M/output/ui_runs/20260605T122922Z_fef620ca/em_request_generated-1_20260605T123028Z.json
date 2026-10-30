@@ -1,0 +1,201 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "clinic",
+        "pg_no": 1,
+        "reftxtbefore": "well-known to the ",
+        "reftxtafter": ", presenting for a "
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Follow-up",
+        "pg_no": 1,
+        "reftxtbefore": "CHIEF COMPLAINT: ",
+        "reftxtafter": " for diabetes, hype"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "well-known to the clinic",
+        "pg_no": 1,
+        "reftxtbefore": "old male, ",
+        "reftxtafter": ", presenting for a "
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 58,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "58-year-old",
+        "pg_no": 1,
+        "reftxtbefore": "The patient is a ",
+        "reftxtafter": " male, well-known t"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Type 2 Diabetes Mellitus",
+        "disease_evidence": [
+          {
+            "text": "Type 2 Diabetes Mellitus, without complications, fairly controlled.",
+            "pg_no": 1,
+            "reftxtbefore": "mild exacerbation.\n2. ",
+            "reftxtafter": "\n3. Essential Hyperte"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Hemoglobin A1c from 3 days ago is 7.2%",
+              "pg_no": 1,
+              "reftxtbefore": "LAB FINDINGS:\n",
+              "reftxtafter": " (improved from 7.5%"
+            },
+            {
+              "text": "Comprehensive metabolic panel is within normal limits",
+              "pg_no": 1,
+              "reftxtbefore": "three months ago). ",
+              "reftxtafter": ", with a serum creat"
+            },
+            {
+              "text": "10-g monofilament test is normal bilaterally.",
+              "pg_no": 1,
+              "reftxtbefore": "o lower extremity edema. ",
+              "reftxtafter": "\n\nLAB FINDINGS:\nHemog"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Will continue current Metformin dose.",
+              "pg_no": 1,
+              "reftxtbefore": "A1c is at goal. ",
+              "reftxtafter": " Emphasized the impo"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Essential Hypertension",
+        "disease_evidence": [
+          {
+            "text": "Essential Hypertension, stable.",
+            "pg_no": 1,
+            "reftxtbefore": "fairly controlled.\n3. ",
+            "reftxtafter": "\n\nPLAN/FOLLOW-UP:\n1. "
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Home blood pressures are running in the 130s/80s.",
+              "pg_no": 1,
+              "reftxtbefore": " hypoglycemic episodes. ",
+              "reftxtafter": " However, he report"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Continue Lisinopril 20 mg daily.",
+              "pg_no": 1,
+              "reftxtbefore": "is at goal today. ",
+              "reftxtafter": "\n\nFollow up in clini"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [
+      {
+        "norm_disease_name": "Mild persistent asthma with mild exacerbation",
+        "disease_evidence": [
+          {
+            "text": "Mild persistent asthma, currently with mild exacerbation.",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT/IMPRESSION:\n1. ",
+            "reftxtafter": "\n2. Type 2 Diabetes "
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "We reviewed his asthma action plan and indications to seek emergency care.",
+              "pg_no": 1,
+              "reftxtbefore": "lbuterol PRN for rescue. ",
+              "reftxtafter": "\n2. Diabetes: A1c i"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Discontinue Symbicort 80/4.5 and start Symbicort 160/4.5 mcg 2 puffs BID.",
+              "pg_no": 1,
+              "reftxtbefore": "herapy today. ",
+              "reftxtafter": " Continue Albuterol "
+            }
+          ]
+        }
+      }
+    ],
+    "sever_exacerbation": []
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

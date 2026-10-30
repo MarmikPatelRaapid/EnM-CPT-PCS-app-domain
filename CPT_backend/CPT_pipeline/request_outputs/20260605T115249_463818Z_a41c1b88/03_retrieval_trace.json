@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "76775",
+      "query_text": "Ultrasound Retroperitoneal Right Kidney External Diagnostic Imaging Ultrasound None Renal cyst follow-up",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "74470",
+          "76770",
+          "76775",
+          "76776"
+        ],
+        "top_k_suggested_score": [
+          0.85932,
+          0.840743,
+          0.840743,
+          0.840743
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "74470",
+          "similarity_score": "0.85932"
+        },
+        {
+          "code": "76770",
+          "similarity_score": "0.840743"
+        },
+        {
+          "code": "76775",
+          "similarity_score": "0.840743"
+        },
+        {
+          "code": "76776",
+          "similarity_score": "0.840743"
+        }
+      ]
+    }
+  ]
+}

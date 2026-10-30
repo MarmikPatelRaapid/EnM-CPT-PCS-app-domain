@@ -1,0 +1,86 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "76775",
+      "final_cpt_code": "76775",
+      "final_cpt_code_description": "Ultrasound, retroperitoneal (e.g., renal, aorta, nodal, upper abdomen), real time with image documentation; limited",
+      "final_cpt_code_justification": "The medical record explicitly states the 'EXAM: Ultrasound Retroperitoneal, Limited'. This directly aligns with the description of CPT code 76775, which specifies a 'limited' retroperitoneal ultrasound. Furthermore, the documentation confirms the limited nature of the study by stating, 'The left kidney, abdominal aorta, and inferior vena cava were not evaluated during this targeted examination,' indicating that only the right kidney was fully assessed. This clinical evidence perfectly supports the selection of 76775 as the most accurate and specific code.\n\nCPT code 76770 (Ultrasound, retroperitoneal...; complete) is rejected because the medical record clearly indicates a 'Limited' examination, not a complete one, as evidenced by the explicit statement that multiple retroperitoneal structures were 'not evaluated'.\n\nCPT code 76771 (Ultrasound, retroperitoneal...; follow-up or limited study) is rejected because while the study is a 'follow-up' and 'limited', code 76775 specifically describes a 'limited' retroperitoneal ultrasound, which is the exact terminology used in the 'EXAM' section of the medical record. 76775 is the most direct and specific code for the type of study performed.\n\nCPT code 76772 (Ultrasound, retroperitoneal...; complete, with duplex scan of renal arteries) is rejected because the study was 'Limited' and there is no documentation of a duplex scan of the renal arteries.\n\nCPT code 76773 (Ultrasound, retroperitoneal...; limited, with duplex scan of renal arteries) is rejected because, although the study was limited, there is no documentation of a duplex scan of the renal arteries in the medical record.\n\nCPT code 76774 (Ultrasound, retroperitoneal...; complete, with duplex scan of aorta and/or iliac arteries) is rejected because the study was 'Limited' and there is no documentation of a duplex scan of the aorta and/or iliac arteries.",
+      "procedure_evidences": [
+        {
+          "text": "Ultrasound Retroperitoneal, Limited",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": ". INDICATION: 62-year"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "e ultrasound imaging of the ",
+          "reftxtafter": " was performed with i"
+        },
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "pole of the ",
+          "reftxtafter": ". This is unchanged"
+        },
+        {
+          "text": "right kidney",
+          "pg_no": 1,
+          "reftxtbefore": "pole of the ",
+          "reftxtafter": ". 2. No right hydron"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "Real-time grayscale ultrasound imaging",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: ",
+          "reftxtafter": " of the right kidney"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "Ultrasound",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": " Retroperitoneal, Lim"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "Real-time grayscale ultrasound imaging",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: ",
+          "reftxtafter": " of the right kidney"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "Limited",
+          "pg_no": 1,
+          "reftxtbefore": "Ultrasound Retroperitoneal, ",
+          "reftxtafter": ". INDICATION: 62-year",
+          "field_label": "Limitation"
+        },
+        {
+          "text": "not evaluated",
+          "pg_no": 1,
+          "reftxtbefore": "inferior vena cava were ",
+          "reftxtafter": " during this targeted",
+          "field_label": "Limitation"
+        },
+        {
+          "text": "targeted examination",
+          "pg_no": 1,
+          "reftxtbefore": "evaluated during this ",
+          "reftxtafter": ". IMPRESSION: 1. Unc",
+          "field_label": "Limitation"
+        }
+      ]
+    }
+  ]
+}

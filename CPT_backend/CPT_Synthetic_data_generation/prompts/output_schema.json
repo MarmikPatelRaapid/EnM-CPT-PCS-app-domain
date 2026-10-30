@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+      "documents": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "generated_document": {
+              "type": "string"
+            },
+            "cpt_code": {
+              "type": "string"
+            },
+            "rational": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "generated_document",
+            "cpt_code",
+            "rational"
+          ],
+          "propertyOrdering": [
+            "generated_document",
+            "cpt_code",
+            "rational"
+          ]
+        }
+      }
+    },
+    "propertyOrdering": [
+      "documents"
+    ]
+  }

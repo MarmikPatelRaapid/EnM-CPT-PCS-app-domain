@@ -1,0 +1,13 @@
+{
+  "documents": [
+    {
+      "generated_document": "CC: Sore throat and runny nose\n\nHPI: 24 yo male, new to the clinic, presenting with a scratchy throat and clear rhinorrhea that began roughly 48 hours ago. States he woke up with it on Tuesday morning. Denies any fever, chills, productive cough, or body aches. Has been drinking warm tea which provides temporary relief. No known sick contacts, though he works in a busy retail environment.\n\nROS: \nConstitutional: Negative for fever, chills.\nENT: Positive for sore throat, rhinorrhea. Negative for ear pain or sinus pressure.\nRespiratory: Negative for cough, shortness of breath.\n\nPMH: None. \nMedications: None.\nAllergies: NKDA.\n\nPhysical Exam:\nVitals: BP 118/76, HR 72, Temp 98.4F, RR 14, SpO2 99% on RA.\nGeneral: Well-developed, in no acute distress.\nHEENT: Normocephalic. TMs clear bilaterally. Nares patent, mild clear discharge. Oropharynx exhibits mild diffuse erythema. No tonsillar exudate or enlargement. \nNeck: Supple. No anterior cervical lymphadenopathy.\nLungs: Clear to auscultation bilaterally. No wheezes or crackles.\n\nAssessment:\nAcute viral pharyngitis\n\nPlan:\nReassured the patient that symptoms are consistent with a viral etiology. Antibiotics are not indicated at this time. Recommended supportive care including OTC throat lozenges, saline nasal spray, and adequate oral hydration. Advised to rest. Instructed to call the clinic or return if he develops a high fever, difficulty swallowing, or if symptoms persist beyond 7-10 days without improvement.",
+      "cpt_code": "99202",
+      "Relevant_icd10cm_codes": [
+        "J02.9",
+        "J06.9"
+      ],
+      "Justification": "The patient is new to the practice, requiring a new patient E&M code. The provider evaluated a single self-limited problem (acute viral pharyngitis), representing a minimal number and complexity of problems addressed. No diagnostic data was ordered or reviewed (minimal/none). The management plan consisted entirely of over-the-counter supportive care, representing a minimal risk of morbidity from treatment. This aligns with straightforward medical decision making, supporting CPT 99202."
+    }
+  ]
+}

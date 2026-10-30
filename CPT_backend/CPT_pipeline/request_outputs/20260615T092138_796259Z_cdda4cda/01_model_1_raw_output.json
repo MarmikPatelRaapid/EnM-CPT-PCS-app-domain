@@ -1,0 +1,67 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "77063",
+      "code_description": "Screening mammography, bilateral (2-view study of each breast), including computer-aided detection (CAD) when performed",
+      "code_justification": "The report explicitly states 'Screening Mammography, Bilateral with CAD' and details 'Digital mammography was performed with two standard views (craniocaudal and mediolateral oblique) of each breast. Computer-aided detection (CAD) was utilized for image analysis.' This perfectly matches the description for CPT code 77063.",
+      "norm_procedure_name": "Screening Mammography",
+      "norm_anatomy": "Breast, Bilateral",
+      "norm_approach": "2-view study (craniocaudal and mediolateral oblique)",
+      "norm_procedure_type": "Screening",
+      "norm_imaging_guidance": "Computer-aided detection (CAD)",
+      "norm_anesthesia_type": null,
+      "norm_other": null,
+      "procedure_evidences": [
+        {
+          "text": "Screening Mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": ", Bilateral with CAD"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Screening Mammography, ",
+          "reftxtafter": " with CAD"
+        },
+        {
+          "text": "each breast",
+          "pg_no": 1,
+          "reftxtbefore": "oblique) of ",
+          "reftxtafter": ". Computer-aided det"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "two standard views (craniocaudal and mediolateral oblique)",
+          "pg_no": 1,
+          "reftxtbefore": "performed with ",
+          "reftxtafter": " of each breast. Co"
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "Routine annual screening mammogram.",
+          "pg_no": 1,
+          "reftxtbefore": "Indication:\n",
+          "reftxtafter": " No new breast lumps"
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "Computer-aided detection (CAD) was utilized for image analysis.",
+          "pg_no": 1,
+          "reftxtbefore": "each breast. ",
+          "reftxtafter": "\n\nComparison Study:\n"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [],
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

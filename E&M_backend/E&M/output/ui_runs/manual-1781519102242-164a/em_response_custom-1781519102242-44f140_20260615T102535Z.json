@@ -1,0 +1,220 @@
+{
+  "classification": {
+    "complexity": "high",
+    "data_to_review": "extensive",
+    "risk": "high",
+    "mdm_level": "high",
+    "details": {
+      "complexity": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 or more chronic illness with severe exacerbation, progression of side effect",
+            "level": "high",
+            "required_count": 1,
+            "observed_count": 3,
+            "path": [
+              "chronic_illness",
+              "severe exacerbation"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "extensive",
+        "mdm_level_equivalent": "high",
+        "field_hits": {
+          "review_of_prior_external_note": true,
+          "review_of_test_result": true,
+          "order_of_test": false,
+          "assessment_requiring_independent_historian": true,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 3,
+          "ModerateHighCategories": 2
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "At least two moderate/high data categories were met."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "high",
+          "data_to_review": "extensive",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "high",
+          "data_to_review": "high",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "high"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "Cardiology Outpatient Clinic",
+        "pg_no": 1,
+        "reftxtbefore": "actice & Specialty ",
+        "reftxtafter": "\nPatient Name: Evely"
+      }
+    ],
+    "service": [
+      {
+        "text": "Outpatient Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "ncounter Date: 02/18",
+        "reftxtafter": "\nProvider: Dr. Marcu"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established",
+        "pg_no": 1,
+        "reftxtbefore": "Mrs. Vance is an ",
+        "reftxtafter": " 76-year-old female"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute decompensated systolic heart failure with severe volume overload and hypoxia",
+        "pg_no": 1,
+        "reftxtbefore": "exacerbations.\n\n1. ",
+        "reftxtafter": ". \n2. Acute-on-chro"
+      },
+      {
+        "text": "Acute-on-chronic kidney injury (Stage IV CKD baseline, now with acute worsening, likely cardiorenal syndrome vs. prerenal etiology)",
+        "pg_no": 1,
+        "reftxtbefore": "and hypoxia. \n2. ",
+        "reftxtafter": ".\n3. Uncontrolled pe"
+      },
+      {
+        "text": "Uncontrolled permanent atrial fibrillation with rapid ventricular response",
+        "pg_no": 1,
+        "reftxtbefore": "prerenal etiology).\n3",
+        "reftxtafter": ".\n\nPlan:\nGiven the "
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "Reviewed recent echocardiogram from 2 months ago showing severe global hypokinesis and EF of 25%",
+        "pg_no": 1,
+        "reftxtbefore": "ST elevations.\n3. ",
+        "reftxtafter": ".\n\nASSESSMENT & PLA"
+      },
+      {
+        "text": "Point-of-care BMP: Potassium 5.4 mEq/L, BUN 68 mg/dL, Creatinine 3.2 mg/dL",
+        "pg_no": 1,
+        "reftxtbefore": "& ANALYZED:\n1. ",
+        "reftxtafter": " (significantly elev"
+      },
+      {
+        "text": "In-office EKG: Atrial fibrillation with rapid ventricular response (HR 108), non-specific ST-T wave changes, no acute ST elevations",
+        "pg_no": 1,
+        "reftxtbefore": "nic kidney injury).\n2",
+        "reftxtafter": ".\n3. Reviewed recent"
+      },
+      {
+        "text": "I discussed the clinical situation in detail with the patient and her daughter",
+        "pg_no": 1,
+        "reftxtbefore": "tient management is ",
+        "reftxtafter": ". I have decided to"
+      },
+      {
+        "text": "I contacted the inpatient hospitalist team directly, discussed her case, and arranged for direct admission to the telemetry floor",
+        "pg_no": 1,
+        "reftxtbefore": "phrology consultatio",
+        "reftxtafter": ". The patient's daug"
+      },
+      {
+        "text": "Point-of-care BMP: Potassium 5.4 mEq/L, BUN 68 mg/dL, Creatinine 3.2 mg/dL (significantly elevated from baseline 2.4, indicating acute-on-chronic kidney injury)",
+        "pg_no": 1,
+        "reftxtbefore": "& ANALYZED:\n1. ",
+        "reftxtafter": ".\n2. In-office EKG:"
+      },
+      {
+        "text": "I contacted the inpatient hospitalist team directly, discussed her case, and arranged for direct admission to the telemetry floor",
+        "pg_no": 1,
+        "reftxtbefore": "phrology consultatio",
+        "rextafter": ". The patient's daug"
+      },
+      {
+        "text": "In-office EKG: Atrial fibrillation with rapid ventricular response (HR 108)",
+        "pg_no": 1,
+        "reftxtbefore": "nic kidney injury).\n2",
+        "reftxtafter": ", non-specific ST-T "
+      },
+      {
+        "text": "HR 104 bpm (irregular)",
+        "pg_no": 1,
+        "reftxtbefore": "Vitals: BP 162/90 mm",
+        "reftxtafter": ", RR 24 bpm, SpO2 89"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "she is at high risk for acute respiratory failure",
+        "pg_no": 1,
+        "reftxtbefore": "arrhythmia, ",
+        "reftxtafter": " or uremic emergenc"
+      },
+      {
+        "text": "decided to admit her directly to the hospital for urgent intravenous diuresis, continuous cardiac monitoring, and nephrology consultation",
+        "pg_no": 1,
+        "reftxtbefore": "nd her daughter. I h",
+        "reftxtafter": ". I contacted the in"
+      },
+      {
+        "text": "she is at high risk for... uremic emergency",
+        "pg_no": 1,
+        "reftxtbefore": "r acute respiratory ",
+        "reftxtafter": ". Outpatient managem"
+      },
+      {
+        "text": "decided to admit her directly to the hospital for... continuous cardiac monitoring",
+        "pg_no": 1,
+        "reftxtbefore": "nd her daughter. I h",
+        "reftxtafter": ", and nephrology con"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": 0,
+    "patient_age": 76,
+    "patient_age_unit": "years",
+    "mdm_level": "High"
+  },
+  "codes": [
+    "99215"
+  ]
+}

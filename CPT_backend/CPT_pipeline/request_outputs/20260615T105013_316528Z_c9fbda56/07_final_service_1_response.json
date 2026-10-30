@@ -1,0 +1,69 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "77067",
+      "final_cpt_code": "77067",
+      "final_cpt_code_description": "Screening mammography, bilateral (2-view study of each breast), including computer-aided detection (CAD) when performed",
+      "final_cpt_code_justification": "The medical record explicitly documents 'Screening Mammography, Bilateral with CAD'. The technique section further details 'Digital mammography was performed in craniocaudal (CC) and mediolateral oblique (MLO) projections of both breasts', which constitutes the '2-view study of each breast' as specified in the code description. Additionally, 'Computer-aided detection (CAD) was applied', which is also included in CPT code 77067. This code perfectly aligns with all aspects of the documented procedure.\n\nCPT code 3014F was rejected because it is a Category II CPT code, used for performance measurement and quality improvement, not for billing the primary professional or technical component of the procedure itself.\n\nCPT code 77065 was rejected because it describes 'Diagnostic mammography, unilateral'. The medical record clearly states 'Screening Mammography' and 'Bilateral', directly contradicting both the diagnostic nature and the unilateral scope of this code.\n\nCPT code 77066 was rejected because it describes 'Diagnostic mammography, bilateral'. While it matches the bilateral aspect, the medical record unequivocally indicates a 'Screening Mammography', not a diagnostic one.\n\nCPT code 0633 was rejected. While its description 'Screening mammography, digital, bilateral, with computer-aided detection (CAD)' appears to match the clinical documentation, CPT code 77067 is the more established, comprehensive, and widely recognized CPT code for bilateral screening mammography including CAD. In the hierarchy of CPT codes, 77067 is the standard code for this service, encompassing the digital aspect and CAD within its definition.",
+      "procedure_evidences": [
+        {
+          "text": "Screening Mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": ", Bilateral with CAD"
+        },
+        {
+          "text": "mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "Routine screening ",
+          "reftxtafter": "; no specific breast"
+        },
+        {
+          "text": "mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Digital ",
+          "reftxtafter": " was performed in "
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Bilateral",
+          "pg_no": 1,
+          "reftxtbefore": "Screening Mammography, ",
+          "reftxtafter": " with CAD"
+        },
+        {
+          "text": "both breasts",
+          "pg_no": 1,
+          "reftxtbefore": "projections of ",
+          "reftxtafter": ". Computer-aided det"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "Digital mammography",
+          "pg_no": 1,
+          "reftxtbefore": "Technique: ",
+          "reftxtafter": " was performed in "
+        }
+      ],
+      "procedure_type_evidences": [
+        {
+          "text": "Screening",
+          "pg_no": 1,
+          "reftxtbefore": "Exam Name: ",
+          "reftxtafter": " Mammography, Bilat"
+        },
+        {
+          "text": "Routine screening mammogram",
+          "pg_no": 1,
+          "reftxtbefore": "Clinical Indication: ",
+          "reftxtafter": "; no specific breast"
+        }
+      ],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [],
+      "other_evidences": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# API server
+fastapi
+pydantic
+uvicorn
+
+# Synthetic generation + default detection provider (Gemini Vertex)
+google-genai
+
+# PCS detection core
+jsonschema
+
+# Optional PCS detection providers
+openai
+azure-identity
+anthropic[vertex]
+
+# Test dependencies
+pytest
+pytest-asyncio

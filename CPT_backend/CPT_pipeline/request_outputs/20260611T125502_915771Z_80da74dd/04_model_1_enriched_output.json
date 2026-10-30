@@ -1,0 +1,216 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "77014",
+      "norm_procedure_name": "CT simulation",
+      "norm_anatomy": "Pelvis",
+      "norm_approach": "Not specified",
+      "norm_procedure_type": "Diagnostic imaging for radiation therapy planning",
+      "norm_imaging_guidance": "CT guidance",
+      "norm_anesthesia_type": "Not specified",
+      "norm_other": "Complex, custom immobilization, fiducial markers",
+      "procedure_evidences": [
+        {
+          "text": "CT simulator table",
+          "pg_no": 1,
+          "reftxtbefore": "tient was placed on the ",
+          "reftxtafter": " in the supine posit"
+        },
+        {
+          "text": "complex CT simulation",
+          "pg_no": 1,
+          "reftxtbefore": "Assessment/impression: Successful ",
+          "reftxtafter": " and custom immobiliz"
+        },
+        {
+          "text": "radiation therapy planning",
+          "pg_no": 1,
+          "reftxtbefore": "simulation and custom immobilization for prostate cancer ",
+          "reftxtafter": "."
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "pelvis",
+          "pg_no": 1,
+          "reftxtbefore": "planning CT scan of the ",
+          "reftxtafter": " was acquired from th"
+        },
+        {
+          "text": "prostate gland",
+          "pg_no": 1,
+          "reftxtbefore": "visualization of the ",
+          "reftxtafter": ", seminal vesicles, a"
+        },
+        {
+          "text": "seminal vesicles",
+          "pg_no": 1,
+          "reftxtbefore": "gland, ",
+          "reftxtafter": ", and surrounding cri"
+        },
+        {
+          "text": "rectum",
+          "pg_no": 1,
+          "reftxtbefore": "structures including the ",
+          "reftxtafter": ", bladder, bilateral"
+        },
+        {
+          "text": "bladder",
+          "pg_no": 1,
+          "reftxtbefore": "rectum, ",
+          "reftxtafter": ", bilateral femoral "
+        },
+        {
+          "text": "bilateral femoral heads",
+          "pg_no": 1,
+          "reftxtbefore": "bladder, ",
+          "reftxtafter": ", and penile bulb. No"
+        },
+        {
+          "text": "penile bulb",
+          "pg_no": 1,
+          "reftxtbefore": "femoral heads, and ",
+          "reftxtafter": ". No acute incidenta"
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "radiation therapy planning",
+          "pg_no": 1,
+          "reftxtbefore": "simulation and custom immobilization for prostate cancer ",
+          "reftxtafter": "."
+        }
+      ],
+      "imaging_guidance_evidences": [
+        {
+          "text": "CT simulator table",
+          "pg_no": 1,
+          "reftxtbefore": "tient was placed on the ",
+          "reftxtafter": " in the supine posit"
+        },
+        {
+          "text": "non-contrast planning CT scan",
+          "pg_no": 1,
+          "reftxtbefore": "points. A ",
+          "reftxtafter": " of the pelvis was ac"
+        },
+        {
+          "text": "CT images",
+          "pg_no": 1,
+          "reftxtbefore": "thickness. The acquired ",
+          "reftxtafter": " demonstrate adequate"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "custom Vac-Lok immobilization device was fabricated",
+          "pg_no": 1,
+          "reftxtbefore": "position. A ",
+          "reftxtafter": " for the lower extrem",
+          "field_label": "Custom Immobilization"
+        },
+        {
+          "text": "radiopaque fiducial markers were placed",
+          "pg_no": 1,
+          "reftxtbefore": "room lasers, and ",
+          "reftxtafter": " on the skin at the a",
+          "field_label": "Fiducial Markers"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "72191",
+          "similarity_score": "0.828268"
+        },
+        {
+          "code": "72192",
+          "similarity_score": "0.828268"
+        },
+        {
+          "code": "72193",
+          "similarity_score": "0.828268"
+        },
+        {
+          "code": "72194",
+          "similarity_score": "0.828268"
+        },
+        {
+          "code": "74174",
+          "similarity_score": "0.828268"
+        }
+      ],
+      "code_description": "Computed tomography guidance for placement of radiation therapy fields",
+      "code_justification": "The report describes a 'complex CT simulation' for 'radiation therapy planning' involving the acquisition of a 'non-contrast planning CT scan of the pelvis'. The use of 'radiopaque fiducial markers' and 'custom Vac-Lok immobilization device' supports the complexity and guidance aspect of this procedure for radiation field placement.",
+      "addon_codes": [],
+      "modifiers": []
+    },
+    {
+      "cpt_code": "77332",
+      "norm_procedure_name": "Custom immobilization device fabrication",
+      "norm_anatomy": "Lower extremities",
+      "norm_approach": "Not specified",
+      "norm_procedure_type": "Radiation therapy support",
+      "norm_imaging_guidance": "Not applicable",
+      "norm_anesthesia_type": "Not specified",
+      "norm_other": "Vac-Lok, custom fabricated",
+      "procedure_evidences": [
+        {
+          "text": "custom Vac-Lok immobilization device was fabricated",
+          "pg_no": 1,
+          "reftxtbefore": "position. A ",
+          "reftxtafter": " for the lower extrem"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "lower extremities",
+          "pg_no": 1,
+          "reftxtbefore": "device was fabricated for the ",
+          "reftxtafter": " to ensure reproducib"
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "Vac-Lok immobilization device",
+          "pg_no": 1,
+          "reftxtbefore": "A custom ",
+          "reftxtafter": " was fabricated for t",
+          "field_label": "Device Type"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "77338",
+          "similarity_score": "0.784537"
+        },
+        {
+          "code": "77778",
+          "similarity_score": "0.776068"
+        },
+        {
+          "code": "41019",
+          "similarity_score": "0.775154"
+        },
+        {
+          "code": "57155",
+          "similarity_score": "0.767596"
+        },
+        {
+          "code": "57156",
+          "similarity_score": "0.767596"
+        }
+      ],
+      "code_description": "Basic radiation dosimetry calculation, external beam; complex immobilization device, custom fabricated",
+      "code_justification": "The report explicitly states that 'A custom Vac-Lok immobilization device was fabricated for the lower extremities to ensure reproducible daily setup.' This directly supports the coding of a custom fabricated complex immobilization device.",
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

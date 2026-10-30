@@ -1,0 +1,53 @@
+{
+  "audited_codes": [
+    {
+      "original_cpt_code": "77014",
+      "final_cpt_code": "77301",
+      "final_cpt_code_description": "Radiation therapy dosimetry planning; complex",
+      "final_cpt_code_justification": "The medical record is a 'RADIATION ONCOLOGY - TREATMENT PLAN SUMMARY' which extensively details the creation and evaluation of a complex radiation treatment plan. Key elements supporting CPT code 77301 include: 'PLAN DESIGN & DOSIMETRY: A 3-dimensional conformal radiotherapy (3D-CRT) plan was generated,' 'Multiple coplanar 15 MV photon beams were arranged to optimize target coverage,' 'DOSE PRESCRIPTION: Total Dose: 79.2 Gy. Fractionation: 1.8 Gy per fraction x 44 fractions,' and 'PLAN EVALUATION: Dose-volume histograms (DVH) were generated and critically evaluated.' The detailed analysis of PTV coverage and OAR constraints (Rectum, Bladder, Femoral heads) further confirms the complexity of the dosimetry planning. The statement 'The 3D treatment plan is approved for clinical use' signifies the completion of the planning phase, making 77301 the most accurate and comprehensive single code for the services described.\n\nCPT code 77014 ('Computed tomography guidance for placement of radiation therapy fields') was rejected because, while a 'CT simulation' was performed, the documentation goes far beyond simple CT guidance, detailing comprehensive contouring, 3D plan design, dosimetry, and evaluation. 77014 is too limited in scope for the services described.\n\nCPT code 77295 ('Therapeutic radiology simulation-aided field setting; complex') was rejected because, while the record clearly documents complex simulation activities such as 'CT simulation,' use of a 'customized immobilization device,' and detailed 'CONTOURING' of GTV, CTV, PTV, and OARs, the overall document is a 'TREATMENT PLAN SUMMARY' that culminates in the approval of the *plan* itself, including dosimetry and dose prescription. While simulation is a crucial component, 77301 better represents the comprehensive *planning* aspect that is the focus of this summary. If both were billable, they would be separate, but given the requirement for a single best code, 77301 captures the final output of the summary more accurately.\n\nCPT codes 55876, 55875, 55713, 55714, 55715, 55706, and 76873 were rejected as they describe procedures unrelated to external beam radiation treatment planning, such as interstitial device placement, brachytherapy, or prostate biopsies. The medical record clearly describes external beam 3D-CRT planning.\n\nCPT codes 4165F and 0520F were rejected as these are Category II CPT codes used for performance measurement and tracking, not for billing the professional service of radiation treatment planning.\n\nCPT code 77300 ('Basic radiation dosimetry calculation') was rejected because the documentation explicitly details a '3-dimensional conformal radiotherapy (3D-CRT) plan' with extensive contouring, multiple beam arrangements, and detailed DVH evaluation, which clearly indicates *complex* dosimetry planning, not basic.",
+      "procedure_evidences": [
+        {
+          "text": "CT simulation",
+          "pg_no": 1,
+          "reftxtbefore": "The patient underwent ",
+          "reftxtafter": " in the supine posit"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Prostate",
+          "pg_no": 1,
+          "reftxtbefore": "GTV): ",
+          "reftxtafter": " gland. Clinical Tar"
+        }
+      ],
+      "approach_evidences": [
+        {
+          "text": "supine position with a customized immobilization device (Knee-Lok and foot support) and a comfortably full bladder",
+          "pg_no": 1,
+          "reftxtbefore": "T simulation in the ",
+          "reftxtafter": ". The CT dataset was"
+        }
+      ],
+      "procedure_type_evidences": [],
+      "imaging_guidance_evidences": [
+        {
+          "text": "CT",
+          "pg_no": 1,
+          "reftxtbefore": "The patient underwent ",
+          "reftxtafter": " simulation in the s"
+        }
+      ],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "customized immobilization device (Knee-Lok and foot support)",
+          "pg_no": 1,
+          "reftxtbefore": "position with a ",
+          "reftxtafter": " and a comfortably ",
+          "field_label": "Customized immobilization device"
+        }
+      ]
+    }
+  ]
+}

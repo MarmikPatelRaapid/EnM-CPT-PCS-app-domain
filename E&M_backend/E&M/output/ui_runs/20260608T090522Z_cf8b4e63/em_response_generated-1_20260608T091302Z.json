@@ -1,0 +1,213 @@
+{
+  "classification": {
+    "complexity": "moderate",
+    "data_to_review": "moderate",
+    "risk": "high",
+    "mdm_level": "moderate",
+    "details": {
+      "complexity": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "rules_source": "E&M Data - Disease mapping from json.tsv",
+        "matched_rules": [
+          {
+            "name": "1 acute illness with systemic symptoms",
+            "level": "moderate",
+            "required_count": 1,
+            "observed_count": 1,
+            "path": [
+              "acute_illness",
+              "with_systemic_symptoms"
+            ]
+          }
+        ],
+        "reason": "Highest matching complexity level selected from TSV-driven rule matches."
+      },
+      "data_to_review": {
+        "category": "moderate",
+        "mdm_level_equivalent": "moderate",
+        "field_hits": {
+          "review_of_prior_external_note": false,
+          "review_of_test_result": true,
+          "order_of_test": true,
+          "assessment_requiring_independent_historian": false,
+          "independent_interpretation_of_test": false,
+          "discussion_of_management_or_test_interpretation": true
+        },
+        "counts": {
+          "LimitedCategory1": 2,
+          "ModerateExtensiveCategory1": 2,
+          "ModerateHighCategories": 1
+        },
+        "evaluated_expressions": {
+          "low": "#2(LimitedCategory1)|(Assessment requiring an independent historian)",
+          "moderate": "#3(ModerateExtensiveCategory1)|#1(Independent interpretation of test)|#1(Discussion of management or test interpretation)",
+          "high": "#2(ModerateHighCategories)"
+        },
+        "reason": "Moderate threshold met by category-1 count, interpretation, or discussion."
+      },
+      "risk": {
+        "category": "high",
+        "mdm_level_equivalent": "high",
+        "raw_risk_types": [
+          "high",
+          "high"
+        ],
+        "invalid_risk_entries": 0,
+        "risk_evidence_without_valid_type": 0,
+        "reason": "Highest risk category selected across all disease/problem entries."
+      },
+      "final_mdm": {
+        "inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "normalized_inputs": {
+          "complexity": "moderate",
+          "data_to_review": "moderate",
+          "risk": "high"
+        },
+        "rule": "Median of ordered criteria levels (2-of-3 rule).",
+        "missing_criteria": [],
+        "level": "moderate"
+      }
+    }
+  },
+  "evidences": {
+    "facility": [
+      {
+        "text": "cardiology clinic",
+        "pg_no": 1,
+        "reftxtbefore": "established with this ",
+        "reftxtafter": ", presenting with a 5"
+      }
+    ],
+    "service": [
+      {
+        "text": "cardiology clinic",
+        "pg_no": 1,
+        "reftxtbefore": "established with this ",
+        "reftxtafter": ", presenting with a 5"
+      }
+    ],
+    "patient": [
+      {
+        "text": "established with this cardiology clinic",
+        "pg_no": 1,
+        "reftxtbefore": "old male, ",
+        "reftxtafter": ", presenting with a 5"
+      }
+    ],
+    "physician_time_spent_with_patient": [],
+    "staff_time_spent_with_patient": [],
+    "complexity": [
+      {
+        "text": "Acute on chronic systolic heart failure exacerbation, severe",
+        "pg_no": 1,
+        "reftxtbefore": "IMPRESSION: 1. ",
+        "reftxtafter": ". 2. Acute kidney inj"
+      },
+      {
+        "text": "Acute kidney injury superimposed on CKD stage 3b, likely cardiorenal syndrome",
+        "pg_no": 1,
+        "reftxtbefore": "exacerbation, severe. 2. ",
+        "reftxtafter": ". PLAN AND FOLLOW-UP:"
+      }
+    ],
+    "data_to_review": [
+      {
+        "text": "BMP drawn yesterday at the primary care office shows BUN 45, Creatinine 2.1 (baseline 1.5), Potassium 4.8",
+        "pg_no": 1,
+        "reftxtbefore": "IMAGING AND LAB FINDINGS: ",
+        "reftxtafter": ". BNP is 1850 (basel"
+      },
+      {
+        "text": "BNP is 1850 (baseline approx 600)",
+        "pg_no": 1,
+        "reftxtbefore": "1.5), Potassium 4.8. ",
+        "reftxtafter": ". Chest X-ray from ye"
+      },
+      {
+        "text": "Chest X-ray from yesterday demonstrates bilateral pleural effusions and prominent pulmonary vascular congestion",
+        "pg_no": 1,
+        "reftxtbefore": "approx 600). ",
+        "reftxtafter": ". ASSESSMENT AND IMPR"
+      },
+      {
+        "text": "Ordered stat BMP and BNP to be drawn in 48 hours",
+        "pg_no": 1,
+        "reftxtbefore": "and daily morning weights. ",
+        "reftxtafter": " to monitor renal fun"
+      },
+      {
+        "text": "We had a lengthy discussion regarding direct admission to the hospital for IV diuresis versus aggressive outpatient management",
+        "pg_no": 1,
+        "reftxtbefore": "r decompensation. ",
+        "reftxtafter": ". The patient strongl"
+      },
+      {
+        "text": "BMP drawn yesterday at the primary care office shows BUN 45, Creatinine 2.1 (baseline 1.5)",
+        "pg_no": 1,
+        "reftxtbefore": "IMAGING AND LAB FINDINGS: ",
+        "reftxtafter": ", Potassium 4.8. BNP "
+      },
+      {
+        "text": "Ordered stat BMP and BNP to be drawn in 48 hours to monitor renal function and electrolytes",
+        "pg_no": 1,
+        "reftxtbefore": "and daily morning weights. ",
+        "reftxtafter": " on the higher diure"
+      }
+    ],
+    "risk_of_morbidity": [
+      {
+        "text": "The patient is at high risk for further decompensation",
+        "pg_no": 1,
+        "reftxtbefore": "AND FOLLOW-UP: ",
+        "reftxtafter": ". We had a lengthy di"
+      },
+      {
+        "text": "direct admission to the hospital for IV diuresis",
+        "pg_no": 1,
+        "reftxtbefore": "hy discussion regarding ",
+        "reftxtafter": " versus aggressive o"
+      },
+      {
+        "text": "Administered IV Furosemide 80 mg in the clinic today",
+        "pg_no": 1,
+        "reftxtbefore": "se monitoring. ",
+        "reftxtafter": ". Will increase home "
+      },
+      {
+        "text": "increase home Furosemide to 80 mg twice daily",
+        "pg_no": 1,
+        "reftxtbefore": "the clinic today. Will ",
+        "reftxtafter": ". Holding Entresto te"
+      },
+      {
+        "text": "Holding Entresto temporarily given the acute kidney injury",
+        "pg_no": 1,
+        "reftxtbefore": "80 mg twice daily. ",
+        "reftxtafter": ". Strict fluid restri"
+      },
+      {
+        "text": "monitor renal function and electrolytes on the higher diuretic dose",
+        "pg_o": 1,
+        "reftxtbefore": "be drawn in 48 hours to ",
+        "reftxtafter": ". The patient is sche"
+      }
+    ]
+  },
+  "mapper_filters": {
+    "facility_type": "Office or Other Outpatient Services",
+    "service_type": "Office or Other Outpatient Visit",
+    "patient_type": "Established Patient",
+    "time_value": null,
+    "patient_age": 68,
+    "patient_age_unit": "years",
+    "mdm_level": "Moderate"
+  },
+  "codes": [
+    "99214"
+  ]
+}

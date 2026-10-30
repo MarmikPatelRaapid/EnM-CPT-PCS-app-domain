@@ -1,0 +1,92 @@
+{
+  "items": [
+    {
+      "code_index": 0,
+      "cpt_code": "62284",
+      "query_text": "Injection of contrast for myelography Lumbar spine (L3-L4 interspace, subarachnoid space, thecal sac) Percutaneous Diagnostic injection Fluoroscopic guidance Local anesthesia 12 cc Omnipaque 300 non-ionic contrast material",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "62322",
+          "62323",
+          "62326",
+          "62327",
+          "77003"
+        ],
+        "top_k_suggested_score": [
+          0.831761,
+          0.831761,
+          0.831761,
+          0.831761,
+          0.828914
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "62322",
+          "similarity_score": "0.831761"
+        },
+        {
+          "code": "62323",
+          "similarity_score": "0.831761"
+        },
+        {
+          "code": "62326",
+          "similarity_score": "0.831761"
+        },
+        {
+          "code": "62327",
+          "similarity_score": "0.831761"
+        },
+        {
+          "code": "77003",
+          "similarity_score": "0.828914"
+        }
+      ]
+    },
+    {
+      "code_index": 1,
+      "cpt_code": "72270",
+      "query_text": "Myelography Lumbar spine Radiological supervision and interpretation Diagnostic imaging Fluoroscopy AP, lateral, and bilateral oblique radiographs",
+      "status": "success",
+      "retrieval_response": {
+        "top_k_suggested_code": [
+          "72148",
+          "72149",
+          "72158",
+          "72020",
+          "72021"
+        ],
+        "top_k_suggested_score": [
+          0.853541,
+          0.853541,
+          0.853541,
+          0.850574,
+          0.850574
+        ]
+      },
+      "cpt_code_from_knowledge_base": [
+        {
+          "code": "72148",
+          "similarity_score": "0.853541"
+        },
+        {
+          "code": "72149",
+          "similarity_score": "0.853541"
+        },
+        {
+          "code": "72158",
+          "similarity_score": "0.853541"
+        },
+        {
+          "code": "72020",
+          "similarity_score": "0.850574"
+        },
+        {
+          "code": "72021",
+          "similarity_score": "0.850574"
+        }
+      ]
+    }
+  ]
+}

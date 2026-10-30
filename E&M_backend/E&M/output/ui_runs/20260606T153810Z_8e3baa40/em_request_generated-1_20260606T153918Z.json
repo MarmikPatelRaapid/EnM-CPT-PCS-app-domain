@@ -1,0 +1,202 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "routine follow-up",
+        "pg_no": 1,
+        "reftxtbefore": "patient presents for ",
+        "reftxtafter": " of his Type 2 diabe"
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "routine follow-up",
+        "pg_no": 1,
+        "reftxtbefore": "patient presents for ",
+        "reftxtafter": " of his Type 2 diabe"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "62-year-old male ",
+        "reftxtafter": " presents for routin"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 62,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "62-year-old",
+        "pg_no": 1,
+        "reftxtbefore": "HPI/history: ",
+        "reftxtafter": " male established pa"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Essential hypertension, stable",
+        "disease_evidence": [
+          {
+            "text": "Essential hypertension, stable",
+            "pg_no": 1,
+            "reftxtbefore": "iabetic polyneuropathy. 2. ",
+            "reftxtafter": ". 3. Metformin into"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [
+            {
+              "text": "CMP, lipid panel, and urine microalbumin sent to lab today",
+              "pg_no": 1,
+              "reftxtbefore": "nsion: Continue Lis",
+              "reftxtafter": ". 5. Follow-up in 4"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Continue Lisinopril 10mg",
+              "pg_no": 1,
+              "reftxtbefore": "3. Hypertension: ",
+              "reftxtafter": ". 4. Orders: CMP, l"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Type 2 diabetes mellitus, uncontrolled, with new-onset diabetic polyneuropathy",
+        "disease_evidence": [
+          {
+            "text": "Type 2 diabetes mellitus, uncontrolled, with new-onset diabetic polyneuropathy",
+            "pg_no": 1,
+            "reftxtbefore": "ssion: 1. ",
+            "reftxtafter": ". 2. Essential hype"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Point of care A1c today is 8.9%",
+              "pg_no": 1,
+              "reftxtbefore": "Skin: Intact, no fo",
+              "reftxtafter": ", increased from 7.4"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "CMP, lipid panel, and urine microalbumin sent to lab today",
+              "pg_no": 1,
+              "reftxtbefore": "nsion: Continue Lis",
+              "reftxtafter": ". 5. Follow-up in 4"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": []
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "will discontinue today. Initiating Glipizide 5mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "nt to Metformin; ",
+              "reftxtafter": ". Discussed the risk"
+            },
+            {
+              "text": "Started Gabapentin 100mg TID for symptomatic relief of foot tingling",
+              "pg_no": 1,
+              "reftxtbefore": "athy: ",
+              "reftxtafter": ". Emphasized daily "
+            },
+            {
+              "text": "Discussed the risk of hypoglycemia and signs to watch for",
+              "pg_no": 1,
+              "reftxtbefore": "Glipizide 5mg daily. ",
+              "reftxtafter": ". 2. Neuropathy: St"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": [
+        {
+          "norm_disease_name": "Metformin intolerance",
+          "disease_evidence": [
+            {
+              "text": "Metformin intolerance",
+              "pg_no": 1,
+              "reftxtbefore": "hypertension, stable. 3. ",
+              "reftxtafter": ". Plan/follow-up: 1"
+            }
+          ],
+          "data_to_review": {
+            "review_of_prior_external_note": [],
+            "review_of_test_result": [],
+            "order_of_test": [],
+            "assessment_requiring_independent_historian": [],
+            "independent_interpretation_of_test": [],
+            "discussion_of_management_or_test_interpretation": []
+          },
+          "risk_of_morbidity": {
+            "type": "low",
+            "risk_evidences": [
+              {
+                "text": "Patient is intolerant to Metformin; will discontinue today",
+                "pg_no": 1,
+                "reftxtbefore": "1. Diabetes: ",
+                "reftxtafter": ". Initiating Glipizi"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

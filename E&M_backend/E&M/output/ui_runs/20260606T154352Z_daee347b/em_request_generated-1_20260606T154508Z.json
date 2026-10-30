@@ -1,0 +1,278 @@
+{
+  "facility": {
+    "facility_type": "Hospital Inpatient or Observation Care Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "DISCHARGE SUMMARY",
+        "pg_no": 1,
+        "reftxtbefore": "",
+        "reftxtafter": "\n\nPATIENT: Margaret "
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Hospital Discharge Day Management Service",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "DISCHARGE SUMMARY",
+        "pg_no": 1,
+        "reftxtbefore": "",
+        "reftxtafter": "\n\nPATIENT: Margaret "
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Not found",
+    "category": "Not_Found",
+    "evidences": []
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": 45,
+    "evidences": [
+      {
+        "text": "I spent a total of 45 minutes today",
+        "pg_no": 1,
+        "reftxtbefore": "DISCHARGE TIME SPENT:\n",
+        "reftxtafter": " performing the final"
+      }
+    ]
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 75,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "75-year-old female",
+        "pg_no": 1,
+        "reftxtbefore": "HOSPITAL COURSE:\nThe ",
+        "reftxtafter": " who presented to the"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Essential hypertension",
+        "disease_evidence": [
+          {
+            "text": "Essential hypertension",
+            "pg_no": 1,
+            "reftxtbefore": "y-acquired pneumonia\n3. ",
+            "reftxtafter": ".\n4. Type 2 diabetes"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "BP 128/76",
+              "pg_no": 1,
+              "reftxtbefore": "N DISCHARGE:\nVITALS: ",
+              "reftxtafter": ", HR 72, RR 16, Tem"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussing the hospital course and discharge instructions with the patient and her daughter",
+              "pg_no": 1,
+              "reftxtbefore": "he final physical examination, ",
+              "reftxtafter": ", performing medicat"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Continue home Metformin 500 mg BID and Lisinopril 10 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "quin 500 mg daily (\n   - ",
+              "reftxtafter": ".\n4. Follow-up: Pat"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Type 2 diabetes mellitus",
+        "disease_evidence": [
+          {
+            "text": "Type 2 diabetes mellitus, uncomplicated",
+            "pg_no": 1,
+            "reftxtbefore": "ial hypertension.\n4. ",
+            "reftxtafter": ".\n\nHOSPITAL COURSE:"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussing the hospital course and discharge instructions with the patient and her daughter",
+              "pg_no": 1,
+              "reftxtbefore": "he final physical examination, ",
+              "reftxtafter": ", performing medicat"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Continue home Metformin 500 mg BID",
+              "pg_no": 1,
+              "reftxtbefore": "oral Levaquin 500 mg\n   - ",
+              "reftxtafter": " and Lisinopril 10 m"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": [
+      {
+        "norm_disease_name": "Acute on chronic diastolic heart failure",
+        "disease_evidence": [
+          {
+            "text": "Acute on chronic diastolic heart failure, improved",
+            "pg_no": 1,
+            "reftxtbefore": "DISCHARGE DIAGNOSES:\n1. ",
+            "reftxtafter": ".\n2. Community-acqui"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Chest x-ray confirmed a right lower lobe infiltrate and bilateral pleural effusions",
+              "pg_no": 1,
+              "reftxtbefore": "productive cough. ",
+              "reftxtafter": ". BNP was elevated a"
+            },
+            {
+              "text": "BNP was elevated at 850",
+              "pg_no": 1,
+              "reftxtbefore": "bilateral pleural effusions. ",
+              "reftxtafter": ". She was admitted t"
+            },
+            {
+              "text": "Echocardiogram showed an EF of 55% with Grade II diastolic dysfunction",
+              "pg_no": 1,
+              "reftxtbefore": "remained negative. ",
+              "reftxtafter": ". \n\nPHYSICAL EXAMINA"
+            }
+          ],
+          "order_of_test": [],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "discussing the hospital course and discharge instructions with the patient and her daughter",
+              "pg_no": 1,
+              "reftxtbefore": "he final physical examination, ",
+              "reftxtafter": ", performing medicat"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "moderate",
+          "risk_evidences": [
+            {
+              "text": "Transitioned back to home dose of oral Torsemide 20 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "Medications: \n   - ",
+              "reftxtafter": ".\n   - Complete the "
+            },
+            {
+              "text": "Continue home Metformin 500 mg BID and Lisinopril 10 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "quin 500 mg daily (\n   - ",
+              "reftxtafter": ".\n4. Follow-up: Pat"
+            },
+            {
+              "text": "Diet: 2-gram sodium restriction, fluid restriction of 1.5 L/day",
+              "pg_no": 1,
+              "reftxtbefore": "INSTRUCTIONS:\n1. ",
+              "reftxtafter": ".\n2. Activity: As t"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [
+        {
+          "norm_disease_name": "Community-acquired pneumonia",
+          "disease_evidence": [
+            {
+              "text": "Community-acquired pneumonia, clinically stable on oral antibiotics",
+              "pg_no": 1,
+              "reftxtbefore": "heart failure, improved.\n2. ",
+              "reftxtafter": ".\n3. Essential hyper"
+            }
+          ],
+          "data_to_review": {
+            "review_of_prior_external_note": [],
+            "review_of_test_result": [
+              {
+                "text": "Chest x-ray confirmed a right lower lobe infiltrate",
+                "pg_no": 1,
+                "reftxtbefore": "orthopnea, and a productive cough. ",
+                "reftxtafter": " and bilateral pleur"
+              },
+              {
+                "text": "Blood cultures remained negative",
+                "pg_no": 1,
+                "reftxtbefore": "to oral Levaquin on hospital day 4. ",
+                "reftxtafter": ". Echocardiogram sh"
+              }
+            ],
+            "order_of_test": [],
+            "assessment_requiring_independent_historian": [],
+            "independent_interpretation_of_test": [],
+            "discussion_of_management_or_test_interpretation": [
+              {
+                "text": "discussing the hospital course and discharge instructions with the patient and her daughter",
+                "pg_no": 1,
+                "reftxtbefore": "he final physical examination, ",
+                "reftxtafter": ", performing medicat"
+              }
+            ]
+          },
+          "risk_of_morbidity": {
+            "type": "moderate",
+            "risk_evidences": [
+              {
+                "text": "Complete the 7-day course of oral Levaquin 500 mg daily (3 days remaining)",
+                "pg_no": 1,
+                "reftxtbefore": "Torsemide 20 mg daily.\n   - ",
+                "reftxtafter": ".\n   - Continue home"
+              }
+            ]
+          }
+        }
+      ],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}

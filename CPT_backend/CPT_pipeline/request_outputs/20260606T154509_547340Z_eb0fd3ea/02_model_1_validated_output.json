@@ -1,0 +1,71 @@
+{
+  "cpt_codes_found": [
+    {
+      "cpt_code": "72200",
+      "norm_procedure_name": "Radiologic Examination",
+      "norm_anatomy": "Sacroiliac Joints",
+      "norm_approach": "N/A",
+      "norm_procedure_type": "Diagnostic Imaging",
+      "norm_imaging_guidance": "N/A",
+      "norm_anesthesia_type": "N/A",
+      "norm_other": {
+        "number_of_views": "2"
+      },
+      "procedure_evidences": [
+        {
+          "text": "Radiologic Examination",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": ", Sacroiliac Joints,"
+        }
+      ],
+      "anatomy_evidences": [
+        {
+          "text": "Sacroiliac Joints",
+          "pg_no": 1,
+          "reftxtbefore": "Radiologic Examination, ",
+          "reftxtafter": ", 2 views. DATE OF"
+        },
+        {
+          "text": "sacroiliac joints",
+          "pg_no": 1,
+          "reftxtbefore": "oblique views of the ",
+          "reftxtafter": " were obtained. COMP"
+        }
+      ],
+      "approach_evidences": [],
+      "procedure_type_evidences": [
+        {
+          "text": "Radiologic Examination",
+          "pg_no": 1,
+          "reftxtbefore": "EXAM: ",
+          "reftxtafter": ", Sacroiliac Joints,"
+        }
+      ],
+      "imaging_guidance_evidences": [],
+      "anesthesia_type_evidences": [],
+      "other_evidences": [
+        {
+          "text": "2 views",
+          "pg_no": 1,
+          "reftxtbefore": "Sacroiliac Joints, ",
+          "reftxtafter": ". DATE OF EXAM: 10/",
+          "field_label": "number_of_views"
+        },
+        {
+          "text": "AP and oblique views",
+          "pg_no": 1,
+          "reftxtbefore": "TECHNIQUE: ",
+          "reftxtafter": " of the sacroiliac j",
+          "field_label": "number_of_views"
+        }
+      ],
+      "cpt_code_from_knowledge_base": [],
+      "code_description": "Radiologic examination, sacroiliac joints; less than 3 views",
+      "code_justification": "The document clearly states 'Radiologic Examination, Sacroiliac Joints, 2 views', which falls under the description for CPT code 72200 (less than 3 views). The technique section confirms 'AP and oblique views of the sacroiliac joints were obtained', totaling 2 views.",
+      "addon_codes": [],
+      "modifiers": []
+    }
+  ],
+  "cpt_codes_not_found": []
+}

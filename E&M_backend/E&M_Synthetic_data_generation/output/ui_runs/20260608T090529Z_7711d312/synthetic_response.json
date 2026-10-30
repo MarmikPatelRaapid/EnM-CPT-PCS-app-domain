@@ -1,0 +1,12 @@
+{
+  "documents": [
+    {
+      "generated_document": "RADIATION ONCOLOGY SIMULATION REPORT\n\nDATE OF SERVICE: 10/24/2023\n\nDIAGNOSIS:\nProstate Adenocarcinoma, Gleason 7 (3+4), Clinical Stage T1c.\n\nPROCEDURE:\nComplex CT Simulation for Radiation Therapy Planning.\n\nCLINICAL INDICATION:\n62-year-old male with newly diagnosed intermediate-risk prostate adenocarcinoma, presenting for definitive external beam radiation therapy planning.\n\nSIMULATION DETAILS:\nThe patient was identified and brought into the CT simulation suite. The procedure and its purpose were explained, and verbal consent was obtained. The patient was placed on the CT simulator table in the supine position. A custom Vac-Lok immobilization cradle was fabricated for the lower extremities and pelvis to ensure daily reproducibility. A knee sponge was utilized for additional stabilization.\n\nThe patient was aligned using the room lasers. An initial isocenter was established in the pelvis, and radiopaque fiducial markers were placed on the patient's skin at the anterior and bilateral setup points. \n\nA non-contrast planning CT scan was acquired with 2.5 mm slice thickness from the level of L4 down to the mid-femur. The previously placed intraprostatic gold fiducial markers were well visualized on the scan. The bladder was comfortably full, and the rectum was empty, per our institutional simulation protocol.\n\nThe CT dataset was successfully pushed to the Eclipse treatment planning system. The skin marks were tattooed with permanent ink at the anterior and bilateral crosshairs. The patient tolerated the procedure well and was discharged from the simulation suite with standard instructions.\n\nIMPRESSION:\nSuccessful complex CT simulation with custom immobilization and isocenter localization for definitive prostate radiotherapy. Data transferred for dosimetric planning.",
+      "cpt_code": "77215",
+      "Relevant_icd10cm_codes": [
+        "C61"
+      ],
+      "Justification": "The documentation supports CPT 77215 for a complex therapeutic radiology simulation. The note clearly details the fabrication of a custom immobilization device (Vac-Lok cradle), establishment of an isocenter with laser alignment, placement of skin fiducials, and acquisition of a planning CT scan targeting a complex anatomical site (prostate with intraprostatic markers). The transfer of the dataset to the treatment planning system and permanent tattooing complete the requirements for this complex simulation code."
+    }
+  ]
+}

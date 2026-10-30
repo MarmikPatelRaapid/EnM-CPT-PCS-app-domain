@@ -1,0 +1,179 @@
+{
+  "facility": {
+    "facility_type": "Office or Other Outpatient Services",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Valley Family Practice",
+        "pg_no": 1,
+        "reftxtbefore": "Hospital Name: ",
+        "reftxtafter": "\nDepartment: Family "
+      }
+    ]
+  },
+  "service": {
+    "service_type": "Office or Other Outpatient Visit",
+    "category": "interpretation",
+    "evidences": [
+      {
+        "text": "Progress Note",
+        "pg_no": 1,
+        "reftxtbefore": "/2025\nDocument Type: ",
+        "reftxtafter": "\nProvider: Dr. Rober"
+      }
+    ]
+  },
+  "patient": {
+    "patient_type": "Established Patient",
+    "category": "direct match",
+    "evidences": [
+      {
+        "text": "established patient",
+        "pg_no": 1,
+        "reftxtbefore": "-year-old female, ",
+        "reftxtafter": ", presenting for her"
+      }
+    ]
+  },
+  "physician_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "staff_time_spent_with_patient": {
+    "time_in_mins": null,
+    "evidences": []
+  },
+  "patient_age": {
+    "age": 56,
+    "age_unit": "years",
+    "evidences": [
+      {
+        "text": "Age: 56",
+        "pg_no": 1,
+        "reftxtbefore": "DOB: 08/22/1968\n",
+        "reftxtafter": "\nSex: Female\nEncoun"
+      }
+    ]
+  },
+  "self_limited_minor_problem": [],
+  "chronic_illness": {
+    "stable": [
+      {
+        "norm_disease_name": "Essential Hypertension",
+        "disease_evidence": [
+          {
+            "text": "Essential Hypertension: Stable and well-controlled",
+            "pg_no": 1,
+            "reftxtbefore": "ASSESSMENT AND PLAN:\n",
+            "reftxtafter": " on Lisinopril 10 mg"
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "BMP: Sodium 139 mEq/L, Potassium 4.2 mEq/L, Creatinine 0.82 mg/dL, eGFR >90 mL/min/1.73m2",
+              "pg_no": 1,
+              "reftxtbefore": "mg/dL, LDL 81 mg/dL)\n- ",
+              "reftxtafter": " (stable renal funct"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "repeat BMP and Lipid Panel to be drawn one week prior to the visit",
+              "pg_no": 1,
+              "reftxtbefore": " routine evaluation, ",
+              "reftxtafter": ".\n\nElectronically S"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Routine fasting labs from last week were reviewed with the patient",
+              "pg_no": 1,
+              "reftxtbefore": "DIAGNOSTIC DATA REVI",
+              "reftxtafter": ":\n- Lipid Panel: Tot"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Continue Lisinopril 10 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "PLAN:\n- ",
+              "reftxtafter": ". Refills authorized"
+            }
+          ]
+        }
+      },
+      {
+        "norm_disease_name": "Hyperlipidemia",
+        "disease_evidence": [
+          {
+            "text": "Hyperlipidemia: Stable and well-controlled",
+            "pg_no": 1,
+            "reftxtbefore": " is at goal.\n2. ",
+            "reftxtafter": " on Atorvastatin 20 "
+          }
+        ],
+        "data_to_review": {
+          "review_of_prior_external_note": [],
+          "review_of_test_result": [
+            {
+              "text": "Lipid Panel: Total Cholesterol 162 mg/dL, Triglycerides 135 mg/dL, HDL 54 mg/dL, LDL 81 mg/dL",
+              "pg_no": 1,
+              "reftxtbefore": "with the patient:\n- ",
+              "reftxtafter": " (well-controlled on"
+            }
+          ],
+          "order_of_test": [
+            {
+              "text": "repeat BMP and Lipid Panel to be drawn one week prior to the visit",
+              "pg_no": 1,
+              "reftxtbefore": " routine evaluation, ",
+              "reftxtafter": ".\n\nElectronically S"
+            }
+          ],
+          "assessment_requiring_independent_historian": [],
+          "independent_interpretation_of_test": [],
+          "discussion_of_management_or_test_interpretation": [
+            {
+              "text": "Routine fasting labs from last week were reviewed with the patient",
+              "pg_no": 1,
+              "reftxtbefore": "DIAGNOSTIC DATA REVI",
+              "reftxtafter": ":\n- Lipid Panel: Tot"
+            }
+          ]
+        },
+        "risk_of_morbidity": {
+          "type": "low",
+          "risk_evidences": [
+            {
+              "text": "Continue Atorvastatin 20 mg daily",
+              "pg_no": 1,
+              "reftxtbefore": "for 6 months.\n- ",
+              "reftxtafter": ". Refills authorized"
+            }
+          ]
+        }
+      }
+    ],
+    "life_threatening": [],
+    "exacerbation": [],
+    "sever_exacerbation": []
+  },
+  "acute_illness": {
+    "stable": [],
+    "uncomplicated": {
+      "requiring_hospitalization": [],
+      "outpatient_other": []
+    },
+    "with_systemic_symptoms": [],
+    "complicated_injury": [],
+    "life_threatening": []
+  },
+  "undiagnosed_problem": []
+}
