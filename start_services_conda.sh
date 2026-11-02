@@ -97,7 +97,7 @@ stop_all() {
   source "$PID_FILE"
   local stopped_any=0
   for pid_var in SYNTHETIC_PID CPT_SYNTHETIC_PID EVIDENCE_PID RESOLVER_PID PCS_PID \
-                 CPT_RETRIEVAL_PID CPT_PIPELINE_PID PROMPTS_PID BATCH_PID AUTH_PID FRONTEND_PID; do
+                 CPT_RETRIEVAL_PID CPT_PIPELINE_PID PROMPTS_PID BATCH_PID FRONTEND_PID; do
     local pid="${!pid_var:-}"
     if is_running "$pid"; then
       kill "$pid" >/dev/null 2>&1 || true
@@ -119,7 +119,7 @@ status_all() {
   # shellcheck disable=SC1090
   source "$PID_FILE"
   for pid_var in SYNTHETIC_PID CPT_SYNTHETIC_PID EVIDENCE_PID RESOLVER_PID PCS_PID \
-                 CPT_RETRIEVAL_PID CPT_PIPELINE_PID PROMPTS_PID BATCH_PID AUTH_PID FRONTEND_PID; do
+                 CPT_RETRIEVAL_PID CPT_PIPELINE_PID PROMPTS_PID BATCH_PID FRONTEND_PID; do
     local pid="${!pid_var:-}"
     if is_running "$pid"; then
       echo "$pid_var -> RUNNING (PID: $pid)"
@@ -134,7 +134,7 @@ start_all() {
     # shellcheck disable=SC1090
     source "$PID_FILE"
     for pid_var in SYNTHETIC_PID CPT_SYNTHETIC_PID EVIDENCE_PID RESOLVER_PID PCS_PID \
-                   CPT_RETRIEVAL_PID CPT_PIPELINE_PID PROMPTS_PID BATCH_PID AUTH_PID FRONTEND_PID; do
+                   CPT_RETRIEVAL_PID CPT_PIPELINE_PID PROMPTS_PID BATCH_PID FRONTEND_PID; do
       if is_running "${!pid_var:-}"; then
         echo "Some services already appear to be running. Use: $0 stop (then start again)."
         exit 1
@@ -164,7 +164,6 @@ start_all() {
   CPT_RETRIEVAL_PID="$(start_one "cpt_retrieval_api" "$ROOT_DIR/CPT_backend/CPT_text_retrieval/text_retrieval" "env TOKENIZERS_PARALLELISM=false OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 '$PYBIN' -m uvicorn text_retrieval_api:app --host 127.0.0.1 --port 8083 --workers 1 --log-level debug")"
   CPT_PIPELINE_PID="$(start_one "cpt_pipeline_api" "$ROOT_DIR/CPT_backend/CPT_pipeline" "'$PYBIN' cpt_pipeline_api.py")"
   PROMPTS_PID="$(start_one "prompts_api" "$ROOT_DIR" "'$PYBIN' prompts_api.py")"
-  AUTH_PID="$(start_one "auth_api" "$ROOT_DIR" "'$PYBIN' auth_api.py")"
   BATCH_PID="$(start_one "batch_api" "$ROOT_DIR" "'$PYBIN' batch_api.py")"
   FRONTEND_PID="$(start_one "frontend_app" "$ROOT_DIR/frontend" "npm run dev")"
 
@@ -177,7 +176,6 @@ PCS_PID=$PCS_PID
 CPT_RETRIEVAL_PID=$CPT_RETRIEVAL_PID
 CPT_PIPELINE_PID=$CPT_PIPELINE_PID
 PROMPTS_PID=$PROMPTS_PID
-AUTH_PID=$AUTH_PID
 BATCH_PID=$BATCH_PID
 FRONTEND_PID=$FRONTEND_PID
 EOF
@@ -194,7 +192,6 @@ PCS API            : http://localhost:8085  (log: $LOG_DIR/pcs_api.log)
 CPT Retrieval      : http://localhost:8083  (log: $LOG_DIR/cpt_retrieval_api.log)
 CPT Pipeline       : http://localhost:8084  (log: $LOG_DIR/cpt_pipeline_api.log)
 Prompts/Schemas API: http://localhost:8087  (log: $LOG_DIR/prompts_api.log)
-Auth API           : http://localhost:8089  (log: $LOG_DIR/auth_api.log)
 Batch Processing   : http://localhost:8088  (log: $LOG_DIR/batch_api.log)
 Frontend           : http://localhost:5173  (log: $LOG_DIR/frontend_app.log)
 

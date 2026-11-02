@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { loadModelDropdownConfig } from "./modelOptions.js";
-import { authFetch } from "./auth.js";
 
 const PROMPTS_API_BASE = "http://localhost:8087";
 const BATCH_API_BASE = "http://localhost:8088";
@@ -71,7 +70,7 @@ function EditableEntry({ item, kind, onSaved }) {
     }
     setIsSaving(true);
     setError("");
-    authFetch(
+    fetch(
       `${PROMPTS_API_BASE}/${endpoint}/${encodeURIComponent(item.service)}/${encodeURIComponent(item.key)}`,
       {
         method: "PUT",
@@ -176,7 +175,7 @@ function BatchRunner({ domainKey, domainTitle }) {
       storedJobId = "";
     }
     if (storedJobId) {
-      authFetch(`${BATCH_API_BASE}/batch/jobs/${storedJobId}`)
+      fetch(`${BATCH_API_BASE}/batch/jobs/${storedJobId}`)
         .then((response) => {
           if (!response.ok) throw new Error("not found");
           return response.json();
@@ -208,7 +207,7 @@ function BatchRunner({ domainKey, domainTitle }) {
 
   function loadHistory() {
     setIsHistoryLoading(true);
-    authFetch(`${BATCH_API_BASE}/batch/jobs?workflow=${domainKey}&limit=20`)
+    fetch(`${BATCH_API_BASE}/batch/jobs?workflow=${domainKey}&limit=20`)
       .then((response) => (response.ok ? response.json() : { jobs: [] }))
       .then((data) => setHistory(Array.isArray(data.jobs) ? data.jobs : []))
       .catch(() => {})
@@ -222,7 +221,7 @@ function BatchRunner({ domainKey, domainTitle }) {
 
   async function pollJob(jobId) {
     try {
-      const response = await authFetch(`${BATCH_API_BASE}/batch/jobs/${jobId}`);
+      const response = await fetch(`${BATCH_API_BASE}/batch/jobs/${jobId}`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       setJob(data);
@@ -302,7 +301,7 @@ function BatchRunner({ domainKey, domainTitle }) {
       if (selectedModel) formData.append("model_name", selectedModel);
       if (selectedThinkingBudget !== "") formData.append("thinking_budget", selectedThinkingBudget);
 
-      const response = await authFetch(`${BATCH_API_BASE}/batch/jobs`, { method: "POST", body: formData });
+      const response = await fetch(`${BATCH_API_BASE}/batch/jobs`, { method: "POST", body: formData });
       if (!response.ok) {
         const body = await response.json().catch(() => ({}));
         throw new Error(body.detail || `Could not start the run (HTTP ${response.status})`);
@@ -563,7 +562,7 @@ function OverviewSection({ prompts, schemas }) {
   const [concurrencyError, setConcurrencyError] = useState("");
 
   useEffect(() => {
-    authFetch(`${BATCH_API_BASE}/batch/settings`)
+    fetch(`${BATCH_API_BASE}/batch/settings`)
       .then((response) => response.json())
       .then((data) => {
         setConcurrency(data.concurrency);
@@ -581,7 +580,7 @@ function OverviewSection({ prompts, schemas }) {
     }
     setIsSavingConcurrency(true);
     setConcurrencyError("");
-    authFetch(`${BATCH_API_BASE}/batch/settings`, {
+    fetch(`${BATCH_API_BASE}/batch/settings`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ concurrency: parsed })
@@ -608,7 +607,7 @@ function OverviewSection({ prompts, schemas }) {
         try {
           const controller = new AbortController();
           const timeout = setTimeout(() => controller.abort(), 4000);
-          const response = await authFetch(check.url, { signal: controller.signal });
+          const response = await fetch(check.url, { signal: controller.signal });
           clearTimeout(timeout);
           return { ...check, state: response.ok || response.status === 404 ? "normal" : "abnormal" };
         } catch {
@@ -736,8 +735,8 @@ export default function DomainWorkbench({ onBack }) {
     setIsLoading(true);
     setLoadError("");
     Promise.all([
-      authFetch(`${PROMPTS_API_BASE}/prompts`).then((r) => r.json()),
-      authFetch(`${PROMPTS_API_BASE}/schemas`).then((r) => r.json())
+      fetch(`${PROMPTS_API_BASE}/prompts`).then((r) => r.json()),
+      fetch(`${PROMPTS_API_BASE}/schemas`).then((r) => r.json())
     ])
       .then(([promptsData, schemasData]) => {
         setPrompts(Array.isArray(promptsData.prompts) ? promptsData.prompts : []);

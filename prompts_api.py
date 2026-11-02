@@ -10,11 +10,9 @@ import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-
-from auth_utils import require_auth
 
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "prompts.db"
@@ -127,7 +125,7 @@ class SchemaUpdateRequest(BaseModel):
     content: str
 
 
-app = FastAPI(title="Prompts Management API", dependencies=[Depends(require_auth)])
+app = FastAPI(title="Prompts Management API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],

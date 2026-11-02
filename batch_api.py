@@ -25,12 +25,10 @@ from pathlib import Path
 from typing import Any, Optional
 
 import requests
-from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, Query, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-
-from auth_utils import _decode_app_jwt, ALLOWED_EMAILS, require_auth
 
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "prompts.db"
@@ -548,7 +546,7 @@ class ConcurrencyUpdateRequest(BaseModel):
 
 
 @app.get("/batch/settings")
-def get_batch_settings(_user: dict = Depends(require_auth)):
+def get_batch_settings():
     return {
         "concurrency": _current_concurrency(),
         "min_concurrency": MIN_CONCURRENCY,
@@ -557,7 +555,7 @@ def get_batch_settings(_user: dict = Depends(require_auth)):
 
 
 @app.put("/batch/settings")
-def update_batch_settings(body: ConcurrencyUpdateRequest, _user: dict = Depends(require_auth)):
+def update_batch_settings(body: ConcurrencyUpdateRequest):
     if not (MIN_CONCURRENCY <= body.concurrency <= MAX_CONCURRENCY):
         raise HTTPException(
             status_code=400,
@@ -574,7 +572,6 @@ async def create_batch_job(
     files: list[UploadFile] = File(...),
     model_name: Optional[str] = Form(default=None),
     thinking_budget: Optional[int] = Form(default=None),
-    _user: dict = Depends(require_auth),
 ):
     if workflow not in WORKFLOW_RUNNERS:
         raise HTTPException(status_code=400, detail="workflow must be one of: em, cpt, pcs")
@@ -609,13 +606,12 @@ async def create_batch_job(
 def list_batch_jobs(
     workflow: Optional[str] = Query(default=None),
     limit: int = Query(default=50, ge=1, le=200),
-    _user: dict = Depends(require_auth),
 ):
     return {"jobs": _fetch_job_history(workflow, limit)}
 
 
 @app.get("/batch/jobs/{job_id}")
-def get_batch_job(job_id: str, _user: dict = Depends(require_auth)):
+def get_batch_job(job_id: str):
     job = _fetch_job(job_id)
     if job is None:
         raise HTTPException(status_code=404, detail="Job not found")
@@ -641,25 +637,8 @@ def _split_output_parts(workflow: str, output: dict[str, Any]) -> list[tuple[Opt
     return [(None, output)]
 
 
-def _require_auth_header_or_query(
-    authorization: Optional[str] = Header(default=None),
-    token: Optional[str] = Query(default=None),
-) -> dict:
-    """Same as require_auth, but also accepts ?token=... since this route is
-    triggered via a plain <a href> navigation (download), which can't attach
-    a custom Authorization header."""
-    bearer = authorization.split(" ", 1)[1].strip() if authorization and authorization.lower().startswith("bearer ") else None
-    raw_token = bearer or token
-    if not raw_token:
-        raise HTTPException(status_code=401, detail="Sign in required.")
-    payload = _decode_app_jwt(raw_token)
-    if str(payload.get("sub", "")).lower() not in ALLOWED_EMAILS:
-        raise HTTPException(status_code=403, detail="This account is not authorized to access this app.")
-    return payload
-
-
 @app.get("/batch/jobs/{job_id}/download")
-def download_batch_job(job_id: str, _user: dict = Depends(_require_auth_header_or_query)):
+def download_batch_job(job_id: str):
     workflow, completed_files = _fetch_completed_outputs(job_id)
     if workflow is None:
         raise HTTPException(status_code=404, detail="Job not found")

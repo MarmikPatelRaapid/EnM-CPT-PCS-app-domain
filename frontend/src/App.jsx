@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import raapidLogo from "../raapid_logo.png";
 import DomainWorkbench from "./DomainWorkbench.jsx";
-import AuthGate from "./AuthGate.jsx";
 import "./workbench.css";
 import { loadModelDropdownConfig, buildModelOverrides } from "./modelOptions.js";
 
@@ -2356,11 +2355,7 @@ export default function App() {
           : "Coding Result";
 
   if (view === "workbench") {
-    return (
-      <AuthGate>
-        <DomainWorkbench onBack={() => setView("workspace")} />
-      </AuthGate>
-    );
+    return <DomainWorkbench onBack={() => setView("workspace")} />;
   }
 
   return (

@@ -21,8 +21,5 @@ openai
 azure-identity
 anthropic[vertex]
 
-google-auth>=2.29.0
-PyJWT>=2.9.0
-
 pytest
 pytest-asyncio
