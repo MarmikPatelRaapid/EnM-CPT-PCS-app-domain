@@ -728,6 +728,29 @@ function OverviewSection({ prompts, schemas }) {
   );
 }
 
+async function fetchJson(url) {
+  let response;
+  try {
+    response = await fetch(url);
+  } catch (networkError) {
+    throw new Error(`Could not reach ${url}: ${networkError.message}`);
+  }
+  const bodyText = await response.text();
+  if (!response.ok) {
+    throw new Error(
+      `${url} returned HTTP ${response.status}${bodyText ? `: ${bodyText.slice(0, 300)}` : " (empty response)"}`
+    );
+  }
+  if (!bodyText) {
+    throw new Error(`${url} returned an empty response (expected JSON).`);
+  }
+  try {
+    return JSON.parse(bodyText);
+  } catch {
+    throw new Error(`${url} did not return valid JSON: ${bodyText.slice(0, 300)}`);
+  }
+}
+
 export default function DomainWorkbench({ onBack }) {
   const [activeDomain, setActiveDomain] = useState("overview");
   const [prompts, setPrompts] = useState([]);
@@ -739,8 +762,8 @@ export default function DomainWorkbench({ onBack }) {
     setIsLoading(true);
     setLoadError("");
     Promise.all([
-      fetch(`${PROMPTS_API_BASE}/prompts`).then((r) => r.json()),
-      fetch(`${PROMPTS_API_BASE}/schemas`).then((r) => r.json())
+      fetchJson(`${PROMPTS_API_BASE}/prompts`),
+      fetchJson(`${PROMPTS_API_BASE}/schemas`)
     ])
       .then(([promptsData, schemasData]) => {
         setPrompts(Array.isArray(promptsData.prompts) ? promptsData.prompts : []);
