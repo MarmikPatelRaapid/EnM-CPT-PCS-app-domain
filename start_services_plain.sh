@@ -29,6 +29,14 @@ PYTHON_BIN="${PYTHON_BIN:-python3}"
 #   export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-service-account.json"
 GOOGLE_APPLICATION_CREDENTIALS="${GOOGLE_APPLICATION_CREDENTIALS:-}"
 
+# Vertex AI project/location — override per environment. Defaults match the
+# local-dev project used by the committed .env files; on a server with its
+# own service account (e.g. via Application Default Credentials), export
+# these to point at that server's actual GCP project instead, e.g.:
+#   export VERTEX_PROJECT_ID="steadfast-slate-513507-i5"
+VERTEX_PROJECT_ID="${VERTEX_PROJECT_ID:-}"
+VERTEX_LOCATION="${VERTEX_LOCATION:-}"
+
 mkdir -p "$LOG_DIR"
 
 is_running() {
@@ -85,7 +93,19 @@ start_one() {
   local workdir="$2"
   local cmd="$3"
   local logfile="$LOG_DIR/${name}.log"
-  nohup bash -lc "export GOOGLE_APPLICATION_CREDENTIALS='$GOOGLE_APPLICATION_CREDENTIALS'; cd \"$workdir\" && exec $cmd" >"$logfile" 2>&1 &
+
+  # Only forward these if actually set — exporting an *empty* override would
+  # stop each service's own .env-driven fallback from ever loading its
+  # (non-empty) default, since those loaders skip keys already in os.environ.
+  local env_prefix="export GOOGLE_APPLICATION_CREDENTIALS='$GOOGLE_APPLICATION_CREDENTIALS';"
+  if [[ -n "$VERTEX_PROJECT_ID" ]]; then
+    env_prefix="$env_prefix export VERTEX_PROJECT_ID='$VERTEX_PROJECT_ID';"
+  fi
+  if [[ -n "$VERTEX_LOCATION" ]]; then
+    env_prefix="$env_prefix export VERTEX_LOCATION='$VERTEX_LOCATION';"
+  fi
+
+  nohup bash -lc "$env_prefix cd \"$workdir\" && exec $cmd" >"$logfile" 2>&1 &
   echo "$!"
 }
 
@@ -144,10 +164,11 @@ start_all() {
   fi
 
   if [[ -z "$GOOGLE_APPLICATION_CREDENTIALS" ]]; then
-    echo "GOOGLE_APPLICATION_CREDENTIALS is not set." >&2
-    echo "Export it first, e.g.:" >&2
+    echo "Note: GOOGLE_APPLICATION_CREDENTIALS is not set." >&2
+    echo "That's fine on a host with its own attached service account (Application" >&2
+    echo "Default Credentials, e.g. a GCE/Cloud Run service account) — Vertex AI calls" >&2
+    echo "will use that automatically. Otherwise, export a key file first, e.g.:" >&2
     echo "  export GOOGLE_APPLICATION_CREDENTIALS=\"/path/to/your-service-account.json\"" >&2
-    exit 1
   fi
 
   if [[ "$(id -u)" -ne 0 ]]; then
@@ -162,7 +183,9 @@ start_all() {
 
   local PYBIN="$VENV_DIR/bin/python"
   echo "Using Python: $PYBIN ($($PYBIN --version))"
-  echo "Using credentials: $GOOGLE_APPLICATION_CREDENTIALS"
+  echo "Using credentials: ${GOOGLE_APPLICATION_CREDENTIALS:-<none, relying on Application Default Credentials>}"
+  echo "Using Vertex project: ${VERTEX_PROJECT_ID:-<default: raapid-genai>}"
+  echo "Using Vertex location: ${VERTEX_LOCATION:-<default: global>}"
 
   SYNTHETIC_PID="$(start_one "synthetic_api" "$ROOT_DIR/E&M_backend/E&M_Synthetic_data_generation" "'$PYBIN' main.py")"
   CPT_SYNTHETIC_PID="$(start_one "cpt_synthetic_api" "$ROOT_DIR/CPT_backend/CPT_Synthetic_data_generation" "'$PYBIN' main.py")"

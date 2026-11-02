@@ -1,7 +1,9 @@
+import os
+
 LLM_PROVIDER    = "gemini_vertex"    # "azure_openai" | "claude_vertex" | "openai"
-MODEL_NAME      = "gemini-2.5-pro"
-PROJECT_ID      = "raapid-genai"
-LOCATION        = "global"
+MODEL_NAME      = os.getenv("PCS_MODEL_NAME", "gemini-2.5-pro")
+PROJECT_ID      = os.getenv("VERTEX_PROJECT_ID", "raapid-genai")
+LOCATION        = os.getenv("VERTEX_LOCATION", "global")
 AZURE_ENDPOINT  = ""
 AZURE_API_VER   = "2024-02-01"
 MAX_CONCURRENCY = 20

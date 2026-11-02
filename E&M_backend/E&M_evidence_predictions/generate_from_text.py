@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import sqlite3
 from pathlib import Path
@@ -30,12 +31,12 @@ def _load_prompt_from_db(service: str, key: str) -> str:
     return row[0]
 
 
-PROJECT_ID = "raapid-genai"
-LOCATION = "global"
+PROJECT_ID = os.getenv("VERTEX_PROJECT_ID", "raapid-genai")
+LOCATION = os.getenv("VERTEX_LOCATION", "global")
 
 MODEL_CONFIG = {
     "serving_mode": "on_demand",  # "on_demand" or "endpoint"
-    "model_name": "gemini-2.5-pro",
+    "model_name": os.getenv("EM_EVIDENCE_MODEL_NAME", "gemini-2.5-pro"),
     "endpoint_name": "",
     "temperature": 0.25,
     "top_p": 0.15,
