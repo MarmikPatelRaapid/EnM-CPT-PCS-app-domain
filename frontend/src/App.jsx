@@ -6,12 +6,16 @@ import "./workbench.css";
 import { loadModelDropdownConfig, buildModelOverrides } from "./modelOptions.js";
 
 export const API_BASE_URLS = {
-  synthetic: "http://localhost:8082",
-  cptSynthetic: "http://localhost:8086",
-  evidence: "http://localhost:8000",
-  em: "http://localhost:8081",
-  cpt: "http://localhost:8084",
-  pcs: "http://localhost:8085"
+  // Relative paths, proxied by Vite (see frontend/vite.config.js) to each
+  // backend port server-side. This works whether the app is opened from the
+  // same machine (local dev) or remotely through a load balancer — the
+  // browser only ever talks to wherever the frontend itself is served from.
+  synthetic: "/api/em-synth",
+  cptSynthetic: "/api/cpt-synth",
+  evidence: "/api/evidence",
+  em: "/api/em",
+  cpt: "/api/cpt",
+  pcs: "/api/pcs"
 };
 
 const WORKFLOW_OPTIONS = [

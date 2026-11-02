@@ -1,8 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { loadModelDropdownConfig } from "./modelOptions.js";
 
-const PROMPTS_API_BASE = "http://localhost:8087";
-const BATCH_API_BASE = "http://localhost:8088";
+// Relative paths, proxied by Vite (see frontend/vite.config.js) to each
+// backend port server-side — works identically for local dev and for a
+// remote deployment behind a load balancer, since the browser only ever
+// talks to wherever the frontend itself is served from.
+const PROMPTS_API_BASE = "/api/prompts-mgmt";
+const BATCH_API_BASE = "/api/batch";
 const POLL_INTERVAL_MS = 1200;
 const ACTIVE_JOB_STATUSES = new Set(["queued", "running"]);
 
@@ -14,14 +18,14 @@ const DOMAINS = [
 ];
 
 const SERVICE_CHECKS = [
-  { label: "E&M synthetic generation", url: "http://localhost:8082/docs" },
-  { label: "E&M evidence extraction", url: "http://localhost:8000/docs" },
-  { label: "E&M code resolver", url: "http://localhost:8081/docs" },
-  { label: "CPT synthetic generation", url: "http://localhost:8086/docs" },
-  { label: "CPT retrieval", url: "http://localhost:8083/docs" },
-  { label: "CPT pipeline", url: "http://localhost:8084/docs" },
-  { label: "PCS pipeline", url: "http://localhost:8085/docs" },
-  { label: "Prompt & schema store", url: "http://localhost:8087/prompts" },
+  { label: "E&M synthetic generation", url: "/api/em-synth/docs" },
+  { label: "E&M evidence extraction", url: "/api/evidence/docs" },
+  { label: "E&M code resolver", url: "/api/em/docs" },
+  { label: "CPT synthetic generation", url: "/api/cpt-synth/docs" },
+  { label: "CPT retrieval", url: "/api/cpt-retrieval/docs" },
+  { label: "CPT pipeline", url: "/api/cpt/docs" },
+  { label: "PCS pipeline", url: "/api/pcs/docs" },
+  { label: "Prompt & schema store", url: `${PROMPTS_API_BASE}/prompts` },
   { label: "Batch processor", url: `${BATCH_API_BASE}/batch/jobs/_` }
 ];
 

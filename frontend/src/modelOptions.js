@@ -3,7 +3,9 @@
 // Used wherever a Gemini call can be tuned (single-document coding and batch
 // processing both use these).
 
-const PROMPTS_API_BASE = "http://localhost:8087";
+// Proxied by Vite to port 8087 server-side (see frontend/vite.config.js) —
+// works the same for local dev and a remote deployment behind a load balancer.
+const PROMPTS_API_BASE = "/api/prompts-mgmt";
 
 // Fallbacks only used if the DB is unreachable, so the UI still renders.
 const FALLBACK_MODEL_OPTIONS = [
