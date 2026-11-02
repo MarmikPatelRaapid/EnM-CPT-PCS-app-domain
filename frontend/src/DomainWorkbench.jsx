@@ -151,6 +151,7 @@ function BatchRunner({ domainKey, domainTitle }) {
   const [isDragActive, setIsDragActive] = useState(false);
   const [history, setHistory] = useState([]);
   const [isHistoryLoading, setIsHistoryLoading] = useState(true);
+  const [retryingJobId, setRetryingJobId] = useState(null);
   const dragDepthRef = useRef(0);
   const fileInputRef = useRef(null);
   const pollTimeoutRef = useRef(null);
@@ -245,6 +246,39 @@ function BatchRunner({ domainKey, domainTitle }) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+
+  async function handleRetryJob(jobId) {
+    setRetryingJobId(jobId);
+    setSubmitError("");
+    try {
+      const response = await fetch(`${BATCH_API_BASE}/batch/jobs/${jobId}/retry`, { method: "POST" });
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.detail || `HTTP ${response.status}`);
+      }
+      const data = await response.json();
+      setJob({
+        job_id: data.job_id,
+        workflow: domainKey,
+        status: "queued",
+        total: data.total,
+        completed: 0,
+        failed: 0,
+        files: []
+      });
+      try {
+        localStorage.setItem(storageKey, data.job_id);
+      } catch {
+        /* ignore */
+      }
+      schedulePoll(data.job_id);
+      loadHistory();
+    } catch (error) {
+      setSubmitError(error.message || "Failed to retry the failed files.");
+    } finally {
+      setRetryingJobId(null);
+    }
   }
 
   function labelForModel(value) {
@@ -568,6 +602,16 @@ function BatchRunner({ domainKey, domainTitle }) {
                     >
                       Download
                     </button>
+                    {entry.failed > 0 ? (
+                      <button
+                        type="button"
+                        className="wb-button"
+                        onClick={() => handleRetryJob(entry.job_id)}
+                        disabled={retryingJobId === entry.job_id || isJobActive}
+                      >
+                        {retryingJobId === entry.job_id ? "Retrying..." : "Retry failed"}
+                      </button>
+                    ) : null}
                   </td>
                 </tr>
               ))}

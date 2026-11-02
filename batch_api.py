@@ -307,6 +307,21 @@ def _fetch_completed_outputs(job_id: str) -> tuple[Optional[str], list[dict[str,
     ]
 
 
+def _fetch_failed_files(job_id: str) -> tuple[Optional[dict[str, Any]], list[dict[str, str]]]:
+    with DB_LOCK, _get_connection() as conn:
+        job_row = conn.execute(
+            "SELECT workflow, model_name, thinking_budget FROM batch_jobs WHERE job_id = ?",
+            (job_id,),
+        ).fetchone()
+        if job_row is None:
+            return None, []
+        file_rows = conn.execute(
+            "SELECT name, text FROM batch_job_files WHERE job_id = ? AND status = 'error' ORDER BY file_index",
+            (job_id,),
+        ).fetchall()
+    return dict(job_row), [{"name": row["name"], "text": row["text"]} for row in file_rows]
+
+
 def _sanitize_file_name(value: str) -> str:
     return "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in value)
 
@@ -608,6 +623,28 @@ def list_batch_jobs(
     limit: int = Query(default=50, ge=1, le=200),
 ):
     return {"jobs": _fetch_job_history(workflow, limit)}
+
+
+@app.post("/batch/jobs/{job_id}/retry")
+def retry_batch_job(job_id: str):
+    job_row, failed_entries = _fetch_failed_files(job_id)
+    if job_row is None:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if not failed_entries:
+        raise HTTPException(status_code=400, detail="No failed files to retry")
+
+    new_job_id = uuid.uuid4().hex
+    _create_job_record(
+        new_job_id,
+        job_row["workflow"],
+        job_row["model_name"],
+        job_row["thinking_budget"],
+        failed_entries,
+    )
+    for index in range(len(failed_entries)):
+        TASK_QUEUE.put((new_job_id, index))
+
+    return {"job_id": new_job_id, "total": len(failed_entries)}
 
 
 @app.get("/batch/jobs/{job_id}")

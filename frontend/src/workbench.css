@@ -221,6 +221,10 @@
   opacity: 0.6;
 }
 
+.wb-table td .wb-button + .wb-button {
+  margin-left: 8px;
+}
+
 .wb-button--primary {
   background: var(--wb-accent);
   border-color: var(--wb-accent);
