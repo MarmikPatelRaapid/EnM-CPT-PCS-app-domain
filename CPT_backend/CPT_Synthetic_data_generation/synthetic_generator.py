@@ -52,6 +52,21 @@ def _load_schema_from_db(service: str, key: str) -> dict[str, Any]:
     return json.loads(row[0])
 
 
+def _load_default_model_from_db() -> str | None:
+    """The DB-backed dropdown is the single source of truth for which model
+    to use by default; falls back to None (caller uses its own settings
+    default) only if the DB has no default row configured."""
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT value FROM dropdown_options WHERE category = 'model' AND is_default = 1"
+        ).fetchone()
+    finally:
+        conn.close()
+    return row[0] if row and row[0] else None
+
+
 class SyntheticGenerationError(RuntimeError):
     """Raised when the CPT synthetic generation request or parsing fails."""
 
@@ -89,23 +104,32 @@ class CPTSyntheticService:
         code_category: str,
         cpt_code: str,
         total_no_of_documents: int,
+        model_name: str | None = None,
+        thinking_budget: int | None = None,
     ) -> dict[str, Any]:
         payload = {
             "code_category": code_category,
             "cptcode": cpt_code,
             "total_no_of_documents": total_no_of_documents,
         }
+        config_kwargs: dict[str, Any] = {
+            "temperature": self._settings.temperature,
+            "top_p": self._settings.top_p,
+            "system_instruction": self.system_prompt,
+            "response_mime_type": "application/json",
+            "response_schema": self.output_schema,
+        }
+        if thinking_budget is not None:
+            config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=thinking_budget)
+
+        resolved_model = (
+            model_name or _load_default_model_from_db() or self._settings.model_name
+        )
         try:
             response = self._client.models.generate_content(
-                model=self._settings.model_name,
+                model=resolved_model,
                 contents=[types.Part.from_text(text=json.dumps(payload, indent=2))],
-                config=types.GenerateContentConfig(
-                    temperature=self._settings.temperature,
-                    top_p=self._settings.top_p,
-                    system_instruction=self.system_prompt,
-                    response_mime_type="application/json",
-                    response_schema=self.output_schema,
-                ),
+                config=types.GenerateContentConfig(**config_kwargs),
             )
         except Exception as exc:
             raise SyntheticGenerationError(f"Gemini request failed: {exc}") from exc

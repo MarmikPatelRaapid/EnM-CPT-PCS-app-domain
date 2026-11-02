@@ -53,6 +53,8 @@ class GenerateRequest(BaseModel):
     EMcode: str
     EMcodedescription: str = ""
     total_no_of_documents: int = Field(..., ge=1, description="Number of documents expected.")
+    model_name: str | None = None
+    thinking_budget: int | None = None
 
     @model_validator(mode="before")
     @classmethod
@@ -79,6 +81,8 @@ def generate_documents(
             em_code=payload.EMcode,
             em_code_description=payload.EMcodedescription,
             total_no_of_documents=payload.total_no_of_documents,
+            model_name=payload.model_name,
+            thinking_budget=payload.thinking_budget,
         )
         run_dir = OUTPUT_RUNS_DIR / trace_id
         _write_json(run_dir / "synthetic_request.json", request_snapshot)

@@ -51,6 +51,21 @@ def _load_schema_from_db(service: str, key: str) -> dict[str, Any]:
     return json.loads(row[0])
 
 
+def _load_default_model_from_db() -> str | None:
+    """The DB-backed dropdown is the single source of truth for which model
+    to use by default; falls back to None (caller uses its own settings
+    default) only if the DB has no default row configured."""
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT value FROM dropdown_options WHERE category = 'model' AND is_default = 1"
+        ).fetchone()
+    finally:
+        conn.close()
+    return row[0] if row and row[0] else None
+
+
 class GeminiClientError(RuntimeError):
     """Raised when Gemini request or response parsing fails."""
 
@@ -93,7 +108,7 @@ class GeminiClient:
             f"{medical_document_text.strip()}\n"
         )
         return self._generate_json(
-            model_name=model_name or self._settings.model_1_name,
+            model_name=model_name or _load_default_model_from_db() or self._settings.model_1_name,
             system_prompt=prompt,
             response_schema=schema,
             user_contents=user_contents,
@@ -118,7 +133,7 @@ class GeminiClient:
             f"{json.dumps(enriched_model_1_output, ensure_ascii=True)}\n"
         )
         return self._generate_json(
-            model_name=model_name or self._settings.model_2_name,
+            model_name=model_name or _load_default_model_from_db() or self._settings.model_2_name,
             system_prompt=prompt,
             response_schema=schema,
             user_contents=user_contents,

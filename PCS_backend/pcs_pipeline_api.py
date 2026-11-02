@@ -50,6 +50,8 @@ class SyntheticDataRequest(BaseModel):
     categories: List[str] = Field(..., min_length=1)
     icd10_pcs_code: str
     total_no_of_documents: int = Field(..., gt=0)
+    model_name: Optional[str] = None
+    thinking_budget: Optional[int] = None
 
 
 class PCSCodeDetectionRequest(BaseModel):
@@ -85,7 +87,11 @@ async def create_synthetic_data(request: SyntheticDataRequest) -> Dict[str, List
         "total_no_of_documents": request.total_no_of_documents,
     }
     try:
-        return generate_pcs_synthetic_data(payload)
+        return generate_pcs_synthetic_data(
+            payload,
+            model_name=request.model_name,
+            thinking_budget=request.thinking_budget,
+        )
     except InputValidationError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except PCSGenerationError as exc:

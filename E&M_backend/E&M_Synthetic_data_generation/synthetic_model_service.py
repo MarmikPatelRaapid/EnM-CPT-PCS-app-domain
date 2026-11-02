@@ -47,6 +47,21 @@ def _load_schema_from_db(service: str, key: str) -> dict[str, Any]:
     return json.loads(row[0])
 
 
+def _load_default_model_from_db() -> str | None:
+    """The DB-backed dropdown is the single source of truth for which model
+    to use by default; falls back to None (caller uses its own settings
+    default) only if the DB has no default row configured."""
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT value FROM dropdown_options WHERE category = 'model' AND is_default = 1"
+        ).fetchone()
+    finally:
+        conn.close()
+    return row[0] if row and row[0] else None
+
+
 # This module is imported both directly (FastAPI app / batch script) and via
 # importlib from the streamlined pipeline, so ensure the service folder is on
 # the path before importing its sibling modules.
@@ -101,6 +116,8 @@ class SyntheticModelService:
         em_code: str,
         em_code_description: str,
         total_no_of_documents: int,
+        model_name: str | None = None,
+        thinking_budget: int | None = None,
     ) -> dict[str, Any]:
         # Callers (UI / pipeline) usually do not supply a description, so map it
         # from the resource file when missing; fall back to the configured default.
@@ -113,15 +130,25 @@ class SyntheticModelService:
             "EMcodedescription": resolved_description,
             "total_no_of_documents": total_no_of_documents,
         }
+        config_kwargs: dict[str, Any] = {
+            "temperature": self.settings.temperature,
+            "top_p": self.settings.top_p,
+            "system_instruction": self.system_prompt,
+            "response_mime_type": "application/json",
+            "response_schema": self.output_schema,
+        }
+        if thinking_budget is not None:
+            config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=thinking_budget)
+
+        resolved_model = model_name
+        if resolved_model is None and (self.settings.vertex_serving_mode or "on_demand") == "on_demand":
+            resolved_model = _load_default_model_from_db()
+        if resolved_model is None:
+            resolved_model = _get_model_name(self.settings)
+
         response = self.client.models.generate_content(
-            model=_get_model_name(self.settings),
+            model=resolved_model,
             contents=[types.Part.from_text(text=json.dumps(payload, indent=2))],
-            config=types.GenerateContentConfig(
-                temperature=self.settings.temperature,
-                top_p=self.settings.top_p,
-                system_instruction=self.system_prompt,
-                response_mime_type="application/json",
-                response_schema=self.output_schema,
-            ),
+            config=types.GenerateContentConfig(**config_kwargs),
         )
         return json.loads(response.text)

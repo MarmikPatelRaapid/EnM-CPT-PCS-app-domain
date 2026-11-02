@@ -29,6 +29,21 @@ def _load_prompt_from_db(service: str, key: str) -> str | None:
     return row[0] if row else None
 
 
+def _load_default_model_from_db() -> str | None:
+    """The DB-backed dropdown is the single source of truth for which model
+    to use by default; falls back to None (caller uses its own settings
+    default) only if the DB has no default row configured."""
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT value FROM dropdown_options WHERE category = 'model' AND is_default = 1"
+        ).fetchone()
+    finally:
+        conn.close()
+    return row[0] if row and row[0] else None
+
+
 PROJECT_ID = os.getenv("VERTEX_PROJECT_ID", "raapid-genai")
 LOCATION = os.getenv("VERTEX_LOCATION", "global")
 
@@ -187,7 +202,7 @@ def generate_from_documents(
         config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=thinking_budget)
 
     response = client.models.generate_content(
-        model=model_name or get_model_name(),
+        model=model_name or _load_default_model_from_db() or get_model_name(),
         contents=[types.Part.from_text(text=selected_text)],
         config=types.GenerateContentConfig(**config_kwargs),
     )

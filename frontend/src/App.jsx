@@ -1880,7 +1880,8 @@ export default function App() {
           body: JSON.stringify({
             categories: formData.categories,
             icd10_pcs_code: codes.join(","),
-            total_no_of_documents: Number(formData.numDocs)
+            total_no_of_documents: Number(formData.numDocs),
+            ...buildModelOverrides(selectedModel, selectedThinkingBudget)
           })
         });
 
@@ -1899,7 +1900,8 @@ export default function App() {
           body: JSON.stringify({
             code_category: formData.categories.join(", "),
             cptcode: codes.join(", "),
-            total_no_of_documents: Number(formData.numDocs)
+            total_no_of_documents: Number(formData.numDocs),
+            ...buildModelOverrides(selectedModel, selectedThinkingBudget)
           })
         });
 
@@ -1926,7 +1928,8 @@ export default function App() {
           body: JSON.stringify({
             EMcode: codes.join(", "),
             EMcodedescription: "",
-            total_no_of_documents: Number(formData.numDocs)
+            total_no_of_documents: Number(formData.numDocs),
+            ...buildModelOverrides(selectedModel, selectedThinkingBudget)
           })
         });
 

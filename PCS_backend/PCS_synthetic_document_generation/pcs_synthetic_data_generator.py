@@ -31,6 +31,21 @@ def _load_prompt_from_db(service: str, key: str) -> Optional[str]:
     return row[0] if row else None
 
 
+def _load_default_model_from_db() -> Optional[str]:
+    """The DB-backed dropdown is the single source of truth for which model
+    to use by default; falls back to None (caller uses its own settings
+    default) only if the DB has no default row configured."""
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT value FROM dropdown_options WHERE category = 'model' AND is_default = 1"
+        ).fetchone()
+    finally:
+        conn.close()
+    return row[0] if row and row[0] else None
+
+
 def _load_env_file(env_path: Path) -> None:
     if not env_path.exists():
         return
@@ -225,21 +240,28 @@ def generate_pcs_synthetic_data(
     input_data: Dict[str, Any],
     client: Optional[genai.Client] = None,
     model_config: ModelConfig = MODEL_CONFIG,
+    model_name: Optional[str] = None,
+    thinking_budget: Optional[int] = None,
 ) -> Dict[str, List[Dict[str, str]]]:
     prepared_input = _validate_and_prepare_input(input_data)
     system_prompt = _load_system_prompt()
     llm_client = _build_client(client)
 
-    gen_config = types.GenerateContentConfig(
-        temperature=model_config.temperature,
-        top_p=model_config.top_p,
-        response_mime_type="application/json",
-        system_instruction=[types.Part.from_text(text=system_prompt)],
-    )
+    config_kwargs: Dict[str, Any] = {
+        "temperature": model_config.temperature,
+        "top_p": model_config.top_p,
+        "response_mime_type": "application/json",
+        "system_instruction": [types.Part.from_text(text=system_prompt)],
+    }
+    if thinking_budget is not None:
+        config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=thinking_budget)
+    gen_config = types.GenerateContentConfig(**config_kwargs)
+
+    resolved_model = model_name or _load_default_model_from_db() or model_config.model_name
 
     try:
         response = llm_client.models.generate_content(
-            model=model_config.model_name,
+            model=resolved_model,
             contents=[
                 types.Content(
                     role="user",
