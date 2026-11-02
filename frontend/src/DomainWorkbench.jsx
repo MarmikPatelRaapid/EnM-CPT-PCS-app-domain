@@ -253,6 +253,11 @@ function BatchRunner({ domainKey, domainTitle }) {
     return match ? match.label : value;
   }
 
+  function labelForWorkflow(value) {
+    const labels = { em: "E&M", cpt: "CPT", pcs: "PCS" };
+    return labels[value] || value;
+  }
+
   function labelForThinkingBudget(value) {
     if (value === null || value === undefined || value === "") return "Service default";
     const match = thinkingBudgetOptions.find((option) => option.value === String(value));
@@ -522,6 +527,7 @@ function BatchRunner({ domainKey, domainTitle }) {
             <thead>
               <tr>
                 <th>Run</th>
+                <th>Workflow</th>
                 <th>Files</th>
                 <th>Model</th>
                 <th>Thinking budget</th>
@@ -533,6 +539,7 @@ function BatchRunner({ domainKey, domainTitle }) {
               {history.map((entry) => (
                 <tr key={entry.job_id}>
                   <td className="wb-table-file">{formatTimestamp(entry.created_at)}</td>
+                  <td>{labelForWorkflow(entry.workflow)}</td>
                   <td>
                     {entry.completed}/{entry.total}
                     {entry.failed > 0 ? `, ${entry.failed} failed` : ""}
