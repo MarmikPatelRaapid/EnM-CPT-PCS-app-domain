@@ -30,6 +30,8 @@ SPECIAL_STAFF_TIME_SERVICE_TYPES = {
 ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://localhost",
+    "http://127.0.0.1",
 ]
 OUTPUT_RUNS_DIR = Path(__file__).resolve().parent / "output" / "ui_runs"
 

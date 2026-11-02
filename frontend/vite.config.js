@@ -4,6 +4,8 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
+    port: Number(process.env.VITE_PORT) || 80,
+    strictPort: true,
     watch: {
       // Avoid EMFILE ("too many open files") in environments
       // with low fs watcher limits by using polling instead.

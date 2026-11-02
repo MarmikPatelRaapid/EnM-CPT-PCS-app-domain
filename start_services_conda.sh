@@ -149,6 +149,12 @@ start_all() {
     exit 1
   fi
 
+  if [[ "$(id -u)" -ne 0 ]]; then
+    echo "Note: the frontend listens on port 80 by default, which usually needs root." >&2
+    echo "Run this script with sudo, or use an unprivileged port instead, e.g.:" >&2
+    echo "  VITE_PORT=5173 $0 start" >&2
+  fi
+
   local PYBIN
   PYBIN="$(resolve_conda_python)"
   ensure_frontend_dependencies
@@ -193,7 +199,7 @@ CPT Retrieval      : http://localhost:8083  (log: $LOG_DIR/cpt_retrieval_api.log
 CPT Pipeline       : http://localhost:8084  (log: $LOG_DIR/cpt_pipeline_api.log)
 Prompts/Schemas API: http://localhost:8087  (log: $LOG_DIR/prompts_api.log)
 Batch Processing   : http://localhost:8088  (log: $LOG_DIR/batch_api.log)
-Frontend           : http://localhost:5173  (log: $LOG_DIR/frontend_app.log)
+Frontend           : http://localhost  (log: $LOG_DIR/frontend_app.log)
 
 PIDs saved in: $PID_FILE
 To stop all:  $0 stop
