@@ -247,6 +247,18 @@ function BatchRunner({ domainKey, domainTitle }) {
     document.body.removeChild(link);
   }
 
+  function labelForModel(value) {
+    if (!value) return "Service default";
+    const match = modelOptions.find((option) => option.value === value);
+    return match ? match.label : value;
+  }
+
+  function labelForThinkingBudget(value) {
+    if (value === null || value === undefined || value === "") return "Service default";
+    const match = thinkingBudgetOptions.find((option) => option.value === String(value));
+    return match ? match.label : String(value);
+  }
+
   function addFiles(fileList) {
     const incoming = Array.from(fileList ?? []).filter((file) =>
       file.name.toLowerCase().endsWith(".txt")
@@ -511,6 +523,8 @@ function BatchRunner({ domainKey, domainTitle }) {
               <tr>
                 <th>Run</th>
                 <th>Files</th>
+                <th>Model</th>
+                <th>Thinking budget</th>
                 <th>Status</th>
                 <th></th>
               </tr>
@@ -523,6 +537,8 @@ function BatchRunner({ domainKey, domainTitle }) {
                     {entry.completed}/{entry.total}
                     {entry.failed > 0 ? `, ${entry.failed} failed` : ""}
                   </td>
+                  <td>{labelForModel(entry.model_name)}</td>
+                  <td>{labelForThinkingBudget(entry.thinking_budget)}</td>
                   <td>
                     <Flag
                       state={
