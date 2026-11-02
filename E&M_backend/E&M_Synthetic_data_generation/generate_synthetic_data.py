@@ -1,5 +1,6 @@
 import json
 import re
+import sqlite3
 import sys
 from pathlib import Path
 
@@ -11,6 +12,29 @@ if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
 from config import load_settings
+
+
+def _find_repo_root(start: Path) -> Path:
+    current = start
+    for _ in range(8):
+        if (current / "prompts.db").exists():
+            return current
+        current = current.parent
+    raise FileNotFoundError("Could not locate repository root containing prompts.db")
+
+
+def _load_prompt_from_db(service: str, key: str) -> str:
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT content FROM prompts WHERE service = ? AND key = ?", (service, key)
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        raise RuntimeError(f"Prompt not found in prompts.db: service={service!r} key={key!r}")
+    return row[0]
 
 SETTINGS = load_settings()
 PROJECT_ID = SETTINGS.vertex_project_id
@@ -107,7 +131,7 @@ def save_generated_documents(input_name: str, output_json: dict) -> int:
 
 
 def generate_output() -> None:
-    prompt = read_text(PROMPT_FILE)
+    prompt = _load_prompt_from_db("em_synthetic", "system_prompt")
     output_schema = read_json(OUTPUT_SCHEMA_FILE)
     input_json_files = load_input_json_files(INPUT_DIR)
     system_prompt = prompt

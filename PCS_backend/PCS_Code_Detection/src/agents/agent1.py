@@ -1,14 +1,10 @@
 import json
 from dataclasses import dataclass
-from pathlib import Path
 
 import jsonschema
 
 from src.llm.base import LLMProvider
-from src.prompt_loader import fetch_prompt
-
-_SCHEMA_PATH = Path(__file__).parent.parent.parent / "schemas" / "agent_1_schema.json"
-_SCHEMA = json.loads(_SCHEMA_PATH.read_text(encoding="utf-8"))
+from src.prompt_loader import fetch_prompt, fetch_schema
 
 PROMPT_NAME = "Agent 1 - ICD-10-PCS Code Suggestion Prompt.txt"
 
@@ -30,7 +26,7 @@ async def run_agent1(pages: dict[int, str], llm: LLMProvider) -> list[Procedure]
     if isinstance(data, list):
         data = {"procedures": data}
 
-    jsonschema.validate(instance=data, schema=_SCHEMA)
+    jsonschema.validate(instance=data, schema=fetch_schema("agent_1_schema"))
 
     return [
         Procedure(

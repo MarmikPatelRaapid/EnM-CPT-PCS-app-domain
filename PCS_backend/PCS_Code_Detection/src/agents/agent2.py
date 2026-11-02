@@ -1,16 +1,12 @@
 import json
 import re
-from pathlib import Path
 
 import jsonschema
 
 from src.llm.base import LLMProvider
 from src.pcs_resources import PCSResources
-from src.prompt_loader import fetch_prompt
+from src.prompt_loader import fetch_prompt, fetch_schema
 from src.tree.models import PCSNode
-
-_SCHEMA_PATH = Path(__file__).parent.parent.parent / "schemas" / "agent_2_schema.json"
-_SCHEMA = json.loads(_SCHEMA_PATH.read_text(encoding="utf-8"))
 
 PROMPT_NAME = "Agent 2 - ICD-10-PCS Dynamic Code Detection Prompt.txt"
 
@@ -91,7 +87,7 @@ async def run_agent2(
     print(_BORDER, flush=True)
 
     data = json.loads(raw)
-    jsonschema.validate(instance=data, schema=_SCHEMA)
+    jsonschema.validate(instance=data, schema=fetch_schema("agent_2_schema"))
 
     return [
         item

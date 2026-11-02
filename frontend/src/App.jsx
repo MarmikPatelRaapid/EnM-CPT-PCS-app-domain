@@ -1,8 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import raapidLogo from "../raapid_logo.png";
+import DomainWorkbench from "./DomainWorkbench.jsx";
+import AuthGate from "./AuthGate.jsx";
+import "./workbench.css";
+import { loadModelDropdownConfig, buildModelOverrides } from "./modelOptions.js";
 
-const API_BASE_URLS = {
+export const API_BASE_URLS = {
   synthetic: "http://localhost:8082",
   cptSynthetic: "http://localhost:8086",
   evidence: "http://localhost:8000",
@@ -1676,6 +1680,25 @@ export default function App() {
   const [isPcsCoding, setIsPcsCoding] = useState(false);
   const [pcsCodingDocumentId, setPcsCodingDocumentId] = useState(null);
   const [editingDocumentId, setEditingDocumentId] = useState(null);
+  const [view, setView] = useState("workspace");
+  const [selectedModel, setSelectedModel] = useState("");
+  const [selectedThinkingBudget, setSelectedThinkingBudget] = useState("");
+  const [modelOptions, setModelOptions] = useState([]);
+  const [thinkingBudgetOptions, setThinkingBudgetOptions] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    loadModelDropdownConfig().then((config) => {
+      if (!isMounted) return;
+      setModelOptions(config.modelOptions);
+      setThinkingBudgetOptions(config.thinkingBudgetOptions);
+      setSelectedModel(config.defaultModel);
+      setSelectedThinkingBudget(config.defaultThinkingBudget);
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
   const currentWorkflowRef = useRef(formData.workflow);
   const workflowInputStateRef = useRef(workflowInputState);
   const workflowViewStateRef = useRef(workflowViewState);
@@ -1986,7 +2009,8 @@ export default function App() {
           {
             generated_document: selectedDocument.generated_document
           }
-        ]
+        ],
+        ...buildModelOverrides(selectedModel, selectedThinkingBudget)
       };
 
       const notifyRetry = (attempt) =>
@@ -2074,7 +2098,8 @@ export default function App() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          text: selectedDocument.generated_document
+          text: selectedDocument.generated_document,
+          ...buildModelOverrides(selectedModel, selectedThinkingBudget)
         }),
         label: "CPT coding",
         onRetry: (attempt) =>
@@ -2142,7 +2167,8 @@ export default function App() {
             icd10_pcs_code_description: selectedDocument.code_description,
             rational: selectedDocument.rational
           }
-        ]
+        ],
+        ...buildModelOverrides(selectedModel, selectedThinkingBudget)
       };
       const pcsResponse = await postJsonWithRetry(`${API_BASE_URLS.pcs}/pcs/code-detection`, {
         headers: {
@@ -2329,6 +2355,14 @@ export default function App() {
           ? "E&M Resolution Result"
           : "Coding Result";
 
+  if (view === "workbench") {
+    return (
+      <AuthGate>
+        <DomainWorkbench onBack={() => setView("workspace")} />
+      </AuthGate>
+    );
+  }
+
   return (
     <div className="app-shell">
       <header className="top-panel">
@@ -2338,6 +2372,13 @@ export default function App() {
             <h1>{TOOL_NAME}</h1>
             <p>{TOOL_SUBTITLE}</p>
           </div>
+          <button
+            type="button"
+            className="prompts-open-btn"
+            onClick={() => setView("workbench")}
+          >
+            Domain Workbench
+          </button>
         </div>
 
         <div className="workflow-layout">
@@ -2515,6 +2556,33 @@ export default function App() {
           <div className="viewer-header">
             <h3>Document Viewer</h3>
             <div className="viewer-actions">
+              <label className="model-select-field">
+                <span>Model</span>
+                <select
+                  value={selectedModel}
+                  onChange={(event) => setSelectedModel(event.target.value)}
+                >
+                  {modelOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="model-select-field">
+                <span>Thinking budget</span>
+                <select
+                  value={selectedThinkingBudget}
+                  onChange={(event) => setSelectedThinkingBudget(event.target.value)}
+                >
+                  {thinkingBudgetOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
               {selectedDocument ? (
                 <button
                   type="button"

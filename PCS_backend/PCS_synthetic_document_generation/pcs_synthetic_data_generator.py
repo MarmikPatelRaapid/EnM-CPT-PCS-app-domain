@@ -1,5 +1,6 @@
 import json
 import os
+import sqlite3
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -7,6 +8,27 @@ from typing import Any, Dict, List, Optional
 
 from google import genai
 from google.genai import types
+
+
+def _find_repo_root(start: Path) -> Path:
+    current = start
+    for _ in range(8):
+        if (current / "prompts.db").exists():
+            return current
+        current = current.parent
+    raise FileNotFoundError("Could not locate repository root containing prompts.db")
+
+
+def _load_prompt_from_db(service: str, key: str) -> Optional[str]:
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT content FROM prompts WHERE service = ? AND key = ?", (service, key)
+        ).fetchone()
+    finally:
+        conn.close()
+    return row[0] if row else None
 
 
 def _load_env_file(env_path: Path) -> None:
@@ -70,8 +92,10 @@ class ModelResponseError(PCSGenerationError):
     pass
 
 
-@lru_cache(maxsize=1)
 def _load_system_prompt() -> str:
+    db_prompt = _load_prompt_from_db("pcs_synthetic", "system_prompt")
+    if db_prompt and db_prompt.strip():
+        return db_prompt.strip()
     if not PROMPT_FILE_PATH.exists():
         raise PCSGenerationError(f"Prompt file not found: {PROMPT_FILE_PATH}")
     prompt = PROMPT_FILE_PATH.read_text(encoding="utf-8").strip()

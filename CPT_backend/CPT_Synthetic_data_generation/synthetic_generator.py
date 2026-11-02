@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sqlite3
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +13,43 @@ try:
     from CPT_Synthetic_data_generation.config import SyntheticSettings
 except ImportError:
     from config import SyntheticSettings
+
+
+def _find_repo_root(start: Path) -> Path:
+    current = start
+    for _ in range(8):
+        if (current / "prompts.db").exists():
+            return current
+        current = current.parent
+    raise FileNotFoundError("Could not locate repository root containing prompts.db")
+
+
+def _load_prompt_from_db(service: str, key: str) -> str:
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT content FROM prompts WHERE service = ? AND key = ?", (service, key)
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        raise RuntimeError(f"Prompt not found in prompts.db: service={service!r} key={key!r}")
+    return row[0]
+
+
+def _load_schema_from_db(service: str, key: str) -> dict[str, Any]:
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT content FROM schemas WHERE service = ? AND key = ?", (service, key)
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        raise RuntimeError(f"Schema not found in prompts.db: service={service!r} key={key!r}")
+    return json.loads(row[0])
 
 
 class SyntheticGenerationError(RuntimeError):
@@ -38,10 +76,13 @@ class CPTSyntheticService:
             location=settings.vertex_location,
             http_options=HttpOptions(api_version="v1"),
         )
-        self.system_prompt = Path(settings.prompt_path).read_text(encoding="utf-8")
-        self.output_schema = json.loads(
-            Path(settings.schema_path).read_text(encoding="utf-8")
-        )
+    @property
+    def system_prompt(self) -> str:
+        return _load_prompt_from_db("cpt_synthetic", "system_prompt")
+
+    @property
+    def output_schema(self) -> dict[str, Any]:
+        return _load_schema_from_db("cpt_synthetic", "output_schema")
 
     def generate(
         self,

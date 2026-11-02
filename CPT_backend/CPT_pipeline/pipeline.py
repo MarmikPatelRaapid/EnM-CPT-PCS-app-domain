@@ -136,10 +136,19 @@ class CPTAuditPipeline:
         self._retrieval_client = retrieval_client
         self._intermediate_store = intermediate_store
 
-    async def run(self, medical_document_text: str) -> Service1Response:
+    async def run(
+        self,
+        medical_document_text: str,
+        model_name: str | None = None,
+        thinking_budget: int | None = None,
+    ) -> Service1Response:
         context = self._start_request_context(medical_document_text)
         try:
-            model_1_raw = self._gemini_client.call_model_1(medical_document_text)
+            model_1_raw = self._gemini_client.call_model_1(
+                medical_document_text,
+                model_name=model_name,
+                thinking_budget=thinking_budget,
+            )
             self._write_artifact(context, "01_model_1_raw_output.json", model_1_raw)
 
             model_1_validated = self._validate_model_1(model_1_raw)
@@ -163,6 +172,8 @@ class CPTAuditPipeline:
             model_2_raw = self._gemini_client.call_model_2(
                 medical_document_text=medical_document_text,
                 enriched_model_1_output=enriched_model_1,
+                model_name=model_name,
+                thinking_budget=thinking_budget,
             )
             self._write_artifact(context, "05_model_2_raw_output.json", model_2_raw)
 

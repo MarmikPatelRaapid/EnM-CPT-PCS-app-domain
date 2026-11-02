@@ -1,12 +1,36 @@
 import json
 import re
+import sqlite3
 from pathlib import Path
 
 from google import genai
 from google.genai import types
 
 
-PROJECT_ID = "stg-raapid-genai"
+def _find_repo_root(start: Path) -> Path:
+    current = start
+    for _ in range(8):
+        if (current / "prompts.db").exists():
+            return current
+        current = current.parent
+    raise FileNotFoundError("Could not locate repository root containing prompts.db")
+
+
+def _load_prompt_from_db(service: str, key: str) -> str:
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT content FROM prompts WHERE service = ? AND key = ?", (service, key)
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        raise RuntimeError(f"Prompt not found in prompts.db: service={service!r} key={key!r}")
+    return row[0]
+
+
+PROJECT_ID = "raapid-genai"
 LOCATION = "global"
 
 MODEL_CONFIG = {
@@ -81,7 +105,7 @@ def parse_response_json(response_text: str) -> dict:
 
 
 def generate_output() -> None:
-    prompt = read_text(PROMPT_FILE)
+    prompt = _load_prompt_from_db("em_evidence", "prompt")
     output_schema = read_json(OUTPUT_SCHEMA_FILE)
     input_text_files = load_input_text_files(INPUT_DIR)
 

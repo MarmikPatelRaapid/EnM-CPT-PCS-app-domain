@@ -4,6 +4,7 @@
 !.env.example
 *.pem
 *.key
+.jwt_secret
 
 # Python
 __pycache__/
@@ -50,6 +51,9 @@ coverage/
 .runtime/
 *.log
 logs/
+**/output/ui_runs/
+**/request_outputs/
+unparseable_responses/
 
 # OS
 Thumbs.db
@@ -57,3 +61,4 @@ Thumbs.db
 # Data / model artifacts (adjust as needed)
 *.sqlite3
 *.db
+!prompts.db

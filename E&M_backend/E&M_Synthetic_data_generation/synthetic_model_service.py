@@ -1,12 +1,51 @@
 from __future__ import annotations
 
 import json
+import sqlite3
 import sys
 from pathlib import Path
 from typing import Any
 
 from google import genai
 from google.genai import types
+
+
+def _find_repo_root(start: Path) -> Path:
+    current = start
+    for _ in range(8):
+        if (current / "prompts.db").exists():
+            return current
+        current = current.parent
+    raise FileNotFoundError("Could not locate repository root containing prompts.db")
+
+
+def _load_prompt_from_db(service: str, key: str) -> str:
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT content FROM prompts WHERE service = ? AND key = ?", (service, key)
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        raise RuntimeError(f"Prompt not found in prompts.db: service={service!r} key={key!r}")
+    return row[0]
+
+
+def _load_schema_from_db(service: str, key: str) -> dict[str, Any]:
+    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
+    conn = sqlite3.connect(str(db_path))
+    try:
+        row = conn.execute(
+            "SELECT content FROM schemas WHERE service = ? AND key = ?", (service, key)
+        ).fetchone()
+    finally:
+        conn.close()
+    if row is None:
+        raise RuntimeError(f"Schema not found in prompts.db: service={service!r} key={key!r}")
+    return json.loads(row[0])
+
 
 # This module is imported both directly (FastAPI app / batch script) and via
 # importlib from the streamlined pipeline, so ensure the service folder is on
@@ -41,14 +80,18 @@ class SyntheticModelService:
             project=self.settings.vertex_project_id,
             location=self.settings.vertex_location,
         )
-        self.system_prompt = Path(self.settings.prompt_path).read_text(encoding="utf-8")
-        self.output_schema = json.loads(
-            Path(self.settings.schema_path).read_text(encoding="utf-8")
-        )
         self.code_descriptions = CodeDescriptionResolver(
             self.settings.code_descriptions_path,
             default_description=self.settings.default_code_description,
         )
+
+    @property
+    def system_prompt(self) -> str:
+        return _load_prompt_from_db("em_synthetic", "system_prompt")
+
+    @property
+    def output_schema(self) -> dict[str, Any]:
+        return _load_schema_from_db("em_synthetic", "output_schema")
 
     def resolve_code_description(self, em_code: str) -> str:
         return self.code_descriptions.resolve(em_code)

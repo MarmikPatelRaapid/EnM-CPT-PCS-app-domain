@@ -81,7 +81,11 @@ async def audit_cpt_codes(request: Service1Request) -> Service1Response:
         raise HTTPException(status_code=400, detail="Field 'text' cannot be empty.")
 
     try:
-        return await _pipeline.run(text)
+        return await _pipeline.run(
+            text,
+            model_name=request.model_name,
+            thinking_budget=request.thinking_budget,
+        )
     except (GeminiClientError, PipelineError) as exc:
         raise HTTPException(status_code=502, detail=str(exc)) from exc
     except Exception as exc:  # pragma: no cover

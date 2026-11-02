@@ -16,6 +16,8 @@ class DocumentInput(BaseModel):
 
 class PredictionRequest(BaseModel):
     documents: list[DocumentInput]
+    model_name: str | None = None
+    thinking_budget: int | None = None
 
 
 OUTPUT_RUNS_DIR = Path(__file__).resolve().parent / "output" / "ui_runs"
@@ -81,7 +83,11 @@ def predict(
                 {"generated_document": generated_document} for generated_document in generated_documents
             ]
         }
-        output = generate_from_documents(generated_documents)
+        output = generate_from_documents(
+            generated_documents,
+            model_name=payload.model_name,
+            thinking_budget=payload.thinking_budget,
+        )
         _write_json(run_dir / f"evidence_request_{document_id}_{timestamp}.json", request_snapshot)
         _write_json(run_dir / f"evidence_response_{document_id}_{timestamp}.json", output)
         response.headers["X-Trace-Id"] = trace_id

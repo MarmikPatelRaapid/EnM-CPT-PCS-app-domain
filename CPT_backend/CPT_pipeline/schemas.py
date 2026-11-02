@@ -70,6 +70,8 @@ class AuditCodeResponse(AuditedCode):
 
 class Service1Request(BaseModel):
     text: str
+    model_name: str | None = None
+    thinking_budget: int | None = None
 
 
 class Service1Response(BaseModel):

@@ -55,6 +55,8 @@ class SyntheticDataRequest(BaseModel):
 class PCSCodeDetectionRequest(BaseModel):
     generated_text: Optional[str] = None
     documents: Optional[List[Dict[str, Any]]] = None
+    model_name: Optional[str] = None
+    thinking_budget: Optional[int] = None
 
 
 app = FastAPI(title="PCS Pipeline API")
@@ -110,7 +112,11 @@ async def run_pcs_code_detection(request: PCSCodeDetectionRequest) -> Any:
 
     try:
         if has_text:
-            return await run_generated_text_pipeline(request.generated_text or "")
+            return await run_generated_text_pipeline(
+                request.generated_text or "",
+                model_name=request.model_name,
+                thinking_budget=request.thinking_budget,
+            )
 
         results: List[Dict[str, Any]] = []
         for index, document in enumerate(request.documents or []):
@@ -120,7 +126,11 @@ async def run_pcs_code_detection(request: PCSCodeDetectionRequest) -> Any:
                     status_code=400,
                     detail=f"`documents[{index}].generated_document` must be a non-empty string.",
                 )
-            detection_result = await run_generated_text_pipeline(text)
+            detection_result = await run_generated_text_pipeline(
+                text,
+                model_name=request.model_name,
+                thinking_budget=request.thinking_budget,
+            )
             results.append(
                 {
                     **document,
