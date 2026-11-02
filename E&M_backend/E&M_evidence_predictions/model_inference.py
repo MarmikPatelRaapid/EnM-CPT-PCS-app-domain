@@ -89,16 +89,33 @@ def _read_prompt() -> str:
     return DEFAULT_SYSTEM_PROMPT
 
 
-def _escape_stray_quotes(text: str) -> str:
-    """Best-effort repair for the most common way loose (schema-less) Gemini
-    JSON mode breaks: a verbatim document snippet copied into a string value
-    contains a literal `"` that the model didn't escape, which prematurely
-    terminates the JSON string and desyncs the rest of the parse.
+_CONTROL_CHAR_ESCAPES = {
+    "\n": "\\n",
+    "\r": "\\r",
+    "\t": "\\t",
+    "\b": "\\b",
+    "\f": "\\f",
+}
 
-    Walks the text tracking string/escape state; a `"` encountered while
+
+def _escape_stray_quotes(text: str) -> str:
+    """Best-effort repair for the two most common ways loose (schema-less)
+    Gemini JSON mode breaks a response that was otherwise meant to be valid
+    JSON:
+
+    1. A verbatim document snippet copied into a string value contains a
+       literal `"` the model didn't escape, prematurely terminating the
+       JSON string and desyncing the rest of the parse.
+    2. The model emits a literal newline/tab/etc. *inside* a string value
+       instead of escaping it as `\\n`/`\\t` — raw control characters are
+       themselves illegal inside a JSON string.
+
+    Walks the text tracking string/escape state. A `"` encountered while
     inside a string is only treated as the real closing quote when the next
     non-whitespace character looks like valid JSON structure (`,`, `}`, `]`,
     `:`, or end of input) — otherwise it's a stray quote and gets escaped.
+    Any raw control character encountered while inside a string gets escaped
+    to its proper JSON representation.
     """
     result: list[str] = []
     in_string = False
@@ -110,6 +127,14 @@ def _escape_stray_quotes(text: str) -> str:
             result.append(ch)
             result.append(text[i + 1])
             i += 2
+            continue
+        if in_string and ch in _CONTROL_CHAR_ESCAPES:
+            result.append(_CONTROL_CHAR_ESCAPES[ch])
+            i += 1
+            continue
+        if in_string and ord(ch) < 0x20:
+            result.append(f"\\u{ord(ch):04x}")
+            i += 1
             continue
         if ch == '"':
             if not in_string:
