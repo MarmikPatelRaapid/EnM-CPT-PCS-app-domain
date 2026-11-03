@@ -144,7 +144,8 @@ class CPTAuditPipeline:
     ) -> Service1Response:
         context = self._start_request_context(medical_document_text)
         try:
-            model_1_raw = self._gemini_client.call_model_1(
+            model_1_raw = await asyncio.to_thread(
+                self._gemini_client.call_model_1,
                 medical_document_text,
                 model_name=model_name,
                 thinking_budget=thinking_budget,
@@ -169,7 +170,8 @@ class CPTAuditPipeline:
             }
             self._write_artifact(context, "04_model_1_enriched_output.json", enriched_model_1)
 
-            model_2_raw = self._gemini_client.call_model_2(
+            model_2_raw = await asyncio.to_thread(
+                self._gemini_client.call_model_2,
                 medical_document_text=medical_document_text,
                 enriched_model_1_output=enriched_model_1,
                 model_name=model_name,
