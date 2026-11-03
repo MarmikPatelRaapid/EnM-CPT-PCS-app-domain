@@ -60,4 +60,3 @@ Thumbs.db
 # Data / model artifacts (adjust as needed)
 *.sqlite3
 *.db
-!prompts.db
