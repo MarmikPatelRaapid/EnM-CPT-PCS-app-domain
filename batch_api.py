@@ -413,7 +413,15 @@ def _base_name_without_ext(file_name: str) -> str:
 # ---------------------------------------------------------------------------
 
 RETRIABLE_ERROR_MARKERS = ("not valid json", "parse attempts failed", "model response")
-TRANSIENT_CALL_RETRY_ATTEMPTS = 2
+# The Gemini client (gemini_client.py) already retries 429/5xx internally
+# with its own bounded budget, so a 502 reaching here already had its fair
+# shot at the source — retrying the *whole* pipeline call again on top of
+# that stacks a second full retry budget on the same failure and mostly
+# just multiplies wait time for something unlikely to succeed on a quick
+# retry. One extra attempt here is for genuinely separate transient issues
+# (a dropped connection, a brief service restart), not to double up on
+# Gemini-level retries.
+TRANSIENT_CALL_RETRY_ATTEMPTS = 1
 TRANSIENT_CALL_RETRY_DELAY_SECONDS = 2
 
 

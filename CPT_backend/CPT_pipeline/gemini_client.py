@@ -91,12 +91,15 @@ class GeminiClient:
                 # under Vertex AI quota pressure that silently eats minutes
                 # per call, well past batch_api's 180s per-request timeout,
                 # and surfaces as a plain "timed out" with no real cause.
-                # Cap each HTTP attempt and shorten the retry budget so a
-                # throttled call fails fast with a clear error instead of
-                # hanging: two sequential calls per request (model 1 and
-                # model 2) now bound to roughly 80s worst case, not minutes.
+                # Cap each HTTP attempt and disable the SDK's own retries —
+                # batch_api._post_json already retries the whole pipeline
+                # call once on a 5xx, so retrying here too just stacks a
+                # second retry budget on the same failure and multiplies
+                # wait time for something unlikely to succeed on a quick
+                # retry anyway. One clear, fast failure here, one retry
+                # at the call-site: predictable worst case, not minutes.
                 timeout=20_000,
-                retry_options=HttpRetryOptions(attempts=2, initial_delay=1.0, max_delay=10.0),
+                retry_options=HttpRetryOptions(attempts=1),
             ),
         )
 
