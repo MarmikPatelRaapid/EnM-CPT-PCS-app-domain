@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from google import genai
-from google.genai.types import GenerateContentConfig, HttpOptions, ThinkingConfig
+from google.genai.types import GenerateContentConfig, HttpOptions, HttpRetryOptions, ThinkingConfig
 
 try:
     from CPT_pipeline.config import Settings
@@ -84,7 +84,20 @@ class GeminiClient:
             vertexai=True,
             project=settings.vertex_project_id,
             location=settings.vertex_location,
-            http_options=HttpOptions(api_version="v1"),
+            http_options=HttpOptions(
+                api_version="v1",
+                # The SDK retries 429/5xx internally by default (5 attempts,
+                # backoff up to 60s each) with no visibility to the caller —
+                # under Vertex AI quota pressure that silently eats minutes
+                # per call, well past batch_api's 180s per-request timeout,
+                # and surfaces as a plain "timed out" with no real cause.
+                # Cap each HTTP attempt and shorten the retry budget so a
+                # throttled call fails fast with a clear error instead of
+                # hanging: two sequential calls per request (model 1 and
+                # model 2) now bound to roughly 80s worst case, not minutes.
+                timeout=20_000,
+                retry_options=HttpRetryOptions(attempts=2, initial_delay=1.0, max_delay=10.0),
+            ),
         )
 
     @staticmethod
