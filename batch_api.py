@@ -297,25 +297,44 @@ def _fetch_job(job_id: str) -> Optional[dict[str, Any]]:
     }
 
 
-def _fetch_job_history(workflow: Optional[str], limit: int) -> list[dict[str, Any]]:
+JOB_STATUS_FILTERS = {
+    "running": ("queued", "running"),
+    "completed": ("completed",),
+    "completed_with_errors": ("completed_with_errors",),
+    "cancelled": ("cancelled",),
+}
+
+
+def _fetch_job_history(
+    workflow: Optional[str],
+    status: Optional[str],
+    limit: int,
+    offset: int,
+) -> tuple[list[dict[str, Any]], int]:
+    clauses: list[str] = []
+    params: list[Any] = []
+    if workflow:
+        clauses.append("workflow = ?")
+        params.append(workflow)
+    if status:
+        statuses = JOB_STATUS_FILTERS.get(status)
+        if statuses:
+            clauses.append(f"status IN ({', '.join('?' for _ in statuses)})")
+            params.extend(statuses)
+    where_sql = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+
     with DB_LOCK, _get_connection() as conn:
-        if workflow:
-            rows = conn.execute(
-                """
-                SELECT job_id, workflow, status, total, completed, failed, model_name, thinking_budget, created_at
-                FROM batch_jobs WHERE workflow = ? ORDER BY created_at DESC LIMIT ?
-                """,
-                (workflow, limit),
-            ).fetchall()
-        else:
-            rows = conn.execute(
-                """
-                SELECT job_id, workflow, status, total, completed, failed, model_name, thinking_budget, created_at
-                FROM batch_jobs ORDER BY created_at DESC LIMIT ?
-                """,
-                (limit,),
-            ).fetchall()
-    return [dict(row) for row in rows]
+        total = conn.execute(
+            f"SELECT COUNT(*) AS n FROM batch_jobs {where_sql}", params
+        ).fetchone()["n"]
+        rows = conn.execute(
+            f"""
+            SELECT job_id, workflow, status, total, completed, failed, model_name, thinking_budget, created_at
+            FROM batch_jobs {where_sql} ORDER BY created_at DESC LIMIT ? OFFSET ?
+            """,
+            [*params, limit, offset],
+        ).fetchall()
+    return [dict(row) for row in rows], total
 
 
 def _fetch_completed_outputs(job_id: str) -> tuple[Optional[str], list[dict[str, Any]]]:
@@ -649,9 +668,12 @@ async def create_batch_job(
 @app.get("/batch/jobs")
 def list_batch_jobs(
     workflow: Optional[str] = Query(default=None),
-    limit: int = Query(default=50, ge=1, le=200),
+    status: Optional[str] = Query(default=None),
+    limit: int = Query(default=20, ge=1, le=200),
+    offset: int = Query(default=0, ge=0),
 ):
-    return {"jobs": _fetch_job_history(workflow, limit)}
+    jobs, total = _fetch_job_history(workflow, status, limit, offset)
+    return {"jobs": jobs, "total": total, "limit": limit, "offset": offset}
 
 
 @app.post("/batch/jobs/{job_id}/cancel")

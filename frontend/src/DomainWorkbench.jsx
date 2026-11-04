@@ -9,6 +9,24 @@ const PROMPTS_API_BASE = "/api/prompts-mgmt";
 const BATCH_API_BASE = "/api/batch";
 const POLL_INTERVAL_MS = 1200;
 const ACTIVE_JOB_STATUSES = new Set(["queued", "running"]);
+const HISTORY_PAGE_SIZE = 20;
+
+const HISTORY_STATUS_FILTERS = [
+  { value: "", label: "All" },
+  { value: "running", label: "Running" },
+  { value: "completed", label: "Completed" },
+  { value: "completed_with_errors", label: "Failed" },
+  { value: "cancelled", label: "Cancelled" }
+];
+
+const FILE_STATUS_FILTERS = [
+  { value: "", label: "All" },
+  { value: "queued", label: "Queued" },
+  { value: "running", label: "Running" },
+  { value: "done", label: "Done" },
+  { value: "error", label: "Failed" },
+  { value: "cancelled", label: "Cancelled" }
+];
 
 const DOMAINS = [
   { key: "overview", group: null, title: "Overview" },
@@ -150,7 +168,11 @@ function BatchRunner({ domainKey, domainTitle }) {
   const [thinkingBudgetOptions, setThinkingBudgetOptions] = useState([]);
   const [isDragActive, setIsDragActive] = useState(false);
   const [history, setHistory] = useState([]);
+  const [historyTotal, setHistoryTotal] = useState(0);
+  const [historyPage, setHistoryPage] = useState(0);
+  const [historyStatusFilter, setHistoryStatusFilter] = useState("");
   const [isHistoryLoading, setIsHistoryLoading] = useState(true);
+  const [fileStatusFilter, setFileStatusFilter] = useState("");
   const [retryingJobId, setRetryingJobId] = useState(null);
   const [isStoppingJob, setIsStoppingJob] = useState(false);
   const dragDepthRef = useRef(0);
@@ -211,19 +233,33 @@ function BatchRunner({ domainKey, domainTitle }) {
     pollTimeoutRef.current = setTimeout(() => pollJob(jobId), POLL_INTERVAL_MS);
   }
 
-  function loadHistory() {
+  function loadHistory(page, status) {
     setIsHistoryLoading(true);
-    fetch(`${BATCH_API_BASE}/batch/jobs?workflow=${domainKey}&limit=20`)
-      .then((response) => (response.ok ? response.json() : { jobs: [] }))
-      .then((data) => setHistory(Array.isArray(data.jobs) ? data.jobs : []))
+    const params = new URLSearchParams({
+      workflow: domainKey,
+      limit: String(HISTORY_PAGE_SIZE),
+      offset: String(page * HISTORY_PAGE_SIZE)
+    });
+    if (status) params.set("status", status);
+    fetch(`${BATCH_API_BASE}/batch/jobs?${params.toString()}`)
+      .then((response) => (response.ok ? response.json() : { jobs: [], total: 0 }))
+      .then((data) => {
+        setHistory(Array.isArray(data.jobs) ? data.jobs : []);
+        setHistoryTotal(typeof data.total === "number" ? data.total : 0);
+      })
       .catch(() => {})
       .finally(() => setIsHistoryLoading(false));
   }
 
+  function resetAndLoadHistory() {
+    setHistoryPage(0);
+    loadHistory(0, historyStatusFilter);
+  }
+
   useEffect(() => {
-    loadHistory();
+    loadHistory(historyPage, historyStatusFilter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [historyPage, historyStatusFilter]);
 
   async function pollJob(jobId) {
     try {
@@ -234,7 +270,7 @@ function BatchRunner({ domainKey, domainTitle }) {
       if (ACTIVE_JOB_STATUSES.has(data.status)) {
         schedulePoll(jobId);
       } else {
-        loadHistory();
+        resetAndLoadHistory();
       }
     } catch (error) {
       setSubmitError(error.message || "Lost contact with the batch processor.");
@@ -259,7 +295,7 @@ function BatchRunner({ domainKey, domainTitle }) {
         throw new Error(body?.detail || `HTTP ${response.status}`);
       }
       await pollJob(jobId);
-      loadHistory();
+      resetAndLoadHistory();
     } catch (error) {
       setSubmitError(error.message || "Failed to stop the run.");
     } finally {
@@ -292,7 +328,7 @@ function BatchRunner({ domainKey, domainTitle }) {
         /* ignore */
       }
       schedulePoll(data.job_id);
-      loadHistory();
+      resetAndLoadHistory();
     } catch (error) {
       setSubmitError(error.message || "Failed to retry the failed files.");
     } finally {
@@ -396,7 +432,7 @@ function BatchRunner({ domainKey, domainTitle }) {
         /* ignore */
       }
       schedulePoll(data.job_id);
-      loadHistory();
+      resetAndLoadHistory();
     } catch (error) {
       setSubmitError(error.message || "Could not start the run.");
     } finally {
@@ -415,6 +451,11 @@ function BatchRunner({ domainKey, domainTitle }) {
 
   const progressPercent = job && job.total ? Math.round((job.completed / job.total) * 100) : 0;
   const hasCompletedResults = job ? job.files.some((f) => f.status === "done") : false;
+  const visibleFiles = job
+    ? job.files.filter((item) => !fileStatusFilter || item.status === fileStatusFilter)
+    : [];
+  const historyRangeStart = historyTotal === 0 ? 0 : historyPage * HISTORY_PAGE_SIZE + 1;
+  const historyRangeEnd = Math.min(historyTotal, (historyPage + 1) * HISTORY_PAGE_SIZE);
 
   return (
     <div className="wb-batch">
@@ -527,7 +568,8 @@ function BatchRunner({ domainKey, domainTitle }) {
       {submitError ? <Flag state="abnormal">{submitError}</Flag> : null}
 
       {job ? (
-        <>
+        <div className="wb-current-run">
+          <h4>Current run</h4>
           <div className="wb-progress-row">
             <div className="wb-progress-track">
               <div className="wb-progress-fill" style={{ width: `${progressPercent}%` }} />
@@ -538,41 +580,76 @@ function BatchRunner({ domainKey, domainTitle }) {
             </span>
           </div>
 
-          <table className="wb-table">
-            <thead>
-              <tr>
-                <th>File</th>
-                <th>Status</th>
-                <th>Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              {job.files.map((item, index) => (
-                <tr key={`${item.name}-${index}`}>
-                  <td className="wb-table-file">{item.name}</td>
-                  <td>
-                    <Flag
-                      state={
-                        item.status === "done" ? "normal" : item.status === "error" ? "abnormal" : "pending"
-                      }
-                    >
-                      {item.status === "done"
-                        ? "Done"
-                        : item.status === "error"
-                        ? "Failed"
-                        : item.status === "running"
-                        ? "Running"
-                        : "Queued"}
-                    </Flag>
-                  </td>
-                  <td className="wb-table-summary">
-                    {item.status === "error" ? item.error : item.summary || "--"}
-                  </td>
-                </tr>
+          <div className="wb-history-toolbar">
+            <div className="wb-filter-chips" role="tablist" aria-label="Filter files by status">
+              {FILE_STATUS_FILTERS.map((filter) => (
+                <button
+                  key={filter.value || "all"}
+                  type="button"
+                  role="tab"
+                  aria-selected={fileStatusFilter === filter.value}
+                  className={fileStatusFilter === filter.value ? "wb-chip active" : "wb-chip"}
+                  onClick={() => setFileStatusFilter(filter.value)}
+                >
+                  {filter.label}
+                </button>
               ))}
-            </tbody>
-          </table>
-        </>
+            </div>
+            <span className="wb-pager-range">
+              {visibleFiles.length} of {job.files.length} files
+            </span>
+          </div>
+
+          <div className="wb-table-scroll">
+            <table className="wb-table wb-table--dense">
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>Status</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                {visibleFiles.map((item, index) => (
+                  <tr key={`${item.name}-${index}`}>
+                    <td className="wb-table-file">{item.name}</td>
+                    <td>
+                      <Flag
+                        state={
+                          item.status === "done"
+                            ? "normal"
+                            : item.status === "error"
+                            ? "abnormal"
+                            : "pending"
+                        }
+                      >
+                        {item.status === "done"
+                          ? "Done"
+                          : item.status === "error"
+                          ? "Failed"
+                          : item.status === "running"
+                          ? "Running"
+                          : item.status === "cancelled"
+                          ? "Cancelled"
+                          : "Queued"}
+                      </Flag>
+                    </td>
+                    <td className="wb-table-summary">
+                      {item.status === "error" ? item.error : item.summary || "--"}
+                    </td>
+                  </tr>
+                ))}
+                {visibleFiles.length === 0 ? (
+                  <tr>
+                    <td colSpan={3} className="wb-table-empty">
+                      No files match this filter.
+                    </td>
+                  </tr>
+                ) : null}
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <p className="wb-hint">
           Choose one or more .txt documents to run them through the {domainTitle} pipeline.
@@ -581,71 +658,121 @@ function BatchRunner({ domainKey, domainTitle }) {
 
       <div className="wb-history">
         <h4>Previous runs</h4>
+
+        <div className="wb-history-toolbar">
+          <div className="wb-filter-chips" role="tablist" aria-label="Filter runs by status">
+            {HISTORY_STATUS_FILTERS.map((filter) => (
+              <button
+                key={filter.value || "all"}
+                type="button"
+                role="tab"
+                aria-selected={historyStatusFilter === filter.value}
+                className={historyStatusFilter === filter.value ? "wb-chip active" : "wb-chip"}
+                onClick={() => {
+                  setHistoryStatusFilter(filter.value);
+                  setHistoryPage(0);
+                }}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+          {historyTotal > 0 ? (
+            <div className="wb-pager">
+              <span className="wb-pager-range">
+                {historyRangeStart}&ndash;{historyRangeEnd} of {historyTotal}
+              </span>
+              <button
+                type="button"
+                className="wb-button wb-button--small"
+                onClick={() => setHistoryPage((page) => Math.max(0, page - 1))}
+                disabled={historyPage === 0 || isHistoryLoading}
+              >
+                Prev
+              </button>
+              <button
+                type="button"
+                className="wb-button wb-button--small"
+                onClick={() => setHistoryPage((page) => page + 1)}
+                disabled={historyRangeEnd >= historyTotal || isHistoryLoading}
+              >
+                Next
+              </button>
+            </div>
+          ) : null}
+        </div>
+
         {isHistoryLoading ? (
           <p className="wb-hint">Loading previous runs...</p>
         ) : history.length === 0 ? (
-          <p className="wb-hint">No previous runs yet.</p>
+          <p className="wb-hint">
+            {historyStatusFilter
+              ? "No runs match this filter."
+              : "No previous runs yet."}
+          </p>
         ) : (
-          <table className="wb-table">
-            <thead>
-              <tr>
-                <th>Run</th>
-                <th>Workflow</th>
-                <th>Files</th>
-                <th>Model</th>
-                <th>Thinking budget</th>
-                <th>Status</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {history.map((entry) => (
-                <tr key={entry.job_id}>
-                  <td className="wb-table-file">{formatTimestamp(entry.created_at)}</td>
-                  <td>{labelForWorkflow(entry.workflow)}</td>
-                  <td>
-                    {entry.completed}/{entry.total}
-                    {entry.failed > 0 ? `, ${entry.failed} failed` : ""}
-                  </td>
-                  <td>{labelForModel(entry.model_name)}</td>
-                  <td>{labelForThinkingBudget(entry.thinking_budget)}</td>
-                  <td>
-                    <Flag
-                      state={
-                        entry.status === "completed"
-                          ? "normal"
-                          : entry.status === "completed_with_errors"
-                          ? "abnormal"
-                          : "pending"
-                      }
-                    >
-                      {entry.status.replace(/_/g, " ")}
-                    </Flag>
-                  </td>
-                  <td>
-                    <button
-                      type="button"
-                      className="wb-button"
-                      onClick={() => handleDownloadJob(entry.job_id)}
-                      disabled={entry.completed - entry.failed <= 0}
-                    >
-                      Download
-                    </button>
-                    {entry.failed > 0 || entry.status === "cancelled" ? (
+          <div className="wb-table-scroll">
+            <table className="wb-table wb-table--dense">
+              <thead>
+                <tr>
+                  <th>Run</th>
+                  <th>Workflow</th>
+                  <th>Files</th>
+                  <th>Model</th>
+                  <th>Thinking budget</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {history.map((entry) => (
+                  <tr key={entry.job_id}>
+                    <td className="wb-table-file">{formatTimestamp(entry.created_at)}</td>
+                    <td>{labelForWorkflow(entry.workflow)}</td>
+                    <td>
+                      {entry.completed}/{entry.total}
+                      {entry.failed > 0 ? `, ${entry.failed} failed` : ""}
+                    </td>
+                    <td>{labelForModel(entry.model_name)}</td>
+                    <td>{labelForThinkingBudget(entry.thinking_budget)}</td>
+                    <td>
+                      <Flag
+                        state={
+                          entry.status === "completed"
+                            ? "normal"
+                            : entry.status === "completed_with_errors"
+                            ? "abnormal"
+                            : "pending"
+                        }
+                      >
+                        {entry.status.replace(/_/g, " ")}
+                      </Flag>
+                    </td>
+                    <td>
                       <button
                         type="button"
                         className="wb-button"
-                        onClick={() => handleRetryJob(entry.job_id)}
-                        disabled={retryingJobId === entry.job_id || isJobActive}
+                        onClick={() => handleDownloadJob(entry.job_id)}
+                        disabled={entry.completed - entry.failed <= 0}
                       >
-                        {retryingJobId === entry.job_id ? "Retrying..." : "Retry failed"}
+                        Download
                       </button>
-                    ) : null}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      {entry.failed > 0 || entry.status === "cancelled" ? (
+                        <button
+                          type="button"
+                          className="wb-button"
+                          onClick={() => handleRetryJob(entry.job_id)}
+                          disabled={retryingJobId === entry.job_id || isJobActive}
+                        >
+                          {retryingJobId === entry.job_id ? "Retrying..." : "Retry failed"}
+                        </button>
+                      ) : null}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>
@@ -736,7 +863,7 @@ function OverviewSection({ prompts, schemas }) {
   }, [prompts, schemas]);
 
   return (
-    <section className="wb-section">
+    <section className="wb-section wb-section--narrow">
       <h2 className="wb-section-title">Overview</h2>
       <p className="wb-section-intro">
         One console for the prompts, response schemas, and batch runs behind the E&amp;M, CPT, and PCS
@@ -847,6 +974,75 @@ async function fetchJson(url) {
   }
 }
 
+const DOMAIN_PANES = [
+  { key: "library", title: "Library" },
+  { key: "batch", title: "Batch runs" }
+];
+
+function DomainSection({ domainKey, domainTitle, prompts, schemas, onPromptSaved, onSchemaSaved }) {
+  const [pane, setPane] = useState("library");
+
+  return (
+    <section className="wb-section wb-section--domain">
+      <div className="wb-section-head">
+        <h2 className="wb-section-title">{domainTitle}</h2>
+        <div className="wb-pane-tabs" role="tablist">
+          {DOMAIN_PANES.map((item) => (
+            <button
+              key={item.key}
+              type="button"
+              role="tab"
+              aria-selected={pane === item.key}
+              className={pane === item.key ? "wb-pane-tab active" : "wb-pane-tab"}
+              onClick={() => setPane(item.key)}
+            >
+              {item.title}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {pane === "library" ? (
+        <div className="wb-library-grid wb-section--narrow">
+          <div className="wb-subsection">
+            <h3>Prompts</h3>
+            {prompts.length === 0 ? (
+              <p className="wb-hint">No prompts registered for this workflow.</p>
+            ) : (
+              prompts.map((item) => (
+                <EditableEntry
+                  key={`${item.service}:${item.key}`}
+                  item={item}
+                  kind="prompt"
+                  onSaved={onPromptSaved}
+                />
+              ))
+            )}
+          </div>
+
+          <div className="wb-subsection">
+            <h3>Response schemas</h3>
+            {schemas.length === 0 ? (
+              <p className="wb-hint">No response schemas registered for this workflow.</p>
+            ) : (
+              schemas.map((item) => (
+                <EditableEntry
+                  key={`${item.service}:${item.key}`}
+                  item={item}
+                  kind="schema"
+                  onSaved={onSchemaSaved}
+                />
+              ))
+            )}
+          </div>
+        </div>
+      ) : (
+        <BatchRunner domainKey={domainKey} domainTitle={domainTitle} />
+      )}
+    </section>
+  );
+}
+
 export default function DomainWorkbench({ onBack }) {
   const [activeDomain, setActiveDomain] = useState("overview");
   const [prompts, setPrompts] = useState([]);
@@ -923,46 +1119,15 @@ export default function DomainWorkbench({ onBack }) {
           ) : activeDomain === "overview" ? (
             <OverviewSection prompts={prompts} schemas={schemas} />
           ) : (
-            <section className="wb-section">
-              <h2 className="wb-section-title">{activeDomainInfo.title}</h2>
-
-              <div className="wb-subsection">
-                <h3>Prompts</h3>
-                {domainPrompts.length === 0 ? (
-                  <p className="wb-hint">No prompts registered for this workflow.</p>
-                ) : (
-                  domainPrompts.map((item) => (
-                    <EditableEntry
-                      key={`${item.service}:${item.key}`}
-                      item={item}
-                      kind="prompt"
-                      onSaved={handlePromptSaved}
-                    />
-                  ))
-                )}
-              </div>
-
-              <div className="wb-subsection">
-                <h3>Response schemas</h3>
-                {domainSchemas.length === 0 ? (
-                  <p className="wb-hint">No response schemas registered for this workflow.</p>
-                ) : (
-                  domainSchemas.map((item) => (
-                    <EditableEntry
-                      key={`${item.service}:${item.key}`}
-                      item={item}
-                      kind="schema"
-                      onSaved={handleSchemaSaved}
-                    />
-                  ))
-                )}
-              </div>
-
-              <div className="wb-subsection">
-                <h3>Batch processing</h3>
-                <BatchRunner domainKey={activeDomain} domainTitle={activeDomainInfo.title} />
-              </div>
-            </section>
+            <DomainSection
+              key={activeDomain}
+              domainKey={activeDomain}
+              domainTitle={activeDomainInfo.title}
+              prompts={domainPrompts}
+              schemas={domainSchemas}
+              onPromptSaved={handlePromptSaved}
+              onSchemaSaved={handleSchemaSaved}
+            />
           )}
         </main>
       </div>
