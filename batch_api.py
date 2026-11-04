@@ -437,11 +437,12 @@ def _post_json(service_name: str, url: str, payload: dict[str, Any]) -> dict[str
     for attempt in range(TRANSIENT_CALL_RETRY_ATTEMPTS + 1):
         try:
             # CPT makes 2 sequential Gemini calls (model 1 + model 2), each
-            # bounded to 120s at the source (gemini_client.py) — 180s here
-            # would cut that off mid-flight before a legitimate slow-but-
-            # successful pair of calls could finish, producing a generic
-            # "timed out" instead of the real result or a real error.
-            resp = requests.post(url, json=payload, timeout=260)
+            # bounded to 10 minutes at the source (gemini_client.py) — a
+            # shorter timeout here would cut that off mid-flight before a
+            # legitimate slow-but-successful pair of calls could finish,
+            # producing a generic "timed out" instead of the real result
+            # or a real error.
+            resp = requests.post(url, json=payload, timeout=1260)
         except requests.exceptions.ConnectionError as exc:
             raise RuntimeError(
                 f"Could not reach the {service_name} service at {url}. Is it running?"
