@@ -165,16 +165,16 @@ def _create_job_record(
 def _get_file_task_inputs(job_id: str, file_index: int) -> Optional[dict[str, Any]]:
     with DB_LOCK, _get_connection() as conn:
         job_row = conn.execute(
-            "SELECT workflow, model_name, thinking_budget FROM batch_jobs WHERE job_id = ?",
+            "SELECT workflow, model_name, thinking_budget, status FROM batch_jobs WHERE job_id = ?",
             (job_id,),
         ).fetchone()
-        if job_row is None:
+        if job_row is None or job_row["status"] == "cancelled":
             return None
         file_row = conn.execute(
-            "SELECT text FROM batch_job_files WHERE job_id = ? AND file_index = ?",
+            "SELECT text, status FROM batch_job_files WHERE job_id = ? AND file_index = ?",
             (job_id, file_index),
         ).fetchone()
-        if file_row is None:
+        if file_row is None or file_row["status"] != "queued":
             return None
         conn.execute(
             "UPDATE batch_job_files SET status = 'running' WHERE job_id = ? AND file_index = ?",
@@ -187,6 +187,30 @@ def _get_file_task_inputs(job_id: str, file_index: int) -> Optional[dict[str, An
             "thinking_budget": job_row["thinking_budget"],
             "text": file_row["text"],
         }
+
+
+def _cancel_job(job_id: str) -> Optional[dict[str, Any]]:
+    """Stop a running job: queued files are marked cancelled so workers skip
+    them, and files already in flight are left to finish normally (their
+    result still gets recorded, but won't flip the job's status away from
+    'cancelled' once set)."""
+    now = datetime.now(timezone.utc).isoformat()
+    with DB_LOCK, _get_connection() as conn:
+        job_row = conn.execute("SELECT status FROM batch_jobs WHERE job_id = ?", (job_id,)).fetchone()
+        if job_row is None:
+            return None
+        if job_row["status"] in ("completed", "completed_with_errors", "cancelled"):
+            return {"status": job_row["status"]}
+        conn.execute(
+            "UPDATE batch_jobs SET status = 'cancelled', updated_at = ? WHERE job_id = ?",
+            (now, job_id),
+        )
+        conn.execute(
+            "UPDATE batch_job_files SET status = 'cancelled' WHERE job_id = ? AND status = 'queued'",
+            (job_id,),
+        )
+        conn.commit()
+    return {"status": "cancelled"}
 
 
 def _record_file_result(
@@ -232,6 +256,7 @@ def _record_file_result(
         if row and row["completed"] >= row["total"] and row["status"] not in (
             "completed",
             "completed_with_errors",
+            "cancelled",
         ):
             new_status = "completed_with_errors" if row["failed"] > 0 else "completed"
             conn.execute(
@@ -316,7 +341,11 @@ def _fetch_failed_files(job_id: str) -> tuple[Optional[dict[str, Any]], list[dic
         if job_row is None:
             return None, []
         file_rows = conn.execute(
-            "SELECT name, text FROM batch_job_files WHERE job_id = ? AND status = 'error' ORDER BY file_index",
+            """
+            SELECT name, text FROM batch_job_files
+            WHERE job_id = ? AND status IN ('error', 'cancelled')
+            ORDER BY file_index
+            """,
             (job_id,),
         ).fetchall()
     return dict(job_row), [{"name": row["name"], "text": row["text"]} for row in file_rows]
@@ -623,6 +652,14 @@ def list_batch_jobs(
     limit: int = Query(default=50, ge=1, le=200),
 ):
     return {"jobs": _fetch_job_history(workflow, limit)}
+
+
+@app.post("/batch/jobs/{job_id}/cancel")
+def cancel_batch_job(job_id: str):
+    result = _cancel_job(job_id)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Job not found")
+    return result
 
 
 @app.post("/batch/jobs/{job_id}/retry")

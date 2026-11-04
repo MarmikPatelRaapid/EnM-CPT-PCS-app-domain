@@ -152,6 +152,7 @@ function BatchRunner({ domainKey, domainTitle }) {
   const [history, setHistory] = useState([]);
   const [isHistoryLoading, setIsHistoryLoading] = useState(true);
   const [retryingJobId, setRetryingJobId] = useState(null);
+  const [isStoppingJob, setIsStoppingJob] = useState(false);
   const dragDepthRef = useRef(0);
   const fileInputRef = useRef(null);
   const pollTimeoutRef = useRef(null);
@@ -246,6 +247,24 @@ function BatchRunner({ domainKey, domainTitle }) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+
+  async function handleStopJob(jobId) {
+    setIsStoppingJob(true);
+    setSubmitError("");
+    try {
+      const response = await fetch(`${BATCH_API_BASE}/batch/jobs/${jobId}/cancel`, { method: "POST" });
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.detail || `HTTP ${response.status}`);
+      }
+      await pollJob(jobId);
+      loadHistory();
+    } catch (error) {
+      setSubmitError(error.message || "Failed to stop the run.");
+    } finally {
+      setIsStoppingJob(false);
+    }
   }
 
   async function handleRetryJob(jobId) {
@@ -490,6 +509,16 @@ function BatchRunner({ domainKey, domainTitle }) {
         >
           {isSubmitting ? "Starting" : isJobActive ? "Running" : `Run ${selectedFiles.length || ""}`.trim()}
         </button>
+        {isJobActive ? (
+          <button
+            type="button"
+            className="wb-button"
+            onClick={() => handleStopJob(job.job_id)}
+            disabled={isStoppingJob}
+          >
+            {isStoppingJob ? "Stopping..." : "Stop"}
+          </button>
+        ) : null}
         <button type="button" className="wb-button" onClick={handleDownload} disabled={!hasCompletedResults}>
           Download results
         </button>
@@ -602,7 +631,7 @@ function BatchRunner({ domainKey, domainTitle }) {
                     >
                       Download
                     </button>
-                    {entry.failed > 0 ? (
+                    {entry.failed > 0 || entry.status === "cancelled" ? (
                       <button
                         type="button"
                         className="wb-button"
