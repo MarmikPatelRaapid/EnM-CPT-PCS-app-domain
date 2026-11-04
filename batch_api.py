@@ -213,6 +213,34 @@ def _cancel_job(job_id: str) -> Optional[dict[str, Any]]:
     return {"status": "cancelled"}
 
 
+def _reconcile_interrupted_jobs() -> None:
+    """The in-memory task queue and worker threads don't survive a process
+    restart, so any job still 'queued'/'running' from before the restart has
+    no worker left to finish it and would otherwise sit stuck forever. Mark
+    those jobs (and their not-yet-done files) 'cancelled' on startup instead
+    — same end state as a manual Stop, so whatever already completed stays
+    downloadable, and the rest can be picked up again with Retry failed."""
+    now = datetime.now(timezone.utc).isoformat()
+    with DB_LOCK, _get_connection() as conn:
+        stuck_job_ids = [
+            row["job_id"]
+            for row in conn.execute(
+                "SELECT job_id FROM batch_jobs WHERE status IN ('queued', 'running')"
+            ).fetchall()
+        ]
+        if not stuck_job_ids:
+            return
+        conn.executemany(
+            "UPDATE batch_jobs SET status = 'cancelled', updated_at = ? WHERE job_id = ?",
+            [(now, job_id) for job_id in stuck_job_ids],
+        )
+        conn.executemany(
+            "UPDATE batch_job_files SET status = 'cancelled' WHERE job_id = ? AND status IN ('queued', 'running')",
+            [(job_id,) for job_id in stuck_job_ids],
+        )
+        conn.commit()
+
+
 def _record_file_result(
     job_id: str,
     file_index: int,
@@ -596,6 +624,7 @@ def _current_concurrency() -> int:
 
 
 _init_db()
+_reconcile_interrupted_jobs()
 _ensure_concurrency(int(_get_setting("batch_concurrency", str(DEFAULT_CONCURRENCY))))
 
 
