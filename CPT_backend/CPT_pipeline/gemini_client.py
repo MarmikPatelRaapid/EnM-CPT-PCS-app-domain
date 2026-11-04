@@ -191,5 +191,11 @@ class GeminiClient:
         try:
             return json.loads(text)
         except json.JSONDecodeError as exc:
-            raise GeminiClientError(f"Gemini returned non-JSON content: {text}") from exc
+            # `text` is the model's raw output, which can echo back large
+            # chunks of the submitted document — don't embed it wholesale in
+            # a user-facing error, just enough to tell error types apart.
+            preview = text[:120] + ("..." if len(text) > 120 else "")
+            raise GeminiClientError(
+                f"Gemini returned non-JSON content ({len(text)} chars): {preview!r}"
+            ) from exc
 

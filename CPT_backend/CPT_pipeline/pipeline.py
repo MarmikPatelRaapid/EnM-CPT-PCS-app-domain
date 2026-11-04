@@ -43,6 +43,19 @@ class PipelineError(RuntimeError):
     """Raised for model validation or orchestration failures."""
 
 
+def _summarize_validation_error(exc: ValidationError) -> str:
+    """Pydantic's default str(ValidationError) embeds the raw input value
+    that failed validation — which can be a chunk of the submitted document
+    text (e.g. a quoted evidence field) — so it's not safe to surface as-is
+    in a user-facing error. Report only the field path and the validation
+    complaint, never the value."""
+    parts = []
+    for error in exc.errors(include_url=False):
+        loc = ".".join(str(part) for part in error.get("loc", ())) or "(root)"
+        parts.append(f"{loc}: {error.get('msg', 'invalid value')}")
+    return "; ".join(parts) if parts else str(exc.error_count()) + " validation error(s)"
+
+
 def flatten_to_text(value: Any) -> list[str]:
     if value is None:
         return []
@@ -233,13 +246,17 @@ class CPTAuditPipeline:
         try:
             return Model1Response.model_validate(payload)
         except ValidationError as exc:
-            raise PipelineError(f"Invalid model_1 response payload: {exc}") from exc
+            raise PipelineError(
+                f"Invalid model_1 response payload: {_summarize_validation_error(exc)}"
+            ) from exc
 
     def _validate_model_2(self, payload: dict[str, Any]) -> Model2Response:
         try:
             return Model2Response.model_validate(payload)
         except ValidationError as exc:
-            raise PipelineError(f"Invalid model_2 response payload: {exc}") from exc
+            raise PipelineError(
+                f"Invalid model_2 response payload: {_summarize_validation_error(exc)}"
+            ) from exc
 
     async def _enrich_with_retrieval(
         self,
@@ -314,43 +331,48 @@ class CPTAuditPipeline:
                 cpt_map[cpt_key] = code_obj
 
         audited_codes_output: list[AuditCodeResponse] = []
-        for audited in model_2_output.get("audited_codes", []):
-            original_code = str(audited.get("original_cpt_code", "")).strip()
-            source = cpt_map.get(original_code, {})
+        try:
+            for audited in model_2_output.get("audited_codes", []):
+                original_code = str(audited.get("original_cpt_code", "")).strip()
+                source = cpt_map.get(original_code, {})
 
-            audited_codes_output.append(
-                AuditCodeResponse.model_validate(
-                    {
-                        "original_cpt_code": original_code,
-                        "final_cpt_code": str(audited.get("final_cpt_code", "")),
-                        "final_cpt_code_description": str(
-                            audited.get("final_cpt_code_description", "")
-                        ),
-                        "final_cpt_code_justification": str(
-                            audited.get("final_cpt_code_justification", "")
-                        ),
-                        "procedure_evidences": _sanitize_evidence(
-                            source.get("procedure_evidences")
-                        ),
-                        "anatomy_evidences": _sanitize_evidence(source.get("anatomy_evidences")),
-                        "approach_evidences": _sanitize_evidence(
-                            source.get("approach_evidences")
-                        ),
-                        "procedure_type_evidences": _sanitize_evidence(
-                            source.get("procedure_type_evidences")
-                        ),
-                        "imaging_guidance_evidences": _sanitize_evidence(
-                            source.get("imaging_guidance_evidences")
-                        ),
-                        "anesthesia_type_evidences": _sanitize_evidence(
-                            source.get("anesthesia_type_evidences")
-                        ),
-                        "other_evidences": _sanitize_other_evidence(
-                            source.get("other_evidences")
-                        ),
-                    }
+                audited_codes_output.append(
+                    AuditCodeResponse.model_validate(
+                        {
+                            "original_cpt_code": original_code,
+                            "final_cpt_code": str(audited.get("final_cpt_code", "")),
+                            "final_cpt_code_description": str(
+                                audited.get("final_cpt_code_description", "")
+                            ),
+                            "final_cpt_code_justification": str(
+                                audited.get("final_cpt_code_justification", "")
+                            ),
+                            "procedure_evidences": _sanitize_evidence(
+                                source.get("procedure_evidences")
+                            ),
+                            "anatomy_evidences": _sanitize_evidence(source.get("anatomy_evidences")),
+                            "approach_evidences": _sanitize_evidence(
+                                source.get("approach_evidences")
+                            ),
+                            "procedure_type_evidences": _sanitize_evidence(
+                                source.get("procedure_type_evidences")
+                            ),
+                            "imaging_guidance_evidences": _sanitize_evidence(
+                                source.get("imaging_guidance_evidences")
+                            ),
+                            "anesthesia_type_evidences": _sanitize_evidence(
+                                source.get("anesthesia_type_evidences")
+                            ),
+                            "other_evidences": _sanitize_other_evidence(
+                                source.get("other_evidences")
+                            ),
+                        }
+                    )
                 )
-            )
+        except ValidationError as exc:
+            raise PipelineError(
+                f"Invalid audited code payload: {_summarize_validation_error(exc)}"
+            ) from exc
 
         return Service1Response(audited_codes=audited_codes_output)
 
