@@ -2,6 +2,7 @@ import json
 import os
 import re
 import sqlite3
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from google import genai
@@ -29,64 +30,27 @@ def _load_prompt_from_db(service: str, key: str) -> str | None:
     return row[0] if row else None
 
 
-def _load_default_model_from_db() -> str | None:
-    """The DB-backed dropdown is the single source of truth for which model
-    to use by default; falls back to None (caller uses its own settings
-    default) only if the DB has no default row configured."""
-    db_path = _find_repo_root(Path(__file__).resolve()) / "prompts.db"
-    conn = sqlite3.connect(str(db_path))
-    try:
-        row = conn.execute(
-            "SELECT value FROM dropdown_options WHERE category = 'model' AND is_default = 1"
-        ).fetchone()
-    finally:
-        conn.close()
-    return row[0] if row and row[0] else None
-
-
 PROJECT_ID = os.getenv("VERTEX_PROJECT_ID", "raapid-genai")
 LOCATION = os.getenv("VERTEX_LOCATION", "global")
 
-MODEL_CONFIG = {
-    "serving_mode": "on_demand",  # "on_demand" or "endpoint"
-    "model_name": os.getenv("EM_EVIDENCE_MODEL_NAME", "gemini-2.5-pro"),
-    "endpoint_name": "",
-    "temperature": 0.25,
-    "top_p": 0.15,
-}
+TEMPERATURE = 0.25
+TOP_P = 0.15
 
 BASE_DIR = Path(__file__).resolve().parent
-PROMPT_FILE = BASE_DIR / "prompt.txt"
-OUTPUT_SCHEMA_FILE = BASE_DIR / "output_schema.json"
-DEFAULT_SYSTEM_PROMPT = (
-    "Extract structured E&M evidence from each document. "
-    "Return only valid JSON that follows the provided response schema."
-)
 
-
-def get_model_name() -> str:
-    mode = MODEL_CONFIG.get("serving_mode", "on_demand")
-    if mode == "on_demand":
-        return MODEL_CONFIG["model_name"]
-    if mode == "endpoint":
-        endpoint_name = MODEL_CONFIG.get("endpoint_name", "").strip()
-        if not endpoint_name:
-            raise ValueError("Set MODEL_CONFIG['endpoint_name'] for endpoint mode.")
-        return endpoint_name
-    raise ValueError("serving_mode must be 'on_demand' or 'endpoint'.")
-
-
-def _read_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
-
-
-def _read_prompt() -> str:
-    db_prompt = _load_prompt_from_db("em_evidence", "prompt")
-    if db_prompt:
-        return db_prompt
-    if PROMPT_FILE.exists():
-        return _read_text(PROMPT_FILE)
-    return DEFAULT_SYSTEM_PROMPT
+# E&M evidence extraction runs as two independent, parallel Gemini calls
+# against the same document instead of one mega-prompt: prompt_1 pulls visit
+# info/time/demographics (light extraction, low thinking suffices), prompt_2
+# pulls MDM (problems/data/risk — denser reasoning, so medium thinking). Each
+# call's own default is intentionally fixed here rather than resolved from
+# the shared DB dropdown default (dropdown_options), since that single
+# global default can't represent "low for call 1, medium for call 2" at
+# once. An explicit per-request override (from the UI or a batch run) still
+# applies to both calls identically.
+PROMPT_CALLS = {
+    "prompt_1": {"default_model": "gemini-3.8-flash", "default_thinking_budget": 1024},
+    "prompt_2": {"default_model": "gemini-3.8-flash", "default_thinking_budget": 4096},
+}
 
 
 _CONTROL_CHAR_ESCAPES = {
@@ -197,6 +161,50 @@ def _extract_document_text(document_item: object) -> str:
     return str(document_item or "").strip()
 
 
+def _run_prompt_call(
+    call_key: str,
+    document_text: str,
+    model_name: str | None,
+    thinking_budget: int | None,
+) -> dict:
+    call_config = PROMPT_CALLS[call_key]
+    prompt = _load_prompt_from_db("em_evidence", call_key)
+    if not prompt:
+        raise ValueError(f"Prompt not found in prompts.db: service='em_evidence' key='{call_key}'")
+
+    resolved_model = model_name or call_config["default_model"]
+    resolved_thinking = (
+        thinking_budget if thinking_budget is not None else call_config["default_thinking_budget"]
+    )
+
+    client = genai.Client(
+        vertexai=True,
+        project=PROJECT_ID,
+        location=LOCATION,
+    )
+
+    config_kwargs: dict = {
+        "temperature": TEMPERATURE,
+        "top_p": TOP_P,
+        "system_instruction": prompt,
+        "response_mime_type": "application/json",
+    }
+    if resolved_thinking is not None:
+        config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=resolved_thinking)
+
+    response = client.models.generate_content(
+        model=resolved_model,
+        contents=[types.Part.from_text(text=document_text)],
+        config=types.GenerateContentConfig(**config_kwargs),
+    )
+
+    try:
+        return _parse_response_json(response.text)
+    except ValueError:
+        _save_unparseable_response(call_key, response.text)
+        raise
+
+
 def generate_from_documents(
     documents: list[object],
     model_name: str | None = None,
@@ -209,37 +217,20 @@ def generate_from_documents(
     if not selected_text:
         raise ValueError("Selected generated_document text is empty.")
 
-    prompt = _read_prompt()
+    # The two calls extract disjoint top-level fields from the same
+    # document (visit info/time/demographics vs. MDM), so they run in
+    # parallel and their results are simply merged — the downstream
+    # resolver already expects one object with both sets of keys.
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        future_1 = executor.submit(_run_prompt_call, "prompt_1", selected_text, model_name, thinking_budget)
+        future_2 = executor.submit(_run_prompt_call, "prompt_2", selected_text, model_name, thinking_budget)
+        result_1 = future_1.result()
+        result_2 = future_2.result()
 
-    client = genai.Client(
-        vertexai=True,
-        project=PROJECT_ID,
-        location=LOCATION,
-    )
-
-    config_kwargs: dict = {
-        "temperature": MODEL_CONFIG["temperature"],
-        "top_p": MODEL_CONFIG["top_p"],
-        "system_instruction": prompt,
-        "response_mime_type": "application/json",
-    }
-    if thinking_budget is not None:
-        config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=thinking_budget)
-
-    response = client.models.generate_content(
-        model=model_name or _load_default_model_from_db() or get_model_name(),
-        contents=[types.Part.from_text(text=selected_text)],
-        config=types.GenerateContentConfig(**config_kwargs),
-    )
-
-    try:
-        return _parse_response_json(response.text)
-    except ValueError:
-        _save_unparseable_response(response.text)
-        raise
+    return {**result_1, **result_2}
 
 
-def _save_unparseable_response(raw_text: str) -> None:
+def _save_unparseable_response(call_key: str, raw_text: str) -> None:
     """Keep the raw text Gemini returned when every parse strategy fails, so a
     failure can actually be diagnosed afterwards instead of only seeing the
     parser's error message."""
@@ -249,6 +240,6 @@ def _save_unparseable_response(raw_text: str) -> None:
         debug_dir = BASE_DIR / "output" / "unparseable_responses"
         debug_dir.mkdir(parents=True, exist_ok=True)
         timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-        (debug_dir / f"{timestamp}.txt").write_text(raw_text or "", encoding="utf-8")
+        (debug_dir / f"{timestamp}_{call_key}.txt").write_text(raw_text or "", encoding="utf-8")
     except Exception:
         pass  # Debug aid only — never let this mask the original parse error.
