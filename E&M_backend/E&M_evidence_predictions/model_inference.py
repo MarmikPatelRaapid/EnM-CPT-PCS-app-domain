@@ -209,7 +209,14 @@ def generate_from_documents(
     documents: list[object],
     model_name: str | None = None,
     thinking_budget: int | None = None,
+    model_name_2: str | None = None,
+    thinking_budget_2: int | None = None,
 ) -> dict:
+    """model_name/thinking_budget override prompt_1 (visit info); _2 overrides
+    prompt_2 (MDM) independently — each falls back to that call's own default
+    (see PROMPT_CALLS) when its override is left unset, so the two calls can
+    use different models/thinking levels without one implicitly overriding
+    the other."""
     if not documents:
         raise ValueError("At least one generated_document text is required.")
 
@@ -223,7 +230,7 @@ def generate_from_documents(
     # resolver already expects one object with both sets of keys.
     with ThreadPoolExecutor(max_workers=2) as executor:
         future_1 = executor.submit(_run_prompt_call, "prompt_1", selected_text, model_name, thinking_budget)
-        future_2 = executor.submit(_run_prompt_call, "prompt_2", selected_text, model_name, thinking_budget)
+        future_2 = executor.submit(_run_prompt_call, "prompt_2", selected_text, model_name_2, thinking_budget_2)
         result_1 = future_1.result()
         result_2 = future_2.result()
 

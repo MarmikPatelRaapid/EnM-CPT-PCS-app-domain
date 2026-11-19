@@ -110,6 +110,15 @@ def _init_db() -> None:
             )
             """
         )
+        # E&M runs two independent Gemini calls per document and needs a
+        # second model/thinking override; added after batch_jobs already
+        # existed in deployed databases, so add it defensively rather than
+        # via CREATE TABLE (SQLite has no "ADD COLUMN IF NOT EXISTS").
+        for column, column_type in (("model_name_2", "TEXT"), ("thinking_budget_2", "INTEGER")):
+            try:
+                conn.execute(f"ALTER TABLE batch_jobs ADD COLUMN {column} {column_type}")
+            except sqlite3.OperationalError:
+                pass  # column already exists
         conn.commit()
 
 
@@ -138,16 +147,29 @@ def _create_job_record(
     model_name: Optional[str],
     thinking_budget: Optional[int],
     file_entries: list[dict[str, str]],
+    model_name_2: Optional[str] = None,
+    thinking_budget_2: Optional[int] = None,
 ) -> None:
     now = datetime.now(timezone.utc).isoformat()
     with DB_LOCK, _get_connection() as conn:
         conn.execute(
             """
             INSERT INTO batch_jobs
-                (job_id, workflow, status, total, completed, failed, model_name, thinking_budget, created_at, updated_at)
-            VALUES (?, ?, 'running', ?, 0, 0, ?, ?, ?, ?)
+                (job_id, workflow, status, total, completed, failed, model_name, thinking_budget,
+                 model_name_2, thinking_budget_2, created_at, updated_at)
+            VALUES (?, ?, 'running', ?, 0, 0, ?, ?, ?, ?, ?, ?)
             """,
-            (job_id, workflow, len(file_entries), model_name, thinking_budget, now, now),
+            (
+                job_id,
+                workflow,
+                len(file_entries),
+                model_name,
+                thinking_budget,
+                model_name_2,
+                thinking_budget_2,
+                now,
+                now,
+            ),
         )
         conn.executemany(
             """
@@ -165,7 +187,10 @@ def _create_job_record(
 def _get_file_task_inputs(job_id: str, file_index: int) -> Optional[dict[str, Any]]:
     with DB_LOCK, _get_connection() as conn:
         job_row = conn.execute(
-            "SELECT workflow, model_name, thinking_budget, status FROM batch_jobs WHERE job_id = ?",
+            """
+            SELECT workflow, model_name, thinking_budget, model_name_2, thinking_budget_2, status
+            FROM batch_jobs WHERE job_id = ?
+            """,
             (job_id,),
         ).fetchone()
         if job_row is None or job_row["status"] == "cancelled":
@@ -185,6 +210,8 @@ def _get_file_task_inputs(job_id: str, file_index: int) -> Optional[dict[str, An
             "workflow": job_row["workflow"],
             "model_name": job_row["model_name"],
             "thinking_budget": job_row["thinking_budget"],
+            "model_name_2": job_row["model_name_2"],
+            "thinking_budget_2": job_row["thinking_budget_2"],
             "text": file_row["text"],
         }
 
@@ -312,6 +339,8 @@ def _fetch_job(job_id: str) -> Optional[dict[str, Any]]:
         "failed": job_row["failed"],
         "model_name": job_row["model_name"],
         "thinking_budget": job_row["thinking_budget"],
+        "model_name_2": job_row["model_name_2"],
+        "thinking_budget_2": job_row["thinking_budget_2"],
         "created_at": job_row["created_at"],
         "files": [
             {
@@ -357,7 +386,8 @@ def _fetch_job_history(
         ).fetchone()["n"]
         rows = conn.execute(
             f"""
-            SELECT job_id, workflow, status, total, completed, failed, model_name, thinking_budget, created_at
+            SELECT job_id, workflow, status, total, completed, failed, model_name, thinking_budget,
+                   model_name_2, thinking_budget_2, created_at
             FROM batch_jobs {where_sql} ORDER BY created_at DESC LIMIT ? OFFSET ?
             """,
             [*params, limit, offset],
@@ -382,7 +412,10 @@ def _fetch_completed_outputs(job_id: str) -> tuple[Optional[str], list[dict[str,
 def _fetch_failed_files(job_id: str) -> tuple[Optional[dict[str, Any]], list[dict[str, str]]]:
     with DB_LOCK, _get_connection() as conn:
         job_row = conn.execute(
-            "SELECT workflow, model_name, thinking_budget FROM batch_jobs WHERE job_id = ?",
+            """
+            SELECT workflow, model_name, thinking_budget, model_name_2, thinking_budget_2
+            FROM batch_jobs WHERE job_id = ?
+            """,
             (job_id,),
         ).fetchone()
         if job_row is None:
@@ -474,13 +507,23 @@ def _post_json(service_name: str, url: str, payload: dict[str, Any]) -> dict[str
 
 
 def _run_em_pipeline(
-    text: str, model_name: Optional[str] = None, thinking_budget: Optional[int] = None
+    text: str,
+    model_name: Optional[str] = None,
+    thinking_budget: Optional[int] = None,
+    model_name_2: Optional[str] = None,
+    thinking_budget_2: Optional[int] = None,
 ) -> dict[str, Any]:
+    # model_name/thinking_budget override prompt_1 (visit info); _2 overrides
+    # prompt_2 (MDM) independently — see model_inference.generate_from_documents.
     evidence_payload: dict[str, Any] = {"documents": [{"generated_document": text}]}
     if model_name is not None:
         evidence_payload["model_name"] = model_name
     if thinking_budget is not None:
         evidence_payload["thinking_budget"] = thinking_budget
+    if model_name_2 is not None:
+        evidence_payload["model_name_2"] = model_name_2
+    if thinking_budget_2 is not None:
+        evidence_payload["thinking_budget_2"] = thinking_budget_2
 
     evidence_json = _post_json("evidence", f"{EVIDENCE_URL}/predict", evidence_payload)
     em_json = _post_json("E&M resolver", f"{EM_URL}/resolve-predict", evidence_json)
@@ -488,8 +531,15 @@ def _run_em_pipeline(
 
 
 def _run_cpt_pipeline(
-    text: str, model_name: Optional[str] = None, thinking_budget: Optional[int] = None
+    text: str,
+    model_name: Optional[str] = None,
+    thinking_budget: Optional[int] = None,
+    model_name_2: Optional[str] = None,
+    thinking_budget_2: Optional[int] = None,
 ) -> dict[str, Any]:
+    # model_name_2/thinking_budget_2 are accepted but unused — CPT is a
+    # single-call pipeline; kept only so _process_one can call every
+    # workflow runner with the same signature.
     payload: dict[str, Any] = {"text": text}
     if model_name is not None:
         payload["model_name"] = model_name
@@ -501,8 +551,15 @@ def _run_cpt_pipeline(
 
 
 def _run_pcs_pipeline(
-    text: str, model_name: Optional[str] = None, thinking_budget: Optional[int] = None
+    text: str,
+    model_name: Optional[str] = None,
+    thinking_budget: Optional[int] = None,
+    model_name_2: Optional[str] = None,
+    thinking_budget_2: Optional[int] = None,
 ) -> dict[str, Any]:
+    # model_name_2/thinking_budget_2 are accepted but unused — PCS is a
+    # single-call pipeline; kept only so _process_one can call every
+    # workflow runner with the same signature.
     payload: dict[str, Any] = {"generated_text": text}
     if model_name is not None:
         payload["model_name"] = model_name
@@ -573,6 +630,8 @@ def _process_one(job_id: str, file_index: int) -> None:
             inputs["text"],
             model_name=inputs["model_name"],
             thinking_budget=inputs["thinking_budget"],
+            model_name_2=inputs["model_name_2"],
+            thinking_budget_2=inputs["thinking_budget_2"],
         )
         summary = SUMMARIZERS[inputs["workflow"]](output)
         _record_file_result(job_id, file_index, output=output, summary=summary, error="")
@@ -678,6 +737,8 @@ async def create_batch_job(
     files: list[UploadFile] = File(...),
     model_name: Optional[str] = Form(default=None),
     thinking_budget: Optional[int] = Form(default=None),
+    model_name_2: Optional[str] = Form(default=None),
+    thinking_budget_2: Optional[int] = Form(default=None),
 ):
     if workflow not in WORKFLOW_RUNNERS:
         raise HTTPException(status_code=400, detail="workflow must be one of: em, cpt, pcs")
@@ -700,6 +761,8 @@ async def create_batch_job(
         (model_name or "").strip() or None,
         thinking_budget,
         file_entries,
+        model_name_2=(model_name_2 or "").strip() or None,
+        thinking_budget_2=thinking_budget_2,
     )
 
     for index in range(len(file_entries)):
@@ -742,6 +805,8 @@ def retry_batch_job(job_id: str):
         job_row["model_name"],
         job_row["thinking_budget"],
         failed_entries,
+        model_name_2=job_row["model_name_2"],
+        thinking_budget_2=job_row["thinking_budget_2"],
     )
     for index in range(len(failed_entries)):
         TASK_QUEUE.put((new_job_id, index))
