@@ -14,6 +14,9 @@ LOGGER = logging.getLogger(__name__)
 MdmInput = Optional[Union[str, int]]
 NumberInput = Optional[Union[str, int, float]]
 
+# Reference-sheet MDM values meaning "no MDM requirement" (wildcard on MDM).
+_NA_MDM_LEVELS = frozenset({"n/a", "n/a - time only"})
+
 
 def configure_logging(level: int = logging.INFO) -> None:
     """Set a sensible default log format for troubleshooting."""
@@ -395,15 +398,22 @@ class EMCodeMapper:
         ):
             return False
 
+        time_matches = expected_time is None or _time_in_range(
+            expected_time, row["min"], row["max"]
+        )
+
+        # "N/A" rows have no MDM requirement, so any evidence MDM level
+        # satisfies them. Their time range (when the row defines one and a time
+        # value is present) is still enforced, so the time-based level is
+        # selected instead of every N/A row in the service matching.
+        if row["mdm_level"] in _NA_MDM_LEVELS:
+            return time_matches
+
         if expected_mdm is not None and expected_time is not None:
-            mdm_matches = row["mdm_level"] in {expected_mdm, "n/a"}
-            time_matches = _time_in_range(expected_time, row["min"], row["max"])
-            return mdm_matches or time_matches
+            # Leveled rows: E&M level may be met by MDM or by total time.
+            return row["mdm_level"] == expected_mdm or time_matches
 
-        if expected_mdm is not None and row["mdm_level"] not in {expected_mdm, "n/a"}:
+        if expected_mdm is not None and row["mdm_level"] != expected_mdm:
             return False
 
-        if expected_time is not None and not _time_in_range(expected_time, row["min"], row["max"]):
-            return False
-
-        return True
+        return time_matches
