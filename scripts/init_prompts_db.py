@@ -35,8 +35,13 @@ PROMPT_FILES = [
     ),
     (
         "em_evidence",
-        "prompt",
-        "E&M_backend/E&M_evidence_predictions/prompt.txt",
+        "prompt_1",
+        "E&M_backend/E&M_evidence_predictions/prompts/prompt_1.txt",
+    ),
+    (
+        "em_evidence",
+        "prompt_2",
+        "E&M_backend/E&M_evidence_predictions/prompts/prompt_2.txt",
     ),
     (
         "pcs_synthetic",

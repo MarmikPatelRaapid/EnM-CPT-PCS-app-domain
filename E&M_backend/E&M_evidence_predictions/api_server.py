@@ -18,6 +18,11 @@ class PredictionRequest(BaseModel):
     documents: list[DocumentInput]
     model_name: str | None = None
     thinking_budget: int | None = None
+    # Overrides for prompt_2 (MDM) specifically — prompt_1 (visit info) uses
+    # model_name/thinking_budget above. Independent so each of E&M's two
+    # Gemini calls can use a different model/thinking level.
+    model_name_2: str | None = None
+    thinking_budget_2: int | None = None
 
 
 OUTPUT_RUNS_DIR = Path(__file__).resolve().parent / "output" / "ui_runs"
@@ -87,6 +92,8 @@ def predict(
             generated_documents,
             model_name=payload.model_name,
             thinking_budget=payload.thinking_budget,
+            model_name_2=payload.model_name_2,
+            thinking_budget_2=payload.thinking_budget_2,
         )
         _write_json(run_dir / f"evidence_request_{document_id}_{timestamp}.json", request_snapshot)
         _write_json(run_dir / f"evidence_response_{document_id}_{timestamp}.json", output)

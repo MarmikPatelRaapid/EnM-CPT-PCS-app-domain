@@ -454,6 +454,30 @@
   color: var(--wb-ink);
 }
 
+/* Two bracketed groups when a workflow runs more than one model call per
+   document (E&M: visit info, then MDM) — a thin rule around each pair
+   rather than a card, so the grouping reads as a ledger annotation, not
+   a separate panel. */
+.wb-model-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 12px 6px;
+  border: 1px solid var(--wb-hairline);
+  border-radius: 4px;
+}
+
+.wb-model-group:disabled {
+  opacity: 0.6;
+}
+
+.wb-model-group legend {
+  padding: 0 6px;
+  font-size: 0.74rem;
+  color: var(--wb-ink-muted);
+}
+
 .wb-progress-row {
   display: flex;
   align-items: center;
@@ -516,6 +540,15 @@
 .wb-table-summary {
   color: var(--wb-ink-muted);
   max-width: 48ch;
+}
+
+/* Second line in a Model/Thinking cell when a workflow ran more than one
+   call per document (E&M) — stacked rather than joined inline, so each
+   call's value stays independently legible. */
+.wb-table-subline {
+  color: var(--wb-ink-muted);
+  font-size: 0.78em;
+  margin-top: 2px;
 }
 
 .wb-table-empty {
