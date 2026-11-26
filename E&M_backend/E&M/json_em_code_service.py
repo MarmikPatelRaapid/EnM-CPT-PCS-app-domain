@@ -86,7 +86,16 @@ def _read_time(payload: Dict[str, Any], section: str) -> Optional[int]:
     value = node.get("time_in_mins")
     if value is None:
         return None
-    return int(value)
+    text = str(value).strip()
+    if not text or text.casefold() in {"not found", "not_found"}:
+        # The extraction prompt explicitly emits this literal when time
+        # wasn't documented — "unspecified", not an error. None already
+        # means "don't filter on time" downstream in em_code_mapper.py.
+        return None
+    try:
+        return int(float(text))
+    except ValueError as exc:
+        raise ValueError(f"Invalid numeric value '{value}' for '{section}.time_in_mins'.") from exc
 
 
 def extract_lookup_inputs_from_payload(payload: Dict[str, Any]) -> Dict[str, Optional[Any]]:

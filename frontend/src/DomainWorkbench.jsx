@@ -164,6 +164,12 @@ function BatchRunner({ domainKey, domainTitle }) {
   const [submitError, setSubmitError] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
   const [selectedThinkingBudget, setSelectedThinkingBudget] = useState("");
+  // E&M runs two independent Gemini calls per document (visit info, then
+  // MDM) instead of one, so it gets its own second model/thinking pair for
+  // the second call. CPT and PCS stay single-call and never touch these.
+  const isEm = domainKey === "em";
+  const [selectedModel2, setSelectedModel2] = useState("");
+  const [selectedThinkingBudget2, setSelectedThinkingBudget2] = useState("");
   const [modelOptions, setModelOptions] = useState([]);
   const [thinkingBudgetOptions, setThinkingBudgetOptions] = useState([]);
   const [isDragActive, setIsDragActive] = useState(false);
@@ -189,6 +195,10 @@ function BatchRunner({ domainKey, domainTitle }) {
       setThinkingBudgetOptions(config.thinkingBudgetOptions);
       setSelectedModel(config.defaultModel);
       setSelectedThinkingBudget(config.defaultThinkingBudget);
+      setSelectedModel2(config.defaultModel);
+      // Prompt 2 (MDM) defaults to medium thinking on the backend, unlike
+      // prompt 1 — mirror that here rather than reusing the shared default.
+      setSelectedThinkingBudget2(isEm ? "4096" : config.defaultThinkingBudget);
     });
     return () => {
       isMounted = false;
@@ -410,6 +420,10 @@ function BatchRunner({ domainKey, domainTitle }) {
       for (const file of selectedFiles) formData.append("files", file, file.name);
       if (selectedModel) formData.append("model_name", selectedModel);
       if (selectedThinkingBudget !== "") formData.append("thinking_budget", selectedThinkingBudget);
+      if (isEm) {
+        if (selectedModel2) formData.append("model_name_2", selectedModel2);
+        if (selectedThinkingBudget2 !== "") formData.append("thinking_budget_2", selectedThinkingBudget2);
+      }
 
       const response = await fetch(`${BATCH_API_BASE}/batch/jobs`, { method: "POST", body: formData });
       if (!response.ok) {
@@ -514,34 +528,93 @@ function BatchRunner({ domainKey, domainTitle }) {
       ) : null}
 
       <div className="wb-batch-controls">
-        <label className="wb-model-field">
-          Model
-          <select
-            value={selectedModel}
-            onChange={(event) => setSelectedModel(event.target.value)}
-            disabled={isJobActive || isSubmitting}
-          >
-            {modelOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="wb-model-field">
-          Thinking budget
-          <select
-            value={selectedThinkingBudget}
-            onChange={(event) => setSelectedThinkingBudget(event.target.value)}
-            disabled={isJobActive || isSubmitting}
-          >
-            {thinkingBudgetOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
+        {isEm ? (
+          <>
+            <fieldset className="wb-model-group" disabled={isJobActive || isSubmitting}>
+              <legend>Prompt 1 — Visit info</legend>
+              <label className="wb-model-field">
+                Model
+                <select value={selectedModel} onChange={(event) => setSelectedModel(event.target.value)}>
+                  {modelOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="wb-model-field">
+                Thinking budget
+                <select
+                  value={selectedThinkingBudget}
+                  onChange={(event) => setSelectedThinkingBudget(event.target.value)}
+                >
+                  {thinkingBudgetOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </fieldset>
+            <fieldset className="wb-model-group" disabled={isJobActive || isSubmitting}>
+              <legend>Prompt 2 — Medical decision making</legend>
+              <label className="wb-model-field">
+                Model
+                <select value={selectedModel2} onChange={(event) => setSelectedModel2(event.target.value)}>
+                  {modelOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="wb-model-field">
+                Thinking budget
+                <select
+                  value={selectedThinkingBudget2}
+                  onChange={(event) => setSelectedThinkingBudget2(event.target.value)}
+                >
+                  {thinkingBudgetOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </fieldset>
+          </>
+        ) : (
+          <>
+            <label className="wb-model-field">
+              Model
+              <select
+                value={selectedModel}
+                onChange={(event) => setSelectedModel(event.target.value)}
+                disabled={isJobActive || isSubmitting}
+              >
+                {modelOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="wb-model-field">
+              Thinking budget
+              <select
+                value={selectedThinkingBudget}
+                onChange={(event) => setSelectedThinkingBudget(event.target.value)}
+                disabled={isJobActive || isSubmitting}
+              >
+                {thinkingBudgetOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </>
+        )}
         <button
           type="button"
           className="wb-button wb-button--primary"
@@ -718,8 +791,8 @@ function BatchRunner({ domainKey, domainTitle }) {
                   <th>Run</th>
                   <th>Workflow</th>
                   <th>Files</th>
-                  <th>Model</th>
-                  <th>Thinking budget</th>
+                  <th>{isEm ? "Model (P1 / P2)" : "Model"}</th>
+                  <th>{isEm ? "Thinking (P1 / P2)" : "Thinking budget"}</th>
                   <th>Status</th>
                   <th></th>
                 </tr>
@@ -733,8 +806,20 @@ function BatchRunner({ domainKey, domainTitle }) {
                       {entry.completed}/{entry.total}
                       {entry.failed > 0 ? `, ${entry.failed} failed` : ""}
                     </td>
-                    <td>{labelForModel(entry.model_name)}</td>
-                    <td>{labelForThinkingBudget(entry.thinking_budget)}</td>
+                    <td>
+                      {labelForModel(entry.model_name)}
+                      {isEm ? (
+                        <div className="wb-table-subline">{labelForModel(entry.model_name_2)}</div>
+                      ) : null}
+                    </td>
+                    <td>
+                      {labelForThinkingBudget(entry.thinking_budget)}
+                      {isEm ? (
+                        <div className="wb-table-subline">
+                          {labelForThinkingBudget(entry.thinking_budget_2)}
+                        </div>
+                      ) : null}
+                    </td>
                     <td>
                       <Flag
                         state={

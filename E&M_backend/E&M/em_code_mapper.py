@@ -55,8 +55,13 @@ def _parse_optional_int(value: NumberInput, field_name: str) -> Optional[int]:
         return None
 
     text = str(value).strip()
-    # Blank or "N/A" means no bound (e.g. "20 / N/A" = at least 20 minutes).
-    if not text or text.casefold() in {"n/a", "na"}:
+    if not text or text.casefold() in {"not found", "not_found"}:
+        # The extraction prompts explicitly emit this literal when a field
+        # (time, patient age, ...) wasn't documented — it's "unspecified",
+        # not invalid. None is already the well-supported "don't filter on
+        # this" value throughout find_matches/find_codes, so treat it the
+        # same way rather than failing the whole code lookup over one
+        # undocumented field.
         return None
 
     try:
@@ -79,7 +84,7 @@ def _resolve_physician_time(
 
 def _normalize_age_unit(value: Optional[str]) -> Optional[str]:
     normalized = _normalize_text(value)
-    if normalized is None:
+    if normalized is None or normalized in {"not found", "not_found"}:
         return None
     mapping = {
         "day": "days",

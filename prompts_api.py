@@ -29,8 +29,14 @@ PROMPT_CATALOG = [
     {
         "group": "E&M",
         "service": "em_evidence",
-        "key": "prompt",
-        "label": "Evidence Extraction",
+        "key": "prompt_1",
+        "label": "Evidence Extraction - Visit Info & Demographics",
+    },
+    {
+        "group": "E&M",
+        "service": "em_evidence",
+        "key": "prompt_2",
+        "label": "Evidence Extraction - Medical Decision Making",
     },
     {
         "group": "CPT",
