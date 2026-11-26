@@ -284,139 +284,67 @@ Office or Other Outpatient Services,Office or Other Outpatient Visit,Neonatal/In
 Office or Other Outpatient Services,Office or Other Outpatient Visit,Neonatal/Infant,Low,20,29,,,,,,99213,,,
 Office or Other Outpatient Services,Office or Other Outpatient Visit,Neonatal/Infant,Moderate,30,39,,,,,,99214,,,
 Office or Other Outpatient Services,Office or Other Outpatient Visit,Neonatal/Infant,High,40,54,,,,,,99215,,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,59,103,-,-,-,99415,Add on for 99202 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,59,103,-,-,-,99415,Add on for 99202 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,104,,-,-,-,99416,Add on for 99202 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,104,,-,-,-,99416,Add on for 99202 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,64,108,-,-,-,99415,Add on for 99203 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,64,108,-,-,-,99415,Add on for 99203 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,109,,-,-,-,99416,Add on for 99203 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,109,,-,-,-,99416,Add on for 99203 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,71,115,-,-,-,99415,Add on for 99204 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,71,115,-,-,-,99415,Add on for 99204 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,116,,-,-,-,99416,Add on for 99204 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,116,,-,-,-,99416,Add on for 99204 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,76,120,-,-,-,99415,Add on for 99205 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,76,120,-,-,-,99415,Add on for 99205 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,121,,-,-,-,99416,Add on for 99205 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,121,,-,-,-,99416,Add on for 99205 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,46,90,-,-,-,99415,Add on for 99211 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,46,90,-,-,-,99415,Add on for 99211 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,91,,-,-,-,99416,Add on for 99211 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,91,,-,-,-,99416,Add on for 99211 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,54,98,-,-,-,99415,Add on for 99212 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,54,98,-,-,-,99415,Add on for 99212 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,99,,-,-,-,99416,Add on for 99212 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,99,,-,-,-,99416,Add on for 99212 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,57,101,-,-,-,99415,Add on for 99213 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,57,101,-,-,-,99415,Add on for 99213 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,102,,-,-,-,99416,Add on for 99213 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,102,,-,-,-,99416,Add on for 99213 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,70,114,-,-,-,99415,Add on for 99214 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,70,114,-,-,-,99415,Add on for 99214 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,115,,-,-,-,99416,Add on for 99214 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,115,,-,-,-,99416,Add on for 99214 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,75,119,-,-,-,99415,Add on for 99215 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,75,119,-,-,-,99415,Add on for 99215 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,-,-,120,,-,-,-,99416,Add on for 99215 if min and max falls under this range,,
-Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,-,-,120,,-,-,-,99416,Add on for 99215 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,75,90,-,-,-,-,-,99417,Add on for 99205 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,75,90,-,-,-,-,-,99417,Add on for 99205 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,55,70,-,-,-,-,-,99417,Add on for 99215 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,55,70,-,-,-,-,-,99417,Add on for 99215 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,70,85,-,-,-,-,-,99417,Add on for 99245 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,70,85,-,-,-,-,-,99417,Add on for 99245 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,90,105,-,-,-,-,-,99417,Add on for 99345 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,90,105,-,-,-,-,-,99417,Add on for 99345 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,75,90,-,-,-,-,-,99417,Add on for 99350 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,75,90,-,-,-,-,-,99417,Add on for 99350 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,75,90,-,-,-,-,-,99417,Add on for 99483 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,75,90,-,-,-,-,-,99417,Add on for 99483 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,90,105,-,-,-,-,-,99418,Add on for 99223 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,90,105,-,-,-,-,-,99418,Add on for 99223 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,65,80,-,-,-,-,-,99418,Add on for 99233 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,65,80,-,-,-,-,-,99418,Add on for 99233 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,100,115,-,-,-,-,-,99418,Add on for 99236 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,100,115,-,-,-,-,-,99418,Add on for 99236 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,95,110,-,-,-,-,-,99418,Add on for 99255 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,95,110,-,-,-,-,-,99418,Add on for 99255 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,65,80,-,-,-,-,-,99418,Add on for 99306 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,65,80,-,-,-,-,-,99418,Add on for 99306 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",New Patient,N/A - Time only,60,75,-,-,-,-,-,99418,Add on for 99310 if min and max falls under this range,,
-Prolonged Services,"Prolonged Service With or Without
-Direct Patient Contact on the Date of
-an Evaluation and Management
-Service",Established Patient,N/A - Time only,60,75,-,-,-,-,-,99418,Add on for 99310 if min and max falls under this range,,
-Prolonged Services,Prolonged Service Without Direct Patient Contact on Date Other Than the Face-to-Face Evaluation and Management Service,New Patient,N/A - Time only,30,74,-,-,-,-,-,99358,-,,
-Prolonged Services,Prolonged Service Without Direct Patient Contact on Date Other Than the Face-to-Face Evaluation and Management Service,Established Patient,N/A - Time only,30,74,-,-,-,-,-,99358,-,,
-Prolonged Services,Prolonged Service Without Direct Patient Contact on Date Other Than the Face-to-Face Evaluation and Management Service,New Patient,N/A - Time only,75,104,-,-,-,-,-,99359,Add on for 99358 if min and max falls under this range,,
-Prolonged Services,Prolonged Service Without Direct Patient Contact on Date Other Than the Face-to-Face Evaluation and Management Service,Established Patient,N/A - Time only,75,104,-,-,-,-,-,99359,Add on for 99358 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,59,103,,,,99415,Add on for 99202 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,59,103,,,,99415,Add on for 99202 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,104,,,,,99416,Add on for 99202 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,104,,,,,99416,Add on for 99202 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,64,108,,,,99415,Add on for 99203 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,64,108,,,,99415,Add on for 99203 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,109,,,,,99416,Add on for 99203 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,109,,,,,99416,Add on for 99203 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,71,115,,,,99415,Add on for 99204 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,71,115,,,,99415,Add on for 99204 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,116,,,,,99416,Add on for 99204 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,116,,,,,99416,Add on for 99204 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,76,120,,,,99415,Add on for 99205 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,76,120,,,,99415,Add on for 99205 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,121,,,,,99416,Add on for 99205 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,121,,,,,99416,Add on for 99205 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,46,90,,,,99415,Add on for 99211 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,46,90,,,,99415,Add on for 99211 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,91,,,,,99416,Add on for 99211 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,91,,,,,99416,Add on for 99211 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,54,98,,,,99415,Add on for 99212 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,54,98,,,,99415,Add on for 99212 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,99,,,,,99416,Add on for 99212 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,99,,,,,99416,Add on for 99212 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,57,101,,,,99415,Add on for 99213 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,57,101,,,,99415,Add on for 99213 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,102,,,,,99416,Add on for 99213 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,102,,,,,99416,Add on for 99213 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,70,114,,,,99415,Add on for 99214 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,70,114,,,,99415,Add on for 99214 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,115,,,,,99416,Add on for 99214 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,115,,,,,99416,Add on for 99214 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,75,119,,,,99415,Add on for 99215 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,75,119,,,,99415,Add on for 99215 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",New Patient,N/A - Time only,,,120,,,,,99416,Add on for 99215 if min and max falls under this range,,
+Prolonged Services,"Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",Established Patient,N/A - Time only,,,120,,,,,99416,Add on for 99215 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,75,90,,,,,,99417,Add on for 99205 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,75,90,,,,,,99417,Add on for 99205 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,55,70,,,,,,99417,Add on for 99215 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,55,70,,,,,,99417,Add on for 99215 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,70,85,,,,,,99417,Add on for 99245 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,70,85,,,,,,99417,Add on for 99245 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,90,105,,,,,,99417,Add on for 99345 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,90,105,,,,,,99417,Add on for 99345 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,75,90,,,,,,99417,Add on for 99350 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,75,90,,,,,,99417,Add on for 99350 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,75,90,,,,,,99417,Add on for 99483 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,75,90,,,,,,99417,Add on for 99483 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,90,105,,,,,,99418,Add on for 99223 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,90,105,,,,,,99418,Add on for 99223 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,65,80,,,,,,99418,Add on for 99233 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,65,80,,,,,,99418,Add on for 99233 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,100,115,,,,,,99418,Add on for 99236 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,100,115,,,,,,99418,Add on for 99236 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,95,110,,,,,,99418,Add on for 99255 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,95,110,,,,,,99418,Add on for 99255 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,65,80,,,,,,99418,Add on for 99306 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,65,80,,,,,,99418,Add on for 99306 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,New Patient,N/A - Time only,60,75,,,,,,99418,Add on for 99310 if min and max falls under this range,,
+Prolonged Services,Prolonged Service With or Without Direct Patient Contact on the Date of an Evaluation and Management Service,Established Patient,N/A - Time only,60,75,,,,,,99418,Add on for 99310 if min and max falls under this range,,
+Prolonged Services,Prolonged Service Without Direct Patient Contact on Date Other Than the Face-to-Face Evaluation and Management Service,New Patient,N/A - Time only,30,74,,,,,,99358,-,,
+Prolonged Services,Prolonged Service Without Direct Patient Contact on Date Other Than the Face-to-Face Evaluation and Management Service,Established Patient,N/A - Time only,30,74,,,,,,99358,-,,
+Prolonged Services,Prolonged Service Without Direct Patient Contact on Date Other Than the Face-to-Face Evaluation and Management Service,New Patient,N/A - Time only,75,104,,,,,,99359,Add on for 99358 if min and max falls under this range,,
+Prolonged Services,Prolonged Service Without Direct Patient Contact on Date Other Than the Face-to-Face Evaluation and Management Service,Established Patient,N/A - Time only,75,104,,,,,,99359,Add on for 99358 if min and max falls under this range,,
