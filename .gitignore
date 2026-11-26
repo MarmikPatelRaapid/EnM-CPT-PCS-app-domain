@@ -51,8 +51,16 @@ coverage/
 *.log
 logs/
 **/output/ui_runs/
+**/output/mapping_uploads_tmp/
 **/request_outputs/
 unparseable_responses/
+**/mapping_backups/
+
+# E&M code-mapping CSV — live-uploadable via Domain Workbench (Code mapping
+# card), same reasoning as prompts.db: each environment keeps its own,
+# managed through the upload/restore feature instead of git.
+E&M_backend/E&M/E&M Data - E&M Mapping 3.csv
+E&M_backend/E&M/E&M Data - E&M Mapping 3 processed.csv
 
 # OS
 Thumbs.db

@@ -2,24 +2,37 @@
 
 from __future__ import annotations
 
+import csv
 import json
 import logging
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Optional
 from uuid import uuid4
 
 import uvicorn
-from fastapi import FastAPI, Header, HTTPException, Query, Response
+from fastapi import FastAPI, File, Header, HTTPException, Query, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from em_code_mapper import EMCodeMapper, configure_logging
 from evidence_extractor import extract_evidences
 from mdm_classifier import classify_mdm_from_json
+from process_em_mapping_csv import process_csv
 
 LOGGER = logging.getLogger(__name__)
 
-DEFAULT_CSV_PATH = Path(__file__).resolve().parent / "E&M Data - E&M Mapping 3 processed.csv"
+SERVICE_DIR = Path(__file__).resolve().parent
+DEFAULT_CSV_PATH = SERVICE_DIR / "E&M Data - E&M Mapping 3 processed.csv"
+RAW_CSV_PATH = SERVICE_DIR / "E&M Data - E&M Mapping 3.csv"
+MAPPING_BACKUPS_DIR = SERVICE_DIR / "mapping_backups"
+# The live mapping CSV is gitignored (it's user-editable via the Code
+# mapping upload feature, same reasoning as prompts.db), so a fresh
+# checkout has no mapping file at all until someone uploads one. Bootstrap
+# it from this tracked seed copy instead of starting with a broken resolver.
+SEED_CSV_PATH = SERVICE_DIR / "seed_data" / "em_mapping_seed.csv"
+if not DEFAULT_CSV_PATH.exists() and SEED_CSV_PATH.exists():
+    shutil.copyfile(SEED_CSV_PATH, DEFAULT_CSV_PATH)
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8081
 DEFAULT_LOG_LEVEL = logging.INFO
@@ -169,6 +182,77 @@ def resolve_codes_from_json_path(json_path: Path, csv_path: Path = DEFAULT_CSV_P
     return resolve_codes_from_payload(payload, csv_path=csv_path)
 
 
+# ---------------------------------------------------------------------------
+# Code-mapping CSV management (upload a raw sheet, expand it, replace the
+# live mapping file the resolver reads on every request above).
+# ---------------------------------------------------------------------------
+
+
+def _count_csv_rows(path: Path) -> Optional[int]:
+    if not path.exists():
+        return None
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        return sum(1 for _ in csv.DictReader(handle))
+
+
+def _file_info(path: Path) -> Dict[str, Any]:
+    if not path.exists():
+        return {"exists": False, "rows": None, "updated_at": None}
+    stat = path.stat()
+    return {
+        "exists": True,
+        "rows": _count_csv_rows(path),
+        "updated_at": datetime.fromtimestamp(stat.st_mtime, tz=timezone.utc).isoformat(),
+    }
+
+
+def _mapping_status() -> Dict[str, Any]:
+    return {"raw": _file_info(RAW_CSV_PATH), "processed": _file_info(DEFAULT_CSV_PATH)}
+
+
+def _list_mapping_backups() -> list[Dict[str, Any]]:
+    if not MAPPING_BACKUPS_DIR.exists():
+        return []
+    backups = []
+    for processed_backup in sorted(MAPPING_BACKUPS_DIR.glob("*_processed.csv"), reverse=True):
+        backup_id = processed_backup.name[: -len("_processed.csv")]
+        raw_backup = MAPPING_BACKUPS_DIR / f"{backup_id}_raw.csv"
+        backups.append(
+            {
+                "id": backup_id,
+                "created_at": datetime.fromtimestamp(
+                    processed_backup.stat().st_mtime, tz=timezone.utc
+                ).isoformat(),
+                "rows": _count_csv_rows(processed_backup),
+                "has_raw": raw_backup.exists(),
+            }
+        )
+    return backups
+
+
+def _backup_current_mapping() -> Optional[str]:
+    """Snapshot whatever mapping files currently exist before replacing them,
+    so a bad upload (one that still passed validation but turns out wrong
+    some other way) can be rolled back without needing git."""
+    if not DEFAULT_CSV_PATH.exists() and not RAW_CSV_PATH.exists():
+        return None
+    MAPPING_BACKUPS_DIR.mkdir(parents=True, exist_ok=True)
+    backup_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    if DEFAULT_CSV_PATH.exists():
+        shutil.copyfile(DEFAULT_CSV_PATH, MAPPING_BACKUPS_DIR / f"{backup_id}_processed.csv")
+    if RAW_CSV_PATH.exists():
+        shutil.copyfile(RAW_CSV_PATH, MAPPING_BACKUPS_DIR / f"{backup_id}_raw.csv")
+    return backup_id
+
+
+def _validate_processed_mapping(csv_path: Path) -> None:
+    """Construct the same EMCodeMapper the live resolver uses on every
+    request — if a freshly processed CSV can't load through it (missing
+    columns, unparseable values), it would break every E&M code
+    resolution, so reject the upload before it ever reaches that file."""
+    EMCodeMapper(csv_path=csv_path)
+
+
 app = FastAPI(title="E&M JSON Code Service")
 app.add_middleware(
     CORSMiddleware,
@@ -234,6 +318,79 @@ def resolve_from_predict_output(
         return output
     except Exception as exc:  # pragma: no cover
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/em-mapping/status")
+def em_mapping_status() -> Dict[str, Any]:
+    return _mapping_status()
+
+
+@app.get("/em-mapping/backups")
+def em_mapping_backups() -> Dict[str, Any]:
+    return {"backups": _list_mapping_backups()}
+
+
+@app.post("/em-mapping/upload")
+async def em_mapping_upload(file: UploadFile = File(...)) -> Dict[str, Any]:
+    raw_bytes = await file.read()
+    if not raw_bytes.strip():
+        raise HTTPException(status_code=400, detail="Uploaded file is empty.")
+
+    tmp_dir = SERVICE_DIR / "output" / "mapping_uploads_tmp"
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    tmp_raw_path = tmp_dir / f"{stamp}_raw.csv"
+    tmp_processed_path = tmp_dir / f"{stamp}_processed.csv"
+
+    try:
+        tmp_raw_path.write_bytes(raw_bytes)
+
+        try:
+            row_count = process_csv(tmp_raw_path, tmp_processed_path)
+        except Exception as exc:
+            raise HTTPException(
+                status_code=400, detail=f"Could not expand the uploaded CSV: {exc}"
+            ) from exc
+
+        try:
+            _validate_processed_mapping(tmp_processed_path)
+        except Exception as exc:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Processed CSV failed validation, nothing was replaced: {exc}",
+            ) from exc
+
+        backup_id = _backup_current_mapping()
+        shutil.copyfile(tmp_raw_path, RAW_CSV_PATH)
+        shutil.copyfile(tmp_processed_path, DEFAULT_CSV_PATH)
+    finally:
+        tmp_raw_path.unlink(missing_ok=True)
+        tmp_processed_path.unlink(missing_ok=True)
+
+    return {"backup_id": backup_id, "rows": row_count, "status": _mapping_status()}
+
+
+@app.post("/em-mapping/backups/{backup_id}/restore")
+def em_mapping_restore(backup_id: str) -> Dict[str, Any]:
+    safe_id = _safe_token(backup_id)
+    processed_backup = MAPPING_BACKUPS_DIR / f"{safe_id}_processed.csv"
+    raw_backup = MAPPING_BACKUPS_DIR / f"{safe_id}_raw.csv"
+    if not processed_backup.exists():
+        raise HTTPException(status_code=404, detail="Backup not found.")
+
+    try:
+        _validate_processed_mapping(processed_backup)
+    except Exception as exc:
+        raise HTTPException(
+            status_code=400, detail=f"Backup failed validation, nothing was restored: {exc}"
+        ) from exc
+
+    _backup_current_mapping()
+    shutil.copyfile(processed_backup, DEFAULT_CSV_PATH)
+    if raw_backup.exists():
+        shutil.copyfile(raw_backup, RAW_CSV_PATH)
+
+    return {"restored_from": safe_id, "status": _mapping_status()}
 
 
 def main() -> int:

@@ -198,6 +198,23 @@
   border-top: none;
 }
 
+.wb-library-grid .wb-subsection--full {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--wb-hairline);
+}
+
+.wb-mapping-backups {
+  margin-top: 10px;
+}
+
+.wb-mapping-backups summary {
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: var(--wb-ink-muted);
+}
+
 @media (max-width: 720px) {
   .wb-library-grid {
     grid-template-columns: 1fr;

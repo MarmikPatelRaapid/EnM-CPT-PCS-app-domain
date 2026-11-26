@@ -7,6 +7,7 @@ import { loadModelDropdownConfig } from "./modelOptions.js";
 // talks to wherever the frontend itself is served from.
 const PROMPTS_API_BASE = "/api/prompts-mgmt";
 const BATCH_API_BASE = "/api/batch";
+const EM_RESOLVER_API_BASE = "/api/em";
 const POLL_INTERVAL_MS = 1200;
 const ACTIVE_JOB_STATUSES = new Set(["queued", "running"]);
 const HISTORY_PAGE_SIZE = 20;
@@ -1064,6 +1065,154 @@ const DOMAIN_PANES = [
   { key: "batch", title: "Batch runs" }
 ];
 
+function EmMappingCard() {
+  const [status, setStatus] = useState(null);
+  const [backups, setBackups] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isUploading, setIsUploading] = useState(false);
+  const [restoringId, setRestoringId] = useState(null);
+  const [message, setMessage] = useState(null); // { kind: "normal" | "abnormal", text }
+  const fileInputRef = useRef(null);
+
+  function loadStatus() {
+    setIsLoading(true);
+    Promise.all([
+      fetch(`${EM_RESOLVER_API_BASE}/em-mapping/status`).then((r) => (r.ok ? r.json() : null)),
+      fetch(`${EM_RESOLVER_API_BASE}/em-mapping/backups`).then((r) => (r.ok ? r.json() : { backups: [] }))
+    ])
+      .then(([statusData, backupsData]) => {
+        setStatus(statusData);
+        setBackups(Array.isArray(backupsData?.backups) ? backupsData.backups : []);
+      })
+      .catch(() => {})
+      .finally(() => setIsLoading(false));
+  }
+
+  useEffect(() => {
+    loadStatus();
+  }, []);
+
+  async function handleFileChosen(event) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+
+    setIsUploading(true);
+    setMessage(null);
+    try {
+      const formData = new FormData();
+      formData.append("file", file, file.name);
+      const response = await fetch(`${EM_RESOLVER_API_BASE}/em-mapping/upload`, {
+        method: "POST",
+        body: formData
+      });
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(body.detail || `Upload failed (HTTP ${response.status})`);
+      }
+      setMessage({ kind: "normal", text: `Replaced the mapping — ${body.rows} rows after expansion.` });
+      loadStatus();
+    } catch (error) {
+      setMessage({ kind: "abnormal", text: error.message || "Upload failed." });
+    } finally {
+      setIsUploading(false);
+    }
+  }
+
+  async function handleRestore(backupId) {
+    setRestoringId(backupId);
+    setMessage(null);
+    try {
+      const response = await fetch(
+        `${EM_RESOLVER_API_BASE}/em-mapping/backups/${encodeURIComponent(backupId)}/restore`,
+        { method: "POST" }
+      );
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(body.detail || `Restore failed (HTTP ${response.status})`);
+      }
+      setMessage({ kind: "normal", text: "Restored the previous mapping." });
+      loadStatus();
+    } catch (error) {
+      setMessage({ kind: "abnormal", text: error.message || "Restore failed." });
+    } finally {
+      setRestoringId(null);
+    }
+  }
+
+  const processed = status?.processed;
+
+  return (
+    <div className="wb-subsection wb-subsection--full">
+      <h3>Code mapping</h3>
+      {isLoading ? (
+        <p className="wb-hint">Loading current mapping...</p>
+      ) : (
+        <>
+          <p className="wb-hint">
+            {processed?.exists
+              ? `${processed.rows} rows, last updated ${formatTimestamp(processed.updated_at)}.`
+              : "No mapping file found yet."}
+          </p>
+          <div className="wb-batch-controls">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".csv"
+              className="wb-file-input"
+              onChange={handleFileChosen}
+              disabled={isUploading}
+              style={{ display: "none" }}
+            />
+            <button
+              type="button"
+              className="wb-button wb-button--primary"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={isUploading}
+            >
+              {isUploading ? "Uploading..." : "Upload CSV to replace mapping"}
+            </button>
+          </div>
+          {message ? <Flag state={message.kind}>{message.text}</Flag> : null}
+
+          {backups.length > 0 ? (
+            <details className="wb-mapping-backups">
+              <summary>Previous versions ({backups.length})</summary>
+              <table className="wb-table wb-table--dense">
+                <thead>
+                  <tr>
+                    <th>Replaced</th>
+                    <th>Rows</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {backups.map((backup) => (
+                    <tr key={backup.id}>
+                      <td className="wb-table-file">{formatTimestamp(backup.created_at)}</td>
+                      <td>{backup.rows ?? "—"}</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="wb-button"
+                          onClick={() => handleRestore(backup.id)}
+                          disabled={restoringId === backup.id}
+                        >
+                          {restoringId === backup.id ? "Restoring..." : "Restore this version"}
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </details>
+          ) : null}
+        </>
+      )}
+    </div>
+  );
+}
+
 function DomainSection({ domainKey, domainTitle, prompts, schemas, onPromptSaved, onSchemaSaved }) {
   const [pane, setPane] = useState("library");
 
@@ -1120,6 +1269,8 @@ function DomainSection({ domainKey, domainTitle, prompts, schemas, onPromptSaved
               ))
             )}
           </div>
+
+          {domainKey === "em" ? <EmMappingCard /> : null}
         </div>
       ) : (
         <BatchRunner domainKey={domainKey} domainTitle={domainTitle} />
