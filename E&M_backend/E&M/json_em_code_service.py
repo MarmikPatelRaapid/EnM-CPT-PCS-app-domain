@@ -23,10 +23,6 @@ DEFAULT_CSV_PATH = Path(__file__).resolve().parent / "E&M Data - E&M Mapping 3 p
 DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8081
 DEFAULT_LOG_LEVEL = logging.INFO
-SPECIAL_STAFF_TIME_SERVICE_TYPES = {
-    "Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)",
-    "Prolonged Clinical Staff Service (Office/Outpatient) - Additional Time",
-}
 ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
@@ -107,10 +103,10 @@ def extract_lookup_inputs_from_payload(payload: Dict[str, Any]) -> Dict[str, Opt
     service_type = payload.get("service", {}).get("service_type")
     patient_type = payload.get("patient", {}).get("patient_type")
 
-    if service_type in SPECIAL_STAFF_TIME_SERVICE_TYPES:
-        time_value = _read_time(payload, "staff_time_spent_with_patient")
-    else:
-        time_value = _read_time(payload, "physician_time_spent_with_patient")
+    # Both times are passed through; the mapping sheet decides per row whether
+    # physician time, staff time, or either applies (Phy/Staff Time Min/Max).
+    physician_time = _read_time(payload, "physician_time_spent_with_patient")
+    staff_time = _read_time(payload, "staff_time_spent_with_patient")
 
     patient_age_node = payload.get("patient_age")
     patient_age = None
@@ -123,7 +119,8 @@ def extract_lookup_inputs_from_payload(payload: Dict[str, Any]) -> Dict[str, Opt
         "facility_type": facility_type,
         "service_type": service_type,
         "patient_type": patient_type,
-        "time_value": time_value,
+        "physician_time": physician_time,
+        "staff_time": staff_time,
         "patient_age": patient_age,
         "patient_age_unit": patient_age_unit,
     }

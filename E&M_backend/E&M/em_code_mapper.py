@@ -7,7 +7,7 @@ import logging
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 LOGGER = logging.getLogger(__name__)
 
@@ -70,6 +70,18 @@ def _parse_optional_int(value: NumberInput, field_name: str) -> Optional[int]:
         raise ValueError(f"Invalid numeric value '{value}' for '{field_name}'.") from exc
 
 
+def _resolve_physician_time(
+    physician_time: NumberInput, time_value: NumberInput
+) -> Optional[int]:
+    phy = _parse_optional_int(physician_time, "physician_time")
+    legacy = _parse_optional_int(time_value, "time_value")
+    if phy is not None and legacy is not None and phy != legacy:
+        raise ValueError(
+            "Conflicting physician time: pass either physician_time or time_value, not both."
+        )
+    return phy if phy is not None else legacy
+
+
 def _normalize_age_unit(value: Optional[str]) -> Optional[str]:
     normalized = _normalize_text(value)
     if normalized is None or normalized in {"not found", "not_found"}:
@@ -108,6 +120,47 @@ def _time_in_range(
     return True
 
 
+def _evaluate_row_time(
+    row: Dict[str, Any], physician_time: Optional[int], staff_time: Optional[int]
+) -> Tuple[bool, bool]:
+    """Return (has_applicable_time, time_matches) for a mapping row.
+
+    The time source is chosen per row from which range columns it defines:
+    - only physician range -> physician time
+    - only staff range     -> staff time
+    - both ranges          -> if the ranges are identical use physician time,
+                              otherwise either time inside its own range matches
+    - no range at all      -> any provided time satisfies the row
+    A row whose required time is missing from the evidence is treated as if no
+    time was supplied (has_applicable_time=False), so it falls back to MDM.
+    """
+    uses_phy = row["uses_phy_time"]
+    uses_staff = row["uses_staff_time"]
+
+    if not uses_phy and not uses_staff:
+        return (physician_time is not None or staff_time is not None), True
+
+    phy_ok = (
+        _time_in_range(physician_time, row["phy_min"], row["phy_max"])
+        if uses_phy and physician_time is not None
+        else None
+    )
+    staff_ok = (
+        _time_in_range(staff_time, row["staff_min"], row["staff_max"])
+        if uses_staff and staff_time is not None
+        else None
+    )
+
+    if phy_ok is not None and staff_ok is not None:
+        same_range = (row["phy_min"], row["phy_max"]) == (row["staff_min"], row["staff_max"])
+        return True, phy_ok if same_range else (phy_ok or staff_ok)
+    if phy_ok is not None:
+        return True, phy_ok
+    if staff_ok is not None:
+        return True, staff_ok
+    return False, True
+
+
 def _code_rank_key(code: str) -> tuple[int, int, str]:
     text = str(code).strip()
     if text.isdigit():
@@ -121,8 +174,10 @@ class MappingConfig:
     service_type_col: str = "service_type"
     patient_type_col: str = "patient_type"
     mdm_level_col: str = "mdm_level"
-    min_col: str = "Time Min"
-    max_col: str = "Time Max"
+    phy_min_col: str = "Phy Time Min"
+    phy_max_col: str = "Phy Time Max"
+    staff_min_col: str = "Staff Time Min"
+    staff_max_col: str = "Staff Time Max"
     age_min_col: str = "Age Min"
     age_max_col: str = "Age Max"
     age_unit_col: str = "Age unit"
@@ -134,9 +189,10 @@ class MappingConfig:
 class EMCodeMapper:
     """Loads a CSV map and returns matching codes for provided filters."""
 
+    # Legacy sheets only have a single "Time Min/Max" pair, which is physician time.
     _COLUMN_ALIASES = {
-        "time min": ("min",),
-        "time max": ("max",),
+        "phy time min": ("Time Min", "min"),
+        "phy time max": ("Time Max", "max"),
         "age min": (),
         "age max": (),
         "age unit": (),
@@ -188,6 +244,23 @@ class EMCodeMapper:
                         else None
                     )
 
+                    phy_min = _parse_optional_int(
+                        self._get_field(raw_row, self.config.phy_min_col),
+                        self.config.phy_min_col,
+                    )
+                    phy_max = _parse_optional_int(
+                        self._get_field(raw_row, self.config.phy_max_col),
+                        self.config.phy_max_col,
+                    )
+                    staff_min = _parse_optional_int(
+                        self._get_field(raw_row, self.config.staff_min_col),
+                        self.config.staff_min_col,
+                    )
+                    staff_max = _parse_optional_int(
+                        self._get_field(raw_row, self.config.staff_max_col),
+                        self.config.staff_max_col,
+                    )
+
                     parsed_rows.append(
                         {
                             "facility_type": _normalize_text(
@@ -202,14 +275,12 @@ class EMCodeMapper:
                             "mdm_level": _normalize_mdm(
                                 self._get_field(raw_row, self.config.mdm_level_col)
                             ),
-                            "min": _parse_optional_int(
-                                self._get_field(raw_row, self.config.min_col),
-                                self.config.min_col,
-                            ),
-                            "max": _parse_optional_int(
-                                self._get_field(raw_row, self.config.max_col),
-                                self.config.max_col,
-                            ),
+                            "phy_min": phy_min,
+                            "phy_max": phy_max,
+                            "staff_min": staff_min,
+                            "staff_max": staff_max,
+                            "uses_phy_time": phy_min is not None or phy_max is not None,
+                            "uses_staff_time": staff_min is not None or staff_max is not None,
                             "age_min_days": age_min_days,
                             "age_max_days": age_max_days,
                             "code": str(self._get_field(raw_row, self.config.code_col) or "").strip(),
@@ -253,8 +324,8 @@ class EMCodeMapper:
             self.config.service_type_col,
             self.config.patient_type_col,
             self.config.mdm_level_col,
-            self.config.min_col,
-            self.config.max_col,
+            self.config.phy_min_col,
+            self.config.phy_max_col,
             self.config.code_col,
         }
         canonical_headers = {self._canonical_header(header) for header in headers}
@@ -290,14 +361,20 @@ class EMCodeMapper:
         time_value: NumberInput = None,
         patient_age: NumberInput = None,
         patient_age_unit: Optional[str] = None,
+        physician_time: NumberInput = None,
+        staff_time: NumberInput = None,
     ) -> List[Dict[str, Any]]:
-        """Return all rows matching any provided subset of filters."""
+        """Return all rows matching any provided subset of filters.
+
+        ``time_value`` is a legacy alias for ``physician_time``.
+        """
         normalized_criteria = {
             "facility_type": _normalize_text(facility_type),
             "service_type": _normalize_text(service_type),
             "patient_type": _normalize_text(patient_type),
             "mdm_level": _normalize_mdm(mdm_level),
-            "time_value": _parse_optional_int(time_value, "time_value"),
+            "physician_time": _resolve_physician_time(physician_time, time_value),
+            "staff_time": _parse_optional_int(staff_time, "staff_time"),
             "patient_age": _parse_optional_int(patient_age, "patient_age"),
             "patient_age_unit": _normalize_age_unit(patient_age_unit),
         }
@@ -334,18 +411,26 @@ class EMCodeMapper:
         time_value: NumberInput = None,
         patient_age: NumberInput = None,
         patient_age_unit: Optional[str] = None,
+        physician_time: NumberInput = None,
+        staff_time: NumberInput = None,
     ) -> List[str]:
-        """Return unique codes for filters; supports partial input."""
+        """Return unique codes for filters; supports partial input.
+
+        ``time_value`` is a legacy alias for ``physician_time``.
+        """
         normalized_mdm = _normalize_mdm(mdm_level)
-        normalized_time = _parse_optional_int(time_value, "time_value")
+        normalized_phy_time = _resolve_physician_time(physician_time, time_value)
+        normalized_staff_time = _parse_optional_int(staff_time, "staff_time")
+        has_any_time = normalized_phy_time is not None or normalized_staff_time is not None
         matches = self.find_matches(
             facility_type=facility_type,
             service_type=service_type,
             patient_type=patient_type,
             mdm_level=mdm_level,
-            time_value=time_value,
             patient_age=patient_age,
             patient_age_unit=patient_age_unit,
+            physician_time=normalized_phy_time,
+            staff_time=normalized_staff_time,
         )
         selected_matches = matches
         if normalized_mdm is not None and matches:
@@ -367,10 +452,10 @@ class EMCodeMapper:
                 seen.add(code)
                 codes.append(code)
 
-        if normalized_mdm is not None and normalized_time is not None and codes:
+        if normalized_mdm is not None and has_any_time and codes:
             highest_code = max(codes, key=_code_rank_key)
             LOGGER.debug(
-                "Both mdm_level and time_value provided; returning highest matched code '%s'.",
+                "Both mdm_level and a time value provided; returning highest matched code '%s'.",
                 highest_code,
             )
             return [highest_code]
@@ -388,7 +473,6 @@ class EMCodeMapper:
                 return False
 
         expected_mdm = criteria["mdm_level"]
-        expected_time = criteria["time_value"]
         expected_age_days = criteria["patient_age_days"]
 
         if expected_age_days is not None and not _time_in_range(
@@ -398,8 +482,8 @@ class EMCodeMapper:
         ):
             return False
 
-        time_matches = expected_time is None or _time_in_range(
-            expected_time, row["min"], row["max"]
+        has_time, time_matches = _evaluate_row_time(
+            row, criteria["physician_time"], criteria["staff_time"]
         )
 
         # "N/A" rows have no MDM requirement, so any evidence MDM level
@@ -409,7 +493,7 @@ class EMCodeMapper:
         if row["mdm_level"] in _NA_MDM_LEVELS:
             return time_matches
 
-        if expected_mdm is not None and expected_time is not None:
+        if expected_mdm is not None and has_time:
             # Leveled rows: E&M level may be met by MDM or by total time.
             return row["mdm_level"] == expected_mdm or time_matches
 
