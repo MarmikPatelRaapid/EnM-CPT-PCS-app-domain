@@ -70,6 +70,8 @@ const FRIENDLY_MAPPER_LABELS = {
   service_type: "Service Type",
   patient_type: "Patient Type",
   time_value: "Time (minutes)",
+  physician_time: "Physician Time (minutes)",
+  staff_time: "Staff Time (minutes)",
   patient_age: "Patient Age",
   patient_age_unit: "Patient Age Unit",
   mdm_level: "MDM Level"
