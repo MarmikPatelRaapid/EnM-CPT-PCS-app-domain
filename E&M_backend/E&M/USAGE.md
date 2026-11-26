@@ -293,12 +293,18 @@ Notes:
 
 ### Service input behavior notes
 
-- For prolonged clinical staff service types:
-  - `Prolonged Clinical Staff Service (Office/Outpatient, with MD supervision)`
-  - `Prolonged Clinical Staff Service (Office/Outpatient) - Additional Time`
-  - `time_value` is sourced from `staff_time_spent_with_patient.time_in_mins`.
-- For other service types:
-  - `time_value` is sourced from `physician_time_spent_with_patient.time_in_mins`.
+- Both times are passed to the mapper:
+  - `physician_time` from `physician_time_spent_with_patient.time_in_mins`
+  - `staff_time` from `staff_time_spent_with_patient.time_in_mins`
+- The mapping sheet decides per row which time applies, based on which range columns it fills:
+  - only `Phy Time Min/Max` → physician time
+  - only `Staff Time Min/Max` → staff time
+  - both, with identical ranges → physician time (staff time only if physician time is missing)
+  - both, with different ranges → matches if either time falls in its own range
+  - neither → any provided time satisfies the row
+  - if the row's required time is missing from the evidence, the row is treated as having no time (MDM decides)
+- Legacy sheets with a single `Time Min`/`Time Max` pair are read as physician ranges.
+- `time_value` is still accepted by `find_codes`/`find_matches` as an alias for `physician_time`.
 - Age filter inputs are sourced from:
   - `patient_age.age`
   - `patient_age.age_unit`

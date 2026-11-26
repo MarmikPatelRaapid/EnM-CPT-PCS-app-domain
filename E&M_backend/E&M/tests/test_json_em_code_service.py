@@ -11,7 +11,7 @@ class TestJsonEMCodeService(unittest.TestCase):
     def setUp(self) -> None:
         self.client = TestClient(app)
 
-    def test_special_service_uses_staff_time_value(self) -> None:
+    def test_both_physician_and_staff_times_are_passed_through(self) -> None:
         payload = {
             "facility": {"facility_type": "Facility A"},
             "service": {
@@ -22,9 +22,11 @@ class TestJsonEMCodeService(unittest.TestCase):
             "staff_time_spent_with_patient": {"time_in_mins": 65},
         }
         result = extract_lookup_inputs_from_payload(payload)
-        self.assertEqual(result["time_value"], 65)
+        self.assertEqual(result["physician_time"], 10)
+        self.assertEqual(result["staff_time"], 65)
+        self.assertNotIn("time_value", result)
 
-    def test_non_special_service_uses_physician_time_value(self) -> None:
+    def test_times_and_age_are_extracted(self) -> None:
         payload = {
             "facility": {"facility_type": "Facility A"},
             "service": {"service_type": "Transitional Care Management - High MDM"},
@@ -34,11 +36,12 @@ class TestJsonEMCodeService(unittest.TestCase):
             "patient_age": {"age": 6, "age_unit": "months"},
         }
         result = extract_lookup_inputs_from_payload(payload)
-        self.assertEqual(result["time_value"], 35)
+        self.assertEqual(result["physician_time"], 35)
+        self.assertEqual(result["staff_time"], 70)
         self.assertEqual(result["patient_age"], 6)
         self.assertEqual(result["patient_age_unit"], "months")
 
-    def test_empty_time_objects_return_none_time_value(self) -> None:
+    def test_empty_time_objects_return_none_times(self) -> None:
         payload = {
             "facility": {"facility_type": "Facility A"},
             "service": {"service_type": "Transitional Care Management - High MDM"},
@@ -47,9 +50,10 @@ class TestJsonEMCodeService(unittest.TestCase):
             "staff_time_spent_with_patient": {},
         }
         result = extract_lookup_inputs_from_payload(payload)
-        self.assertIsNone(result["time_value"])
+        self.assertIsNone(result["physician_time"])
+        self.assertIsNone(result["staff_time"])
 
-    def test_special_service_with_empty_staff_time_returns_none(self) -> None:
+    def test_staff_service_with_empty_times_returns_none(self) -> None:
         payload = {
             "facility": {"facility_type": "Facility A"},
             "service": {
@@ -60,7 +64,8 @@ class TestJsonEMCodeService(unittest.TestCase):
             "staff_time_spent_with_patient": {},
         }
         result = extract_lookup_inputs_from_payload(payload)
-        self.assertIsNone(result["time_value"])
+        self.assertIsNone(result["physician_time"])
+        self.assertIsNone(result["staff_time"])
 
     def test_resolve_post_succeeds_when_both_time_objects_are_empty(self) -> None:
         payload = {
@@ -84,7 +89,8 @@ class TestJsonEMCodeService(unittest.TestCase):
             self.assertIn("codes", body)
             self.assertIn("classification", body)
             self.assertIn("mapper_filters", body)
-            self.assertIsNone(body["mapper_filters"]["time_value"])
+            self.assertIsNone(body["mapper_filters"]["physician_time"])
+            self.assertIsNone(body["mapper_filters"]["staff_time"])
             self.assertNotIn("lookup_inputs", body)
             self.assertNotIn("count", body)
         finally:
