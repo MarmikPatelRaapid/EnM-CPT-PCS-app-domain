@@ -55,13 +55,16 @@ def _parse_optional_int(value: NumberInput, field_name: str) -> Optional[int]:
         return None
 
     text = str(value).strip()
-    if not text or text.casefold() in {"not found", "not_found"}:
-        # The extraction prompts explicitly emit this literal when a field
-        # (time, patient age, ...) wasn't documented — it's "unspecified",
-        # not invalid. None is already the well-supported "don't filter on
-        # this" value throughout find_matches/find_codes, so treat it the
+    if not text or text in {"-"} or text.casefold() in {"not found", "not_found", "n/a", "na"}:
+        # Two distinct sources for the same "unspecified" meaning: the
+        # extraction prompts emit "Not found" when a field (time, patient
+        # age, ...) wasn't documented in the record, while the mapping CSV
+        # itself uses "N/A" or "-" for a row with no bound on that column
+        # (e.g. no time ceiling). All of these mean "don't filter on this",
+        # which is already None's well-supported meaning throughout
+        # find_matches/find_codes and _time_in_range — so treat them the
         # same way rather than failing the whole code lookup over one
-        # undocumented field.
+        # unbounded field.
         return None
 
     try:
